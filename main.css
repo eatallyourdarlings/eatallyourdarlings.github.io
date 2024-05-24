@@ -1,0 +1,96 @@
+
+:root {
+    --white: bisque;
+    --black: #222020;
+    --foreground: var(--black);
+    --background: var(--white);
+
+    --red: firebrick;
+    --green: olive;
+    --blue: cadetblue;
+}
+
+html {
+    /* max-width: 948px;
+	margin: 0 auto;
+	padding: 48px 24px 48px 24px; */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start; */
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: var(--black);
+        --foreground: var(--white);
+        --red: darkred;
+        --green: darkolivegreen;
+        --blue: steelblue;
+    }
+
+    body {
+        background-color: var(--background);
+        color: var(--foreground);
+    }
+
+    /* img darkmode from https://wiki.xxiivv.com/links/main.css */
+    img[src*="svg"], img[src*="png"] { 
+        /* color: var(--background);
+        background-color: var(--foreground);  */
+        filter:invert(1) hue-rotate(180deg);
+    } 
+}
+
+footer img, a img {
+    stroke: red;
+    height: 32px;
+}
+
+a {
+    color: var(--red);
+}
+
+a[target="_blank"]{
+    color: var(--blue);
+}
+a[target="_blank"]:after {content: " ↝";}
+
+/* table {
+    width: 100px; 
+    height: 100px;
+} */
+
+table td {
+    width: 100px;
+}
+
+table tr {
+    width: 100px
+}
+
+hr {
+    border: none;
+    /* border-top: 3px double #333; */
+    color: var(--foreground);
+    overflow: visible;
+    text-align: center;
+    height: 2px;
+  }
+
+hr::after {
+    content: '⁂';
+    padding: 0 4px;
+    position: relative;
+    top: -13px;
+  }
