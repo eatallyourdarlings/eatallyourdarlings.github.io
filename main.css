@@ -57,9 +57,16 @@ footer img, a img {
     height: 32px;
 }
 
-a {
+body a, body a:visited {
     color: var(--red);
 }
+
+header a, header a:visited {
+    color: var(--black);
+    text-decoration: none;
+    text-decoration-color: var(--black);
+}
+
 
 a[target="_blank"]{
     color: var(--blue);
