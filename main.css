@@ -53,25 +53,39 @@ body {
 }
 
 footer img, a img {
-    stroke: red;
+    stroke: var(--red);
     height: 32px;
 }
 
-body a, body a:visited {
-    color: var(--red);
-}
-
-header a, header a:visited {
+/* links */
+a, a:visited {
     color: var(--black);
-    text-decoration: none;
-    text-decoration-color: var(--black);
+    text-decoration-line: underline;
+    text-decoration-color: var(--red);
 }
-
-
+a:hover {
+    color: var(--red);
+    text-decoration-style: wavy;
+}
+header a {
+    text-decoration: none;
+}
 a[target="_blank"]{
+    text-decoration-color: var(--blue);
+}
+a[target="_blank"]:after {
+    content: " ↝"; 
     color: var(--blue);
 }
-a[target="_blank"]:after {content: " ↝";}
+a[target="_blank"]:hover{
+    color: var(--blue);
+}
+
+/* header a, header a:visited {
+    color: var(--black);
+} */
+
+
 
 /* table {
     width: 100px; 
