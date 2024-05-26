@@ -1,23 +1,83 @@
+/* COLOURS 
+white and black should be same hue
+limit to 4, use dithering for more 
+
+check and edit contrast at https://webaim.org/resources/contrastchecker/
+
+bg = background
+fg = foreground (text)
+pri = primary (internal links)
+sec = secondary (external links, highlights etc.)
+*/
+
+/* light mode */
+/*
+--bg : var(--white);
+--fg: var(--black);
+--pri: var(--green);
+--sec: var(--red);
+*/
+
+/* dark mode */
+/*
+--bg : var(--black);
+--fg: var(--white);
+--pri: var(--green);
+--sec: var(--red);
+*/
 
 :root {
-    --white: bisque;
-    --black: #222020;
-    --foreground: var(--black);
-    --background: var(--white);
+    /* previously */
+    --pri: olive;
+    --sec: firebrick;
+    /* --white: bisque;
+    --black: #111111; */
 
-    --red: firebrick;
-    --green: olive;
-    --blue: cadetblue;
+    /* https://lospec.com/palette-list/vintage-ruby */
+    /* --pri: #868645;
+    --sec: #792639; */
+    /* --white: #efefd9;
+    --black: #222220; */
+    
+    /* https://lospec.com/palette-list/2-bit-pips */
+    /* nice for dark mode */
+    /* --pri: #647859;
+    --sec: #7c3838; */
+    --black: #1E1D11;
+    --white: #F8F7F2;
+
+
+    /* https://pokemondb.net/sprites/xatu */
+    /* --pri: #52BD6B;
+    --sec: #A52931; */
+    /* --white: #EFEFEF;
+    --black: #0E0D11; */
+
+    --fg: var(--black); --bg: var(--white);
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+    :root {--bg: var(--black); --fg: var(--white);}
+
+    /* img darkmode from https://wiki.xxiivv.com/links/main.css */
+    img[src*="svg"], img[src*="png"] { 
+        /* color: var(--bg);
+        background-color: var(--fg);  */
+        filter:invert(1) hue-rotate(180deg);
+    } 
+}
+
+/* ?? */
+* {
+    box-sizing: border-box; 
 }
 
 html {
-    /* max-width: 948px;
+    max-width: 900px;
 	margin: 0 auto;
-	padding: 48px 24px 48px 24px; */
-}
-
-* {
-    box-sizing: border-box;
+    margin-right: auto;
+    margin-left: 24px
 }
 
 body {
@@ -26,65 +86,67 @@ body {
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: flex-start; */
-    background-color: var(--background);
-    color: var(--foreground);
+    font-family: Georgia, serif;
+    background-color: var(--bg);
+    color: var(--fg);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: var(--black);
-        --foreground: var(--white);
-        --red: darkred;
-        --green: darkolivegreen;
-        --blue: steelblue;
-    }
-
-    body {
-        background-color: var(--background);
-        color: var(--foreground);
-    }
-
-    /* img darkmode from https://wiki.xxiivv.com/links/main.css */
-    img[src*="svg"], img[src*="png"] { 
-        /* color: var(--background);
-        background-color: var(--foreground);  */
-        filter:invert(1) hue-rotate(180deg);
-    } 
+main, footer {
+    max-width: 700px;
+    padding: 12px 24px 24px 24px;
 }
 
+aside {
+    text-align: center;
+}
+
+img {
+    border:dotted 1px;
+}
+
+/* stretch to always fit on screen */
+header pre {
+    font-size: 1.75vw; /* magic number to get textmode header always fitting viewport */
+}
+pre a, pre a:hover {
+    text-decoration: none;
+}
+
+footer{
+    text-align: center;
+}
 footer img, a img {
-    stroke: var(--red);
+    stroke: var(--pri);
     height: 32px;
 }
 
 /* links */
 a, a:visited {
-    color: var(--black);
+    color: var(--fg);
     text-decoration-line: underline;
-    text-decoration-color: var(--red);
+    text-decoration-thickness: 1px;
+    /* text-decoration-style: dotted; */
+    text-decoration-color: var(--pri);
 }
 a:hover {
-    color: var(--red);
+    color: var(--pri);
+    text-decoration-line: underline;
     text-decoration-style: wavy;
 }
-header a {
-    text-decoration: none;
-}
 a[target="_blank"]{
-    text-decoration-color: var(--blue);
+    color: var(--fg);
+    text-decoration-color: var(--sec);
+}
+/* show biohazard signs for commercial content silos */
+a[target="_blank"]:hover{
+    color: var(--sec);
 }
 a[target="_blank"]:after {
-    content: " ↝"; 
-    color: var(--blue);
+    /* content: "↝"; */
+    content: "~"; 
+    color: var(--sec);
+    text-decoration: none;
 }
-a[target="_blank"]:hover{
-    color: var(--blue);
-}
-
-/* header a, header a:visited {
-    color: var(--black);
-} */
-
 
 
 /* table {
@@ -103,7 +165,7 @@ table tr {
 hr {
     border: none;
     /* border-top: 3px double #333; */
-    color: var(--foreground);
+    color: var(--sec);
     overflow: visible;
     text-align: center;
     height: 2px;
