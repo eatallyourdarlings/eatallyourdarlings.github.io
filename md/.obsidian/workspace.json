@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "index.md",
+                "file": "elsewhere.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "index.md",
+                "file": "elsewhere.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md"
+                "file": "elsewhere.md"
               }
             }
           }
@@ -159,12 +158,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b8dcfe7b6008cf70",
+  "active": "b7707524b81f081e",
   "lastOpenFiles": [
+    "index.md",
     "works/index.htm",
     "works/bugface.png",
     "works",
-    "elsewhere.md",
-    "index.md"
+    "elsewhere.md"
   ]
 }
