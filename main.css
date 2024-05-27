@@ -43,12 +43,13 @@ sec = secondary (external links, highlights etc.)
     :root {--bg: var(--black); --fg: var(--white);}
 
     /* from https://wiki.xxiivv.com/links/main.css */
-    /* img[src*="svg"], img[src*="png"] */ * {
+    img[src*="svg"], img[src*="png"] {
         /* color: var(--bg);
         background-color: var(--fg);  */
         filter:invert(1)  hue-rotate(180deg);
     } 
 }
+
 * { /* ?? */
     box-sizing: border-box; 
 }
