@@ -5,8 +5,13 @@ User-agent: *
 Disallow: /works/
 Disallow: *.png
 Disallow: *.jpg
+Disallow: *.gif
+Disallow: *.mp4
 Disallow: *.wav
 Disallow: *.mp3
+Disallow: *.ogg
+Disallow: *.md
+Disallow: *.pdf
 
 User-agent: GPTBot
 Disallow: /

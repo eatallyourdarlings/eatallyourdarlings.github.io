@@ -37,6 +37,8 @@ sec = secondary (external links, highlights etc.)
     --sec:  #990000;
     --fg: var(--black); 
     --bg: var(--white);
+    --mono: 'Courier New', Courier, monospace;
+    --serif: Georgia, serif;
 }
 /* DARK MODE */
 @media (prefers-color-scheme: dark) {
@@ -73,12 +75,12 @@ header pre {
 
 }
 pre {
-    font-family:'Courier New', Courier, monospace !important;
+    font-family: var(--mono) !important;
 }
 main, footer {
     max-width: 700px;
     padding: 12px 24px 24px 24px;
-    font-family: Georgia, serif;
+    font-family: var(--serif);
 }
 aside {
     text-align: center;
@@ -126,6 +128,15 @@ a[target="_blank"]::after {
     text-decoration: none;
 }
 /* FLAIR */
+ul li {
+    list-style-type: none;
+    list-style-position: outside;
+}
+ul li::before{
+    color: var(--sec);
+    content:" * ";
+    font-family: var(--mono);
+}
 hr {
     border: none;
     /* border-top: 3px double #333; */
