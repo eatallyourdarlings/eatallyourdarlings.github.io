@@ -136,6 +136,7 @@ a[target="_blank"]::after {
 .dir::after, .dir::before {
     content: "/";
     color: var(--pri);
+    text-decoration: none;
 }
 em {
     font-weight: normal;
