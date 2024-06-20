@@ -133,6 +133,10 @@ a[target="_blank"]::after {
     text-decoration: none;
 }
 /* FLAIR */
+.dir::after, .dir::before {
+    content: "/";
+    color: var(--pri);
+}
 em {
     font-weight: normal;
     color:var(--pri);
