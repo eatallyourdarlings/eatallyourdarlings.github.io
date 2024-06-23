@@ -1,8 +1,6 @@
 /* COLOURS 
 white and black should be same hue
-limit to 4, use dithering for more 
 check and edit contrast at https://webaim.org/resources/contrastchecker/
-
 bg = background
 fg = foreground (text)
 pri = primary (internal links)
@@ -14,7 +12,7 @@ sec = secondary (external links, highlights etc.)
     --sec: #792639; */
     /* --white: #efefd9;
     --black: #222220; */
-    
+
     /* https://lospec.com/palette-list/2-bit-pips */
     /* nice for dark mode */
     /* --pri: #647859;
@@ -31,7 +29,8 @@ sec = secondary (external links, highlights etc.)
     --black: #000; 
     --white: #fff;
     --pri: olive;
-    --sec:  #990000;
+    /* --sec:  #990000; */
+    --sec: firebrick;
     --fg: var(--black); 
     --bg: var(--white);
     --mono: Courier, monospace;
@@ -49,32 +48,33 @@ sec = secondary (external links, highlights etc.)
         filter:invert(1)  hue-rotate(180deg);
     } 
 }
-
-* { /* ?? */
+html {
     background-color: var(--bg);
     color: var(--fg);
-}
-html {
     font-size: 100%;
     max-width: 60em;
 	margin: 0 auto;
     margin-right: auto;
-    margin-left: 1.5em
+    margin-left: 1.5em;
 }
 body {
-    padding-top: 1.5em;
-    font-size: 1.2em;
+    padding-top: 1em;
+    font-size: 1.1em;
     /* display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: flex-start; */
 }
-header pre {
-    font-size: 1em;  /* or use magic number ~1.2vw to get textmode always fitting viewport */
-}
+/* header pre {
+    font-size: 1em; } /* or use magic number ~1.2vw to get textmode always fitting viewport */
+
 pre {
+    font-size: 1em;
     font-family: var(--mono) !important;
+    color:var(--sec);
+    text-wrap: nowrap;
+    margin: 1em 0 0 1em;
 }
 main, footer {
     max-width: 45em;
@@ -96,7 +96,6 @@ main img {
     image-rendering: pixelated; /* sharp-edges */
     /* border: wavy black 0.0625em; */
     }
-main ul li, main ol li { line-height: 1.25em; padding: 0em 0.25em; }
 footer{
     text-align: center;
 }
@@ -106,20 +105,13 @@ footer img{ /* TODO svg links */
 }
 /* LINKS */
 /* TODO show biohazard signs for commercial content silos */
-pre a, pre a:hover {
-    text-decoration: none;
-}
-a[target="_blank"]:hover{
-    color: var(--sec);
-}
-a[target="_blank"]::after {
-    /* content: "↝"; */
-    content: "~"; 
-    color: var(--sec);
-    text-decoration: none;
-}
 main a:not([target="_blank"])::before, .dir::after, h1::before {
     content: "/";
+    color: var(--pri);
+    text-decoration: none;
+}
+h2::before, h3::before {
+    content: "#";
     color: var(--pri);
     text-decoration: none;
 }
@@ -130,21 +122,33 @@ a, a:visited {
     text-decoration-thickness: 0.1em;
     text-decoration-color: var(--pri);
 }
-a[target="_blank"]{
-    color: var(--fg);
-    text-decoration-style: dotted;
-    text-decoration-color: var(--sec);
-    }
 a:hover {
     color: var(--pri);
     text-decoration-line: underline;
     text-decoration-style: wavy;
     }
-
+a[target="_blank"]{
+    color: var(--fg);
+    text-decoration-style: dotted;
+    text-decoration-color: var(--sec);
+    }
+a[target="_blank"]:hover{
+    color: var(--sec);
+    text-decoration-style: wavy;
+    }
+a[target="_blank"]::after {
+    /* content: "↝"; */
+    content: "~"; 
+    color: var(--sec);
+    text-decoration: none;
+    }
+header a, header a:hover {
+    text-decoration: none;
+}
 /* FLAIR */
 em {
     font-weight: normal;
-    color:var(--pri);
+    color:var(--fg);
 }
 q {
     font-style: italic;
@@ -160,14 +164,18 @@ cite {
 cite::before{
     content: "— ";
 }
-ul li {
-    list-style-type: none;
-    list-style-position: outside;
-}
 ul li::before{
     color: var(--sec);
     content:" * ";
     font-family: var(--mono);
+}
+ul li {
+    list-style-type: none;
+    list-style-position: outside;
+}
+main ul li, main ol li { 
+    line-height: 1.25em; 
+    padding: 0em 0.25em; 
 }
 hr {
     font-size: 1em;
