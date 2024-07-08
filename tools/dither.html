@@ -4,23 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>do a dither!</title>
+</head>
+<body>
+    <h1>do a dither!</h1>
+    <p>one-bit Floyd-Steinberg dither in your browser! <br> forked with permission from <a href="https://eli.li/_assets/bin/dither/index.htm">eli oat</a> &lt;3.</p>
+    <p>todo: add input colours</p>
+    <!-- maybe make it fancy like the input colours style the page -->
+    <canvas id="canvas"></canvas>
+    <br>
+    <!-- <h2>Step 1.</h2> -->
+    <label for="upload">Upload an image:</label>
+    <br>
+    <input type="file" id="upload" accept="image/*">
+    <br>
+    <!-- <h2>Step 2.</h2> -->
+    <label for="download">Download the image:</label>
+    <br>
+    <button id="download">download</button>
+    <!-- <h2>image data</h2> -->
+    <br>
+    <label for="copy">...or copy the image data:</label>
+    <br>
+    <button id="copy">copy</button>
+    <!-- <p><code id="dataurl"></code></p> -->
+
     <style>
         body {
             font-family: monospace;
-            display: block;
             padding: 0.25em 0.5em;
             background-color: white;
             color: black;
-            /* background-color: beige; */
-            /* font-family: sans-serif; */
+            line-height: 2em;
+            /* display: block; */
             /* font-size: large; */
-        }
-        h1,h2 {
-            margin: 0;
         }
         label {
             font-size: 1.25em;
-            /* padding: 2em 0 2em 0; */
         }
         canvas, input, button {
             max-width: calc(100% - 4em);
@@ -33,36 +52,22 @@
             cursor: pointer;
             padding: 1em 1em 1em 1em;
             font-size: 1.25em;
+            margin: 0 0 1em 0;
         }
         a {
             color: black;
         }
+        code {
+            max-width: 4em;
+        }
     </style>
-</head>
-<body>
-    <h1>do a dither!</h1>
-    <p>one-bit Floyd-Steinberg dither in your browser!</p>
-    <p>forked with permission from <a href="https://eli.li/_assets/bin/dither/index.htm">eli oat</a> &lt;3.</p>
-    <canvas id="canvas"></canvas>
-    <br>
-    <br>
-    <h2>Step 1.</h2>
-    <label for="upload">Upload an image:</label>
-    <br>
-    <input type="file" id="upload" accept="image/*">
-    <br>
-    <br>
-    <h2>Step 2.</h2>
-    <label for="download">Download the image:</label>
-    <br>
-    <button id="download">download</button>
-    
     <script>
-        // https://eli.li/_assets/bin/dither/dither.js
+        // forked from https://eli.li/_assets/bin/dither/dither.js
 
         const upload = document.getElementById('upload');
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
+        let dataUrl = "beep boop";
 
         upload.addEventListener('change', function (e) {
             const file = e.target.files[0];
@@ -82,7 +87,7 @@
 
         // TIL how to do this!
         document.getElementById('download').addEventListener('click', function() {
-            const dataUrl = canvas.toDataURL('image/png'); // Convert the canvas to a data URL
+            dataUrl = canvas.toDataURL('image/png'); // Convert the canvas to a data URL
             const a = document.createElement('a'); // Create an anchor element
             a.href = dataUrl; // Set the href of the anchor to the data URL
             a.download = 'dithered-image.png'; // Set the download attribute to the desired file name
@@ -91,6 +96,21 @@
             document.body.appendChild(a); // Append the anchor to the body
             a.click(); // Trigger a click on the anchor to start the download
             document.body.removeChild(a); // Remove the anchor from the body
+        });
+
+        //first javascript I've written in a year :D -Olive
+        document.getElementById('copy').addEventListener('click', function() {
+            dataUrl = canvas.toDataURL('image/png');
+            var copyText = document.createElement("textarea");
+            copyText.value = dataUrl;
+            document.body.append(copyText)
+            copyText.select();
+            copyText.setSelectionRange(0, 99999)
+            document.execCommand("copy");
+            copyText.remove()
+            // document.getElementById("dataurl").innerHTML = dataUrl;
+            // console.log(dataUrl)
+            // navigator.clipboard.writeText(dataUrl.value);
         });
 
         function applyDithering() {
