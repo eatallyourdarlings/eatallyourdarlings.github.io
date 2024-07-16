@@ -6,19 +6,15 @@
     <meta name="author" content="olive rf">
     <meta name="description" content="yearn, a web poem by olive rf.">
     <link rel="icon" type="image/x-icon" href="../favicon.png">
-    <!-- <link href="../main.css" rel="stylesheet" type="text/css" media="all"> -->
     <title>yearn ~ olive rf</title>
 </head>
 <body>
-    <!-- <h1>yearn</h1> -->
-    <!-- <div class="background"></div> -->
     <ul>
     <li class="deimos">mourning moon,</li>
     <li class="sol">cold sun,</li>
     <li class="mars">dead planet,</li>
     </ul>
-    <p><em>you yearn to join</em></p>
-    <!-- make this a shuffle text button? -->
+    <p><a href="#" id="join">you yearn to join </a></p>
     <ul>
     <li class="deimos">the chorus between the stars</li>
     <li class="sol">the primordial heat</li>
@@ -35,15 +31,14 @@
             font-family: monospace;
             color: #ffffff;
             background-color: #000000;
-            /* yearn-og.jpeg */
             background: url("../refs/beautifulmars.png") no-repeat fixed;
-            /* background: url()
-            no-repeat fixed; */
-            padding-top: 0.5em;
+            /* no-copyright image from HiRise https://www.uahirise.org/media/usage.php */
+            padding: 1.5em 0em 0em 1em;
+            font-size: 1.2em;
         }
         p {
-            font-style: italic;
             padding: 1em 0 1em 1em;
+            font-style: italic;
         }
         li {
             list-style: none;
@@ -55,37 +50,58 @@
         }
         .deimos::before {
             content: "/ ";
-            padding-left: .6em;
-            /* blur */
+            /* padding-left: .6em; */
         }
         .sol::before {
             content: "// ";
-            padding-left: .9em;
+            /* padding-left: .9em; */
         }
         .mars::before {
             content: "/// ";
-            padding-left: 1.2em;
+            /* padding-left: 1.2em; */
         }
-        em::after {
-            content: " / / /";
-            padding-left: 0.2em;
+        .deimos {
+            filter:blur(0.036em);
         }
-        .background {
-            background-image: url("../refs/yearn.png");
-            filter: blur(1px);
-            height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            /* background-size: cover; */
+        .sol {
+            filter:blur(0.027em);
+        }
+        .mars {
+            filter:blur(0.018em);
+        }
+        a{
+            color: white;
+            font-weight: bold;
+            text-decoration: 1px grey underline dotted;
+            text-underline-offset: -30%;
+        }
+        a::after {
+            content: "/ / /";
+        }
+        a:hover {
+            text-decoration-style: wavy;
+            text-underline-offset: -50%;
         }
     </style>
     <script>
         // randomise order of lists on reload
-        // var ul = document.querySelector('ul');
-
-        // for (var i = ul.children.length; i >= 0; i--) {
-        //     ul.appendChild(ul.children[Math.random() * i | 0]);
-        // }
+        var elements = document.getElementsByTagName('ul');
+        document.getElementById('join').addEventListener('click', function() {
+            var order = [0,1,2]; //order of lines
+            let c = 3; //length
+            while (c != 0) {
+                let r = Math.floor(Math.random() * c); //random index
+                c--;
+                //swap random element with the current element.
+                [order[c], order[r]] = [order[r], order[c]];
+            }
+            for (var i = 2; i >= 0; i--){
+                let ul = elements[i];
+                for (var j = 2; j >= 0; j--){
+                    ul.appendChild(ul.children[order[j]]);
+                }
+            }
+        });
     </script>
 </body>
 </html>
