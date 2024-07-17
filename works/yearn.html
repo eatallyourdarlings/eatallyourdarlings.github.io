@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="olive rf">
-    <meta name="description" content="yearn, a web poem by olive rf.">
+    <meta name="description" content="a time-lost dream from our next dead planet~">
     <link rel="icon" type="image/x-icon" href="../favicon.png">
-    <title>yearn ~ olive rf</title>
+    <title>yearn ~ orf.place</title>
 </head>
 <body>
     <ul style="overflow: hidden; padding: none; margin: none;">
@@ -37,7 +37,7 @@
             color: white;
             background-color: black;
             background: url("../refs/beautifulmars.png") no-repeat fixed;
-            /* no-copyright image from HiRise https://www.uahirise.org/media/usage.php */
+            /* no-copyright image from HiRise NASA/JPL/University of Arizona https://www.uahirise.org/media/usage.php */
             padding: 1.5em 0em 0em 1em;
             font-size: 1.1em;
         }
@@ -62,14 +62,14 @@
             text-decoration-color: grey;
             text-decoration-style: dotted;
             text-decoration-thickness: 0.05em;
-            text-underline-offset: -0.4em;
+            text-underline-offset: -0.3em;
         }
         a::after {
             content: " / / /";
         }
         a:hover {
             text-decoration-style: wavy;
-            /* text-underline-offset: -50%; */
+            text-underline-offset: -0.35em;
         }
         .hymn::after{
             content: "/ ";
@@ -83,15 +83,12 @@
         }
         .deimos::before {
             content: "/ ";
-            /* padding-left: .6em; */
         }
         .sol::before {
             content: "// ";
-            /* padding-left: .9em; */
         }
         .mars::before {
             content: "/// ";
-            /* padding-left: 1.2em; */
         }
         /* .deimos {
             filter:blur(0.04em);
@@ -116,9 +113,9 @@
                 [order[c], order[r]] = [order[r], order[c]];
             }
             //i = elements.length
-            //j = order.length
             for (var i = 3; i >= 0; i--){
                 let ul = elements[i];
+                //j = order.length
                 for (var j = 2; j >= 0; j--){
                     ul.appendChild(ul.children[order[j]]);
                 }
