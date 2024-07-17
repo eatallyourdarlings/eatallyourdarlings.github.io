@@ -8,10 +8,21 @@
 <body>
     <h1>do a dither!</h1>
     <p>one-bit Floyd-Steinberg dither in your browser! <br> forked with permission from <a href="https://eli.li/_assets/bin/dither/index.htm">eli oat</a> &lt;3.</p>
-    <p>todo: add input colours</p>
-    <!-- maybe make it fancy like the input colours style the page -->
-    <canvas id="canvas"></canvas>
+    <p>(optional) input colours, to replace black and white</p>
+    <p>note: for now you need to reupload the image file each time you change colours.</p>
+    <label for="input">colour 0:</label>
+    <input type="color" id="colour0" value="#ffffff">
     <br>
+    <label for="input">colour 1:</label>
+    <input type="color" id="colour1" value="#000000">
+    <br>
+    <button id="invert">invert colours</button>
+    <!-- maybe make it fancy like the input colours style the page -->
+    <br>
+    <label for="canvas">result:</label>
+    <br>
+    <canvas id="canvas"></canvas>
+    <br><br>
     <!-- <h2>Step 1.</h2> -->
     <label for="upload">Upload an image:</label>
     <br>
@@ -29,45 +40,111 @@
     <!-- <p><code id="dataurl"></code></p> -->
 
     <style>
+        :root {
+            --colour1: black;
+            --colour0: white;
+        }
         body {
-            font-family: monospace;
+            font-family: Courier, monospace;
             padding: 0.25em 0.5em;
-            background-color: white;
-            color: black;
+            background-color: var(--colour1);
+            color: var(--colour0);
             line-height: 2em;
             /* display: block; */
             /* font-size: large; */
         }
         label {
-            font-size: 1.25em;
+            font-size: 0.9em;
         }
         canvas, input, button {
             max-width: calc(100% - 4em);
             padding: 0;
-            border: 1px solid black;
+            border: 1px solid var(--colour0);
             box-sizing: border-box;
         }
         button, input[type="file"] {
+            font-family: Courier, monospace;
             border-radius: 7px;
             cursor: pointer;
             padding: 1em 1em 1em 1em;
             font-size: 1.25em;
             margin: 0 0 1em 0;
+            background-color: var(--colour1);
+            color: var(--colour0);
+            font-size: 0.9em;
         }
         a {
-            color: black;
+            color: var(--colour0);
+            text-decoration-style: dotted;
         }
         code {
             max-width: 4em;
         }
+        input[type="file"] {
+            background-color: var(--colour1);
+            color: var(--colour0);
+        }
     </style>
     <script>
         // forked from https://eli.li/_assets/bin/dither/dither.js
-
+        //custom colours added by Olive :]
+        // TODO: colour lookup and replace function
+        // TODO: set default colours in one place and propogate.
         const upload = document.getElementById('upload');
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
-        let dataUrl = "beep boop";
+        var dataUrl = "beep boop";
+        // var coloursRGB = [[0,0,0], [255,255,255]];
+        var coloursRGB = [[255,255,255], [0,0,0]];
+        const root = document.querySelector(':root');
+
+        
+        const colourInputs = document.querySelectorAll('input[type=color]');
+        // console.log(colourInputs);
+
+        // colourInputs[0].addEventListener('change', function() {
+        //     updateColours(0, event.target.value)});
+
+        for(let i = 0; i < colourInputs.length; i++){
+            setImageColours(i, hexToRGB(colourInputs[i].value));
+            colourInputs[i].addEventListener('change', function() {    
+                setImageColours(i, hexToRGB(event.target.value));
+            });
+            colourInputs[i].addEventListener('input', function() {
+                setStyleColours(i, event.target.value)});
+            }
+        
+        function setImageColours(index, value){
+            // console.log(`ImageColours ${index}, ${value}`);
+            coloursRGB[index] = (value);
+        }
+
+        function setStyleColours(index, value){
+            root.style.setProperty(`--colour${index.toString()}`, value);
+        }
+
+        //invert colours
+        document.getElementById('invert').addEventListener('click', function() {
+            let temp = colourInputs[0].value;
+            colourInputs[0].value = colourInputs[1].value;
+            colourInputs[1].value = temp;
+
+            temp = coloursRGB[0];
+            setImageColours(0, coloursRGB[1]);
+            setImageColours(1, temp);
+
+            setStyleColours(0, colourInputs[0].value);
+            setStyleColours(1, colourInputs[1].value);
+        });
+
+        function hexToRGB(hex) {
+            var rgb = [0,0,0];
+            var hex = hex.replace("#", "");
+            rgb[0] = parseInt(hex.substring(0, 2), 16);
+            rgb[1] = parseInt(hex.substring(2, 4), 16);
+            rgb[2] = parseInt(hex.substring(4, 6), 16);
+            return rgb;
+        }
 
         upload.addEventListener('change', function (e) {
             const file = e.target.files[0];
@@ -109,13 +186,13 @@
             document.execCommand("copy");
             copyText.remove()
             // document.getElementById("dataurl").innerHTML = dataUrl;
-            // console.log(dataUrl)
+            console.log(dataUrl)
             // navigator.clipboard.writeText(dataUrl.value);
         });
 
         function applyDithering() {
             const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const data = imageData.data;
+            var data = imageData.data;
             const width = canvas.width;
             const height = canvas.height;
 
@@ -124,12 +201,13 @@
 
             // Set the pixel value
             const setPixel = (x, y, value) => {
-                const index = (y * width + x) * 4;
-                const gray = value < 128 ? 0 : 255;
-                data[index] = gray;
-                data[index + 1] = gray;
-                data[index + 2] = gray;
-                data[index + 3] = 255;
+                const i = (y * width + x) * 4;
+                const j = value < 128 ? 0 : 1;
+                data[i] = coloursRGB[j][0];
+                data[i + 1] = coloursRGB[j][1];
+                data[i + 2] = coloursRGB[j][2];
+                data[i + 3] = 255;
+                // data[i, i + 1, i + 2, i + 3] = coloursRGB[[j][0], [j][1], [j][2], 255];
             };
 
             // https://en.wikipedia.org/wiki/Floyd–Steinberg_dithering
