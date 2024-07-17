@@ -9,12 +9,17 @@
     <title>yearn ~ olive rf</title>
 </head>
 <body>
+    <ul style="overflow: hidden; padding: none; margin: none;">
+    <li class="hymn">&nbsp;a hymn&nbsp;</li>
+    <li class="cry">&nbsp;a cry&nbsp;</li>
+    <li class="dream">&nbsp;a dream&nbsp;</li>
+    </ul>
     <ul>
     <li class="deimos">mourning moon,</li>
     <li class="sol">cold sun,</li>
     <li class="mars">dead planet,</li>
     </ul>
-    <p><a href="#" id="join">you yearn to join </a></p>
+    <p><a href="#" id="join">you yearn to join</a></p>
     <ul>
     <li class="deimos">the chorus between the stars</li>
     <li class="sol">the primordial heat</li>
@@ -29,8 +34,8 @@
         body, html {
             height: 100%;
             font-family: Courier, monospace;
-            color: #ffffff;
-            background-color: #000000;
+            color: white;
+            background-color: black;
             background: url("../refs/beautifulmars.png") no-repeat fixed;
             /* no-copyright image from HiRise https://www.uahirise.org/media/usage.php */
             padding: 1.5em 0em 0em 1em;
@@ -43,10 +48,38 @@
         li {
             list-style: none;
             font-style: italic;
-            display: block;
         }
+        .hymn, .cry, .dream {
+            float: left;
+            color: grey;
+        } 
         ul {
             padding-left: 1em;
+        }
+        a{
+            color: white;
+            font-weight: bold;
+            text-decoration-color: grey;
+            text-decoration-style: dotted;
+            text-decoration-thickness: 0.05em;
+            text-underline-offset: -0.4em;
+        }
+        a::after {
+            content: " / / /";
+        }
+        a:hover {
+            text-decoration-style: wavy;
+            /* text-underline-offset: -50%; */
+        }
+        .hymn::after{
+            content: "/ ";
+        }
+        .cry::after{
+            content: "//";
+            float: none;
+        }
+        .dream::after{
+            content: "/// ";
         }
         .deimos::before {
             content: "/ ";
@@ -69,33 +102,22 @@
         .mars {
             filter:blur(0.02em);
         } */
-        a{
-            color: white;
-            font-weight: bold;
-            text-decoration: 1px grey underline dotted;
-            text-underline-offset: -30%;
-        }
-        a::after {
-            content: "/ / /";
-        }
-        a:hover {
-            text-decoration-style: wavy;
-            text-underline-offset: -50%;
-        }
     </style>
     <script>
         // randomise order of lists on reload
         var elements = document.getElementsByTagName('ul');
         document.getElementById('join').addEventListener('click', function() {
             var order = [0,1,2]; //order of lines
-            let c = 3; //length
+            let c = 3; //order.length
             while (c != 0) {
                 let r = Math.floor(Math.random() * c); //random index
                 c--;
                 //swap random element with the current element.
                 [order[c], order[r]] = [order[r], order[c]];
             }
-            for (var i = 2; i >= 0; i--){
+            //i = elements.length
+            //j = order.length
+            for (var i = 3; i >= 0; i--){
                 let ul = elements[i];
                 for (var j = 2; j >= 0; j--){
                     ul.appendChild(ul.children[order[j]]);
