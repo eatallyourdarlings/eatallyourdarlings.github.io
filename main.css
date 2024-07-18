@@ -60,6 +60,7 @@ html {
 body {
     padding-top: 1em;
     font-size: 1.1em;
+    max-width: 50em;
     /* display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -68,7 +69,6 @@ body {
 }
 /* header pre {
     font-size: 1em; } /* or use magic number ~1.2vw to get textmode always fitting viewport */
-
 pre {
     font-size: 1em;
     font-family: var(--mono) !important;
@@ -87,9 +87,9 @@ aside {
 figure {
     padding: 0.75em 0 0.75em 0;
 }
-figcaption {
-    /* max-width: 25em; */
-}
+/* figcaption {
+     max-width: 25em; 
+} */
 main img {
     width: 100;
     padding: 0.75em 0 0.75em 0;
@@ -192,8 +192,6 @@ nav ol li::before, h2::before, h3::before {
     font-family: var(--mono);
 }
 hr {
-    font-size: 1em;
-    font-family: var(--mono);
     border: none;
     color: var(--sec);
     overflow: visible;
@@ -206,6 +204,9 @@ hr::after {
     padding: 0 0.25em;
     position: relative;
     top: -0.75em;
+    font-family: var(--mono);
+    font-weight: bold;
+    font-size: 1em;
   }
 /* table {
     border:1;
