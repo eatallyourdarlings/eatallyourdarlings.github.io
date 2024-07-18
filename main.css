@@ -105,16 +105,6 @@ footer img{ /* TODO svg links */
 }
 /* LINKS */
 /* TODO show biohazard signs for commercial content silos */
-main a:not([target="_blank"])::before, .dir::after, h1::before {
-    content: "/";
-    color: var(--pri);
-    text-decoration: none;
-}
-h2::before, h3::before {
-    content: "#";
-    color: var(--pri);
-    text-decoration: none;
-}
 a, a:visited {
     color: var(--fg);
     text-decoration-line: underline;
@@ -122,26 +112,37 @@ a, a:visited {
     text-decoration-thickness: 0.1em;
     text-decoration-color: var(--pri);
 }
+main a:not([target="_blank"], [href*="#"])::before, .dir::after, h1::before {
+    content: "/";
+    color: var(--pri);
+    text-decoration: none;
+    font-family: var(--mono);
+}
 a:hover {
     color: var(--pri);
-    text-decoration-line: underline;
-    text-decoration-style: wavy;
+    text-decoration: 0.09em underline wavy;
+    }
+a[target="_blank"]:hover{
+    color: var(--sec);
+    text-decoration: 0.09em underline wavy;
+    /* text-decoration: 0.05em underline wavy; */
+    /* text-decoration-style: wavy;
+    text-decoration-thickness: 0.05em; */
     }
 a[target="_blank"]{
     color: var(--fg);
     text-decoration-style: dotted;
+    text-decoration-thickness: 0.09em;
     text-decoration-color: var(--sec);
-    }
-a[target="_blank"]:hover{
-    color: var(--sec);
-    text-decoration-style: wavy;
     }
 a[target="_blank"]::after {
     /* content: "↝"; */
     content: "~"; 
     color: var(--sec);
     text-decoration: none;
-    }
+    font-family: var(--mono);
+    }   
+/* reserved for internal links # */
 header a, header a:hover {
     text-decoration: none;
 }
@@ -164,18 +165,31 @@ cite {
 cite::before{
     content: "— ";
 }
+ul li, ol li { 
+    list-style-type: none;
+    /* list-style-position: outside; */
+}
 ul li::before{
     color: var(--sec);
-    content:" * ";
+    content:"* ";
     font-family: var(--mono);
 }
-ul li {
+/* for internal headings */
+nav ol{
     list-style-type: none;
-    list-style-position: outside;
 }
-main ul li, main ol li { 
+.internal li::before {
+    color: var(--pri);
+}
+main ul, main ol { 
     line-height: 1.25em; 
-    padding: 0em 0.25em; 
+}
+nav ol li::before, h2::before, h3::before {
+    content: "# ";
+    color: var(--pri);
+    font-weight: bold;
+    text-decoration: none;
+    font-family: var(--mono);
 }
 hr {
     font-size: 1em;

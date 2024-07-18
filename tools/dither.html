@@ -7,21 +7,30 @@
 </head>
 <body>
     <h1>do a dither!</h1>
-    <p>one-bit Floyd-Steinberg dither in your browser! <br> forked with permission from <a href="https://eli.li/_assets/bin/dither/index.htm">eli oat</a> &lt;3.</p>
-    <p>(optional) input colours, to replace black and white</p>
-    <p>note: for now you need to reupload the image file each time you change colours.</p>
-    <label for="input">colour 0:</label>
-    <input type="color" id="colour0" value="#ffffff">
+    <p>one-bit Floyd-Steinberg dither completely in your browser. works offline.<br> forked with permission from <a href="https://eli.li/_assets/bin/dither/index.htm">eli oat</a> &lt;3.</p>
+    <p>(optional) click the colours below to replace black and white.
+        note: for now you need to reupload the image file each time you change colours.</p>
+    <label for="colour0">colour 0:</label>
+    <input type="color" id="colour0" value="#000000">
     <br>
-    <label for="input">colour 1:</label>
-    <input type="color" id="colour1" value="#000000">
+    <label for="colour1">colour 1:</label>
+    <input type="color" id="colour1" value="#ffffff">
+    <!-- <br>
+    <label for="pagestyle" aria-checked="true">change page style with colours:</label>
+    <input value="on" id="changestyle" type="checkbox"> -->
     <br>
     <button id="invert">invert colours</button>
+    <!-- <br>
+    <button id="log">log colours</button> -->
     <!-- maybe make it fancy like the input colours style the page -->
     <br>
     <label for="canvas">result:</label>
     <br>
     <canvas id="canvas"></canvas>
+    <br>
+    <label for="cache">cache:</label>
+    <br>
+    <canvas id="cache"></canvas>
     <br><br>
     <!-- <h2>Step 1.</h2> -->
     <label for="upload">Upload an image:</label>
@@ -41,15 +50,15 @@
 
     <style>
         :root {
-            --colour1: black;
-            --colour0: white;
+            --colour0: black; /* text and borders */
+            --colour1: white; /* background */
         }
         body {
             font-family: Courier, monospace;
             padding: 0.25em 0.5em;
             background-color: var(--colour1);
             color: var(--colour0);
-            line-height: 2em;
+            line-height: 1.5em;
             /* display: block; */
             /* font-size: large; */
         }
@@ -90,23 +99,18 @@
         //custom colours added by Olive :]
         // TODO: colour lookup and replace function
         // TODO: set default colours in one place and propogate.
-        const upload = document.getElementById('upload');
         const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
+        const cacheContext =  document.getElementById('cache').getContext('2d');
+        const canvasContext = canvas.getContext('2d');
         var dataUrl = "beep boop";
+        var cacheData;
+        consolge.log(cache);
         // var coloursRGB = [[0,0,0], [255,255,255]];
-        var coloursRGB = [[255,255,255], [0,0,0]];
-        const root = document.querySelector(':root');
-
+        var coloursRGB = [[0,0,0], [255,255,255]];
         
         const colourInputs = document.querySelectorAll('input[type=color]');
-        // console.log(colourInputs);
-
-        // colourInputs[0].addEventListener('change', function() {
-        //     updateColours(0, event.target.value)});
-
         for(let i = 0; i < colourInputs.length; i++){
-            setImageColours(i, hexToRGB(colourInputs[i].value));
+            // setImageColours(i, hexToRGB(colourInputs[i].value));
             colourInputs[i].addEventListener('change', function() {    
                 setImageColours(i, hexToRGB(event.target.value));
             });
@@ -115,13 +119,19 @@
             }
         
         function setImageColours(index, value){
-            // console.log(`ImageColours ${index}, ${value}`);
+            console.log(`ImageColours ${index}, ${value}`);
             coloursRGB[index] = (value);
         }
 
+        const root = document.querySelector(':root');
         function setStyleColours(index, value){
+            console.log(`StyleColours ${index}, ${value}`);
             root.style.setProperty(`--colour${index.toString()}`, value);
         }
+
+        document.getElementById('log').addEventListener('click', function() {
+            console.log(coloursRGB);
+        });
 
         //invert colours
         document.getElementById('invert').addEventListener('click', function() {
@@ -146,7 +156,7 @@
             return rgb;
         }
 
-        upload.addEventListener('change', function (e) {
+        document.getElementById('upload').addEventListener('change', function (e) {
             const file = e.target.files[0];
             const reader = new FileReader();
             reader.onload = function (event) {
@@ -154,7 +164,7 @@
                 img.onload = function () {
                     canvas.width = img.width;
                     canvas.height = img.height;
-                    ctx.drawImage(img, 0, 0);
+                    canvasContext.drawImage(img, 0, 0);
                     applyDithering();
                 };
                 img.src = event.target.result;
@@ -191,7 +201,7 @@
         });
 
         function applyDithering() {
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
             var data = imageData.data;
             const width = canvas.width;
             const height = canvas.height;
@@ -202,7 +212,7 @@
             // Set the pixel value
             const setPixel = (x, y, value) => {
                 const i = (y * width + x) * 4;
-                const j = value < 128 ? 0 : 1;
+                const j = value < 128 ? 1 : 0;
                 data[i] = coloursRGB[j][0];
                 data[i + 1] = coloursRGB[j][1];
                 data[i + 2] = coloursRGB[j][2];
@@ -249,7 +259,7 @@
                 }
             }
 
-            ctx.putImageData(imageData, 0, 0);
+            canvasContext.putImageData(imageData, 0, 0);
         }
     </script>
 </body>
