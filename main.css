@@ -81,11 +81,12 @@ main, footer {
     padding: 1.5em 1.5em 1.5em 1.5em;
     font-family: var(--serif);
 }
+h1 { font-size: 2em;}
 aside {
     text-align: center;
 }
 figure {
-    padding: 0.75em 0 0.75em 0;
+    padding: 2em 0 2em 0;
 }
 /* figcaption {
      max-width: 25em; 
@@ -112,7 +113,7 @@ a, a:visited {
     text-decoration-thickness: 0.1em;
     text-decoration-color: var(--pri);
 }
-main a:not([target="_blank"], [href*="#"])::before, .dir::after, h1::before {
+main a:not([target="_blank"], [href*="#"])::before, .dir::after, h1:not([class="title"])::before {
     content: "/";
     color: var(--pri);
     text-decoration: none;
@@ -140,7 +141,7 @@ a[target="_blank"]::after {
     content: "~"; 
     color: var(--sec);
     text-decoration: none;
-    font-family: var(--mono);
+    /* font-family: var(--mono); */
     }   
 /* reserved for internal links # */
 header a, header a:hover {
