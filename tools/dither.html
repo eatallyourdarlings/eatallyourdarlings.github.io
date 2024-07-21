@@ -7,7 +7,8 @@
 </head>
 <body>
     <h1>do a dither!</h1>
-    <p>one-bit Floyd-Steinberg dither completely in your browser. works offline.<br> forked with permission from <a href="https://eli.li/_assets/bin/dither/index.htm">eli oat</a> &lt;3.</p>
+    <p>one-bit Floyd-Steinberg dither completely in your browser. works offline.<br> 
+        forked with permission from <a href="https://eli.li/one-trip-to-the-beach-inspired-me-to-make-two-programs-this-weekend">eli oat</a> &lt;3.</p>
     <p>(optional) click the colours below to replace black and white.
         note: for now you need to reupload the image file each time you change colours.</p>
     <label for="colour0">colour 0:</label>
@@ -28,9 +29,9 @@
     <br>
     <canvas id="canvas"></canvas>
     <br>
-    <label for="cache">cache:</label>
+    <!-- <label for="cache">cache:</label>
     <br>
-    <canvas id="cache"></canvas>
+    <canvas id="cache"></canvas> -->
     <br><br>
     <!-- <h2>Step 1.</h2> -->
     <label for="upload">Upload an image:</label>
@@ -99,14 +100,18 @@
         //custom colours added by Olive :]
         // TODO: colour lookup and replace function
         // TODO: set default colours in one place and propogate.
+        /* Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. 
+        See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently
+        */
         const canvas = document.getElementById('canvas');
-        const cacheContext =  document.getElementById('cache').getContext('2d');
+        // const cacheContext =  document.getElementById('cache').getContext('2d');
         const canvasContext = canvas.getContext('2d');
         var dataUrl = "beep boop";
         var cacheData;
-        consolge.log(cache);
+        // console.log(cache);
         // var coloursRGB = [[0,0,0], [255,255,255]];
         var coloursRGB = [[0,0,0], [255,255,255]];
+        var filePath;
         
         const colourInputs = document.querySelectorAll('input[type=color]');
         for(let i = 0; i < colourInputs.length; i++){
@@ -129,9 +134,9 @@
             root.style.setProperty(`--colour${index.toString()}`, value);
         }
 
-        document.getElementById('log').addEventListener('click', function() {
-            console.log(coloursRGB);
-        });
+    //     document.getElementById('log').addEventListener('click', function() {
+    //     console.log(coloursRGB);
+    // });
 
         //invert colours
         document.getElementById('invert').addEventListener('click', function() {
@@ -156,8 +161,10 @@
             return rgb;
         }
 
-        document.getElementById('upload').addEventListener('change', function (e) {
-            const file = e.target.files[0];
+        document.getElementById('upload').addEventListener('change', function () {
+            const file = event.target.files[0];
+            filePath = event.target.value;
+            console.log(filePath);
             const reader = new FileReader();
             reader.onload = function (event) {
                 const img = new Image();
@@ -174,10 +181,21 @@
 
         // TIL how to do this!
         document.getElementById('download').addEventListener('click', function() {
+            var fileName;
+            if (filePath) {
+                var startIndex = (filePath.indexOf('\\') >= 0 ? filePath.lastIndexOf('\\') : filePath.lastIndexOf('/'));
+                var fileName = filePath.substring(startIndex);
+                if (fileName.indexOf('\\') === 0 || fileName.indexOf('/') === 0) {
+                    fileName = fileName.substring(1);
+                    fileName = fileName.substring(0, fileName.lastIndexOf('.'));
+            }
+            fileName += '-dithered.png';
+            }
+
             dataUrl = canvas.toDataURL('image/png'); // Convert the canvas to a data URL
             const a = document.createElement('a'); // Create an anchor element
             a.href = dataUrl; // Set the href of the anchor to the data URL
-            a.download = 'dithered-image.png'; // Set the download attribute to the desired file name
+            a.download = fileName; // Set the download attribute to the desired file name
             a.setAttribute('rel', 'noopener noreferrer');
             a.setAttribute('target', '_blank');
             document.body.appendChild(a); // Append the anchor to the body
