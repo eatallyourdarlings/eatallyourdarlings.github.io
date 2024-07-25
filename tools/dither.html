@@ -7,45 +7,48 @@
 </head>
 <body>
     <h1>do a dither!</h1>
-    <p>one-bit Floyd-Steinberg dither completely in your browser. works offline.<br> 
-        forked with permission from <a href="https://eli.li/one-trip-to-the-beach-inspired-me-to-make-two-programs-this-weekend">eli oat</a> &lt;3.</p>
-    <p>(optional) click the colours below to replace black and white.
-        note: for now you need to reupload the image file each time you change colours.</p>
+    <p>one-bit dither completely in your browser!<br> 
+        forked with permission from <a href="https://eli.li/one-trip-to-the-beach-inspired-me-to-make-two-programs-this-weekend" target="_blank">eli oat</a> &lt;3.</p>
+    <details>
+        <summary>click here for details on what this tool does</summary>
+        <ul>
+            <li>images are reduced to two colours using the <a href="https://en.wikipedia.org/wiki/Floyd–Steinberg_dithering" target="_blank">Floyd-Steinberg algorithm</a>.</li>
+            <li>
+                <label for="pagestyle" value="true">the style of the page changes with the colours:</label><br>
+                <input id="pagestyle" type="checkbox" checked> (on by default)
+            </li>
+            <li><b>colour 0 = shadows</b> and <b>colour 1 = highlights</b>, therefore if 0 is lighter than 1 the image will appear inverted.</li>
+            <li>images are not resized, but large files may look odd in the browser because the size that they're displayed is restricted.</li>
+            <li>when downloading a file, it has '-dithered' added to its original filename</li>
+            <li>the copy button puts the image as a string of letters (a base64-encoded .png) in your clipboard, to embed in a webpage (see: <a href="https://css-tricks.com/data-uris/" target="_blank">Data URIs &#x7C; CSS Tricks</a>).</li>
+        </ul>
+    </details>
+
+    <br><br>
+    <canvas id="canvas"></canvas>
+
+    <h2>step 1.</h2>
+    <label for="upload">upload an image:</label><br>
+    <input type="file" id="upload" accept="image/*">
+
+    <h2>step 2. (optional)</h2>
+    <p>change the colours:</p>
     <label for="colour0">colour 0:</label>
     <input type="color" id="colour0" value="#000000">
     <br>
     <label for="colour1">colour 1:</label>
     <input type="color" id="colour1" value="#ffffff">
-    <!-- <br>
-    <label for="pagestyle" aria-checked="true">change page style with colours:</label>
-    <input value="on" id="changestyle" type="checkbox"> -->
-    <br>
-    <button id="invert">invert colours</button>
-    <!-- <br>
-    <button id="log">log colours</button> -->
-    <!-- maybe make it fancy like the input colours style the page -->
-    <br>
-    <label for="canvas">result:</label>
-    <br>
-    <canvas id="canvas"></canvas>
-    <br>
-    <!-- <label for="cache">cache:</label>
-    <br>
-    <canvas id="cache"></canvas> -->
     <br><br>
-    <!-- <h2>Step 1.</h2> -->
-    <label for="upload">Upload an image:</label>
-    <br>
-    <input type="file" id="upload" accept="image/*">
-    <br>
-    <!-- <h2>Step 2.</h2> -->
-    <label for="download">Download the image:</label>
-    <br>
+    <!-- <label for="invert">swap the colours:</label><br> -->
+    <button id="invert">invert colours</button>
+    <!-- would be nice to have invert float to the right of the colours -->
+
+    <h2>step 3.</h2>
+    <label for="download">download the image:</label><br>
     <button id="download">download</button>
     <!-- <h2>image data</h2> -->
     <br>
-    <label for="copy">...or copy the image data:</label>
-    <br>
+    <label for="copy">or copy the image data:</label><br>
     <button id="copy">copy</button>
     <!-- <p><code id="dataurl"></code></p> -->
 
@@ -56,15 +59,17 @@
         }
         body {
             font-family: Courier, monospace;
-            padding: 0.25em 0.5em;
+            padding: 0 0.5em 0 1em;
             background-color: var(--colour1);
             color: var(--colour0);
-            line-height: 1.5em;
-            /* display: block; */
-            /* font-size: large; */
+            line-height: 1.2em;
+            font-size: large;
         }
-        label {
-            font-size: 0.9em;
+        summary {
+            text-decoration: underline;
+        }
+        h1, h2{
+            padding: 1em 0 0 0;
         }
         canvas, input, button {
             max-width: calc(100% - 4em);
@@ -83,6 +88,9 @@
             color: var(--colour0);
             font-size: 0.9em;
         }
+        button #invert {
+            float: right;
+        }
         a {
             color: var(--colour0);
             text-decoration-style: dotted;
@@ -97,94 +105,131 @@
     </style>
     <script>
         // forked from https://eli.li/_assets/bin/dither/dither.js
-        //custom colours added by Olive :]
-        // TODO: colour lookup and replace function
-        // TODO: set default colours in one place and propogate.
-        /* Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. 
-        See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently
-        */
+        // TODO (?): 
+        // set default colours in one place and propogate ?
+        // colour lookup and replace function ?
         const canvas = document.getElementById('canvas');
-        // const cacheContext =  document.getElementById('cache').getContext('2d');
-        const canvasContext = canvas.getContext('2d');
-        var dataUrl = "beep boop";
-        var cacheData;
-        // console.log(cache);
-        // var coloursRGB = [[0,0,0], [255,255,255]];
-        var coloursRGB = [[0,0,0], [255,255,255]];
-        var filePath;
+        const canvasContext = canvas.getContext('2d', {willReadFrequently: 'true'});
+        let cacheData; clearCache();
+        let dataUrl = "beep boop that didn't work";
+        let coloursRGB = [[0,0,0], [255,255,255]];
+        let width, height;
         
+        let changePageStyle = true;
+        document.getElementById('pagestyle').addEventListener('click', function(){
+            changePageStyle = event.target.checked;
+        });
+
         const colourInputs = document.querySelectorAll('input[type=color]');
         for(let i = 0; i < colourInputs.length; i++){
             // setImageColours(i, hexToRGB(colourInputs[i].value));
             colourInputs[i].addEventListener('change', function() {    
                 setImageColours(i, hexToRGB(event.target.value));
+                clearCache();
+                applyDithering();
             });
             colourInputs[i].addEventListener('input', function() {
                 setStyleColours(i, event.target.value)});
-            }
-        
+        }
+
         function setImageColours(index, value){
-            console.log(`ImageColours ${index}, ${value}`);
+            // console.log(`setImageColours ${index}, ${value}`);
             coloursRGB[index] = (value);
         }
 
         const root = document.querySelector(':root');
         function setStyleColours(index, value){
-            console.log(`StyleColours ${index}, ${value}`);
-            root.style.setProperty(`--colour${index.toString()}`, value);
+            // console.log(`setStyleColours ${index}, ${value}`);
+            if (changePageStyle){
+                root.style.setProperty(`--colour${index.toString()}`, value);
+            }
         }
 
-    //     document.getElementById('log').addEventListener('click', function() {
-    //     console.log(coloursRGB);
-    // });
-
-        //invert colours
-        document.getElementById('invert').addEventListener('click', function() {
-            let temp = colourInputs[0].value;
-            colourInputs[0].value = colourInputs[1].value;
-            colourInputs[1].value = temp;
-
-            temp = coloursRGB[0];
-            setImageColours(0, coloursRGB[1]);
-            setImageColours(1, temp);
-
-            setStyleColours(0, colourInputs[0].value);
-            setStyleColours(1, colourInputs[1].value);
-        });
-
         function hexToRGB(hex) {
-            var rgb = [0,0,0];
-            var hex = hex.replace("#", "");
+            let rgb = [0,0,0];
+            hex = hex.replace("#", "");
             rgb[0] = parseInt(hex.substring(0, 2), 16);
             rgb[1] = parseInt(hex.substring(2, 4), 16);
             rgb[2] = parseInt(hex.substring(4, 6), 16);
             return rgb;
         }
 
+    //     document.getElementById('log').addEventListener('click', function() {
+    //     console.log(coloursRGB);
+    // });
+
+        //called when uploading a new image or changing colours
+        function clearCache(){
+            cacheData = [undefined, undefined];
+            // console.log(cacheData);
+        }
+
+        let inverted = false;
+        document.getElementById('invert').addEventListener('click', function() {
+            inverted = !inverted;
+            
+            //invert colours
+            let temp = colourInputs[0].value;
+            colourInputs[0].value = colourInputs[1].value;
+            colourInputs[1].value = temp;
+            temp = coloursRGB[0];
+            setImageColours(0, coloursRGB[1]);
+            setImageColours(1, temp);
+            setStyleColours(0, colourInputs[0].value);
+            setStyleColours(1, colourInputs[1].value);
+
+            //before dithering, cache current result
+            let i = inverted ? 0 : 1;
+            if (!cacheData[i]){
+                cacheData[i] = canvasContext.getImageData(0, 0, width, height);
+                // console.log("write "+i)
+            }
+            i = 1 - i;
+            //get image data from cache rather than re-dithering
+            if (cacheData[i]){
+                canvasContext.putImageData(cacheData[i], 0, 0);    
+                // console.log("render "+i);
+            }
+            else{
+                applyDithering();
+            }
+            // console.log(cacheData)
+        });
+
+        let img;
+        function drawImage(){
+            canvasContext.drawImage(img, 0, 0);
+            // console.log("draw");
+        }
+
         document.getElementById('upload').addEventListener('change', function () {
+            clearCache();
             const file = event.target.files[0];
             filePath = event.target.value;
-            console.log(filePath);
             const reader = new FileReader();
             reader.onload = function (event) {
-                const img = new Image();
+                img = new Image();
+                img.src = event.target.result;
                 img.onload = function () {
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    canvasContext.drawImage(img, 0, 0);
+                    // canvas.width = img.width;
+                    // canvas.height = img.height;
+                    width = img.width;
+                    height = img.height;
+                    canvas.width = width;
+                    canvas.height = height;
                     applyDithering();
                 };
-                img.src = event.target.result;
             };
             reader.readAsDataURL(file);
         });
 
         // TIL how to do this!
+        let filePath;
         document.getElementById('download').addEventListener('click', function() {
-            var fileName;
+            let fileName;
             if (filePath) {
-                var startIndex = (filePath.indexOf('\\') >= 0 ? filePath.lastIndexOf('\\') : filePath.lastIndexOf('/'));
-                var fileName = filePath.substring(startIndex);
+                let startIndex = (filePath.indexOf('\\') >= 0 ? filePath.lastIndexOf('\\') : filePath.lastIndexOf('/'));
+                fileName = filePath.substring(startIndex);
                 if (fileName.indexOf('\\') === 0 || fileName.indexOf('/') === 0) {
                     fileName = fileName.substring(1);
                     fileName = fileName.substring(0, fileName.lastIndexOf('.'));
@@ -206,7 +251,7 @@
         //first javascript I've worked on in a year :D -Olive
         document.getElementById('copy').addEventListener('click', function() {
             dataUrl = canvas.toDataURL('image/png');
-            var copyText = document.createElement("textarea");
+            let copyText = document.createElement("textarea");
             copyText.value = dataUrl;
             document.body.append(copyText)
             copyText.select();
@@ -219,10 +264,13 @@
         });
 
         function applyDithering() {
-            const imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
-            var data = imageData.data;
-            const width = canvas.width;
-            const height = canvas.height;
+            // console.log("dither!");
+            drawImage();
+            // const imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
+            const imageData = canvasContext.getImageData(0, 0, width, height);
+            let data = imageData.data;
+            // const width = canvas.width;
+            // const height = canvas.height;
 
             // Find the gray value of a pixel
             const getGrayValue = (r, g, b) => 0.299 * r + 0.587 * g + 0.114 * b;
@@ -230,7 +278,7 @@
             // Set the pixel value
             const setPixel = (x, y, value) => {
                 const i = (y * width + x) * 4;
-                const j = value < 128 ? 1 : 0;
+                const j = value < 128 ? 0 : 1;
                 data[i] = coloursRGB[j][0];
                 data[i + 1] = coloursRGB[j][1];
                 data[i + 2] = coloursRGB[j][2];
