@@ -7,9 +7,9 @@
     <title>do a dither!</title>
 </head>
 <body>
-    <h1>do a dither!</h1>
+    <h1>do a dither! ~ orf.place</h1>
     <p>one-bit dither completely in your browser!<br> 
-        forked with permission from <a href="https://eli.li/one-trip-to-the-beach-inspired-me-to-make-two-programs-this-weekend" target="_blank">eli oat</a> &lt;3.</p>
+        forked from <a href="https://eli.li/one-trip-to-the-beach-inspired-me-to-make-two-programs-this-weekend" target="_blank">eli oat</a> &lt;3.</p>
     <details>
         <summary>click here for more info and options</summary>
         <ul>
@@ -35,7 +35,7 @@
     <input type="file" id="upload" accept="image/*">
 
     <h2>step 2. (optional)</h2>
-    <p>change the colours:</p>
+    <p>change the colours (click on the coloured buttons below):</p>
     <label for="colour0">colour 0:</label>
     <input type="color" id="colour0" value="#000000">
     <br>
@@ -47,11 +47,11 @@
     <!-- would be nice to have invert float to the right of the colours -->
 
     <h2>step 3.</h2>
-    <label for="download">download the image:</label><br>
+    <label for="download">download the image:</label>
     <button id="download">download</button>
     <!-- <h2>image data</h2> -->
     <br>
-    <label for="copy">or copy the image data:</label><br>
+    <label for="copy">or copy the image data:</label>
     <button id="copy">copy</button>
     <!-- <p><code id="dataurl"></code></p> -->
 
@@ -97,6 +97,7 @@
         a {
             color: var(--colour0);
             text-decoration-style: dotted;
+            text-underline-offset: 0.1em;
         }
         code {
             max-width: 4em;
