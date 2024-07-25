@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>do a dither!</title>
 </head>
@@ -10,17 +11,19 @@
     <p>one-bit dither completely in your browser!<br> 
         forked with permission from <a href="https://eli.li/one-trip-to-the-beach-inspired-me-to-make-two-programs-this-weekend" target="_blank">eli oat</a> &lt;3.</p>
     <details>
-        <summary>click here for details on what this tool does</summary>
+        <summary>click here for more info and options</summary>
         <ul>
-            <li>images are reduced to two colours using the <a href="https://en.wikipedia.org/wiki/Floyd–Steinberg_dithering" target="_blank">Floyd-Steinberg algorithm</a>.</li>
+            <li>'completely in your browser' means that image files are processed entirely on your device and no data is sent over the internet.</li>
             <li>
                 <label for="pagestyle" value="true">the style of the page changes with the colours:</label><br>
                 <input id="pagestyle" type="checkbox" checked> (on by default)
             </li>
             <li><b>colour 0 = shadows</b> and <b>colour 1 = highlights</b>, therefore if 0 is lighter than 1 the image will appear inverted.</li>
+            <li>images are reduced to two colours using the <a href="https://en.wikipedia.org/wiki/Floyd–Steinberg_dithering" target="_blank">Floyd-Steinberg algorithm</a>.</li>
             <li>images are not resized, but large files may look odd in the browser because the size that they're displayed is restricted.</li>
-            <li>when downloading a file, it has '-dithered' added to its original filename</li>
-            <li>the copy button puts the image as a string of letters (a base64-encoded .png) in your clipboard, to embed in a webpage (see: <a href="https://css-tricks.com/data-uris/" target="_blank">Data URIs &#x7C; CSS Tricks</a>).</li>
+            <li>for the best (cutest) results, dither already-small images, i.e. at least less than 1000 pixels in width.</li>
+            <li>when downloading a file, '-dithered' is added to its original filename</li>
+            <li>the copy button at the bottom puts the image as a string of letters (a base64-encoded .png) in your clipboard, handy for embedding small images in a webpage (see: <a href="https://css-tricks.com/data-uris/" target="_blank">Data URIs &#x7C; CSS Tricks</a>).</li>
         </ul>
     </details>
 
