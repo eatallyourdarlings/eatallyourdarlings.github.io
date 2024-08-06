@@ -53,22 +53,24 @@ html {
     color: var(--fg);
     font-size: 100%;
     /* max-width: 60em; */
-	margin: 0 auto;
-    margin-right: auto;
-    margin-left: 1.5em;
+	margin: 0 auto auto 1.5em;
 }
 body {
     padding-top: 1em;
     font-size: 1.1em;
-    max-width: 50em;
+    /* max-width: 50em; */
+    max-width: calc(100% - 1em);
     /* display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: flex-start; */
 }
-/* header pre {
-    font-size: 1em; } /* or use magic number ~1.2vw to get textmode always fitting viewport */
+header {
+    /* font-size: 1em; */
+    /* use magic number ~1.2vw to get textmode always fitting viewport */
+    font-size: calc(100% - 0.1em);
+}
 pre {
     font-size: 1em;
     font-family: var(--mono) !important;
@@ -81,7 +83,9 @@ main, footer {
     padding: 1.5em 1.5em 1.5em 1.5em;
     font-family: var(--serif);
 }
-h1 { font-size: 2em;}
+h1 { 
+    font-size: 2em;
+}
 aside {
     text-align: center;
 }
@@ -121,19 +125,18 @@ main a:not([target="_blank"], [href*="#"])::before, .dir::after, h1:not([class="
 }
 a:hover {
     color: var(--pri);
-    text-decoration: 0.09em underline wavy;
+    text-decoration: 0.05em underline wavy;
     }
 a[target="_blank"]:hover{
     color: var(--sec);
-    text-decoration: 0.09em underline wavy;
+    text-decoration: 0.05em underline wavy;
     /* text-decoration: 0.05em underline wavy; */
     /* text-decoration-style: wavy;
     text-decoration-thickness: 0.05em; */
     }
 a[target="_blank"]{
-    color: var(--fg);
     text-decoration-style: dotted;
-    text-decoration-thickness: 0.09em;
+    text-decoration-thickness: 0.12em;
     text-decoration-color: var(--sec);
     }
 a[target="_blank"]::after {
@@ -171,7 +174,7 @@ ul li, ol li {
     /* list-style-position: outside; */
 }
 ul li::before{
-    color: var(--sec);
+    color: var(--pri);
     content:"* ";
     font-family: var(--mono);
 }
@@ -181,6 +184,9 @@ nav ol{
 }
 .internal li::before {
     color: var(--pri);
+}
+.links li::before {
+    color: var(--sec);
 }
 main ul, main ol { 
     line-height: 1.25em; 
