@@ -249,16 +249,16 @@ g,0,0,0,b,0,0,0,0,0,b,0,0,0,0,0
 0,0,0,0,j,0,0,0,0,0,j,0,0,0,0,0
 0,0,0,0,j,0,0,0,0,0,j,0,0,0,0,0
 NAME hall
-EXT 9,0 8 9,15
-EXT 5,0 8 5,15
-EXT 6,0 8 6,15
-EXT 7,0 8 7,15
 EXT 8,15 5 8,5
 EXT 5,15 5 5,5
 EXT 6,15 5 6,5
 EXT 9,15 5 9,5
 EXT 7,15 5 7,5
 EXT 8,0 8 8,15
+EXT 7,0 8 7,15
+EXT 9,0 8 9,15
+EXT 5,0 8 5,15
+EXT 6,0 8 6,15
 PAL 0
 
 ROOM 8
@@ -280,6 +280,10 @@ e,g,0,0,0,0,h,2g,2h,2i,2j,2k,2l,2m,0,0
 0,f,e,g,0,b,0,0,0,0,b,0,f,g,0,0
 NAME dykes
 EXT 8,15 6 8,0
+EXT 7,15 6 7,0
+EXT 9,15 6 9,0
+EXT 5,15 6 5,0
+EXT 6,15 6 6,0
 PAL 0
 
 ROOM a
@@ -1930,7 +1934,7 @@ NAME key
 BLIP 2
 
 DLG 4
-{ava "e"}...to this {wvy}gay little moon{/wvy}{pg}{exit "3" 2 8}
+{ava "e"}...to this {wvy}gay little moon{/wvy}{pg}{exit "a" 2 8}
 NAME moon dialog
 
 DLG 7
@@ -1952,7 +1956,7 @@ DLG 8
               ...{/clr}{pg}{drwt "D2"}: hey hon, look. {pg}another {wvy}dyke{/wvy} has come to visit.{pg}{drwt "D1"}: o how cute!{pg}they look so nervous :3{pg}{pal "2"}{clr 2}{drws "A"}: *blushes*{/clr}
   - b == 1 ?
     {b = 2}{clr 2}{drws "A"}: you guys are
-          h-hot...{/clr}{pg}{drwt "D2"}: we get that a lot.{pg}{drwt "D1"}: hey!{pg}they're just being nice.{pg}say thanks :){pg}{drwt "D2"}: ... thank you. we know.{pg}get lost, {wvy}dyke{/wvy}.{pg}{pal "3"}{clr 2}{drws "A"}: {wvy}*blushes harder*{/wvy}{pg}o-okay.       thank you.{/clr}
+          h-hot...{/clr}{pg}{drwt "D2"}: we get that a lot.{pg}{drwt "D1"}: hey!{pg}they're just being nice.{pg}say thanks :){pg}{drwt "D2"}: ... {pg}    thank you. we know.{pg}get lost, {wvy}dyke{/wvy}.{pg}{pal "3"}{clr 2}{drws "A"}: {wvy}*blushes harder*{/wvy}{pg}o-okay.       thank you.{/clr}
   - b == 2 ?
     {b = 3}{wvy}{drwt "D1"}{drwt "D2"}{/wvy} they forget about you and resume making out.{pal "4"}{pg}{clr 2}*blood rushes to your head*{pg}{shk}*gender envy overwhelms you*{/shk}{/clr}
   - b == 3 ?
@@ -1984,14 +1988,14 @@ DLG a
       - e == 1 ?
         the {wvy}{shk}gender energy{/shk}{/wvy} on this moon is a bit much, so you decide to depart.{pg}{exit "0" 6 7 "fade_b"}{ava "b"}{pal 0}
       - else ?
-        > gender anomaly identified!{pg}log: {wvy}just a couple o' big d-words.{/wvy}> had enough of this place?{pg}> interact again to confirm departure.{e = 1}
+        > gender anomaly identified!{pg}log: {wvy}just a couple o' big d-words.{/wvy}> had enough of this place?{pg}> interact again to depart.{e = 1}
     }
 }
 """
 NAME console dialog
 
 DLG b
-{exit "3" 3 8}
+{exit "3" 3 8}{e = 0}
 NAME down dialog
 
 DLG c
@@ -2000,9 +2004,8 @@ NAME up dialog
 
 DLG d
 """
-you pick up the shell and throw it into the ocean.{pg}
-{
-  - s == 2 ?
+you pick up the shell and throw it into the ocean.{pg}{
+  - s == 1 ?
     you feel a stirring in your gender - you must have unfinished business on this moon.
   - else ?
     the waves bring it right back to your feet.
@@ -2036,7 +2039,7 @@ body {
 	margin:0px;
 	padding:0px;
 	overflow:hidden;
-	background:#4a2b1d;
+	background:#000000;
 }
 
 #game {
