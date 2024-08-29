@@ -8,18 +8,8 @@
     --mono: Courier, monospace;
     --serif: Georgia, serif;
 }
-/* DARK MODE */
 @media (prefers-color-scheme: dark) {
     :root {--bg: var(--black); --fg: var(--white);}
-    /* from https://wiki.xxiivv.com/links/main.css */
-    /* img[src*="svg"], img[src*="png"] */
-    /* img.dodark {
-        color: var(--bg);
-        background-color: var(--fg); 
-        display:inline !important;
-        filter:invert(1)  hue-rotate(180deg);
-    } 
-    img.nodark {display: none !important;} */
 }
 html {
     background-color: var(--bg);
@@ -33,21 +23,20 @@ body {
     font-size: 1.1em;
     /* max-width: 50em; */
     max-width: calc(100% - 1em);
-    /* display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: flex-start; */
+
 }
 header {
-    /* font-size: 1em; */
     /* use magic number ~1.2vw to get textmode always fitting viewport */
-    font-size: calc(100% - 0.1em);
+    font-size: 1.5vw;
+    /* font-size: calc(100% - 0.1em); */
+    color:var(--sec);
+}
+header pre {
+    color:var(--sec);
 }
 pre {
     font-size: 1em;
     font-family: var(--mono) !important;
-    color:var(--sec);
     text-wrap: nowrap;
     margin: 1em 0 0 1em;
 }
@@ -58,9 +47,6 @@ main, footer {
 }
 h1 { 
     font-size: 2em;
-}
-aside {
-    text-align: center;
 }
 figure {
     padding: 2em 0 2em 0;
@@ -82,7 +68,6 @@ footer img{ /* TODO svg links */
     height: 2em;
 }
 /* LINKS */
-/* TODO show biohazard signs for commercial content silos */
 a, a:visited {
     color: var(--fg);
     text-decoration-line: underline;
@@ -103,9 +88,6 @@ a:hover {
 a[target="_blank"]:hover{
     color: var(--sec);
     text-decoration: 0.05em underline wavy;
-    /* text-decoration: 0.05em underline wavy; */
-    /* text-decoration-style: wavy;
-    text-decoration-thickness: 0.05em; */
     }
 a[target="_blank"]{
     text-decoration-style: dotted;
@@ -113,17 +95,13 @@ a[target="_blank"]{
     text-decoration-color: var(--sec);
     }
 a[target="_blank"]::after {
-    /* content: "↝"; */
     content: "~"; 
     color: var(--sec);
     text-decoration: none;
-    /* font-family: var(--mono); */
     }   
-/* reserved for internal links # */
 header a, header a:hover {
     text-decoration: none;
 }
-/* FLAIR */
 em {
     font-weight: normal;
     color:var(--fg);
@@ -180,7 +158,7 @@ hr {
     padding: 0.75em 0 0.75em 0;
   }
 hr::after {
-    content: '⁂'; /* &#8258; &#x2042; */
+    content: '⁂';
     padding: 0 0.25em;
     position: relative;
     top: -0.75em;
@@ -188,14 +166,3 @@ hr::after {
     font-weight: bold;
     font-size: 1em;
   }
-/* table {
-    border:1;
-    width: 6em; 
-    height: 6em;
-} */
-table td {
-    width: 6em;
-}
-table tr {
-    width: 6em;
-}
