@@ -9,25 +9,32 @@
     <title>image_data ~ orf.place</title>
 </head>
 <body>
+<style>
+    * { font-family: monospace; }
+    a { color: firebrick; }
+</style>
 <header><pre><a href="/">orf.place</a> ~ <a href="/tools/">tools</a> ~ image_data</pre></header>
 <main>
-    <h1>turn a png into a string of nonsense</h1>
+    <h1>turn an image into a string of useful nonsense</h1>
     <input id="upload" type="file" accept="image/*">
     <br><br>
     <button id="copy">copy data</button>
     <br>
-    <p>upload a file, copy the data and paste it in an image element's source, like so (inspect element of the image below):</p>
-    <img id="test" alt="a little red aster" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAMAAAAKE/YAAAAAAXNSR0IArs4c6QAAAAlQTFRFAAAA/wAAAAAAZ6dCDAAAAAN0Uk5TAP//RFDWIQAABFhJREFUeJztmut27CAIhUff/6HbaaIColGDF7rYP07bOSZ+EuRi5vMxmUwmk8lkMplMJpPJZFok/9VuiF5555xBr5BeaG1+/YV22qytFlqle+iD/pU69/jcbm3Qs6XSPXRuRG1W/kqtpVX6tEGvUIQO6rl24BoR+Zv4+0+vxbc9JX/bOUJ3GG4fdJj5Bu5hkMimQ97lAXU7dJzqPfTI5RC53T3iVK83ogx081QyYWMYGrh1B7TMDlwLLRQ2rmfWf5GjEaTtKjHo/vtAKzcb22uAjvna37/KZZUX7pEchHUPkORxVJeC7rxVJzQeKOUenQ8NPmznSoEMpc3uUCMPTf25cL1yaDRaCBru8TfQ1/U+/pgGnUrF5uiHaryw6Hs1Ph4wxI0Ihgq2LHCP9+Q2wJOg70oV9DUToXseXym58P4g7x4GbdB90DhsNQZgVBMtgUaiYasMTasLD6IHWAmVDDQFImGLrYUaoeUsW4fOgys3JhVujgwHf0m6wz+EhlM3usfNl9Wi03y4Cl2YmNYerJ0XGZmF5mY/E5pO3wiNfriR7nMcOlcR+knboGGLcCfK46Az3eDXj5QviSvkC13oHvkqEAvNeUXosVPCGdAZJAedurdDoYl5U+Q5AToEwXboM3waFRxcfHZcJ7sbGnhKqd4/BxrEZxAFi93L9Ip/UAXPPooxU3E7GrSwDHqV8iZByUbkWtizoYvJZTdZXQa9SqXaYzdXWUWfptQ+7y+3qVJV+3xgeAW1tSuoQyN7cmequ0vsorWDM7At5ErQ9nOP2Juxnk9K86lroOcejFegbjIMz0a6dCoy3fCp1eKhHTr+b9cZ0J1aBB0dAEDWoOtrmerWaFfVnLqP+2+xa6CZya8xp0GHOdiQEL+FAD4C/1lb7VT3qJrMgzHUunyOSdDTkJ8SSoTmHkP92sXQns5MnaeWGLdAkzNI8M0a+ClZGws93afr9hrKLlNsXSnYpKDlayd8qJ5OTT2eNa0PCl5bZHZOvEXAcSxaFIbAopXq0LAamP9dMpKxy1mNe4uQU4cx8f5ToMmnDdC8v0+D9qug8f3HUGNThCcZdA/+fQ3jM2/cOjVF5IZ0I9bDFewr0+9ciHlcfyM0fX4JDECPTpDPJQbNM2NLS0LHb6kN3bW+RTz/8Xvod3c1aIN+uBEJHQy0TLGwEFqujV7lHl60UHgPfecvZdBseeN5n5aBZlK6ADTdbrLQ+Z27t3cOnd8iVCbzoPsvQ5UXt+rZ0N13Zkrc4php0AM+bdBjsw9sxOhZhaZkInS1ESpfBrbg05hj3oSDYuh5zEKuqlqCznnQDR2rbO0hoBae86AbnvyrnlleMYE/Q69CehI8saqOOwcaHVA9+vQp0PXcfaZ0QYfDzCupaIG+KMMLkpGKZb3g6xwFuJfwybZBz1O99T5UsoegiwRfsOiCVhc9YCo839YgFSqCvlIh1m6oJx1UGLdLJ7QGdzCZTCaTyWQymU7RD6IFHlGIF0EYAAAAAElFTkSuQmCC">
-    <br>
-    <code>&lt;img src="data:image/png;base64,ashauihfgekeyboardssyuadfsmash"&gt;</code>
-    <p>this is useful for embedding small images inside a html page, for example if you're making one-file web-zines. not recommended for larger images (a megabyte or more).</p>
+    <p>upload a file, copy the data and paste it in an image element's source, like so:</p>
+    <img id="test" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAMAAAAKE/YAAAAAAXNSR0IArs4c6QAAAAlQTFRFAAAA/wAAAAAAZ6dCDAAAAAN0Uk5TAP//RFDWIQAABFhJREFUeJztmut27CAIhUff/6HbaaIColGDF7rYP07bOSZ+EuRi5vMxmUwmk8lkMplMJpPJZFok/9VuiF5555xBr5BeaG1+/YV22qytFlqle+iD/pU69/jcbm3Qs6XSPXRuRG1W/kqtpVX6tEGvUIQO6rl24BoR+Zv4+0+vxbc9JX/bOUJ3GG4fdJj5Bu5hkMimQ97lAXU7dJzqPfTI5RC53T3iVK83ogx081QyYWMYGrh1B7TMDlwLLRQ2rmfWf5GjEaTtKjHo/vtAKzcb22uAjvna37/KZZUX7pEchHUPkORxVJeC7rxVJzQeKOUenQ8NPmznSoEMpc3uUCMPTf25cL1yaDRaCBru8TfQ1/U+/pgGnUrF5uiHaryw6Hs1Ph4wxI0Ihgq2LHCP9+Q2wJOg70oV9DUToXseXym58P4g7x4GbdB90DhsNQZgVBMtgUaiYasMTasLD6IHWAmVDDQFImGLrYUaoeUsW4fOgys3JhVujgwHf0m6wz+EhlM3usfNl9Wi03y4Cl2YmNYerJ0XGZmF5mY/E5pO3wiNfriR7nMcOlcR+knboGGLcCfK46Az3eDXj5QviSvkC13oHvkqEAvNeUXosVPCGdAZJAedurdDoYl5U+Q5AToEwXboM3waFRxcfHZcJ7sbGnhKqd4/BxrEZxAFi93L9Ip/UAXPPooxU3E7GrSwDHqV8iZByUbkWtizoYvJZTdZXQa9SqXaYzdXWUWfptQ+7y+3qVJV+3xgeAW1tSuoQyN7cmequ0vsorWDM7At5ErQ9nOP2Juxnk9K86lroOcejFegbjIMz0a6dCoy3fCp1eKhHTr+b9cZ0J1aBB0dAEDWoOtrmerWaFfVnLqP+2+xa6CZya8xp0GHOdiQEL+FAD4C/1lb7VT3qJrMgzHUunyOSdDTkJ8SSoTmHkP92sXQns5MnaeWGLdAkzNI8M0a+ClZGws93afr9hrKLlNsXSnYpKDlayd8qJ5OTT2eNa0PCl5bZHZOvEXAcSxaFIbAopXq0LAamP9dMpKxy1mNe4uQU4cx8f5ToMmnDdC8v0+D9qug8f3HUGNThCcZdA/+fQ3jM2/cOjVF5IZ0I9bDFewr0+9ciHlcfyM0fX4JDECPTpDPJQbNM2NLS0LHb6kN3bW+RTz/8Xvod3c1aIN+uBEJHQy0TLGwEFqujV7lHl60UHgPfecvZdBseeN5n5aBZlK6ADTdbrLQ+Z27t3cOnd8iVCbzoPsvQ5UXt+rZ0N13Zkrc4php0AM+bdBjsw9sxOhZhaZkInS1ESpfBrbg05hj3oSDYuh5zEKuqlqCznnQDR2rbO0hoBae86AbnvyrnlleMYE/Q69CehI8saqOOwcaHVA9+vQp0PXcfaZ0QYfDzCupaIG+KMMLkpGKZb3g6xwFuJfwybZBz1O99T5UsoegiwRfsOiCVhc9YCo839YgFSqCvlIh1m6oJx1UGLdLJ7QGdzCZTCaTyWQymU7RD6IFHlGIF0EYAAAAAElFTkSuQmCC">
+    <p>(right click + inspect element on the image above)</p>
+    <p>this is useful for embedding small images inside a html page, for example if you're making one-file web-zines. not recommended for larger images i.e. a megabyte or more &mdash; if it looks too big on this page it's probably too big for a li'l zine!</p>
 </main>
 <script>
     let nonsense = "";
     document.getElementById('upload').addEventListener('change',function(){
             const reader = new FileReader();
             reader.readAsDataURL(event.target.files[0]); 
-            reader.onload = () => nonsense = reader.result;
+            reader.onload = () => {
+                nonsense = reader.result;
+                document.getElementById("test").setAttribute("src", nonsense);
+            }
+
         });
 
     document.getElementById('copy').addEventListener('click',function(){
