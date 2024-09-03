@@ -108,7 +108,8 @@
     </style>
     <script>
         // forked from https://eli.li/_assets/bin/dither/dither.js
-        // TODO (?): 
+        // TODO 
+        // resize image
         // set default colours in one place and propogate ?
         // colour lookup and replace function ?
         const canvas = document.getElementById('canvas');
@@ -210,7 +211,7 @@
             const file = event.target.files[0];
             filePath = event.target.value;
             const reader = new FileReader();
-            reader.onload = function (event) {
+            reader.onload = function(event){
                 img = new Image();
                 img.src = event.target.result;
                 img.onload = function () {

@@ -65,21 +65,29 @@
             text-underline-offset: -0.3em;
         }
         a::after {
-            content: " / / /";
+            color: grey;
+            animation: wyrd 10s infinite;
+        }
+        @keyframes wyrd {
+            0% { content : "";}
+            30% { content: " /";}
+            40% { content: " / /";}
+            50% { content: " / / /";}
+            80% { content: " / /";}
+            90% { content: " /";}
         }
         a:hover {
             text-decoration-style: wavy;
             text-underline-offset: -0.35em;
         }
         .hymn::after{
-            content: "/ ";
+            content: "/";
         }
         .cry::after{
             content: "//";
-            float: none;
         }
         .dream::after{
-            content: "/// ";
+            content: "///";
         }
         .deimos::before {
             content: "/ ";
@@ -90,21 +98,12 @@
         .mars::before {
             content: "/// ";
         }
-        /* .deimos {
-            filter:blur(0.04em);
-        }
-        .sol {
-            filter:blur(0.03em);
-        }
-        .mars {
-            filter:blur(0.02em);
-        } */
     </style>
     <script>
         // randomise order of lists on reload
         var elements = document.getElementsByTagName('ul');
         document.getElementById('join').addEventListener('click', function() {
-            var order = [0,1,2]; //order of lines
+            var order = [0,1,2];
             let c = 3; //order.length
             while (c != 0) {
                 let r = Math.floor(Math.random() * c); //random index
