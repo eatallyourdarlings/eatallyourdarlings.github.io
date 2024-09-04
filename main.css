@@ -1,49 +1,35 @@
-:root {
-    --black: #000; 
-    --white: #fff;
-    --pri: olive;
-    --sec: firebrick;
-    --fg: var(--black); 
-    --bg: var(--white);
-    --mono: Courier, monospace;
-    --serif: Georgia, serif;
-}
-@media (prefers-color-scheme: dark) {
-    :root {--bg: var(--black); --fg: var(--white);}
-}
 html {
-    background-color: var(--bg);
-    color: var(--fg);
+    background-color: #cfbd98;
+    color: #29251e;
     font-size: 100%;
     /* max-width: 60em; */
 	margin: 0 auto auto 1.5em;
 }
+@media (prefers-color-scheme: dark) {
+    html, a {
+        background-color: #29251e;
+        color: #e5d5b3 !important;
+    }
+}
 body {
-    padding-top: 1em;
+    /* padding-top: 1em; */
     font-size: 1.1em;
     /* max-width: 50em; */
     max-width: calc(100% - 1em);
-
-}
-header {
-    /* use magic number ~1.2vw to get textmode always fitting viewport */
-    font-size: 1.5vw;
-    /* font-size: calc(100% - 0.1em); */
-    color:var(--sec);
 }
 header pre {
-    color:var(--sec);
+    color:firebrick;
 }
 pre {
     font-size: 1em;
-    font-family: var(--mono) !important;
+    font-family: Courier, monospace !important;
     text-wrap: nowrap;
     margin: 1em 0 0 1em;
 }
 main, footer {
     /* max-width: 45em; */
     padding: 1.5em 1.5em 1.5em 1.5em;
-    font-family: var(--serif);
+    font-family: Georgia, serif;
 }
 h1 { 
     font-size: 2em;
@@ -55,48 +41,50 @@ figure {
      max-width: 25em; 
 } */
 main img {
-    width: 100;
     padding: 0.75em 0 0.75em 0;
     image-rendering: pixelated; /* sharp-edges */
-    /* border: wavy black 0.0625em; */
-    }
+}
+.sepia {
+    filter: invert() brightness(0.33) sepia(1);
+}
 footer{
     text-align: center;
 }
-footer img{ /* TODO svg links */
-    stroke: var(--pri);
+/* TODO svg links */
+footer img{
+    stroke: olive;
     height: 2em;
 }
 /* LINKS */
 a, a:visited {
-    color: var(--fg);
+    color: #29251e;
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-thickness: 0.1em;
-    text-decoration-color: var(--pri);
+    text-decoration-color: olive;
 }
 main a:not([target="_blank"], [href*="#"])::before, .dir::after, h1:not([class="title"])::before {
     content: "/";
-    color: var(--pri);
+    color: olive;
     text-decoration: none;
-    font-family: var(--mono);
+    font-family: Courier, monospace;
 }
 a:hover {
-    color: var(--pri);
+    color: olive;
     text-decoration: 0.05em underline wavy;
     }
 a[target="_blank"]:hover{
-    color: var(--sec);
+    color: firebrick;
     text-decoration: 0.05em underline wavy;
     }
 a[target="_blank"]{
     text-decoration-style: dotted;
     text-decoration-thickness: 0.12em;
-    text-decoration-color: var(--sec);
+    text-decoration-color: firebrick;
     }
 a[target="_blank"]::after {
     content: "~"; 
-    color: var(--sec);
+    color: firebrick;
     text-decoration: none;
     }   
 header a, header a:hover {
@@ -104,7 +92,6 @@ header a, header a:hover {
 }
 em {
     font-weight: normal;
-    color:var(--fg);
 }
 q {
     font-style: italic;
@@ -125,33 +112,33 @@ ul li, ol li {
     /* list-style-position: outside; */
 }
 ul li::before{
-    color: var(--pri);
+    color: olive;
     content:"* ";
-    font-family: var(--mono);
+    font-family: Courier, monospace;
 }
 /* for internal headings */
 nav ol{
     list-style-type: none;
 }
 .internal li::before {
-    color: var(--pri);
+    color: olive;
 }
 .links li::before {
-    color: var(--sec);
+    color: firebrick;
 }
 main ul, main ol { 
     line-height: 1.25em; 
 }
 nav ol li::before, h2::before, h3::before {
     content: "# ";
-    color: var(--pri);
+    color: olive;
     font-weight: bold;
     text-decoration: none;
-    font-family: var(--mono);
+    font-family: Courier, monospace;
 }
 hr {
     border: none;
-    color: var(--sec);
+    color: firebrick;
     overflow: visible;
     text-align: center;
     height: 0.125em;
@@ -162,7 +149,6 @@ hr::after {
     padding: 0 0.25em;
     position: relative;
     top: -0.75em;
-    font-family: var(--mono);
     font-weight: bold;
     font-size: 1em;
   }
