@@ -6,31 +6,29 @@
     <meta name="author" content="olive rf">
     <meta name="description" content="a time-lost dream from our next dead planet~">
     <link rel="icon" type="image/x-icon" href="../favicon.png">
-    <title>yearn by olive rf</title>
-    <!-- dreaming of Deimos, Mars and Sol
-      spring 2022-spring 2024 -->
+    <title>yearn ~ orf.place</title>
 </head>
 <body>
-    <ul style="overflow: hidden; padding: none; margin: none;  color: grey;">
-    <li style="float: left;">&nbsp;a hymn&nbsp;<span aria-hidden="true">/&nbsp;</span></li>
-    <li style="float: left;">&nbsp;a cry&nbsp;<span aria-hidden="true">//&nbsp;</span></li>
-    <li style="float: left;">&nbsp;a dream&nbsp;<span aria-hidden="true">///&nbsp;</span></li>
+    <ul style="overflow: hidden; padding: none; margin: none;">
+    <li class="hymn">&nbsp;a hymn&nbsp;</li>
+    <li class="cry">&nbsp;a cry&nbsp;</li>
+    <li class="dream">&nbsp;a dream&nbsp;</li>
     </ul>
     <ul>
-    <li><span aria-hidden="true">/&nbsp;</span>mourning moon,</li>
-    <li><span aria-hidden="true">//&nbsp;</span>cold sun,</li>
-    <li><span aria-hidden="true">///&nbsp;</span>dead planet,</li>
+    <li class="deimos">mourning moon,</li>
+    <li class="sol">cold sun,</li>
+    <li class="mars">dead planet,</li>
     </ul>
-    <p><a href="#" id="join">you yearn to join</a><span>&nbsp;/&nbsp;&nbsp;/&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;/&nbsp;</span></p>
+    <p><a href="#" id="join">you yearn to join</a></p>
     <ul>
-    <li><span aria-hidden="true">/&nbsp;</span>the chorus between the stars</li>
-    <li><span aria-hidden="true">//&nbsp;</span>the primordial heat</li>
-    <li><span aria-hidden="true">///&nbsp;</span>the CARRION</li>
+    <li class="deimos">the chorus between the stars</li>
+    <li class="sol">the primordial heat</li>
+    <li class="mars">the CARRION</li>
     </ul>
     <ul>
-    <li><span aria-hidden="true">/&nbsp;</span>but your voice is too soft</li>
-    <li><span aria-hidden="true">///&nbsp;</span>as you redshift towards oblivion</li>
-    <li><span aria-hidden="true">///&nbsp;</span>and you roar with the strength of a thousand throats</li>
+    <li class="deimos">but your voice is too soft</li>
+    <li class="sol">as you redshift towards oblivion</li>
+    <li class="mars">and you roar with the strength of a thousand throats</li>
     </ul>
     <style>
         body, html {
@@ -43,9 +41,6 @@
             padding: 1.5em 0em 0em 1em;
             font-size: 1.1em;
         }
-        span{ 
-            color: grey;
-        }
         p {
             padding: 1em 0 1em 1em;
             font-style: italic;
@@ -54,6 +49,10 @@
             list-style: none;
             font-style: italic;
         }
+        .hymn, .cry, .dream {
+            float: left;
+            color: grey;
+        } 
         ul {
             padding-left: 1em;
         }
@@ -67,10 +66,37 @@
         }
         a::after {
             color: grey;
+            animation: wyrd 10s infinite;
+        }
+        @keyframes wyrd {
+            0% { content : "";}
+            30% { content: " /";}
+            35% { content: " / /";}
+            40% { content: " / / /";}
+            90% { content: " / /";}
+            95% { content: " /";}
         }
         a:hover {
             text-decoration-style: wavy;
             text-underline-offset: -0.35em;
+        }
+        .hymn::after{
+            content: "/" / "";
+        }
+        .cry::after{
+            content: "//" / "";
+        }
+        .dream::after{
+            content: "///" / "";
+        }
+        .deimos::before {
+            content: "/ " / "";
+        }
+        .sol::before {
+            content: "// " / "";
+        }
+        .mars::before {
+            content: "/// " / "";
         }
     </style>
     <script>
