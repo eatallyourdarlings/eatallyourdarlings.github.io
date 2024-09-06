@@ -1,5 +1,5 @@
 html {
-    background-color: #cfbd98;
+    background-color: #d9c9a9;
     color: #29251e;
     font-size: 100%;
     /* max-width: 60em; */
@@ -8,7 +8,7 @@ html {
 @media (prefers-color-scheme: dark) {
     html, a {
         background-color: #29251e;
-        color: #e5d5b3 !important;
+        color: #d9c9a9 !important;
     }
 }
 body {
@@ -42,7 +42,7 @@ figure {
 } */
 main img {
     padding: 0.75em 0 0.75em 0;
-    image-rendering: pixelated; /* sharp-edges */
+    /* image-rendering: pixelated; */
 }
 .sepia {
     filter: invert() brightness(0.33) sepia(1);
@@ -83,7 +83,7 @@ a[target="_blank"]{
     text-decoration-color: firebrick;
     }
 a[target="_blank"]::after {
-    content: "~"; 
+    content: "~" / ""; 
     color: firebrick;
     text-decoration: none;
     }   
@@ -105,7 +105,7 @@ cite {
     margin-bottom: 2em;
 }    
 cite::before{
-    content: "— ";
+    content: "— " / "";
 }
 ul li, ol li { 
     list-style-type: none;
@@ -113,7 +113,7 @@ ul li, ol li {
 }
 ul li::before{
     color: olive;
-    content:"* ";
+    content:"* " / "";
     font-family: Courier, monospace;
 }
 /* for internal headings */
@@ -130,7 +130,7 @@ main ul, main ol {
     line-height: 1.25em; 
 }
 nav ol li::before, h2::before, h3::before {
-    content: "# ";
+    content: "# " / "";
     color: olive;
     font-weight: bold;
     text-decoration: none;
@@ -145,7 +145,7 @@ hr {
     padding: 0.75em 0 0.75em 0;
   }
 hr::after {
-    content: '⁂';
+    content: '⁂' / "";
     padding: 0 0.25em;
     position: relative;
     top: -0.75em;
