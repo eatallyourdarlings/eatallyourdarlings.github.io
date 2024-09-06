@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="olive rf">
     <meta name="description" content="a time-lost dream from our next dead planet~">
-    <link rel="icon" type="image/x-icon" href="../favicon.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
     <title>yearn by olive rf</title>
     <!-- dreaming of Deimos, Mars and Sol
       spring 2022-spring 2024 -->
+    <noscript><style> a {display: none !important;} </style></noscript>
 </head>
 <body>
-    <ul style="overflow: hidden; padding: none; margin: none;  color: grey;">
-    <li style="float: left;">&nbsp;a hymn&nbsp;<span aria-hidden="true">/&nbsp;</span></li>
-    <li style="float: left;">&nbsp;a cry&nbsp;<span aria-hidden="true">//&nbsp;</span></li>
-    <li style="float: left;">&nbsp;a dream&nbsp;<span aria-hidden="true">///&nbsp;</span></li>
+    <ul class="wyrd">
+    <li>&nbsp;a hymn&nbsp;<span aria-hidden="true">/&nbsp;</span></li>
+    <li>&nbsp;a cry&nbsp;<span aria-hidden="true">//&nbsp;</span></li>
+    <li>&nbsp;a dream&nbsp;<span aria-hidden="true">///&nbsp;</span></li>
     </ul>
     <ul>
     <li><span aria-hidden="true">/&nbsp;</span>mourning moon,</li>
     <li><span aria-hidden="true">//&nbsp;</span>cold sun,</li>
     <li><span aria-hidden="true">///&nbsp;</span>dead planet,</li>
     </ul>
-    <p><a href="#" id="join">you yearn to join</a><span>&nbsp;/&nbsp;&nbsp;/&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;/&nbsp;</span></p>
+    <p><a href="#" id="join">you yearn to join</a><noscript><b>you yearn to join</b></noscript><span aria-hidden="true">&nbsp;/&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;///</span></p>
     <ul>
     <li><span aria-hidden="true">/&nbsp;</span>the chorus between the stars</li>
     <li><span aria-hidden="true">//&nbsp;</span>the primordial heat</li>
@@ -29,7 +30,7 @@
     </ul>
     <ul>
     <li><span aria-hidden="true">/&nbsp;</span>but your voice is too soft</li>
-    <li><span aria-hidden="true">///&nbsp;</span>as you redshift towards oblivion</li>
+    <li><span aria-hidden="true">//&nbsp;</span>as you redshift towards oblivion</li>
     <li><span aria-hidden="true">///&nbsp;</span>and you roar with the strength of a thousand throats</li>
     </ul>
     <style>
@@ -38,7 +39,7 @@
             font-family: Courier, monospace;
             color: white;
             background-color: black;
-            background: url("../refs/beautifulmars.png") no-repeat fixed;
+            background: url("/refs/2022-07-06-Meridiani_Planum.png") no-repeat fixed;
             /* no-copyright image from HiRise NASA/JPL/University of Arizona https://www.uahirise.org/media/usage.php */
             padding: 1.5em 0em 0em 1em;
             font-size: 1.1em;
@@ -56,6 +57,15 @@
         }
         ul {
             padding-left: 1em;
+        }
+        ul.wyrd {
+            overflow: hidden; 
+            padding: none; 
+            margin: none;  
+            color: grey;
+        }
+        .wyrd li {
+            float: left;
         }
         a{
             color: white;
@@ -88,7 +98,7 @@
             //i = elements.length
             for (var i = 3; i >= 0; i--){
                 let ul = elements[i];
-                //j = order.length
+                //j = order.length - 1
                 for (var j = 2; j >= 0; j--){
                     ul.appendChild(ul.children[order[j]]);
                 }
