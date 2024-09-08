@@ -1,24 +1,33 @@
 html {
-    background-color: #d9c9a9;
-    color: #29251e;
+    background-color: #FFF;
+    color: #000;
     font-size: 100%;
     /* max-width: 60em; */
 	margin: 0 auto auto 1.5em;
 }
 @media (prefers-color-scheme: dark) {
     html, a {
-        background-color: #29251e;
-        color: #d9c9a9 !important;
+        background-color: #000;
+        color: #FFF !important;
     }
+    img.dodark{
+        filter: invert();
+    }
+    .sepia {
+        filter: invert() sepia(.33) !important;
+    }
+}
+.sepia {
+    filter: sepia(.33);
 }
 body {
     /* padding-top: 1em; */
     font-size: 1.1em;
     /* max-width: 50em; */
-    max-width: calc(100% - 1em);
+    max-width: calc(100% - 4em);
 }
 header pre {
-    color:firebrick;
+    color:#990000;
 }
 pre {
     font-size: 1em;
@@ -44,47 +53,43 @@ main img {
     padding: 0.75em 0 0.75em 0;
     /* image-rendering: pixelated; */
 }
-.sepia {
-    filter: invert() brightness(0.33) sepia(1);
-}
 footer{
     text-align: center;
 }
 /* TODO svg links */
 footer img{
-    stroke: olive;
+    stroke: #999933;
     height: 2em;
 }
-/* LINKS */
 a, a:visited {
-    color: #29251e;
+    color: #000;
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-thickness: 0.1em;
-    text-decoration-color: olive;
+    text-decoration-color: #999933;
 }
 main a:not([target="_blank"], [href*="#"])::before, .dir::after, h1:not([class="title"])::before {
     content: "/";
-    color: olive;
+    color: #999933;
     text-decoration: none;
     font-family: Courier, monospace;
 }
 a:hover {
-    color: olive;
+    color: #999933;
     text-decoration: 0.05em underline wavy;
     }
 a[target="_blank"]:hover{
-    color: firebrick;
+    color: #990000;
     text-decoration: 0.05em underline wavy;
     }
 a[target="_blank"]{
     text-decoration-style: dotted;
     text-decoration-thickness: 0.12em;
-    text-decoration-color: firebrick;
+    text-decoration-color: #990000;
     }
 a[target="_blank"]::after {
     content: "~" / ""; 
-    color: firebrick;
+    color: #990000;
     text-decoration: none;
     }   
 header a, header a:hover {
@@ -112,7 +117,7 @@ ul li, ol li {
     /* list-style-position: outside; */
 }
 ul li::before{
-    color: olive;
+    color: #999933;
     content:"* " / "";
     font-family: Courier, monospace;
 }
@@ -121,24 +126,24 @@ nav ol{
     list-style-type: none;
 }
 .internal li::before {
-    color: olive;
+    color: #999933;
 }
 .links li::before {
-    color: firebrick;
+    color: #990000;
 }
 main ul, main ol { 
     line-height: 1.25em; 
 }
 nav ol li::before, h2::before, h3::before {
     content: "# " / "";
-    color: olive;
+    color: #999933;
     font-weight: bold;
     text-decoration: none;
     font-family: Courier, monospace;
 }
 hr {
     border: none;
-    color: firebrick;
+    color: #990000;
     overflow: visible;
     text-align: center;
     height: 0.125em;
