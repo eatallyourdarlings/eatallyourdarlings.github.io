@@ -1,13 +1,13 @@
 html {
     background-color: #FFF;
-    color: #000;
+    color: #29251e;
     font-size: 100%;
     /* max-width: 60em; */
 	margin: 0 auto auto 1.5em;
 }
 @media (prefers-color-scheme: dark) {
     html, a {
-        background-color: #000;
+        background-color: #29251e;
         color: #FFF !important;
     }
     img.dodark{
@@ -51,7 +51,7 @@ figure {
 } */
 main img {
     padding: 0.75em 0 0.75em 0;
-    /* image-rendering: pixelated; */
+    image-rendering: pixelated;
 }
 footer{
     text-align: center;
@@ -62,23 +62,23 @@ footer img{
     height: 2em;
 }
 a, a:visited {
-    color: #000;
+    color: #29251e;
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-thickness: 0.1em;
     text-decoration-color: #999933;
 }
-main a:not([target="_blank"], [href*="#"])::before, .dir::after, h1:not([class="title"])::before {
+main a:not([target="_blank"], [href*="#"])::before, .dir::after/*,h1:not([class="title"])::before*/{
     content: "/";
     color: #999933;
     text-decoration: none;
     font-family: Courier, monospace;
 }
-a:hover {
+main a:hover {
     color: #999933;
     text-decoration: 0.05em underline wavy;
     }
-a[target="_blank"]:hover{
+header a:hover, a[target="_blank"]:hover{
     color: #990000;
     text-decoration: 0.05em underline wavy;
     }
@@ -134,7 +134,7 @@ nav ol{
 main ul, main ol { 
     line-height: 1.25em; 
 }
-nav ol li::before, h2::before, h3::before {
+nav ol li::before/*,h2::before,h3::before*/{
     content: "# " / "";
     color: #999933;
     font-weight: bold;

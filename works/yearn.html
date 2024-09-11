@@ -6,10 +6,10 @@
     <meta name="author" content="olive rf">
     <meta name="description" content="a time-lost dream from our next dead planet~">
     <link rel="icon" type="image/x-icon" href="/favicon.png">
-    <title>yearn by olive rf</title>
+    <title>yearn by olive r.f.</title>
     <!-- dreaming of Deimos, Mars and Sol
       spring 2022-spring 2024 -->
-    <noscript><style> a {display: none !important;} </style></noscript>
+    <noscript><style> button {display: none !important;} </style></noscript>
 </head>
 <body>
     <ul class="wyrd">
@@ -22,7 +22,7 @@
     <li><span aria-hidden="true">//&nbsp;</span>cold sun,</li>
     <li><span aria-hidden="true">///&nbsp;</span>dead planet,</li>
     </ul>
-    <p><a href="#" id="join">you yearn to join</a><noscript><b>you yearn to join</b></noscript><span aria-hidden="true">&nbsp;/&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;///</span></p>
+    <p><button id="join" type="button">you yearn to join<span aria-hidden="true">&nbsp;/&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;///</span></button><noscript style="font-style: normal;">you yearn to join</noscript></p>
     <ul>
     <li><span aria-hidden="true">/&nbsp;</span>the chorus between the stars</li>
     <li><span aria-hidden="true">//&nbsp;</span>the primordial heat</li>
@@ -34,15 +34,17 @@
     <li><span aria-hidden="true">///&nbsp;</span>and you roar with the strength of a thousand throats</li>
     </ul>
     <style>
+        * {
+            font-size: 1.1em;
+        }
         body, html {
             height: 100%;
             font-family: Courier, monospace;
             color: white;
-            background-color: black;
-            background: url("/refs/2022-07-06-Meridiani_Planum.png") no-repeat fixed;
+            background: black url("./refs/2022-07-06-Meridiani_Planum.png") no-repeat fixed;
             /* no-copyright image from HiRise NASA/JPL/University of Arizona https://www.uahirise.org/media/usage.php */
             padding: 1.5em 0em 0em 1em;
-            font-size: 1.1em;
+            cursor: crosshair;
         }
         span{ 
             color: grey;
@@ -58,7 +60,7 @@
         ul {
             padding-left: 1em;
         }
-        ul.wyrd {
+        .wyrd {
             overflow: hidden; 
             padding: none; 
             margin: none;  
@@ -67,18 +69,23 @@
         .wyrd li {
             float: left;
         }
-        a{
+        button {
+            font-style: normal; 
+            font-weight: normal;
+            font-family: Courier, monospace;
+            appearance: none;
+            background: transparent;
             color: white;
-            font-weight: bold;
+            border: none;
+            text-decoration: underline;
+            cursor: help;
+            padding: 0;
             text-decoration-color: grey;
             text-decoration-style: dotted;
             text-decoration-thickness: 0.05em;
             text-underline-offset: -0.3em;
         }
-        a::after {
-            color: grey;
-        }
-        a:hover {
+        button:hover {
             text-decoration-style: wavy;
             text-underline-offset: -0.35em;
         }
