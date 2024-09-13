@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Olive R.F."/>
+  <link href="main.css" rel="stylesheet" type="text/css" media="all">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <title>wyrd-mars ~ orf dot place</title>
+</head>
+<body>
+  <header><pre><a href="index.html"> orf.place</a> ~ </pre></header>
+  <main>
+    
+    
+    
+    <h1>wyrd mars</h1>
+    <figure>
+    <img src="works/wyrd-mars.gif"
+    alt="A looping animation of the planet Mars in the far future, viewed from outer orbit, rendered in a limited, desaturated palette. Spots of greenery and water systems can be seen in the planet’s crevices, and faint red stars flicker in the space around it. In the centre of frame the small, lonely moon, Phobos, spins in the opposite direction." />
+    <figcaption aria-hidden="true">A looping animation of the planet
+    Mars in the far future, viewed from outer orbit, rendered in a
+    limited, desaturated palette. Spots of greenery and water systems
+    can be seen in the planet’s crevices, and faint red stars flicker in
+    the space around it. In the centre of frame the small, lonely moon,
+    Phobos, spins in the opposite direction.</figcaption>
+    </figure>
+    <h2>recalling a dream of Phobos falling, Autumn 2023</h2>
+    <ul>
+    <li>soundtrack: <a
+    href="https://emilyharpist.bandcamp.com/track/pitch-pedal-harp">Blue
+    Pitch by Emily Hopkins</a> (I think I remember listening to this a
+    lot I had the dream).</li>
+    </ul>
+    <p>I once had a dream that I was standing on Mars, looking up into
+    the sky as one of its moons, Phobos, fell closer and closer towards
+    me with every orbit. That dream-memory has always stuck with because
+    of the raw and complex mix of emotions I felt looking up at the
+    falling moon; dread, wonder, nostalgia and grief…</p>
+    <p>Phobos crosses Mars’ sky twice every day, and gets closer by a
+    few centimetres every day. In 10 million years, when Phobos gets
+    close enough to be as big as Earth’s moon is in our sky today, it
+    will start to gradually be broken apart by Mars’ gravity and turn
+    into a ring. At (roughly) the same time the other moon, Deimos will
+    have almost escaped Mars’ orbit and will hardly be discernible from
+    the other stars in the sky. </p>
+    <p>But before Phobos dies and Deimos leaves, if there are people on
+    Mars at that time do you think they’ll look up at those bright
+    specks in the sky and be reminded of home? And how will they feel
+    later, when the night sky is just dust and stars?</p>
+    <h2>process</h2>
+    <p>In Autumn 2023 I had that dream and I dove into Blender to
+    explore this image I had in my head, of a green Mars and a lonely
+    moon. It was one of the first Blender projects that wasn’t just
+    following a tutorial, and learnt a lot through trial and error. I
+    found a height-map of Mars and learnt how to re-colour the texture
+    using Shader Nodes. I also found a 3D model of Phobos, and projected
+    onto it a photograph from <a
+    href="https://beautifulmars.tumblr.com">BEAUTIFUL MARS</a>, which is
+    a bottomless well of inspiration for me. I remember spending an
+    unnecessary amount of time figuring out how much the orbit of the
+    moon would have decayed in the far future, and whether Deimos would
+    still be visible.</p>
+    <p>I didn’t realise when I was starting out with Blender that the
+    tutorials I was being fed by the YouTube algorithm were of a very
+    skewed perspective: that 3D art is something that’s done with
+    complex shaders and 16K textures (I wish I was joking) that take
+    even the fanciest graphics card hours to render. When I had to leave
+    this rendering overnight I didn’t feel great about it. The original
+    version of this was a 120MB super-HD video loop rendered directly
+    into Instagram reel’s aspect ratio—which is a bit of a sad indicator
+    of my attitude towards my art at the time.</p>
+    <p>In Autumn 2024 I sat down in a cafe for 45 minutes to re-love
+    this work and shrink it down to fit my present values (on
+    computer-art being nice when it’s small and therefore uses less
+    energy). I opened the video file in Blender’s video editor and in
+    the render settings I changed the frame rate from 30 to 1, which
+    meant that only 25 frames of the original 750 would be rendered. I
+    rendered each frame to my desktop cauldron, setting the output path
+    to <code>Desktop/cauldron/#</code> so that each file would be named
+    its frame number.</p>
+    <p>Using <a href="https://github.com/makew0rld/didder">didder</a> on
+    the command line, I tested individual frames with some different
+    palettes and saturation settings. I’ve been using command line
+    libraries for image stuff for a while but I’d been procrastinating
+    learning how to write little scripts to run commands on a bunch of
+    images in a directory, so I found an article and learnt how to do
+    that in like ten minutes. I cast the following spell:</p>
+    <pre><code>for i in *.png; do didder --input $i --output ./did/$i --palette &#39;#2c323a #734545 #51906c #639f98 #99ad62 #cfbd98 #c07b49 #ad5640&#39; --saturation 2 edm FloydSteinberg; done</code></pre>
+    <p>… where <code>i</code> contains the name of each file in the
+    cauldron ending in png, so using <code>./did/$i</code> as the output
+    filename makes each of the diddered images go into the folder
+    <code>did</code> with same name as the original. I used <a
+    href="https://lospec.com/palette-list/dusty-rainbow-9">Dusty Rainbow
+    9 Palette by Chase Stemel on LOSPEC</a> as a starting point for the
+    colour palette. I selected all the frames, right clicked and opened
+    them with Aseprite to tweak the colours and render them into a
+    gif.</p>
+    <p>I choose a slow refresh rate for my gif art because I like to
+    imagine them being displayed on low-power fantasy thingamabobs, like
+    a chlorphyll-based e-ink colour screen.</p>
+    <p>Thanks for reading this far! I hope you learnt something new or
+    were inspired :]</p>
+    
+  </main>
+  <footer>
+    <hr>
+    <p class="date">created 2024-08-26</p>
+    <a href="license.html">Ⓚ all rites reversed</a>
+  </footer>
+</body>
+</html>
+</body>
+</html>

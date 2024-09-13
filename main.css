@@ -1,13 +1,13 @@
 html {
     background-color: #FFF;
-    color: #29251e;
+    color: #211e18;
     font-size: 100%;
     /* max-width: 60em; */
 	margin: 0 auto auto 1.5em;
 }
 @media (prefers-color-scheme: dark) {
     html, a {
-        background-color: #29251e;
+        background-color: #211e18;
         color: #FFF !important;
     }
     img.dodark{
@@ -29,10 +29,10 @@ body {
 header pre {
     color:#990000;
 }
-pre {
+pre, code {
     font-size: 1em;
     font-family: Courier, monospace !important;
-    text-wrap: nowrap;
+    text-wrap: wrap;
     margin: 1em 0 0 1em;
 }
 main, footer {
@@ -46,9 +46,10 @@ h1 {
 figure {
     padding: 2em 0 2em 0;
 }
-/* figcaption {
+figcaption {
      max-width: 25em; 
-} */
+     font-style: italic;
+}
 main img {
     padding: 0.75em 0 0.75em 0;
     image-rendering: pixelated;
@@ -62,13 +63,13 @@ footer img{
     height: 2em;
 }
 a, a:visited {
-    color: #29251e;
+    color: #211e18;
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-thickness: 0.1em;
     text-decoration-color: #999933;
 }
-main a:not([target="_blank"], [href*="#"])::before, .dir::after/*,h1:not([class="title"])::before*/{
+/*main a:not([target="_blank"], [href*="#"])::before,*/ .dir::after/*,h1:not([class="title"])::before*/{
     content: "/";
     color: #999933;
     text-decoration: none;
