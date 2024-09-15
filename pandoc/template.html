@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Olive R.F."/>
+  <link href="main.css" rel="stylesheet" type="text/css" media="all">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+$if(description-meta)$
+  <meta name="description" content="$description-meta$" />
+$endif$
+  <title>$pagetitle$ ~ orf dot place</title>
+</head>
+<body>
+  <header><pre><a href="index.html"> orf.place</a> ~ </pre></header>
+  <main>
+    $for(include-before)$$include-before$$endfor$
+    $if(title)$<h1>$title$</h1>$endif$
+    $if(toc)$<nav role="doc-toc">
+      $if(toc-title)$<h2>$toc-title$</h2>$endif$
+    $table-of-contents$
+    </nav>$endif$
+    $body$
+    $for(include-after)$$include-after$$endfor$
+  </main>
+  <footer>
+    <hr>
+    $if(date)$<p class="date">created $date$</p>$endif$
+    <a href="license.html">Ⓚ all rites reversed</a>
+  </footer>
+</body>
+</html>
+</body>
+</html>
