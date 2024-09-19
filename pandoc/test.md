@@ -1,6 +1,6 @@
 # h1
 > blockquote with [a link](test.md)
 
-![baby chickens on my knees](../images/baby-chickens.jpg)
+![a janky little aster](favicon.png)
 
-# h1 again
+# h1 again (not semantic)
