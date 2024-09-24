@@ -5,28 +5,67 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Olive R.F."/>
-  <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  <link href="main.css" rel="stylesheet" type="text/css" media="all">
   <link rel="icon" type="image/x-icon" href="favicon.png">
   <title>test ~ orf dot place</title>
 </head>
 <body>
   <header><pre><a href="index.html"> orf.place</a> ~ </pre></header>
   <main>
-    <!--  -->
     
     
-    <h1 id="h1">h1</h1>
+    
+    <h1>h1</h1>
+    <h2>h2</h2>
+    <h3>h3</h3>
     <blockquote>
-    <p>blockquote with <a href="test.md">a link</a></p>
+    <p>blockquote with <a href="hello.html">a link</a></p>
     </blockquote>
     <figure>
-    <img src="../images/baby-chickens.jpg"
-    alt="baby chickens on my knees" />
-    <figcaption aria-hidden="true">baby chickens on my
-    knees</figcaption>
+    <img src="grove.png" alt="a big wiki-mess" />
+    <figcaption aria-hidden="true">a big wiki-mess</figcaption>
     </figure>
-    <h1 id="h1-again">h1 again</h1>
-    <!--  -->
+    <p><em>emphasised</em> or <em>italic</em> or <strong>strong</strong>
+    or <strong><em>emphatic and strong</em></strong></p>
+    <p><code>in-line pre-formatted text</code></p>
+    <pre><code>block
+    of
+        preformatted
+                    text</code></pre>
+    <!-- HTML comment -->
+    <ul>
+    <li>bullet list
+    <ul>
+    <li>nested bullet</li>
+    </ul></li>
+    <li>another thing</li>
+    </ul>
+    <ol type="1">
+    <li>numbered</li>
+    <li>list</li>
+    <li>oops
+    <ol start="3" type="1">
+    <li>uh oh
+    <ul>
+    <li>what</li>
+    </ul></li>
+    </ol></li>
+    </ol>
+    <p>links look like this: <a href="./path/to/file.html">link name</a>
+    <a href="http://orf.place">website name</a></p>
+    <p>embedded media files: <audio src="memo.mp3" controls=""><a
+    href="memo.mp3">alt text</a></audio> in-line text with media</p>
+    <!-- embedded text files are transcluded as `<article>` elements: -->
+    <p><embed src="hello.md" /></p>
+    <blockquote>
+    <p>quote paragraph 1 quote paragraph 2 - citation source</p>
+    </blockquote>
+    <h4>things that don’t work</h4>
+    <p>%%comment%%</p>
+    <p>%% multi-line comment %%</p>
+    <p>fancy bullet list for checklists or prioritising tasks: - [ ]
+    empty - [/] partial - [x] full</p>
+    
   </main>
   <footer>
     <hr>

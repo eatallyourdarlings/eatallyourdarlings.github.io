@@ -10,13 +10,12 @@
 $if(description-meta)$
   <meta name="description" content="$description-meta$" />
 $endif$
-  <title>$pagetitle$ ~ orf dot place</title>
+  <title>$if(title)$$title$$else$$name$$endif$ ~ orf dot place</title>
 </head>
 <body>
-  <header><pre><a href="index.html"> orf.place</a> ~ </pre></header>
+  <header><pre><a href="index.html"> orf dot place</a> ~ $name$</pre></header>
   <main>
     $for(include-before)$$include-before$$endfor$
-    $if(title)$<h1>$title$</h1>$endif$
     $if(toc)$<nav role="doc-toc">
       $if(toc-title)$<h2>$toc-title$</h2>$endif$
     $table-of-contents$
@@ -26,8 +25,7 @@ $endif$
   </main>
   <footer>
     <hr>
-    $if(date)$<p class="date">created $date$</p>$endif$
-    <a href="license.html">Ⓚ all rites reversed</a>
+    <p class="date">$if(date)$ created $date$,$endif$ $if(mdate)$modified $mdate$.$endif$</p>
   </footer>
 </body>
 </html>
