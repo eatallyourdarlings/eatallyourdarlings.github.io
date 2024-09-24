@@ -73,7 +73,8 @@ a, a:visited {
     text-decoration-thickness: 0.1em;
     text-decoration-color: #999933;
 }
-/*main a:not([target="_blank"], [href*="#"])::before,*/ .dir::after/*,h1:not([class="title"])::before*/{
+/*main a:not([target="_blank"], [href*="#"])::before, h1:not([class="title"])::before,*/
+.dir::after{
     content: "/";
     color: #999933;
     text-decoration: none;
@@ -83,7 +84,7 @@ main a:hover {
     color: #999933;
     text-decoration: 0.05em underline wavy;
     }
-header a:hover, a[target="_blank"]:hover{
+header a:hover, a[target="_blank"]:hover, main pre a{
     color: #990000;
     text-decoration: 0.05em underline wavy;
     }
