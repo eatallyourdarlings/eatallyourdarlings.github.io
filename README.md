@@ -1,5 +1,5 @@
-# orf.place
-olive rf's place on the web, made by hand
+# orf dot place
+Olive R.F.'s place on the web, made by hand
 
 hosted on Github pages for now, eventually migrating to a [feminist home server](https://labekka.red/servidoras-feministas/)
 

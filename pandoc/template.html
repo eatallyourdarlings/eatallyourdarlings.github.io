@@ -15,6 +15,7 @@ $endif$
 <body>
   <header><pre><a href="index.html"> orf dot place</a> ~ $name$</pre></header>
   <main>
+    $if(title)$<h1>$title$</h1>$endif$
     $for(include-before)$$include-before$$endfor$
     $if(toc)$<nav role="doc-toc">
       $if(toc-title)$<h2>$toc-title$</h2>$endif$
