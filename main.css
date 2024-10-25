@@ -13,12 +13,6 @@ html {
     img.dodark{
         filter: invert();
     }
-    .sepia {
-        filter: invert() sepia(.33) !important;
-    }
-}
-.sepia {
-    filter: sepia(.33);
 }
 .topsyturvy{
     transform: rotate(180deg);
@@ -27,8 +21,9 @@ html {
 body {
     /* padding-top: 1em; */
     font-size: 1.1em;
-    /* max-width: 50em; */
-    max-width: calc(100% - 4em);
+    padding: 0;
+    /* max-width: 64em; */
+    max-width: calc(100% - 2em); 
 }
 header pre {
     color:#990000;
@@ -65,7 +60,6 @@ main img {
 footer{
     text-align: center;
 }
-/* TODO svg links */
 footer img{
     stroke: #999933;
     height: 2em;

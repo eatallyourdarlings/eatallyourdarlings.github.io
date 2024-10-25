@@ -6,7 +6,6 @@ body{
 	justify-content: flex-start;
 	align-items: flex-start;
 }
-
 /* DARK MODE from https://wiki.xxiivv.com/links/main.css*/
 @media (prefers-color-scheme: dark) {
     :root {--bg: var(--black); --fg: var(--white);}
@@ -18,8 +17,13 @@ body{
         filter:invert(1)  hue-rotate(180deg);
     } 
     img.nodark {display: none !important;}
+    .sepia {
+        filter: invert() sepia(.33) !important;
+    }
 }
-
+.sepia {
+    filter: sepia(.33);
+}
 table {
     border:1;
     width: 6em; 
