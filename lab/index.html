@@ -8,12 +8,12 @@
     <title>lab ~ orf dot place</title>
 </head>
 <body>
-<header><pre><a href="/">orf.place</a> ~ lab</pre></header>
+<header><pre><a href="../index.html">orf dot place</a> ~ lab</pre></header>
 <main>
     <style>
         * {font-family: monospace; line-height: 2em;}
-        body {max-width: 30em;}
-        a {color: #000; text-decoration-style: dashed;}
+        body {max-width: 64em;}
+        a {color: #000; text-decoration-style: dashed; text-decoration-color: #990000}
         a.brutalist::after {content: ']('attr(href)')';}
         a.brutalist::before {content: '[' !important;}
         figure {margin: 0;}
@@ -23,8 +23,16 @@
         code {color: #fff; background: #990000; padding: .2em;}
     </style>
     <h1>the lab</h1>
-    <p>a place for learning HTML, CSS and JS.<br>I'm also learning how to use a screen reader and I'm interested in how different semantics affect that.</p>
-    <p>CSS scraps are kept at <a href="lab.css">lab dot css</a>.</p>
+    <p>a place for experimenting with HTML, CSS and JS.
+    <br>I'm also learning how to use a screen reader and I'm interested in how different semantics affect that.
+    <br>stealing/forking from other cute websites is a good way to learn! credit is always given where it's due.</p>
+    <h2>misc</h2>
+    <ul>
+        <li><a href="palettes.html">changing colour palettes</a></li>
+        <li><a href="pre.html">pre-formatted text</a></li>
+        <li><a href="aura.html">CSS energy</a></li>
+        <li><a href="lab.css">CSS scraps</a></li>
+    </ul>
 
     <h2>links</h2>
     <p></p>
@@ -55,10 +63,6 @@
     B |----------------
     e |----------------
         </pre>
-    
-    <h2>do I need to put everything in figures?</h2>
-    <p>figures are nice because they can turn anything into an image with <code>aria-role="img"</code>. The screen reader reads out the <code>figcaption</code> first, which can be nice but with a big caption this is not great.</p>
-    
     <h2>audio</h2>
     <p>I read somewhere u should have a link within an audio element as a backup if it doesn't load.</p>
     <figure>
@@ -81,6 +85,9 @@
         <figcaption aria-hidden="true">a chill-ass bird</figcaption>
     </figure>
 
+    <h2>do I need to put everything in figures?</h2>
+    <p>figures are nice because they can turn anything into an image with <code>aria-role="img"</code>. the screen reader reads out the <code>figcaption</code> first, then repeats it when reaching the end of the figure. with a big caption this is not a great experience.</p>
+    
     <h2>further studies</h2>
     <ul>
         <li>how to HTML like it's the year I was born</li>
