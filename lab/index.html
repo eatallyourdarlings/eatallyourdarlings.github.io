@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Olive R.F.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../favicon.png">
+    <title>lab ~ orf dot place</title>
+</head>
+<body>
+<header><pre><a href="/">orf.place</a> ~ lab</pre></header>
+<main>
+    <style>
+        * {font-family: monospace; line-height: 2em;}
+        body {max-width: 30em;}
+        a {color: #000; text-decoration-style: dashed;}
+        a.brutalist::after {content: ']('attr(href)')';}
+        a.brutalist::before {content: '[' !important;}
+        figure {margin: 0;}
+        figcaption {padding-left: 2em; font-weight: bold;}
+        h1, h2, h3 {color: #990000}
+        pre {color: #990000 /* text-wrap: wrap; */}
+        code {color: #fff; background: #990000; padding: .2em;}
+    </style>
+    <h1>the lab</h1>
+    <p>a place for learning HTML, CSS and JS.<br>I'm also learning how to use a screen reader and I'm interested in how different semantics affect that.</p>
+    <p>CSS scraps are kept at <a href="lab.css">lab dot css</a>.</p>
+
+    <h2>links</h2>
+    <p></p>
+    <p>"brutalist" markdown link: <a href="../index.html" class="brutalist">go back home</a></p>
+    <a href="#h3"><h3 id="h3">a heading linking to itself</h3></a>
+
+    <h2>preformatted text</h2>
+    <p>for textmode art, guitar tabs, etc.</p>
+
+    <figure role="img" aria-labelledby="figcaption"></figure>
+        <pre>
+    ag ag  ag ag  ag ag  ag ag
+        ag  ag  ag  ag  ag  ag  ag
+    ag   ag   ag   ag   ag   ag
+        ag   ag  ag   ag  ag   ag
+    ag   ag ag   ag ag   ag   ag
+        ag  ag   ag  ag   ag  ag 
+    ag ag ag ag ag ag ag ag ag ag
+        </pre>
+    <figcaption>a headache</figcaption>
+
+    <br>
+        <pre role="img" alt="guitar tab">
+    E |----------------
+    A |----------------
+    D |----------------
+    G |----------------
+    B |----------------
+    e |----------------
+        </pre>
+    
+    <h2>do I need to put everything in figures?</h2>
+    <p>figures are nice because they can turn anything into an image with <code>aria-role="img"</code>. The screen reader reads out the <code>figcaption</code> first, which can be nice but with a big caption this is not great.</p>
+    
+    <h2>audio</h2>
+    <p>I read somewhere u should have a link within an audio element as a backup if it doesn't load.</p>
+    <figure>
+        <audio loop="true" preload="metadata" src="think.mp3" controls>
+            <a href="think.mp3">woo! yea!</a>
+        </audio>
+        <figcaption>woo! yea!</figcaption>
+    </figure>
+    <p>true audio looping doesn't seem to work in Safari, which is bothersome.</p>
+
+    <h2>images</h2>
+    <p>embedded <a href="../tools/image_data.html">image data</a> with a link to the original — this could be useful for single-page HTML zines:</p>
+    <figure>
+        <a href="xatu.png"><img alt="a chill-ass bird" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAAXNSR0IArs4c6QAAAAxQTFRF////gIAAsiIiAAAAK9oudwAAAAR0Uk5TAP///7MtQIgAAAFcSURBVEiJ7dXZEoMgDAXQcPP//1yyIEsLXn1uOmOdlkOQJYr843moxwtWL6UUnsKbaglnlGQ5SCfxzcjeRh24JODYRCOjkLLPxTBY7ilzDbT04Gc2J6dDBSvLAtmkc0K8lDa1dbCPpZN6oaVmOiAkQA03H8wj9iGih7t0eCUXl1N6L239U5YhZco9tfb5jL74ksc65TapHQhxMWzUbHyUFUqRaxltl2KWv6ElzJPfzj/qpzXWU0INLe0UQ0a5dXNGb4YsRqfQZYNHVegPeYJdatukw1APrsFYQfjyc1C0F5qE1EhlrHZ5qlg4Vmbvg5nUBXoQB/GXA1Gq/C01Q3DFvLYoHdbboty7Tq+zYLnxAPpSayDvhoYIG8hWkXu3OsSFHkArTR1NZe5e6ox8DDdWl3qqWZ6iMG6tFQ3giyHvtltdc6ixydCyafv9VG6G/8wzu3RWX93w8U79I+IDNqkG5aZzc8MAAAAASUVORK5CYII=">
+        </a>
+    </figure>
+    <p>making alt text visible with a caption that isn't read out by a screen reader:</p>
+    <figure>
+        <img src="xatu.png" alt="a chill-ass bird">
+        <figcaption aria-hidden="true">a chill-ass bird</figcaption>
+    </figure>
+
+    <h2>further studies</h2>
+    <ul>
+        <li>how to HTML like it's the year I was born</li>
+        <li>video? captions ?? a little bit of JS for custom audio/video players ???</li>
+        <li>accessible ASCII using figures with alt text</li>
+        <li>why use blockquotes/figures/paragraphs instead of custom divs?</li>
+        <!-- expanding text from future ruins -->
+        <!-- adam ledoux color change -->
+        <!-- animated svgs from thomasaurus  --> 
+        <!-- <section id="badges"> badges for my site, friends' sites and webrings </section> -->
+    </ul>
+    <h2>cool things elsewhere</h2>
+    <a href="https://mrdoob.com/projects/htmleditor/" target="_blank">an html editor that updates itself</a> !?
+</main>
+</body>
+</style>
+</html>

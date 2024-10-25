@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="author" content="Olive R.F."/>
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
+  <title>palettes ~ orf dot place</title>
+  <style>
+    svg { height: 2em }
+
+    .palette-transrights {background: #ffffff; color: #55CDFC;}
+    .palette-transrights h1 {color: #F7A8B8;}
+    .palette-transrights svg {fill: #F7A8B8;}
+    .palette-transrights #motto::after {content: "trans rights!";}
+
+  </style>
+  <script>
+    var palettes = ["default", "transrights"];
+    var index = 0;
+
+    function randomPalette() {
+        index = Math.floor(Math.random() * palettes.length);
+        document.body.className = "palette-" + palettes[index];
+    }
+
+    function cyclePalette() {
+        index = (index + 1) % palettes.length;
+        document.body.className = "palette-" + palettes[index];
+    }
+  </script>
+</head>
+<body>
+  <!-- <header><pre><a href="index.html"> orf dot place</a> ~ </pre></header> -->
+  <!-- <main> -->
+    <h1>colour palettes</h1>
+    <h2>forked from adamledoux dot net</h2>
+    <p>this is a pretty sweet way to change colours without using CSS variables.</p>
+    <p>click the little guy!</p>
+    <a href="#" onclick="cyclePalette();" title="change palette"><svg class="ava" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <path d="M20,0 L30,0 L30,10 L20,10 L20,0 M30,0 L40,0 L40,10 L30,10 L30,0 M40,0 L50,0 L50,10 L40,10 L40,0 M50,0 L60,0 L60,10 L50,10 L50,0 M10,10 L20,10 L20,20 L10,20 L10,10 M20,10 L30,10 L30,20 L20,20 L20,10 M30,10 L40,10 L40,20 L30,20 L30,10 M40,10 L50,10 L50,20 L40,20 L40,10 M50,10 L60,10 L60,20 L50,20 L50,10 M60,10 L70,10 L70,20 L60,20 L60,10 M20,20 L30,20 L30,30 L20,30 L20,20 M40,20 L50,20 L50,30 L40,30 L40,20 M50,20 L60,20 L60,30 L50,30 L50,20 M60,20 L70,20 L70,30 L60,30 L60,20 M20,30 L30,30 L30,40 L20,40 L20,30 M50,30 L60,30 L60,40 L50,40 L50,30 M60,30 L70,30 L70,40 L60,40 L60,30 M30,40 L40,40 L40,50 L30,50 L30,40 M40,40 L50,40 L50,50 L40,50 L40,40 M50,40 L60,40 L60,50 L50,50 L50,40 M20,50 L30,50 L30,60 L20,60 L20,50 M30,50 L40,50 L40,60 L30,60 L30,50 M40,50 L50,50 L50,60 L40,60 L40,50 M50,50 L60,50 L60,60 L50,60 L50,50 M60,50 L70,50 L70,60 L60,60 L60,50 M10,60 L20,60 L20,70 L10,70 L10,60 M30,60 L40,60 L40,70 L30,70 L30,60 M50,60 L60,60 L60,70 L50,70 L50,60 M70,60 L80,60 L80,70 L70,70 L70,60 M30,70 L40,70 L40,80 L30,80 L30,70 M50,70 L60,70 L60,80 L50,80 L50,70 Z"/>
+    </svg></a>
+    <p id="motto"></p>
+  <!-- </main> -->
+</body>
+</html>
+</html>

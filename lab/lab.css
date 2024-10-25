@@ -1,0 +1,33 @@
+/* offcuts from main.css stuff I don't really understand go here */
+body{    
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+/* DARK MODE from https://wiki.xxiivv.com/links/main.css*/
+@media (prefers-color-scheme: dark) {
+    :root {--bg: var(--black); --fg: var(--white);}
+    img[src*="svg"], img[src*="png"] */
+    img.dodark {
+        color: var(--bg);
+        background-color: var(--fg); 
+        display:inline !important;
+        filter:invert(1)  hue-rotate(180deg);
+    } 
+    img.nodark {display: none !important;}
+}
+
+table {
+    border:1;
+    width: 6em; 
+    height: 6em;
+}
+table td {
+    width: 6em;
+}
+table tr {
+    width: 6em;
+}
