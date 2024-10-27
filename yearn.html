@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="olive rf">
+    <meta name="description" content="a time-lost dream from our next dead planet~">
+    <link rel="icon" type="image/x-icon" href="../favicon.png">
+    <title>yearn by olive r.f.</title>
+    <!-- dreaming of Deimos, Mars and Sol
+      spring 2022-spring 2024
+      http://orf.place/yearn.txt -->
+    <noscript><style> button {display: none !important;} </style></noscript>
+</head>
+<body>
+    <ul class="wyrd">
+    <li>&nbsp;a hymn&nbsp;<span aria-hidden="true">/&nbsp;</span></li>
+    <li>&nbsp;a cry&nbsp;<span aria-hidden="true">//&nbsp;</span></li>
+    <li>&nbsp;a dream&nbsp;<span aria-hidden="true">///&nbsp;</span></li>
+    </ul>
+    <ul>
+    <li><span aria-hidden="true">/&nbsp;</span>mourning moon,</li>
+    <li><span aria-hidden="true">//&nbsp;</span>cold sun,</li>
+    <li><span aria-hidden="true">///&nbsp;</span>dead planet,</li>
+    </ul>
+    <p><button id="join" type="button">you yearn to join<span aria-hidden="true">&nbsp;/&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;///</span></button><noscript style="font-style: normal;">you yearn to join</noscript></p>
+    <ul>
+    <li><span aria-hidden="true">/&nbsp;</span>the chorus between the stars</li>
+    <li><span aria-hidden="true">//&nbsp;</span>the primordial heat</li>
+    <li><span aria-hidden="true">///&nbsp;</span>the CARRION</li>
+    </ul>
+    <ul>
+    <li><span aria-hidden="true">/&nbsp;</span>but your voice is too soft</li>
+    <li><span aria-hidden="true">//&nbsp;</span>as you redshift towards oblivion</li>
+    <li><span aria-hidden="true">///&nbsp;</span>and you roar with the strength of a thousand throats</li>
+    </ul>
+    <style>
+        * {
+            font-size: 1.1em;
+        }
+        body, html {
+            height: 100%;
+            font-family: Courier, monospace;
+            color: white;
+            background: black url("img/2022-07-06-Meridiani_Planum.png") no-repeat fixed;
+            /* no-copyright image from HiRise NASA/JPL/University of Arizona https://www.uahirise.org/media/usage.php */
+            padding: 1.5em 0em 0em 1em;
+            cursor: crosshair;
+        }
+        span{ 
+            color: grey;
+        }
+        p {
+            padding: 1em 0 1em 1em;
+            font-style: italic;
+        }
+        li {
+            list-style: none;
+            font-style: italic;
+        }
+        ul {
+            padding-left: 1em;
+        }
+        .wyrd {
+            overflow: hidden; 
+            padding: none; 
+            margin: none;  
+            color: grey;
+        }
+        .wyrd li {
+            float: left;
+        }
+        button {
+            font-style: normal; 
+            font-weight: normal;
+            font-family: Courier, monospace;
+            appearance: none;
+            background: transparent;
+            color: white;
+            border: none;
+            text-decoration: underline;
+            cursor: help;
+            padding: 0;
+            text-decoration-color: grey;
+            text-decoration-style: dotted;
+            text-decoration-thickness: 0.05em;
+            text-underline-offset: -0.3em;
+        }
+        button:hover {
+            text-decoration-style: wavy;
+            text-underline-offset: -0.35em;
+        }
+    </style>
+    <script>
+        // randomise order of lists on reload
+        var elements = document.getElementsByTagName('ul');
+        document.getElementById('join').addEventListener('click', function() {
+            var order = [0,1,2];
+            let c = 3; //order.length
+            while (c != 0) {
+                let r = Math.floor(Math.random() * c); //random index
+                c--;
+                //swap random element with the current element.
+                [order[c], order[r]] = [order[r], order[c]];
+            }
+            //i = elements.length
+            for (var i = 3; i >= 0; i--){
+                let ul = elements[i];
+                //j = order.length - 1
+                for (var j = 2; j >= 0; j--){
+                    ul.appendChild(ul.children[order[j]]);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

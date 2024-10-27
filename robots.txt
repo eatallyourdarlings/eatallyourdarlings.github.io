@@ -40,6 +40,9 @@ Disallow: /
 
 User-agent: *
 Disallow: /works/
+Disallow: /img/
+Disallow: /audio/
+Disallow: /share/
 Disallow: *.png
 Disallow: *.jpg
 Disallow: *.gif
