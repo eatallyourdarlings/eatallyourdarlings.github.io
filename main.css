@@ -43,8 +43,9 @@ h1 {
     font-size: 2em;
 }
 figure {
-    padding: 2em 0 2em 0;
-    margin: none;
+    /* padding: 2em 0 2em 0; */
+    margin: 1em;
+    /* font-style: italic; */
 }
 figcaption {
      max-width: 25em; 
@@ -52,6 +53,7 @@ figcaption {
 }
 audio {
     width: 25em;
+    padding: 1em;
 }
 main img {
     padding: 0.75em 0 0.75em 0;

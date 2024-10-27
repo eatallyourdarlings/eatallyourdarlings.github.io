@@ -24,13 +24,13 @@
     </style>
     <h1>the lab</h1>
     <p>a place for experimenting with HTML, CSS and JS.
-    <br>I'm also learning how to use a screen reader and I'm interested in how different semantics affect that.
+    <br>I'm learning how to use a screen reader and I'm interested in how different semantics affect that.
     <br>stealing/forking from other cute websites is a good way to learn! credit is always given where it's due.</p>
+
     <h2>misc</h2>
     <ul>
         <li><a href="palettes.html">changing colour palettes</a></li>
-        <li><a href="pre.html">pre-formatted text</a></li>
-        <li><a href="aura.html">CSS energy</a></li>
+        <!-- <li><a href="aura.html">CSS energy</a></li> -->
         <li><a href="lab.css">CSS scraps</a></li>
     </ul>
 
@@ -41,6 +41,7 @@
 
     <h2>preformatted text</h2>
     <p>for textmode art, guitar tabs, etc.</p>
+    <!-- <li><a href="pre.html">pre-formatted text</a></li> -->
 
     <figure role="img" aria-labelledby="figcaption"></figure>
         <pre>
@@ -65,22 +66,19 @@
         </pre>
     <h2>audio</h2>
     <p>I read somewhere u should have a link within an audio element as a backup if it doesn't load.</p>
+    <!-- <p>Your browser does not support HTML5 audio, but you can still <a href="">download this track</a>.</p> -->
     <figure>
         <audio loop="true" preload="metadata" src="think.mp3" controls>
             <a href="think.mp3">woo! yea!</a>
-            <!-- <p>Your browser does not support HTML5 audio, but you can still <a href="">download this track</a>.</p> -->
         </audio>
         <figcaption>woo! yea!</figcaption>
     </figure>
-    <p>true audio looping doesn't seem to work in Safari, which is bothersome.</p>
-
+    <p>gapless audio looping doesn't seem to work in Safari, which is bothersome.</p>
     <h2>images</h2>
     <p>embedded <a href="../tools/image_data.html">image data</a> with a link to the original — this could be useful for single-page HTML zines:</p>
-    <figure>
-        <a href="xatu.png"><img alt="a chill-ass bird" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAAXNSR0IArs4c6QAAAAxQTFRF////gIAAsiIiAAAAK9oudwAAAAR0Uk5TAP///7MtQIgAAAFcSURBVEiJ7dXZEoMgDAXQcPP//1yyIEsLXn1uOmOdlkOQJYr843moxwtWL6UUnsKbaglnlGQ5SCfxzcjeRh24JODYRCOjkLLPxTBY7ilzDbT04Gc2J6dDBSvLAtmkc0K8lDa1dbCPpZN6oaVmOiAkQA03H8wj9iGih7t0eCUXl1N6L239U5YhZco9tfb5jL74ksc65TapHQhxMWzUbHyUFUqRaxltl2KWv6ElzJPfzj/qpzXWU0INLe0UQ0a5dXNGb4YsRqfQZYNHVegPeYJdatukw1APrsFYQfjyc1C0F5qE1EhlrHZ5qlg4Vmbvg5nUBXoQB/GXA1Gq/C01Q3DFvLYoHdbboty7Tq+zYLnxAPpSayDvhoYIG8hWkXu3OsSFHkArTR1NZe5e6ox8DDdWl3qqWZ6iMG6tFQ3giyHvtltdc6ixydCyafv9VG6G/8wzu3RWX93w8U79I+IDNqkG5aZzc8MAAAAASUVORK5CYII=">
-        </a>
-    </figure>
-    <p>making alt text visible with a caption that isn't read out by a screen reader:</p>
+    <a href="xatu.png"><img alt="a chill-ass bird" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAAXNSR0IArs4c6QAAAAxQTFRF////gIAAsiIiAAAAK9oudwAAAAR0Uk5TAP///7MtQIgAAAFcSURBVEiJ7dXZEoMgDAXQcPP//1yyIEsLXn1uOmOdlkOQJYr843moxwtWL6UUnsKbaglnlGQ5SCfxzcjeRh24JODYRCOjkLLPxTBY7ilzDbT04Gc2J6dDBSvLAtmkc0K8lDa1dbCPpZN6oaVmOiAkQA03H8wj9iGih7t0eCUXl1N6L239U5YhZco9tfb5jL74ksc65TapHQhxMWzUbHyUFUqRaxltl2KWv6ElzJPfzj/qpzXWU0INLe0UQ0a5dXNGb4YsRqfQZYNHVegPeYJdatukw1APrsFYQfjyc1C0F5qE1EhlrHZ5qlg4Vmbvg5nUBXoQB/GXA1Gq/C01Q3DFvLYoHdbboty7Tq+zYLnxAPpSayDvhoYIG8hWkXu3OsSFHkArTR1NZe5e6ox8DDdWl3qqWZ6iMG6tFQ3giyHvtltdc6ixydCyafv9VG6G/8wzu3RWX93w8U79I+IDNqkG5aZzc8MAAAAASUVORK5CYII="></a>
+
+    <p>making alt text visible with a figure caption that isn't read out by a screen reader:</p>
     <figure>
         <img src="xatu.png" alt="a chill-ass bird">
         <figcaption aria-hidden="true">a chill-ass bird</figcaption>
