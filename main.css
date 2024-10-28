@@ -7,7 +7,9 @@ body {
     font-family: Georgia, serif;
     font-size: 1.1em; /* this determines other relative measurements in em */
     display: block;
-    padding-left: 1.5em;
+    padding: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
     padding-top: 1em;
     margin-top: 0;
     margin-right: auto;
@@ -25,7 +27,7 @@ pre, code {
     font-family: Courier, monospace !important;
     text-wrap: wrap;
 }
-header pre { color:#990000; }
+header pre {color:#990000;}
 main pre { 
     padding-top: 1em;  
     margin: 0;
@@ -43,12 +45,8 @@ footer img {
     margin-right: auto;
     padding-top: 0.5em;
 }
-main img {
-    padding-top: 0.75em;
-}
-img {
-    image-rendering: pixelated;
-}
+main img {padding-top: 0.75em;}
+img {image-rendering: pixelated;}
 figure {
     padding-top: 1em;
     padding-bottom: 1em;
@@ -62,9 +60,7 @@ audio {
     width: 24em;
     padding: 1em;
 }
-h1 { 
-    font-size: 2em;
-}
+h1 {font-size: 2em;}
 a, a:visited {
     color: #211e18;
     text-decoration-line: underline;
@@ -74,7 +70,7 @@ a, a:visited {
 }
 header a { text-decoration: none; }
 header a::before { 
-    content: "𐂐" / ""; 
+    content: "𐂐"; 
     color: #999933; 
     font-style: normal;
 }
@@ -85,21 +81,20 @@ main a:hover {
 }
 a[target="_blank"]:hover, header a:hover{
     color: #990000;
-    text-decoration: 0.05em underline wavy;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 0.05em;
 }
 a[target="_blank"]{
     text-decoration-style: dotted;
     text-decoration-thickness: 0.12em;
     text-decoration-color: #990000;
 }
-a[target="_blank"]::after, header a::after {
+a[target="_blank"]::after, header a::after, .title::after {
     content: " ~" / ""; 
     color: #990000;
     text-decoration: none;
     }   
-em {
-    font-weight: normal;
-}
+em {font-weight: normal;}
 q {
     font-style: italic;
     display: block;
@@ -112,7 +107,7 @@ cite {
     margin-bottom: 2em;
 }    
 cite::before{
-    content: "— " / "";
+    content: "— ";
 }
 ul, ol { 
     list-style-type: none;
@@ -142,7 +137,7 @@ hr {
     padding: 0.75em 0 0.75em 0;
   }
 hr::after {
-    content: '⁂' / "";
+    content: '⁂';
     position: relative;
     top: -0.75em;
     font-weight: bold;
