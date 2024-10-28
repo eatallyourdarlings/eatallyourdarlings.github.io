@@ -35,3 +35,28 @@ table td {
 table tr {
     width: 6em;
 }
+/* fancy pseudo element things */
+/*main a:not([target="_blank"], [href*="#"])::before, h1:not([class="title"])::before,*/
+.dir::after{
+    content: "/";
+    color: #999933;
+    text-decoration: none;
+    font-family: Courier, monospace;
+}
+/* for tables of content */
+nav ol li::before/*,h2::before,h3::before*/{
+    content: "# " / "";
+    color: #999933;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: Courier, monospace;
+}
+nav ol{
+    list-style-type: none;
+}
+.internal li::before {
+    color: #999933;
+}
+
+/* for when I get cooler things to put in the footer */
+footer svg { stroke: #999933; height: 2em; }
