@@ -9,7 +9,7 @@ body{
 /* DARK MODE from https://wiki.xxiivv.com/links/main.css*/
 @media (prefers-color-scheme: dark) {
     :root {--bg: var(--black); --fg: var(--white);}
-    img[src*="svg"], img[src*="png"] */
+    /* img[src*="svg"], img[src*="png"] */
     img.dodark {
         color: var(--bg);
         background-color: var(--fg); 

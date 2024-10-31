@@ -1,159 +1,153 @@
 html {
-    background-color: #FFF;
-    color: #211e18;
-    font-size: 100%;
+    background-color:#FFF;
+    color:#211e18;
+    font-size:100%;
 }
 body {
-    font-family: Georgia, serif;
-    font-size: 1.1em; /* this determines other relative measurements in em */
-    display: block;
-    padding: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-top: 1em;
-    margin-top: 0;
-    margin-right: auto;
-    margin-bottom: auto;
-    margin-left: 1.5em;
-    text-align: left;
-    align-self: center;
-    margin: 0 auto;
-    width: calc(100% - 2em); 
-    max-width: 48em;
-    /* max-width: 100%; */
+    font-family:Georgia, serif;
+    font-size:1.1em;/* this determines other relative measurements in em */
+    display:block;
+    padding:1em;
+    padding-left:1em;
+    padding-right:1em;
+    padding-top:1em;
+    margin-top:0;
+    margin-right:auto;
+    margin-bottom:auto;
+    margin-left:1.5em;
+    text-align:left;
+    align-self:center;
+    margin:0 auto;
+    width:calc(100% - 2em);
+    max-width:48em;
+    /* max-width:100%;*/
 }
 pre, code {
-    font-size: 1em;
-    font-family: Courier, monospace !important;
-    text-wrap: wrap;
+    font-size:1em;
+    font-family:Courier, monospace !important;
+    text-wrap:wrap;
 }
 header pre {color:#990000;}
 main pre { 
-    padding-top: 1em;  
-    margin: 0;
+    padding-top:1em; 
+    margin:0;
     }
 footer {
-    padding-top: 1em;
-    padding-bottom: 2em;
-    width: fit-content;
-    font-family: Georgia, serif;
+    padding-top:1em;
+    padding-bottom:2em;
+    width:fit-content;
+    font-family:Georgia, serif;
 }
 footer img { 
-    display: block;
-    /* text-align: center; */
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 0.5em;
+    display:block;
+    /* text-align:center;*/
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:0.5em;
 }
-main img {padding-top: 0.75em;}
-img {image-rendering: pixelated;}
+main img {padding-top:0.75em;}
+img {image-rendering:pixelated;}
 figure {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    margin: 1em;
+    padding-top:1em;
+    padding-bottom:1em;
+    margin:0;
 }
-figcaption {
-     max-width: 24em; 
-     font-style: italic;
-}
+figcaption {max-width:24em; font-style:italic;}
+figcaption::before {content:"+ " / ""; color:#999933;}
 audio {
-    width: 24em;
-    padding: 1em;
+    width:24em;
+    padding:1em;
 }
-h1 {font-size: 2em;}
+h1 {font-size:2em;}
 a, a:visited {
-    color: #211e18;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-    text-decoration-thickness: 0.1em;
-    text-decoration-color: #999933;
+    color:#211e18;
+    text-decoration-line:underline;
+    text-decoration-style:solid;
+    text-decoration-thickness:0.1em;
+    text-decoration-color:#999933;
 }
-header a { text-decoration: none; }
+header a { text-decoration:none;}
 header a::before { 
-    content: "𐂐"; 
-    color: #999933; 
-    font-style: normal;
+    content:"𐂐";
+    color:#999933;
+    font-style:normal;
 }
 main a:hover {
-    color: #999933;
-    text-decoration-style: wavy;
-    text-decoration-thickness: 0.05em;
+    color:#999933;
+    text-decoration-style:wavy;
+    text-decoration-thickness:0.05em;
 }
 a[target="_blank"]:hover, header a:hover{
-    color: #990000;
-    text-decoration-style: wavy;
-    text-decoration-thickness: 0.05em;
+    color:#990000;
+    text-decoration-style:wavy;
+    text-decoration-thickness:0.05em;
 }
 a[target="_blank"]{
-    text-decoration-style: dotted;
-    text-decoration-thickness: 0.12em;
-    text-decoration-color: #990000;
+    text-decoration-style:dotted;
+    text-decoration-thickness:0.12em;
+    text-decoration-color:#990000;
 }
 a[target="_blank"]::after, header a::after, .title::after {
-    content: " ~" / ""; 
-    color: #990000;
-    text-decoration: none;
-    }   
-em {font-weight: normal;}
-q {
-    font-style: italic;
-    display: block;
-    max-width: 32em;
-    margin-bottom: 0.5em;
-}   
-cite {
-    display: block;
-    clear: both;
-    margin-bottom: 2em;
-}    
+    content:" ~" / "";
+    color:#990000;
+    text-decoration:none;
+    }
+em {font-weight:normal;}
+
+q { font-style:italic; display:inline-block;}
+blockquote{display: block; font-style:italic; max-width:32em; margin-left:0.5em;}
+blockquote::after {content:none;}
+blockquote:before {content:"> " / ""; color:#999933;}
+cite {display:block; clear:both; margin-bottom:2em;}
 cite::before{
-    content: "— ";
+    content:"— ";
 }
+
 ul, ol { 
-    list-style-type: none;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    /* list-style-position: outside; */
+    list-style-type:none;
+    margin-top:1.5em;
+    margin-bottom:1.5em;
+    /* list-style-position:outside;*/
 }
 ul li::before{
-    color: #999933;
+    color:#999933;
     content:"* " / "";
-    font-family: Courier, monospace;
+    font-family:Courier, monospace;
 }
 .links li::before {
-    color: #990000;
+    color:#990000;
 }
 main ul, main ol { 
-    line-height: 1.25em; 
-    padding-left: 1.25em;
+    line-height:1.25em;
+    padding-left:1.25em;
 }
 hr {
-    border: none;
-    color: #990000;
-    overflow: visible;
-    text-align: left;
-    height: 0.125em;
-    width: inherit;
-    padding: 0.75em 0 0.75em 0;
+    border:none;
+    color:#990000;
+    overflow:visible;
+    text-align:left;
+    height:0.125em;
+    width:inherit;
+    padding:0.75em 0 0.75em 0;
   }
 hr::after {
-    content: '⁂';
-    position: relative;
-    top: -0.75em;
-    font-weight: bold;
-    font-size: 1em;
-    width: inherit;
+    content:'⁂';
+    position:relative;
+    top:-0.75em;
+    font-weight:bold;
+    font-size:1em;
+    width:inherit;
   }
 .topsyturvy{
-    transform: rotate(180deg);
-    display: inline-block;
+    transform:rotate(180deg);
+    display:inline-block;
 }
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme:dark) {
     html, a {
-        background-color: #211e18;
-        color: #FFF !important;
+        background-color:#211e18;
+        color:#FFF !important;
     }
-    img.dodark{
-        filter: invert();
+    img.dodark, img[src^="img/bits/"]{
+        filter:invert();
     }
 }
