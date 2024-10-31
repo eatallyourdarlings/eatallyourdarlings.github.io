@@ -5,8 +5,51 @@
     <link rel="icon" type="image/x-icon" href="../favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>do a dither! ~ orf.place</title>
+    <style>
+        :root {
+            --colour0: black; /* text and borders */
+            --colour1: white; /* background */
+        }
+        a {
+            color: var(--colour0); 
+            text-decoration-style: dotted; 
+            text-underline-offset: 0.1em;
+        }
+        body {
+            font-family: Courier, monospace;
+            padding: 0 0.5em 0 1em;
+            background-color: var(--colour1);
+            color: var(--colour0);
+            line-height: 1.2em;
+            font-size: large;
+        }
+        code {max-width:4em;}
+        button, canvas, input {
+            max-width: calc(100% - 4em);
+            padding: 0;
+            border: 1px solid var(--colour0);
+            box-sizing: border-box;
+        }
+        button, input[type="file"] {
+            font-family: Courier, monospace;
+            border-radius: 7px;
+            cursor: pointer;
+            padding: 1em 1em 1em 1em;
+            font-size: 1.25em;
+            margin: 0 0 1em 0;
+            background-color: var(--colour1);
+            color: var(--colour0);
+            font-size: 0.9em;
+        }
+        button #invert {float: right;}
+        h1, h2{padding: 1em 0 0 0;}
+        input[type="file"] {background-color: var(--colour1); color: var(--colour0);}
+        summary {text-decoration: underline;}
+    </style>
 </head>
 <body>
+    <header><pre><a href="http://orf.place">orf dot place</a> ~ <a href="http://orf.place/tools/index.html">tools</a> ~ </pre></header>
+    <main>
     <h1>do a dither!</h1>
     <p>one-bit dither completely in your browser!</p>
     <details>
@@ -41,71 +84,17 @@
     <label for="colour1">colour 1:</label>
     <input type="color" id="colour1" value="#ffffff">
     <br><br>
-    <!-- <label for="invert">swap the colours:</label><br> -->
     <button id="invert">invert colours</button>
     <!-- would be nice to have invert float to the right of the colours -->
 
     <h2>step 3.</h2>
     <label for="download">download the image:</label>
     <button id="download">download</button>
-    <!-- <h2>image data</h2> -->
     <br>
     <label for="copy">or copy the image data:</label>
     <button id="copy">copy</button>
-    <!-- <p><code id="dataurl"></code></p> -->
 
-    <style>
-        :root {
-            --colour0: black; /* text and borders */
-            --colour1: white; /* background */
-        }
-        body {
-            font-family: Courier, monospace;
-            padding: 0 0.5em 0 1em;
-            background-color: var(--colour1);
-            color: var(--colour0);
-            line-height: 1.2em;
-            font-size: large;
-        }
-        summary {
-            text-decoration: underline;
-        }
-        h1, h2{
-            padding: 1em 0 0 0;
-        }
-        canvas, input, button {
-            max-width: calc(100% - 4em);
-            padding: 0;
-            border: 1px solid var(--colour0);
-            box-sizing: border-box;
-        }
-        button, input[type="file"] {
-            font-family: Courier, monospace;
-            border-radius: 7px;
-            cursor: pointer;
-            padding: 1em 1em 1em 1em;
-            font-size: 1.25em;
-            margin: 0 0 1em 0;
-            background-color: var(--colour1);
-            color: var(--colour0);
-            font-size: 0.9em;
-        }
-        button #invert {
-            float: right;
-        }
-        a {
-            color: var(--colour0);
-            text-decoration-style: dotted;
-            text-underline-offset: 0.1em;
-        }
-        code {
-            max-width: 4em;
-        }
-        input[type="file"] {
-            background-color: var(--colour1);
-            color: var(--colour0);
-        }
-    </style>
+    </main>
     <script>
         // forked from https://eli.li/_assets/bin/dither/dither.js
         // TODO 

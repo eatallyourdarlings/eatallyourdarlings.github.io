@@ -54,11 +54,9 @@ figure {
 }
 figcaption {max-width:24em; font-style:italic;}
 figcaption::before {content:"+ " / ""; color:#999933;}
-audio {
-    width:24em;
-    padding:1em;
-}
+audio {width:24em; padding:1em;}
 h1 {font-size:2em;}
+/* em {font-weight:normal;} */
 a, a:visited {
     color:#211e18;
     text-decoration-line:underline;
@@ -92,17 +90,12 @@ a[target="_blank"]::after, header a::after, .title::after {
     color:#990000;
     text-decoration:none;
     }
-em {font-weight:normal;}
-
 q { font-style:italic; display:inline;}
-blockquote{display: block; font-style:italic; max-width:32em; margin-left:0.5em;}
+blockquote {display: block; font-style:italic; max-width:32em; margin-left:0.5em;}
 blockquote::after {content:none;}
 blockquote:before {content:"> " / ""; color:#999933;}
 cite {display:block; clear:both; margin-bottom:2em;}
-cite::before{
-    content:"— ";
-}
-
+cite::before {content:"— ";}
 ul, ol { 
     list-style-type:none;
     margin-top:1.5em;
@@ -114,9 +107,7 @@ ul li::before{
     content:"* " / "";
     font-family:Courier, monospace;
 }
-.links li::before {
-    color:#990000;
-}
+.links li::before {color:#990000;}
 main ul, main ol { 
     line-height:1.25em;
     padding-left:1.25em;
@@ -138,16 +129,10 @@ hr::after {
     font-size:1em;
     width:inherit;
   }
-.topsyturvy{
-    transform:rotate(180deg);
-    display:inline-block;
-}
+/*do a flip */
+.topsyturvy {transform:rotate(180deg);display:inline-block;}
+
 @media (prefers-color-scheme:dark) {
-    html, a {
-        background-color:#211e18;
-        color:#FFF !important;
-    }
-    img.dodark, img[src^="img/bits/"]{
-        filter:invert();
-    }
+    html, a {background-color:#211e18;color:#FFF !important;}
+    img.dodark, img[src^="img/bits/"]{filter:invert();}
 }
