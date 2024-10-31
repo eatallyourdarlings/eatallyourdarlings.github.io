@@ -94,7 +94,7 @@ a[target="_blank"]::after, header a::after, .title::after {
     }
 em {font-weight:normal;}
 
-q { font-style:italic; display:inline-block;}
+q { font-style:italic; display:inline;}
 blockquote{display: block; font-style:italic; max-width:32em; margin-left:0.5em;}
 blockquote::after {content:none;}
 blockquote:before {content:"> " / ""; color:#999933;}
