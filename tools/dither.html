@@ -45,11 +45,12 @@
         h1, h2{padding: 1em 0 0 0;}
         input[type="file"] {background-color: var(--colour1); color: var(--colour0);}
         summary {text-decoration: underline;}
+        output {width: 4em;}
     </style>
 </head>
 <body>
-    <header><pre><a href="http://orf.place">orf dot place</a> ~ <a href="http://orf.place/tools/index.html">tools</a> ~ </pre></header>
-    <main>
+<header><pre><a href="http://orf.place">orf dot place</a> ~ <a href="http://orf.place/tools/index.html">tools</a> ~ </pre></header>
+<main>
     <h1>do a dither!</h1>
     <p>one-bit dither completely in your browser!</p>
     <details>
@@ -72,11 +73,19 @@
     <br><br>
     <canvas id="canvas"></canvas>
 
-    <h2>step 1.</h2>
+    <h2>step 1. pick a pic</h2>
     <label for="upload">upload an image:</label><br>
     <input type="file" id="upload" accept="image/*">
 
-    <h2>step 2. (optional)</h2>
+    <h2>step 2. resize (optional)</h2>
+    <label for="resize">resize the image?</label>
+    <input id="resize" type="checkbox" checked />
+    <br>
+    <input id="width_input" type="range" min="1" max="1024" step="1" value="512"/>
+    <br>
+    <label for="width_input">width: <output id="width_output"></output></label>
+
+    <h2>step 3. recolour (optional)</h2>
     <p>change the colours (click on the coloured buttons below):</p>
     <label for="colour0">colour 0:</label>
     <input type="color" id="colour0" value="#000000">
@@ -87,239 +96,245 @@
     <button id="invert">invert colours</button>
     <!-- would be nice to have invert float to the right of the colours -->
 
-    <h2>step 3.</h2>
+    <h2>step 4. download</h2>
     <label for="download">download the image:</label>
     <button id="download">download</button>
     <br>
     <label for="copy">or copy the image data:</label>
     <button id="copy">copy</button>
+</main>
 
-    </main>
-    <script>
-        // forked from https://eli.li/_assets/bin/dither/dither.js
-        // TODO 
-        // resize image
-        // set default colours in one place and propogate ?
-        // colour lookup and replace function ?
-        const canvas = document.getElementById('canvas');
-        const canvasContext = canvas.getContext('2d', {willReadFrequently: 'true'});
-        let cacheData; clearCache();
-        let dataUrl = "beep boop that didn't work";
-        let coloursRGB = [[0,0,0], [255,255,255]];
-        let width, height;
-        
-        let changePageStyle = true;
-        document.getElementById('pagestyle').addEventListener('click', function(){
-            changePageStyle = event.target.checked;
-        });
+<script>
+    // forked from https://eli.li/_assets/bin/dither/dither.js
+    // TODO 
+    // resize image
+    // set default colours in one place and propogate ?
+    // colour lookup and replace function ?
+    const canvas = document.getElementById('canvas');
+    const canvasContext = canvas.getContext('2d', {willReadFrequently: 'true'});
+    let cacheData; clearCache();
+    let dataUrl = "beep boop that didn't work";
+    let coloursRGB = [[0,0,0], [255,255,255]];
+    let width, height;
+    
+    let changePageStyle = true;
+    document.getElementById('pagestyle').addEventListener('click', function(){
+        changePageStyle = event.target.checked;
+    });
 
-        const colourInputs = document.querySelectorAll('input[type=color]');
-        for(let i = 0; i < colourInputs.length; i++){
-            // setImageColours(i, hexToRGB(colourInputs[i].value));
-            colourInputs[i].addEventListener('change', function() {    
-                setImageColours(i, hexToRGB(event.target.value));
-                clearCache();
-                applyDithering();
-            });
-            colourInputs[i].addEventListener('input', function() {
-                setStyleColours(i, event.target.value)});
-        }
+    const width_output = document.getElementById('width_output');
+    const width_input = document.getElementById('width_input');
+    width_output.textContent = width_input.value;
+    width_input.addEventListener('input', (event) => {
+        width_output.textContent = event.target.value;
+    });
 
-        function setImageColours(index, value){
-            // console.log(`setImageColours ${index}, ${value}`);
-            coloursRGB[index] = (value);
-        }
-
-        const root = document.querySelector(':root');
-        function setStyleColours(index, value){
-            // console.log(`setStyleColours ${index}, ${value}`);
-            if (changePageStyle){
-                root.style.setProperty(`--colour${index.toString()}`, value);
-            }
-        }
-
-        function hexToRGB(hex) {
-            let rgb = [0,0,0];
-            hex = hex.replace("#", "");
-            rgb[0] = parseInt(hex.substring(0, 2), 16);
-            rgb[1] = parseInt(hex.substring(2, 4), 16);
-            rgb[2] = parseInt(hex.substring(4, 6), 16);
-            return rgb;
-        }
-
-    //     document.getElementById('log').addEventListener('click', function() {
-    //     console.log(coloursRGB);
-    // });
-
-        //called when uploading a new image or changing colours
-        function clearCache(){
-            cacheData = [undefined, undefined];
-            // console.log(cacheData);
-        }
-
-        let inverted = false;
-        document.getElementById('invert').addEventListener('click', function() {
-            inverted = !inverted;
-            
-            //invert colours
-            let temp = colourInputs[0].value;
-            colourInputs[0].value = colourInputs[1].value;
-            colourInputs[1].value = temp;
-            temp = coloursRGB[0];
-            setImageColours(0, coloursRGB[1]);
-            setImageColours(1, temp);
-            setStyleColours(0, colourInputs[0].value);
-            setStyleColours(1, colourInputs[1].value);
-
-            //before dithering, cache current result
-            let i = inverted ? 0 : 1;
-            if (!cacheData[i]){
-                cacheData[i] = canvasContext.getImageData(0, 0, width, height);
-                // console.log("write "+i)
-            }
-            i = 1 - i;
-            //get image data from cache rather than re-dithering
-            if (cacheData[i]){
-                canvasContext.putImageData(cacheData[i], 0, 0);    
-                // console.log("render "+i);
-            }
-            else{
-                applyDithering();
-            }
-            // console.log(cacheData)
-        });
-
-        let img;
-        function drawImage(){
-            canvasContext.drawImage(img, 0, 0);
-            // console.log("draw");
-        }
-
-        document.getElementById('upload').addEventListener('change', function () {
+    const colourInputs = document.querySelectorAll('input[type=color]');
+    for(let i = 0; i < colourInputs.length; i++){
+        // setImageColours(i, hexToRGB(colourInputs[i].value));
+        colourInputs[i].addEventListener('change', function() {    
+            setImageColours(i, hexToRGB(event.target.value));
             clearCache();
-            const file = event.target.files[0];
-            filePath = event.target.value;
-            const reader = new FileReader();
-            reader.onload = function(event){
-                img = new Image();
-                img.src = event.target.result;
-                img.onload = function () {
-                    // canvas.width = img.width;
-                    // canvas.height = img.height;
-                    width = img.width;
-                    height = img.height;
-                    canvas.width = width;
-                    canvas.height = height;
-                    applyDithering();
-                };
+            applyDithering();
+        });
+        colourInputs[i].addEventListener('input', function() {
+            setStyleColours(i, event.target.value)});
+    }
+
+    function setImageColours(index, value){
+        // console.log(`setImageColours ${index}, ${value}`);
+        coloursRGB[index] = (value);
+    }
+
+    const root = document.querySelector(':root');
+    function setStyleColours(index, value){
+        // console.log(`setStyleColours ${index}, ${value}`);
+        if (changePageStyle){
+            root.style.setProperty(`--colour${index.toString()}`, value);
+        }
+    }
+
+    function hexToRGB(hex) {
+        let rgb = [0,0,0];
+        hex = hex.replace("#", "");
+        rgb[0] = parseInt(hex.substring(0, 2), 16);
+        rgb[1] = parseInt(hex.substring(2, 4), 16);
+        rgb[2] = parseInt(hex.substring(4, 6), 16);
+        return rgb;
+    }
+
+//     document.getElementById('log').addEventListener('click', function() {
+//     console.log(coloursRGB);
+// });
+
+    //called when uploading a new image or changing colours
+    function clearCache(){
+        cacheData = [undefined, undefined];
+        // console.log(cacheData);
+    }
+
+    let inverted = false;
+    document.getElementById('invert').addEventListener('click', function() {
+        inverted = !inverted;
+        
+        //invert colours
+        let temp = colourInputs[0].value;
+        colourInputs[0].value = colourInputs[1].value;
+        colourInputs[1].value = temp;
+        temp = coloursRGB[0];
+        setImageColours(0, coloursRGB[1]);
+        setImageColours(1, temp);
+        setStyleColours(0, colourInputs[0].value);
+        setStyleColours(1, colourInputs[1].value);
+
+        //before dithering, cache current result of the inverted image
+        let i = inverted ? 0 : 1;
+        if (!cacheData[i]){
+            cacheData[i] = canvasContext.getImageData(0, 0, width, height);
+            // console.log("write "+i)
+        }
+        i = 1 - i;
+        //get image data from cache rather than re-dithering each time you invert the image
+        if (cacheData[i]){
+            canvasContext.putImageData(cacheData[i], 0, 0);    
+            // console.log("render "+i);
+        }
+        else{
+            applyDithering();
+        }
+        // console.log(cacheData)
+    });
+
+    let img;
+    function drawImage(){
+        canvasContext.drawImage(img, 0, 0);
+        // console.log("draw");
+    }
+
+    document.getElementById('upload').addEventListener('change', function () {
+        clearCache();
+        const file = event.target.files[0];
+        filePath = event.target.value;
+        const reader = new FileReader();
+        reader.onload = function(event){
+            img = new Image();
+            img.src = event.target.result;
+            img.onload = function () {
+                // canvas.width = img.width;
+                // canvas.height = img.height;
+                width = img.width;
+                height = img.height;
+                canvas.width = width;
+                canvas.height = height;
+                applyDithering();
             };
-            reader.readAsDataURL(file);
-        });
+        };
+        reader.readAsDataURL(file);
+    });
 
-        // TIL how to do this!
-        let filePath;
-        document.getElementById('download').addEventListener('click', function() {
-            let fileName;
-            if (filePath) {
-                let startIndex = (filePath.indexOf('\\') >= 0 ? filePath.lastIndexOf('\\') : filePath.lastIndexOf('/'));
-                fileName = filePath.substring(startIndex);
-                if (fileName.indexOf('\\') === 0 || fileName.indexOf('/') === 0) {
-                    fileName = fileName.substring(1);
-                    fileName = fileName.substring(0, fileName.lastIndexOf('.'));
-            }
-            fileName += '-dithered.png';
-            }
+    // TIL how to do this!
+    let filePath;
+    document.getElementById('download').addEventListener('click', function() {
+        let fileName;
+        if (filePath) {
+            let startIndex = (filePath.indexOf('\\') >= 0 ? filePath.lastIndexOf('\\') : filePath.lastIndexOf('/'));
+            fileName = filePath.substring(startIndex);
+            if (fileName.indexOf('\\') === 0 || fileName.indexOf('/') === 0) {
+                fileName = fileName.substring(1);
+                fileName = fileName.substring(0, fileName.lastIndexOf('.'));
+        }
+        fileName += '-dithered.png';
+        }
 
-            dataUrl = canvas.toDataURL('image/png'); // Convert the canvas to a data URL
-            const a = document.createElement('a'); // Create an anchor element
-            a.href = dataUrl; // Set the href of the anchor to the data URL
-            a.download = fileName; // Set the download attribute to the desired file name
-            a.setAttribute('rel', 'noopener noreferrer');
-            a.setAttribute('target', '_blank');
-            document.body.appendChild(a); // Append the anchor to the body
-            a.click(); // Trigger a click on the anchor to start the download
-            document.body.removeChild(a); // Remove the anchor from the body
-        });
+        dataUrl = canvas.toDataURL('image/png'); // Convert the canvas to a data URL
+        const a = document.createElement('a'); // Create an anchor element
+        a.href = dataUrl; // Set the href of the anchor to the data URL
+        a.download = fileName; // Set the download attribute to the desired file name
+        a.setAttribute('rel', 'noopener noreferrer');
+        a.setAttribute('target', '_blank');
+        document.body.appendChild(a); // Append the anchor to the body
+        a.click(); // Trigger a click on the anchor to start the download
+        document.body.removeChild(a); // Remove the anchor from the body
+    });
 
-        //first javascript I've worked on in a year :D -Olive
-        document.getElementById('copy').addEventListener('click', function() {
-            dataUrl = canvas.toDataURL('image/png');
-            let copyText = document.createElement("textarea");
-            copyText.value = dataUrl;
-            document.body.append(copyText)
-            copyText.select();
-            copyText.setSelectionRange(0, 99999)
-            document.execCommand("copy");
-            copyText.remove()
-            // document.getElementById("dataurl").innerHTML = dataUrl;
-            console.log(dataUrl)
-            // navigator.clipboard.writeText(dataUrl.value);
-        });
+    //first javascript I've worked on in a year :D -Olive
+    document.getElementById('copy').addEventListener('click', function() {
+        dataUrl = canvas.toDataURL('image/png');
+        let copyText = document.createElement("textarea");
+        copyText.value = dataUrl;
+        document.body.append(copyText)
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        copyText.remove()
+        // document.getElementById("dataurl").innerHTML = dataUrl;
+        console.log(dataUrl)
+        // navigator.clipboard.writeText(dataUrl.value);
+    });
 
-        function applyDithering() {
-            // console.log("dither!");
-            drawImage();
-            // const imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
-            const imageData = canvasContext.getImageData(0, 0, width, height);
-            let data = imageData.data;
-            // const width = canvas.width;
-            // const height = canvas.height;
+    function applyDithering() {
+        // console.log("dither!");
+        drawImage();
+        // const imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
+        const imageData = canvasContext.getImageData(0, 0, width, height);
+        let data = imageData.data;
+        // const width = canvas.width;
+        // const height = canvas.height;
 
-            // Find the gray value of a pixel
-            const getGrayValue = (r, g, b) => 0.299 * r + 0.587 * g + 0.114 * b;
+        // Find the gray value of a pixel
+        const getGrayValue = (r, g, b) => 0.299 * r + 0.587 * g + 0.114 * b;
 
-            // Set the pixel value
-            const setPixel = (x, y, value) => {
-                const i = (y * width + x) * 4;
-                const j = value < 128 ? 0 : 1;
-                data[i] = coloursRGB[j][0];
-                data[i + 1] = coloursRGB[j][1];
-                data[i + 2] = coloursRGB[j][2];
-                data[i + 3] = 255;
-                // data[i, i + 1, i + 2, i + 3] = coloursRGB[[j][0], [j][1], [j][2], 255];
-            };
+        // Set the pixel value
+        const setPixel = (x, y, value) => {
+            const i = (y * width + x) * 4;
+            const j = value < 128 ? 0 : 1;
+            data[i] = coloursRGB[j][0];
+            data[i + 1] = coloursRGB[j][1];
+            data[i + 2] = coloursRGB[j][2];
+            data[i + 3] = 255;
+            // data[i, i + 1, i + 2, i + 3] = coloursRGB[[j][0], [j][1], [j][2], 255];
+        };
 
-            // https://en.wikipedia.org/wiki/Floyd–Steinberg_dithering
+        // https://en.wikipedia.org/wiki/Floyd–Steinberg_dithering
+        // Loop through each pixel in the image
+        for (let y = 0; y < height; y++) {
+            for (let x = 0; x < width; x++) {
+                const index = (y * width + x) * 4;
+                const oldR = data[index];
+                const oldG = data[index + 1];
+                const oldB = data[index + 2];
+                const oldGray = getGrayValue(oldR, oldG, oldB);
+                const newGray = oldGray < 128 ? 0 : 255;
+                const error = oldGray - newGray;
 
-            // Loop through each pixel in the image
-            for (let y = 0; y < height; y++) {
-                for (let x = 0; x < width; x++) {
-                    const index = (y * width + x) * 4;
-                    const oldR = data[index];
-                    const oldG = data[index + 1];
-                    const oldB = data[index + 2];
-                    const oldGray = getGrayValue(oldR, oldG, oldB);
-                    const newGray = oldGray < 128 ? 0 : 255;
-                    const error = oldGray - newGray;
+                setPixel(x, y, oldGray);
 
-                    setPixel(x, y, oldGray);
-
-                    // Spread error to neighboring pixels
-                    if (x + 1 < width) {
-                        data[(y * width + x + 1) * 4] += error * 7 / 16;
-                        data[(y * width + x + 1) * 4 + 1] += error * 7 / 16;
-                        data[(y * width + x + 1) * 4 + 2] += error * 7 / 16;
+                // Spread error to neighboring pixels
+                if (x + 1 < width) {
+                    data[(y * width + x + 1) * 4] += error * 7 / 16;
+                    data[(y * width + x + 1) * 4 + 1] += error * 7 / 16;
+                    data[(y * width + x + 1) * 4 + 2] += error * 7 / 16;
+                }
+                if (y + 1 < height) {
+                    if (x - 1 >= 0) {
+                        data[((y + 1) * width + x - 1) * 4] += error * 3 / 16;
+                        data[((y + 1) * width + x - 1) * 4 + 1] += error * 3 / 16;
+                        data[((y + 1) * width + x - 1) * 4 + 2] += error * 3 / 16;
                     }
-                    if (y + 1 < height) {
-                        if (x - 1 >= 0) {
-                            data[((y + 1) * width + x - 1) * 4] += error * 3 / 16;
-                            data[((y + 1) * width + x - 1) * 4 + 1] += error * 3 / 16;
-                            data[((y + 1) * width + x - 1) * 4 + 2] += error * 3 / 16;
-                        }
-                        data[((y + 1) * width + x) * 4] += error * 5 / 16;
-                        data[((y + 1) * width + x) * 4 + 1] += error * 5 / 16;
-                        data[((y + 1) * width + x) * 4 + 2] += error * 5 / 16;
-                        if (x + 1 < width) {
-                            data[((y + 1) * width + x + 1) * 4] += error * 1 / 16;
-                            data[((y + 1) * width + x + 1) * 4 + 1] += error * 1 / 16;
-                            data[((y + 1) * width + x + 1) * 4 + 2] += error * 1 / 16;
-                        }
+                    data[((y + 1) * width + x) * 4] += error * 5 / 16;
+                    data[((y + 1) * width + x) * 4 + 1] += error * 5 / 16;
+                    data[((y + 1) * width + x) * 4 + 2] += error * 5 / 16;
+                    if (x + 1 < width) {
+                        data[((y + 1) * width + x + 1) * 4] += error * 1 / 16;
+                        data[((y + 1) * width + x + 1) * 4 + 1] += error * 1 / 16;
+                        data[((y + 1) * width + x + 1) * 4 + 2] += error * 1 / 16;
                     }
                 }
             }
-
-            canvasContext.putImageData(imageData, 0, 0);
         }
-    </script>
+
+        canvasContext.putImageData(imageData, 0, 0);
+    }
+</script>
 </body>
 </html>
