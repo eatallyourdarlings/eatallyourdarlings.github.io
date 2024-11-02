@@ -1,3 +1,5 @@
+
+/* idk what the difference between margin, border, padding is lol */
 html {
     background-color:#FFF;
     color:#211e18;
@@ -16,8 +18,7 @@ body {
     margin-bottom:auto;
     margin-left:1.5em;
     text-align:left;
-    align-self:center;
-    margin:0 auto;
+    /* align-self:center; */
     width:calc(100% - 2em);
     max-width:48em;
     /* max-width:100%;*/
@@ -52,10 +53,11 @@ figure {
     padding-bottom:1em;
     margin:0;
 }
-figcaption {max-width:24em; font-style:italic;}
+figcaption {max-width:24em; font-style:italic; width: inherit;}
 figcaption::before {content:"+ " / ""; color:#999933;}
 audio {width:24em; padding:1em;}
 h1 {font-size:2em;}
+h2, h3 { padding-top: 2em;}
 /* em {font-weight:normal;} */
 a, a:visited {
     color:#211e18;
