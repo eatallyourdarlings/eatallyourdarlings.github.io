@@ -69,22 +69,23 @@
             <li>the copy button at the bottom puts the image as a string of letters (a base64-encoded .png) in your clipboard, handy for embedding small images in a webpage (see: <a href="https://css-tricks.com/data-uris/" target="_blank">Data URIs &#x7C; CSS Tricks</a>).</li>
         </ul>
     </details>
-
-    <br><br>
-    <canvas id="canvas"></canvas>
-
+    <br>
     <h2>step 1. pick a pic</h2>
     <label for="upload">upload an image:</label><br>
     <input type="file" id="upload" accept="image/*">
+    <br>
+    <div style="width:512px; height:512px;">
+    <canvas id="canvas" width="512" height="512">Your browser not support the HTML5 canvas.</canvas>
+    </div>
 
     <h2>step 2. resize (optional)</h2>
+    <!-- need to style these inputs -->
     <label for="resize">resize the image?</label>
     <input id="resize" type="checkbox" checked/>
     <br>
-    <input id="width_input" type="range" min="1" max="1024" step="1" value="512"/>
+    <input id="width_input" type="range" min="1" max="512" step="1" value="512"/>
     <br>
     <label for="width_input">width: <output id="width_output"></output></label>
-    <!--  on input, update label, on change update canvas -->
 
     <h2>step 3. recolour (optional)</h2>
     <p>change the colours (click on the coloured buttons below):</p>
@@ -95,7 +96,6 @@
     <input type="color" id="colour1" value="#ffffff">
     <br><br>
     <button id="invert">invert colours</button>
-    <!-- would be nice to have invert float to the right of the colours -->
 
     <h2>step 4. download</h2>
     <label for="download">download the image:</label>
@@ -113,35 +113,67 @@
     let cacheData; clearCache();
     let dataUrl = "beep boop that didn't work";
     let coloursRGB = [[0,0,0], [255,255,255]];
-    let width, height;
-    
-    let changePageStyle = false;
-    document.getElementById('pagestyle').addEventListener('click', function(){
-        changePageStyle = event.target.checked;
-    });
+    let width = canvas.width;
+    let height = canvas.height;
+    console.log("canvas: " + width, height);
+
+    //render on canvas some text like 'cute images incoming' ?
 
     const resize = document.getElementById('resize');
-
     const width_output = document.getElementById('width_output');
     const width_input = document.getElementById('width_input');
     width_output.textContent = width_input.value;
     width_input.addEventListener('input', function(){
         width_output.textContent = event.target.value;
     });
+    //resize on page load?
+    // if(resize.value){ 
+    //     height = heightFromWidth(width_input.value, width, height);
+    //     width = width_input.value;
+    //     resizeCanvas(width, height);
+    //     console.log("initial resize width: " + width);
+    // }
+
     width_input.addEventListener('change', function(){
-        if(resize.value){width = event.target.value;}
+        if(resize.value){
+            height = heightFromWidth(event.target.value, width, height);
+            width = event.target.value;
+            resizeCanvas(width, height);
+            console.log("change width: " + width);
+            // DEBUG
+            // canvasContext.strokeStyle = "red";
+            // canvasContext.lineWidth = 1;
+            // canvasContext.strokeRect(0, 0, width, height);
+        }
     });
 
-    if(resize.value){ 
-        width = width_input.value;
-        height = heightFromWidth(width);
-        console.log("initial resize width: " + width);
+    function resizeCanvas(w, h){
+        console.log("resize canvas: " + w + ", " +  h);
+        canvas.width = w;
+        canvas.height = h;
+    }
+
+    function heightFromWidth(new_w, current_w, current_h){
+        //new height
+        //current_w = img.naturalWidth
+        //current_h = img.naturalHeight
+        let h = (Math.floor((new_w / current_w) * current_h));
+        console.log("change height: " + h);
+        return h;
+        // return (Math.floor((w / current_w) * current_h));
+    }
+
+    function updateHeightWidth(){
+        // width = event.target.value;
+        // height = heightFromWidth(width, width, height)
+        // DEBUG
+        width = 1;
+        height = 1;
     }
 
     // https://stackoverflow.com/questions/3971841/how-to-resize-images-proportionally-keeping-the-aspect-ratio
     let  maxWidth, maxHeight = width_input.max;
     // console.log("max width: " + maxWidth);
-
     // given an image element, return the height given a new width and preserving aspect ratio.
     function imgSizeFit(img){ 
         var ratio = Math.min(1, maxWidth / img.naturalWidth, maxHeight / img.naturalHeight);
@@ -151,17 +183,12 @@
         // img.style.height = img.naturalHeight * ratio + 'px';
     }
 
-    function heightFromWidth(w, current_w, current_h){
-        //new height
-        //current_w = img.naturalWidth
-        //current_h = img.naturalHeight
-        return (Math.floor((w / current_w) * current_h));
-    }
-
+        
+    const changePageStyle = document.getElementById('pagestyle');
     const colourInputs = document.querySelectorAll('input[type=color]');
     for(let i = 0; i < colourInputs.length; i++){
         // setImageColours(i, hexToRGB(colourInputs[i].value));
-        colourInputs[i].addEventListener('change', function() {    
+        colourInputs[i].addEventListener('change', function(){
             setImageColours(i, hexToRGB(event.target.value));
             clearCache();
             applyDithering();
@@ -175,10 +202,11 @@
         coloursRGB[index] = (value);
     }
 
+    //update page style to colours from the inputs
     const root = document.querySelector(':root');
     function setStyleColours(index, value){
         // console.log(`setStyleColours ${index}, ${value}`);
-        if (changePageStyle){
+        if (changePageStyle.value){
             root.style.setProperty(`--colour${index.toString()}`, value);
         }
     }
@@ -192,14 +220,9 @@
         return rgb;
     }
 
-//     document.getElementById('log').addEventListener('click', function() {
-//     console.log(coloursRGB);
-// });
-
     //called when uploading a new image or changing colours
     function clearCache(){
         cacheData = [undefined, undefined];
-        // console.log(cacheData);
     }
 
     let inverted = false;
@@ -236,7 +259,8 @@
 
     let img;
     function drawImage(){
-        canvasContext.drawImage(img, 0, 0);
+        console.log('draw ' + img);
+        canvasContext.drawImage(img, 0, 0, width, height);
         // console.log("draw");
     }
 
@@ -251,29 +275,28 @@
             img.onload = function () {
                 // canvas.width = img.width;
                 // canvas.height = img.height;
+                console.log("img initial: " + img.width, img.height);
+                console.log("img natural initial: " + img.naturalWidth, img.naturalHeight);
                 if(resize.value){
                     // height, width = imgSizeFit(img);
-                    width = width_input.value;
                     height = heightFromWidth(width, img.naturalWidth, img.naturalHeight);
-                    console.log("resize: " + width + ", " + height);
-                    img.width = width;
-                    img.height = height;
+                    console.log("resize img: " + width + ", " + height);
                 }
                 else {
                     width = img.width;
                     height = img.height;
                 }
-                resizeCanvas(width, height);
+                img.width = width;
+                img.height = height;
+                console.log("img after: " + img.width, img.height);
+                img.style.width = width + 'px';
+                img.style.height = height + 'px';
+                // resizeCanvas(width, height);
                 applyDithering();
             };
         };
         reader.readAsDataURL(file);
     });
-
-    function resizeCanvas(w, h){
-        canvas.width = w;
-        canvas.height = h;
-    }
 
     // TIL how to do this!
     let filePath;
@@ -311,7 +334,7 @@
         document.execCommand("copy");
         copyText.remove()
         // document.getElementById("dataurl").innerHTML = dataUrl;
-        console.log(dataUrl)
+        // console.log(dataUrl)
         // navigator.clipboard.writeText(dataUrl.value);
     });
 
@@ -321,6 +344,7 @@
         // const imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
         const imageData = canvasContext.getImageData(0, 0, width, height);
         let data = imageData.data;
+        console.log(canvas.width, canvas.height, img.width, img.height, width, height);
         // const width = canvas.width;
         // const height = canvas.height;
 
