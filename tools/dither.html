@@ -79,11 +79,12 @@
 
     <h2>step 2. resize (optional)</h2>
     <label for="resize">resize the image?</label>
-    <input id="resize" type="checkbox" checked />
+    <input id="resize" type="checkbox" checked/>
     <br>
     <input id="width_input" type="range" min="1" max="1024" step="1" value="512"/>
     <br>
     <label for="width_input">width: <output id="width_output"></output></label>
+    <!--  on input, update label, on change update canvas -->
 
     <h2>step 3. recolour (optional)</h2>
     <p>change the colours (click on the coloured buttons below):</p>
@@ -106,10 +107,7 @@
 
 <script>
     // forked from https://eli.li/_assets/bin/dither/dither.js
-    // TODO 
-    // resize image
-    // set default colours in one place and propogate ?
-    // colour lookup and replace function ?
+    // TODO set default colours in one place and propogate ?
     const canvas = document.getElementById('canvas');
     const canvasContext = canvas.getContext('2d', {willReadFrequently: 'true'});
     let cacheData; clearCache();
@@ -117,17 +115,48 @@
     let coloursRGB = [[0,0,0], [255,255,255]];
     let width, height;
     
-    let changePageStyle = true;
+    let changePageStyle = false;
     document.getElementById('pagestyle').addEventListener('click', function(){
         changePageStyle = event.target.checked;
     });
 
+    const resize = document.getElementById('resize');
+
     const width_output = document.getElementById('width_output');
     const width_input = document.getElementById('width_input');
     width_output.textContent = width_input.value;
-    width_input.addEventListener('input', (event) => {
+    width_input.addEventListener('input', function(){
         width_output.textContent = event.target.value;
     });
+    width_input.addEventListener('change', function(){
+        if(resize.value){width = event.target.value;}
+    });
+
+    if(resize.value){ 
+        width = width_input.value;
+        height = heightFromWidth(width);
+        console.log("initial resize width: " + width);
+    }
+
+    // https://stackoverflow.com/questions/3971841/how-to-resize-images-proportionally-keeping-the-aspect-ratio
+    let  maxWidth, maxHeight = width_input.max;
+    // console.log("max width: " + maxWidth);
+
+    // given an image element, return the height given a new width and preserving aspect ratio.
+    function imgSizeFit(img){ 
+        var ratio = Math.min(1, maxWidth / img.naturalWidth, maxHeight / img.naturalHeight);
+        return { width: img.naturalWidth*ratio, height: img.naturalHeight*ratio};
+        // return { width, height };
+        // img.style.width = img.naturalWidth * ratio + 'px';
+        // img.style.height = img.naturalHeight * ratio + 'px';
+    }
+
+    function heightFromWidth(w, current_w, current_h){
+        //new height
+        //current_w = img.naturalWidth
+        //current_h = img.naturalHeight
+        return (Math.floor((w / current_w) * current_h));
+    }
 
     const colourInputs = document.querySelectorAll('input[type=color]');
     for(let i = 0; i < colourInputs.length; i++){
@@ -137,7 +166,7 @@
             clearCache();
             applyDithering();
         });
-        colourInputs[i].addEventListener('input', function() {
+        colourInputs[i].addEventListener('input', function(){
             setStyleColours(i, event.target.value)});
     }
 
@@ -191,7 +220,7 @@
         let i = inverted ? 0 : 1;
         if (!cacheData[i]){
             cacheData[i] = canvasContext.getImageData(0, 0, width, height);
-            // console.log("write "+i)
+            // console.log("write "+i);
         }
         i = 1 - i;
         //get image data from cache rather than re-dithering each time you invert the image
@@ -202,7 +231,7 @@
         else{
             applyDithering();
         }
-        // console.log(cacheData)
+        // console.log(cacheData);
     });
 
     let img;
@@ -222,15 +251,29 @@
             img.onload = function () {
                 // canvas.width = img.width;
                 // canvas.height = img.height;
-                width = img.width;
-                height = img.height;
-                canvas.width = width;
-                canvas.height = height;
+                if(resize.value){
+                    // height, width = imgSizeFit(img);
+                    width = width_input.value;
+                    height = heightFromWidth(width, img.naturalWidth, img.naturalHeight);
+                    console.log("resize: " + width + ", " + height);
+                    img.width = width;
+                    img.height = height;
+                }
+                else {
+                    width = img.width;
+                    height = img.height;
+                }
+                resizeCanvas(width, height);
                 applyDithering();
             };
         };
         reader.readAsDataURL(file);
     });
+
+    function resizeCanvas(w, h){
+        canvas.width = w;
+        canvas.height = h;
+    }
 
     // TIL how to do this!
     let filePath;
