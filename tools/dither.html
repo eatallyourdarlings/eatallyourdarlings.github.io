@@ -44,6 +44,13 @@
             font-size: 0.9em;
             max-width: 20em;
         }
+        label { 
+            /* border: .1em dotted var(--colour0); */
+            background-color: var(--colour0);
+            color: var(--colour1);
+            padding: .1em;
+            margin: .5em;
+        }
         button #invert {float: right;}
         h1, h2{padding: 1em 0 0 0;}
         summary {text-decoration: underline;}
@@ -82,14 +89,14 @@
 
     <h2>step 2. resize (optional)</h2>
     <!-- need to style these inputs -->
+    <p>there's a maximum width of 512 because that's a cute number, but you can change the max with inspect element :]</p>
     <label for="resize">resize the image?</label>
-    <input id="resize" type="checkbox"/>
+    <input id="resize" type="checkbox" checked/>
     <br><br>
     <!-- you can change the max here with inspect element, might display a bit buggy though. -->
     <label for="width_input">set width: <output id="width_output"></output></label>
     <!-- <br> -->
     <input id="width_input" type="number" min="1" max="512" step="1" value="512"/>
-    <p>there's a maximum of 512 because that's a cute number, but you can change the max with inspect element :]</p>
 
     <h2>step 3. recolour (optional)</h2>
     <p>change the colours (click on the coloured buttons below):</p>
@@ -183,9 +190,9 @@
         } 
         //clamp to max width - set in width_input.max
         let clamp = Math.min(w, width_input.max);
-        //how to keep aspect ratio?
-        width = w;
+
         height = heightFromWidth(clamp, w, h);
+        width = clamp;
         console.log("update dimensions: " + width, height);
         resizeCanvas();
     }
