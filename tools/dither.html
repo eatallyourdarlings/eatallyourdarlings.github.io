@@ -9,6 +9,7 @@
         :root {
             --colour0: black; /* text and borders */
             --colour1: white; /* background */
+            /* how to handle transparent colours? */
         }
         a {
             color: var(--colour0); 
@@ -113,77 +114,123 @@
     let cacheData; clearCache();
     let dataUrl = "beep boop that didn't work";
     let coloursRGB = [[0,0,0], [255,255,255]];
-    let width = canvas.width;
-    let height = canvas.height;
-    console.log("canvas: " + width, height);
-
+    
     //render on canvas some text like 'cute images incoming' ?
-
+    
     const resize = document.getElementById('resize');
     const width_output = document.getElementById('width_output');
     const width_input = document.getElementById('width_input');
+    const max_width = width_input.max;
+    let width = canvas.width;
+    let height = canvas.height;
+    console.log("canvas initial: " + width, height);
+
     width_output.textContent = width_input.value;
     width_input.addEventListener('input', function(){
         width_output.textContent = event.target.value;
     });
-    //resize on page load?
-    // if(resize.value){ 
-    //     height = heightFromWidth(width_input.value, width, height);
-    //     width = width_input.value;
-    //     resizeCanvas(width, height);
-    //     console.log("initial resize width: " + width);
-    // }
 
     width_input.addEventListener('change', function(){
-        if(resize.value){
-            height = heightFromWidth(event.target.value, width, height);
-            width = event.target.value;
-            resizeCanvas(width, height);
-            console.log("change width: " + width);
+        if(resize.checked){
+            console.log('width changed: ' + event.target.value)
+            // updateDimensions();
+            applyDithering();
             // DEBUG
             // canvasContext.strokeStyle = "red";
             // canvasContext.lineWidth = 1;
             // canvasContext.strokeRect(0, 0, width, height);
         }
     });
+    
+    resize.addEventListener('change', function(){
+        // updateDimensions();
+        applyDithering();
+        // if (resize.checked){
+        //     updateDimensions(width_input.value)
+        // }
+        // else{
+        //     updateDimensions(img.naturalWidth, img.naturalHeight);
+        // }
+    });
 
-    function resizeCanvas(w, h){
-        console.log("resize canvas: " + w + ", " +  h);
-        canvas.width = w;
-        canvas.height = h;
+    //resize on page load?
+    // if(resize.checked){ 
+    //     height = heightFromWidth(width_input.value, width, height);
+    //     width = width_input.value;
+    //     resizeCanvas(width, height);
+    //     console.log("initial resize width: " + width);
+    // }
+
+    function resizeCanvas(){
+        // console.log("resize canvas: " + width, height);
+        canvas.width = width;
+        canvas.height = height;
     }
 
-    function heightFromWidth(new_w, current_w, current_h){
-        //new height
-        //current_w = img.naturalWidth
-        //current_h = img.naturalHeight
-        let h = (Math.floor((new_w / current_w) * current_h));
-        console.log("change height: " + h);
-        return h;
-        // return (Math.floor((w / current_w) * current_h));
-    }
+    function updateDimensions(){
+        // restricting width but not height
+        let w = width;
+        let h = height;
+        if(!!img){
+            // var ratio = Math.min(1, max_width / img.naturalWidth, img.naturalHeight);
+            w = img.naturalWidth;
+            h = img.naturalHeight;
+        }
+        if (resize.checked){
+            h = heightFromWidth(width_input.value, w, h);
+            w = width_input.value;
+        } 
+            // set width to width_input.value
+        // else if img exists (!!img) falsey
+            // calculate ratio
+            // set width to img.naturalWidth
+        // else
+        
+        // clamp at max width
+        //figure out height, take the new width divided by old width
 
-    function updateHeightWidth(){
         // width = event.target.value;
         // height = heightFromWidth(width, width, height)
-        // DEBUG
-        width = 1;
-        height = 1;
-    }
+        //clamp to max width - set in width input
 
+        let clamp = Math.min(w, max_width);
+        //how to keep aspect ratio?
+        width = w;
+        height = heightFromWidth(clamp, w, h);
+        console.log("update dimensions: " + width, height)
+        resizeCanvas();
+    }
+//JUNK//
     // https://stackoverflow.com/questions/3971841/how-to-resize-images-proportionally-keeping-the-aspect-ratio
-    let  maxWidth, maxHeight = width_input.max;
     // console.log("max width: " + maxWidth);
     // given an image element, return the height given a new width and preserving aspect ratio.
     function imgSizeFit(img){ 
-        var ratio = Math.min(1, maxWidth / img.naturalWidth, maxHeight / img.naturalHeight);
+        var ratio = Math.min(1, max_width / img.naturalWidth, Math.floor((max_width / img.naturalWidth) * img.naturalHeight) / img.naturalHeight);
         return { width: img.naturalWidth*ratio, height: img.naturalHeight*ratio};
         // return { width, height };
         // img.style.width = img.naturalWidth * ratio + 'px';
         // img.style.height = img.naturalHeight * ratio + 'px';
     }
 
-        
+    function heightFromWidth(new_w, current_w, current_h){
+        return (Math.floor((new_w / current_w) * current_h));
+    }
+//END JUNK//
+
+    let img;
+    function drawImage(){
+        console.log(img);
+        // console.log("img natural: " + img.naturalWidth, img.naturalHeight);
+        updateDimensions();
+        // height = heightFromWidth(width, img.naturalWidth, img.naturalHeight);
+        img.width = width;
+        img.height = height;
+        // img.style.width = width + 'px';
+        // img.style.height = height + 'px';
+        // console.log("resize img: " + img.width + ", " + img.height);
+        canvasContext.drawImage(img, 0, 0, width, height);
+    }
+
     const changePageStyle = document.getElementById('pagestyle');
     const colourInputs = document.querySelectorAll('input[type=color]');
     for(let i = 0; i < colourInputs.length; i++){
@@ -257,13 +304,6 @@
         // console.log(cacheData);
     });
 
-    let img;
-    function drawImage(){
-        console.log('draw ' + img);
-        canvasContext.drawImage(img, 0, 0, width, height);
-        // console.log("draw");
-    }
-
     document.getElementById('upload').addEventListener('change', function () {
         clearCache();
         const file = event.target.files[0];
@@ -276,21 +316,6 @@
                 // canvas.width = img.width;
                 // canvas.height = img.height;
                 console.log("img initial: " + img.width, img.height);
-                console.log("img natural initial: " + img.naturalWidth, img.naturalHeight);
-                if(resize.value){
-                    // height, width = imgSizeFit(img);
-                    height = heightFromWidth(width, img.naturalWidth, img.naturalHeight);
-                    console.log("resize img: " + width + ", " + height);
-                }
-                else {
-                    width = img.width;
-                    height = img.height;
-                }
-                img.width = width;
-                img.height = height;
-                console.log("img after: " + img.width, img.height);
-                img.style.width = width + 'px';
-                img.style.height = height + 'px';
                 // resizeCanvas(width, height);
                 applyDithering();
             };
@@ -341,7 +366,6 @@
     function applyDithering() {
         // console.log("dither!");
         drawImage();
-        // const imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
         const imageData = canvasContext.getImageData(0, 0, width, height);
         let data = imageData.data;
         console.log(canvas.width, canvas.height, img.width, img.height, width, height);
