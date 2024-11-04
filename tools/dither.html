@@ -9,8 +9,8 @@
         :root {
             --colour0: black; /* text and borders */
             --colour1: white; /* background */
-            /* how to handle transparent colours? */
         }
+        p {max-width: 40em;}
         a {
             color: var(--colour0); 
             text-decoration-style: dotted; 
@@ -31,9 +31,10 @@
             border: 1px solid var(--colour0);
             box-sizing: border-box;
         }
-        button, input[type="file"] {
+        button, input[type="file"], input[type="number"] {
             font-family: Courier, monospace;
-            border-radius: 7px;
+            border-radius: .5em;
+            /* border: 1em var(--colour0); */
             cursor: pointer;
             padding: 1em 1em 1em 1em;
             font-size: 1.25em;
@@ -41,10 +42,10 @@
             background-color: var(--colour1);
             color: var(--colour0);
             font-size: 0.9em;
+            max-width: 20em;
         }
         button #invert {float: right;}
         h1, h2{padding: 1em 0 0 0;}
-        input[type="file"] {background-color: var(--colour1); color: var(--colour0);}
         summary {text-decoration: underline;}
         output {width: 4em;}
     </style>
@@ -75,18 +76,20 @@
     <label for="upload">upload an image:</label><br>
     <input type="file" id="upload" accept="image/*">
     <br>
-    <div style="width:512px; height:512px;">
+    <div id="canvas_container" style="width:512px; height:512px;">
     <canvas id="canvas" width="512" height="512">Your browser not support the HTML5 canvas.</canvas>
     </div>
 
     <h2>step 2. resize (optional)</h2>
     <!-- need to style these inputs -->
     <label for="resize">resize the image?</label>
-    <input id="resize" type="checkbox" checked/>
-    <br>
-    <input id="width_input" type="range" min="1" max="512" step="1" value="512"/>
-    <br>
-    <label for="width_input">width: <output id="width_output"></output></label>
+    <input id="resize" type="checkbox"/>
+    <br><br>
+    <!-- you can change the max here with inspect element, might display a bit buggy though. -->
+    <label for="width_input">set width: <output id="width_output"></output></label>
+    <!-- <br> -->
+    <input id="width_input" type="number" min="1" max="512" step="1" value="512"/>
+    <p>there's a maximum of 512 because that's a cute number, but you can change the max with inspect element :]</p>
 
     <h2>step 3. recolour (optional)</h2>
     <p>change the colours (click on the coloured buttons below):</p>
@@ -108,33 +111,35 @@
 
 <script>
     // forked from https://eli.li/_assets/bin/dither/dither.js
-    // TODO set default colours in one place and propogate ?
+
     const canvas = document.getElementById('canvas');
-    const canvasContext = canvas.getContext('2d', {willReadFrequently: 'true'});
-    let cacheData; clearCache();
-    let dataUrl = "beep boop that didn't work";
+    const canvas_context = canvas.getContext('2d', {willReadFrequently: 'true'});
+    let dataURL = "beep boop that didn't work";
     let coloursRGB = [[0,0,0], [255,255,255]];
-    
-    //render on canvas some text like 'cute images incoming' ?
-    
+
     const resize = document.getElementById('resize');
     const width_output = document.getElementById('width_output');
     const width_input = document.getElementById('width_input');
-    const max_width = width_input.max;
     let width = canvas.width;
     let height = canvas.height;
+
     console.log("canvas initial: " + width, height);
 
-    width_output.textContent = width_input.value;
-    width_input.addEventListener('input', function(){
-        width_output.textContent = event.target.value;
-    });
+    // width_output.textContent = width_input.value;
+    // width_input.addEventListener('input', function(){
+    //     width_output.textContent = event.target.value;
+    // });
 
+    let canvas_container = document.getElementById('canvas_container');
+    console.log(canvas_container);
     width_input.addEventListener('change', function(){
         if(resize.checked){
             console.log('width changed: ' + event.target.value)
             // updateDimensions();
-            applyDithering();
+            DITHER();
+            clearCache();
+            // for those messing around with inspect element to increase the max allowed width
+            canvas_container.style.width = width_input.max;
             // DEBUG
             // canvasContext.strokeStyle = "red";
             // canvasContext.lineWidth = 1;
@@ -144,21 +149,16 @@
     
     resize.addEventListener('change', function(){
         // updateDimensions();
-        applyDithering();
-        // if (resize.checked){
-        //     updateDimensions(width_input.value)
-        // }
-        // else{
-        //     updateDimensions(img.naturalWidth, img.naturalHeight);
-        // }
+        DITHER();
     });
 
     //resize on page load?
     // if(resize.checked){ 
-    //     height = heightFromWidth(width_input.value, width, height);
-    //     width = width_input.value;
-    //     resizeCanvas(width, height);
-    //     console.log("initial resize width: " + width);
+        //     height = heightFromWidth(width_input.value, width, height);
+        //     width = width_input.value;
+        //     resizeCanvas(width, height);
+        //     canvas_container.style.width = width_input.max;
+        //     console.log("initial resize width: " + width);
     // }
 
     function resizeCanvas(){
@@ -171,8 +171,9 @@
         // restricting width but not height
         let w = width;
         let h = height;
-        if(!!img){
-            // var ratio = Math.min(1, max_width / img.naturalWidth, img.naturalHeight);
+        // falsey null check
+        if(!!img){ 
+            // var ratio = Math.min(1, width_input.max / img.naturalWidth, img.naturalHeight);
             w = img.naturalWidth;
             h = img.naturalHeight;
         }
@@ -180,67 +181,42 @@
             h = heightFromWidth(width_input.value, w, h);
             w = width_input.value;
         } 
-            // set width to width_input.value
-        // else if img exists (!!img) falsey
-            // calculate ratio
-            // set width to img.naturalWidth
-        // else
-        
-        // clamp at max width
-        //figure out height, take the new width divided by old width
-
-        // width = event.target.value;
-        // height = heightFromWidth(width, width, height)
-        //clamp to max width - set in width input
-
-        let clamp = Math.min(w, max_width);
+        //clamp to max width - set in width_input.max
+        let clamp = Math.min(w, width_input.max);
         //how to keep aspect ratio?
         width = w;
         height = heightFromWidth(clamp, w, h);
-        console.log("update dimensions: " + width, height)
+        console.log("update dimensions: " + width, height);
         resizeCanvas();
-    }
-//JUNK//
-    // https://stackoverflow.com/questions/3971841/how-to-resize-images-proportionally-keeping-the-aspect-ratio
-    // console.log("max width: " + maxWidth);
-    // given an image element, return the height given a new width and preserving aspect ratio.
-    function imgSizeFit(img){ 
-        var ratio = Math.min(1, max_width / img.naturalWidth, Math.floor((max_width / img.naturalWidth) * img.naturalHeight) / img.naturalHeight);
-        return { width: img.naturalWidth*ratio, height: img.naturalHeight*ratio};
-        // return { width, height };
-        // img.style.width = img.naturalWidth * ratio + 'px';
-        // img.style.height = img.naturalHeight * ratio + 'px';
     }
 
     function heightFromWidth(new_w, current_w, current_h){
         return (Math.floor((new_w / current_w) * current_h));
     }
-//END JUNK//
 
     let img;
     function drawImage(){
+        // if(!!img)
         console.log(img);
         // console.log("img natural: " + img.naturalWidth, img.naturalHeight);
         updateDimensions();
-        // height = heightFromWidth(width, img.naturalWidth, img.naturalHeight);
         img.width = width;
         img.height = height;
         // img.style.width = width + 'px';
         // img.style.height = height + 'px';
-        // console.log("resize img: " + img.width + ", " + img.height);
-        canvasContext.drawImage(img, 0, 0, width, height);
+        // console.log("resize img: " img.width, img.height);
+        canvas_context.drawImage(img, 0, 0, width, height);
     }
 
     const changePageStyle = document.getElementById('pagestyle');
-    const colourInputs = document.querySelectorAll('input[type=color]');
-    for(let i = 0; i < colourInputs.length; i++){
-        // setImageColours(i, hexToRGB(colourInputs[i].value));
-        colourInputs[i].addEventListener('change', function(){
+    const colour_inputs = document.querySelectorAll('input[type=color]');
+    for(let i = 0; i < colour_inputs.length; i++){
+        colour_inputs[i].addEventListener('change', function(){
             setImageColours(i, hexToRGB(event.target.value));
             clearCache();
-            applyDithering();
+            DITHER();
         });
-        colourInputs[i].addEventListener('input', function(){
+        colour_inputs[i].addEventListener('input', function(){
             setStyleColours(i, event.target.value)});
     }
 
@@ -267,39 +243,47 @@
         return rgb;
     }
 
+    let cache_data; 
+    let cache_width;
+    clearCache();
     //called when uploading a new image or changing colours
+
     function clearCache(){
-        cacheData = [undefined, undefined];
+        cache_data = [undefined, undefined];
+        cache_width = undefined;
     }
 
     let inverted = false;
+    let cache
     document.getElementById('invert').addEventListener('click', function() {
         inverted = !inverted;
         
         //invert colours
-        let temp = colourInputs[0].value;
-        colourInputs[0].value = colourInputs[1].value;
-        colourInputs[1].value = temp;
+        let temp = colour_inputs[0].value;
+        colour_inputs[0].value = colour_inputs[1].value;
+        colour_inputs[1].value = temp;
         temp = coloursRGB[0];
         setImageColours(0, coloursRGB[1]);
         setImageColours(1, temp);
-        setStyleColours(0, colourInputs[0].value);
-        setStyleColours(1, colourInputs[1].value);
+        setStyleColours(0, colour_inputs[0].value);
+        setStyleColours(1, colour_inputs[1].value);
 
         //before dithering, cache current result of the inverted image
         let i = inverted ? 0 : 1;
-        if (!cacheData[i]){
-            cacheData[i] = canvasContext.getImageData(0, 0, width, height);
+        if (!cache_data[i]){
+            cache_data[i] = canvas_context.getImageData(0, 0, width, height);
+            cache_width = width;
             // console.log("write "+i);
         }
         i = 1 - i;
         //get image data from cache rather than re-dithering each time you invert the image
-        if (cacheData[i]){
-            canvasContext.putImageData(cacheData[i], 0, 0);    
+        if (!!cache_data[i] && cache_width == width){
+            canvas_context.putImageData(cache_data[i], 0, 0);
+            console.log("show cache");
             // console.log("render "+i);
         }
         else{
-            applyDithering();
+            DITHER();
         }
         // console.log(cacheData);
     });
@@ -317,7 +301,7 @@
                 // canvas.height = img.height;
                 console.log("img initial: " + img.width, img.height);
                 // resizeCanvas(width, height);
-                applyDithering();
+                DITHER();
             };
         };
         reader.readAsDataURL(file);
@@ -337,9 +321,9 @@
         fileName += '-dithered.png';
         }
 
-        dataUrl = canvas.toDataURL('image/png'); // Convert the canvas to a data URL
+        dataURL = canvas.toDataURL('image/png'); // Convert the canvas to a data URL
         const a = document.createElement('a'); // Create an anchor element
-        a.href = dataUrl; // Set the href of the anchor to the data URL
+        a.href = dataURL; // Set the href of the anchor to the data URL
         a.download = fileName; // Set the download attribute to the desired file name
         a.setAttribute('rel', 'noopener noreferrer');
         a.setAttribute('target', '_blank');
@@ -350,27 +334,25 @@
 
     //first javascript I've worked on in a year :D -Olive
     document.getElementById('copy').addEventListener('click', function() {
-        dataUrl = canvas.toDataURL('image/png');
+        dataURL = canvas.toDataURL('image/png');
         let copyText = document.createElement("textarea");
-        copyText.value = dataUrl;
+        copyText.value = dataURL;
         document.body.append(copyText)
         copyText.select();
         copyText.setSelectionRange(0, 99999)
         document.execCommand("copy");
         copyText.remove()
-        // document.getElementById("dataurl").innerHTML = dataUrl;
-        // console.log(dataUrl)
-        // navigator.clipboard.writeText(dataUrl.value);
     });
 
-    function applyDithering() {
-        // console.log("dither!");
+    function DITHER() {
+        if(!img){console.log("no image to dither, you dinkus!"); return;}
+        console.log("do a dither!");
         drawImage();
-        const imageData = canvasContext.getImageData(0, 0, width, height);
+        // if (!!img){drawImage();}
+        // width and height here is important!
+        const imageData = canvas_context.getImageData(0, 0, width, height);
         let data = imageData.data;
         console.log(canvas.width, canvas.height, img.width, img.height, width, height);
-        // const width = canvas.width;
-        // const height = canvas.height;
 
         // Find the gray value of a pixel
         const getGrayValue = (r, g, b) => 0.299 * r + 0.587 * g + 0.114 * b;
@@ -423,8 +405,7 @@
                 }
             }
         }
-
-        canvasContext.putImageData(imageData, 0, 0);
+        canvas_context.putImageData(imageData, 0, 0);
     }
 </script>
 </body>
