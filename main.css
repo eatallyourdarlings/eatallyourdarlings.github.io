@@ -1,10 +1,7 @@
-
+/* orf dot place slash main dot css */
+/* custom <style> at:index, log */
 /* idk what the difference between margin, border, padding is lol */
-html {
-    background-color:#FFF;
-    color:#211e18;
-    font-size:100%;
-}
+html {font-size:100%; background-color:#FFF; color:#000;}
 body {
     font-family:Georgia, serif;
     font-size:1.1em;/* this determines other relative measurements in em */
@@ -24,7 +21,7 @@ body {
     /* max-width:100%;*/
 }
 pre, code {
-    font-size:1em;
+    font-size:.9em;
     font-family:Courier, monospace !important;
     text-wrap:wrap;
 }
@@ -47,18 +44,19 @@ footer img {
     padding-top:0.5em;
 }
 main img {padding-top:0.75em;}
-img {image-rendering:pixelated;}
+img {image-rendering:pixelated; background-color:#FFF;}
 figure {
     padding-top:1em;
     padding-bottom:1em;
     margin:0;
 }
-figcaption {max-width:24em; font-style:italic; width: inherit;}
+figcaption {max-width:24em; font-style:italic; width:inherit;}
 figcaption::before {content:"+ " / ""; color:#999933;}
 audio {width:24em; padding:1em;}
 h1 {font-size:2em;}
-h2, h3 { padding-top: 2em;}
+h2, h3 { padding-top:2em;}
 /* em {font-weight:normal;} */
+b { color:#990000}
 a, a:visited {
     color:#211e18;
     text-decoration-line:underline;
@@ -93,16 +91,18 @@ a[target="_blank"]::after, header a::after, .title::after {
     text-decoration:none;
     }
 q { font-style:italic; display:inline;}
-blockquote {display: block; font-style:italic; max-width:32em; margin-left:0.5em;}
+blockquote {display:block; font-style:italic; max-width:32em; margin-left:0.5em;}
 blockquote::after {content:none;}
 blockquote:before {content:"> " / ""; color:#999933;}
 cite {display:block; clear:both; margin-bottom:2em;}
 cite::before {content:"— ";}
+
 ul, ol { 
     list-style-type:none;
     margin-top:1.5em;
     margin-bottom:1.5em;
     /* list-style-position:outside;*/
+    padding-left: 0;
 }
 ul li::before{
     color:#999933;
@@ -112,7 +112,7 @@ ul li::before{
 .links li::before {color:#990000;}
 main ul, main ol { 
     line-height:1.25em;
-    padding-left:1.25em;
+    /* padding-left:1.25em; */
 }
 hr {
     border:none;
@@ -135,6 +135,6 @@ hr::after {
 .topsyturvy {transform:rotate(180deg);display:inline-block;}
 
 @media (prefers-color-scheme:dark) {
-    html, a {background-color:#211e18;color:#FFF !important;}
+    html, a {background-color:#000;color:#FFF !important;}
     img.dodark, img[src^="img/bits/"]{filter:invert();}
 }

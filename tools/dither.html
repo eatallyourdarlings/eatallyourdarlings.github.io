@@ -10,7 +10,7 @@
             --colour0: black; /* text and borders */
             --colour1: white; /* background */
         }
-        p {max-width: 40em;}
+        p, li {max-width: 40em; padding-bottom: 1em;}
         a {
             color: var(--colour0); 
             text-decoration-style: dotted; 
@@ -55,6 +55,7 @@
         h1, h2{padding: 1em 0 0 0;}
         summary {text-decoration: underline;}
         output {width: 4em;}
+        /* img, canvas {image-rendering: pixelated;} */
     </style>
 </head>
 <body>
@@ -65,16 +66,15 @@
     <details>
         <summary>click here for more info and options</summary>
         <ul>
-            <li>'completely in your browser' means that image files are processed entirely on your device and no data is sent over the internet.</li>
             <li>
-                <label for="pagestyle" value="true">the style of the page changes with the colours:</label><br>
+                <label for="pagestyle" value="true">the style of the page changes with the colours:</label>
                 <input id="pagestyle" type="checkbox" checked> (on by default)
             </li>
-            <li><b>colour 0 = shadows</b> and <b>colour 1 = highlights</b>, therefore if 0 is lighter than 1 the image will appear inverted.</li>
+            <li>'completely in your browser' means that image files are processed entirely on your device and no data is sent over the internet.</li>
+            <li><b>colour 0 is shadows</b> and <b>colour 1 is highlights</b>, therefore if <b>0</b> is lighter than <b>1</b> the image will appear inverted.</li>
             <li>images are reduced to two colours using the <a href="https://en.wikipedia.org/wiki/Floyd–Steinberg_dithering" target="_blank">Floyd-Steinberg algorithm</a>.</li>
             <li>images are not resized, but large files may look odd in the browser because the size that they're displayed is restricted.</li>
-            <li>for the best (cutest) results, dither already-small images, i.e. at least less than 1000 pixels in width.</li>
-            <li>when downloading a file, '-dithered' is added to its original filename</li>
+            <!-- <li>when downloading a file, '-dithered' is added to its original filename</li> -->
             <li>the copy button at the bottom puts the image as a string of letters (a base64-encoded .png) in your clipboard, handy for embedding small images in a webpage (see: <a href="https://css-tricks.com/data-uris/" target="_blank">Data URIs &#x7C; CSS Tricks</a>).</li>
         </ul>
     </details>
@@ -236,7 +236,7 @@
     const root = document.querySelector(':root');
     function setStyleColours(index, value){
         // console.log(`setStyleColours ${index}, ${value}`);
-        if (changePageStyle.value){
+        if (changePageStyle.checked){
             root.style.setProperty(`--colour${index.toString()}`, value);
         }
     }
