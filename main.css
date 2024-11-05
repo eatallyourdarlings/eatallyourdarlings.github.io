@@ -22,7 +22,7 @@ body {
 }
 /* variables I'm more likely to tweak the right */
 header pre {color:#990000;}
-main pre {margin-top:1em;}
+pre {margin-top:1em; margin-bottom:1em;}
 pre, code {font-size:.9em; font-family:Courier, monospace !important; text-wrap:wrap;}
 footer {margin-top:1em; margin-bottom:2em; width:fit-content; font-family:Georgia, serif;}
 footer img {margin-left:auto; margin-right:auto; margin-top:0.5em; display:block;}
