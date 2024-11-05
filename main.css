@@ -1,5 +1,5 @@
 /* orf dot place slash main dot css */
-/* custom <style> at:index, log */
+/* custom <style> at: index, log, now */
 /* idk what the difference between margin, border, padding is lol */
 html {font-size:100%; background-color:#FFF; color:#000;}
 body {
@@ -44,7 +44,7 @@ footer img {
     padding-top:0.5em;
 }
 main img {padding-top:0.75em;}
-img {image-rendering:pixelated; background-color:#FFF;}
+img {image-rendering:pixelated; background-color:#FFFFFF;}
 figure {
     padding-top:1em;
     padding-bottom:1em;
@@ -57,8 +57,13 @@ h1 {font-size:2em;}
 h2, h3 { padding-top:2em;}
 /* em {font-weight:normal;} */
 b { color:#990000}
+details summary {
+    cursor:grab;
+    text-decoration-line:underline;
+    text-decoration-color:#999933;
+    text-decoration-style:dotted;}
 a, a:visited {
-    color:#211e18;
+    color:#000000;
     text-decoration-line:underline;
     text-decoration-style:solid;
     text-decoration-thickness:0.1em;
@@ -82,7 +87,7 @@ a[target="_blank"]:hover, header a:hover{
 }
 a[target="_blank"]{
     text-decoration-style:dotted;
-    text-decoration-thickness:0.12em;
+    text-decoration-thickness:0.1em;
     text-decoration-color:#990000;
 }
 a[target="_blank"]::after, header a::after, .title::after {
@@ -133,8 +138,7 @@ hr::after {
   }
 /*do a flip */
 .topsyturvy {transform:rotate(180deg);display:inline-block;}
-
 @media (prefers-color-scheme:dark) {
-    html, a {background-color:#000;color:#FFF !important;}
+    html, a, a:visited {background-color:#000000 !important;color:#FFFFFF !important;}
     img.dodark, img[src^="img/bits/"]{filter:invert();}
 }
