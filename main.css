@@ -1,6 +1,5 @@
 /* orf dot place slash main dot css */
 /* custom <style> at: index, log, now */
-/* idk what the difference between margin, border, padding is lol */
 /* should I use > for nesting? */
 html {font-size:100%; background-color:#FFF; color:#000;}
 body {
@@ -23,20 +22,20 @@ body {
 }
 /* variables I'm more likely to tweak the right */
 header pre {color:#990000;}
-main pre {padding-top:1em; margin:0;}
+main pre {margin-top:1em;}
 pre, code {font-size:.9em; font-family:Courier, monospace !important; text-wrap:wrap;}
-footer {padding-top:1em; padding-bottom:2em; width:fit-content; font-family:Georgia, serif;}
-footer img {margin-left:auto; margin-right:auto; padding-top:0.5em; display:block;}
-main img {padding-top:0.75em;}
+footer {margin-top:1em; margin-bottom:2em; width:fit-content; font-family:Georgia, serif;}
+footer img {margin-left:auto; margin-right:auto; margin-top:0.5em; display:block;}
+main img {margin-top:0.75em;}
 img {image-rendering:pixelated; background-color:#FFFFFF;}
 
-figure {padding-top:1em; padding-bottom:1em; margin:0;}
+figure {margin-top:1em; margin-bottom:1em; margin:0;}
 figcaption {max-width:24em; font-style:italic; width:inherit;}
 figcaption::before {content:"+ " / ""; color:#999933;}
-audio {width:24em; padding:1em;}
+audio {width:24em; margin:1em;}
 
 h1 {font-size:2em;}
-h2, h3 {padding-top:2em;}
+h2, h3 {margin-top:2em;}
 /* em {font-weight:normal;} */
 b {color:#990000}
 
