@@ -1,14 +1,15 @@
 <rss version="2.0">
 <channel>
-<title>Olive's log</title>
+<title>under a log</title>
 <link>http://orf.place/log.html</link>
-<description></description>
+<description>Olive's feed, maybe.</description>
     <item>
         <title>hey Lu</title>
         <pubDate>Wed, 06 Nov 2024 00:00:00 GMT</pubDate>
         <link>http://orf.place/log.html</link>
-        <guid>#2024-11-06</guid>
+        <guid isPermaLink="false">#2024-11-06</guid>
         <description>
+        I'm not sure how I feel about my log being a *feed* yet, but I appreciate you asking to follow it. I'm just getting comfortable with being a person on the internet again, after a year of being mostly offline, in a sort-of rehab from social media addiction. I'll think on it for a bit.
         </description>
     </item>
 </channel>
