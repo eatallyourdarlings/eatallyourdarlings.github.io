@@ -1,0 +1,15 @@
+<rss version="2.0">
+<channel>
+<title>Olive's log</title>
+<link>http://orf.place/log.html</link>
+<description></description>
+    <item>
+        <title>hey Lu</title>
+        <pubDate>Wed, 06 Nov 2024 00:00:00 GMT</pubDate>
+        <link>http://orf.place/log.html</link>
+        <guid>#2024-11-06</guid>
+        <description>
+        </description>
+    </item>
+</channel>
+</rss>
