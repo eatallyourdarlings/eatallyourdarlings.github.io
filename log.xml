@@ -5,7 +5,8 @@
 <description>Olive's feed, maybe.</description>
     <item>
         <title>hey Lu</title>
-        <pubDate>Wed, 06 Nov 2024 00:00:00 GMT</pubDate>
+        <pubDate>Wed, 06 Nov 2024</pubDate>
+        <!-- can this date be YYYY-MM-DD? -->
         <link>http://orf.place/log.html</link>
         <guid isPermaLink="false">#2024-11-06</guid>
         <description>

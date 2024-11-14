@@ -36,6 +36,7 @@ audio {width:24em; margin:1em;}
 
 h1 {font-size:2em;}
 h2, h3 {margin-top:2em;}
+h2.alt {text-decoration-line: underline; text-decoration-style: dashed; text-decoration-color: #990000;}
 /* em {font-weight:normal;} */
 b {color:#990000}
 
@@ -46,7 +47,7 @@ header a::before {font-style:normal; color:#999933; content:"𐂐";}
 main a:hover {color:#999933; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
 a[target="_blank"]{text-decoration-style:dotted; text-decoration-thickness:0.1em; text-decoration-color:#990000;}
 a[target="_blank"]:hover, header a:hover {color:#990000; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
-a[target="_blank"]::after, header a::after, .title::after {text-decoration:none; color:#990000; content:" ~" / "";}
+a[target="_blank"]::after, header a::after, h1.alt::after {text-decoration:none; color:#990000; content:" ~" / "";}
 
 q {font-style:italic; display:inline;}
 blockquote {display:block; font-style:italic; max-width:32em; margin-left:0.5em;}
@@ -61,11 +62,11 @@ ul li::before{font-family:Courier, monospace; color:#999933; content:"* " / "";}
 .links li::before {color:#990000;}
 main ul, main ol {line-height:1.25em;
     /* padding-left:1.25em; */}
-hr {border:none; overflow:visible; height:0.125em; padding-top:0.75em; padding-right: 0; padding-bottom: 0.75em; padding-left: 0; text-align:left; width:inherit; color:#990000;}
-hr::after { position:relative; top:-0.75em; width:inherit; font-weight:bold; font-size:1em; content:'⁂'; }
+hr {border:none; overflow:visible; height:0.125em; padding-top:0.75em; padding-right: 0; padding-bottom: 0.75em; padding-left: 0; text-align:left; width:inherit; color:#990000;  font-size:1em;}
+hr::after {position:relative; top:-0.75em; width:inherit; font-weight:bold; content:'⁂';}
 
 /*do a flip */
-.topsyturvy {transform:rotate(180deg);display:inline-block;}
+.antipode {transform:rotate(180deg);display:inline-block;}
 
 @media (prefers-color-scheme:dark) {
     html, a, a:visited {background-color:#000000 !important;color:#FFFFFF !important;}
