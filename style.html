@@ -10,11 +10,11 @@
 </head>
 <body>
   <header>
+  <pre><a href="index.html"> orf dot place</a> style</pre>
   header text
   <pre>
-    preformatted 
-          head er
-                              text
+         head er
+    text         mode
   </pre>
   </header>
 
@@ -22,49 +22,49 @@
       <h1>heading 1</h1>
       <p>text under h1</p>
 
-      <div class="sepia">
+      <!-- <div class="sepia">
         sepia test
         <p style="color:#000">black</p>
         <p style="color:#000">grey</p>
       </div>
-      <p class="sepia">sepia text</p>
-
-      <pre>
-          pre
-          f ormatte d 
-              t e xt
-      </pre>
+      <p class="sepia">sepia text</p> -->
+      <!-- <table>
+        <caption>table of colours</caption>
+        <tr>
+            <td style="background-color: var(--pri);"></td>
+            <td style="background-color: var(--sec);"></td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td style="background-color: crimson;"></td>
+            <td style="background-color: olivedrab;"></td>
+            <td style="background-color: darkcyan;"></td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td style="background-color: indianred;"></td>
+            <td style="background-color: olive;"></td>
+            <td style="background-color: darkslategrey;"></td>
+        </tr>
+    </table>
+    
+    This is a <kbd>kbd</kbd> element. -->
 
       <h2>heading 2</h2>
       <p>text under h2</p>
-      <h3>header3</h3>
+      <h3>heading 3</h3>
       <p>text under h3</p>
 
-      <table>
-          <caption>table of colours</caption>
-          <tr>
-              <td style="background-color: var(--pri);"></td>
-              <td style="background-color: var(--sec);"></td>
-          </tr>
-          <!-- embedded colour tests -->
-          <!-- <tr></tr>
-          <tr>
-              <td style="background-color: crimson;"></td>
-              <td style="background-color: olivedrab;"></td>
-              <td style="background-color: darkcyan;"></td>
-          </tr> -->
-          <!-- <tr></tr>
-          <tr>
-              <td style="background-color: indianred;"></td>
-              <td style="background-color: olive;"></td>
-              <td style="background-color: darkslategrey;"></td>
-          </tr> -->
-      </table>
-      <p><a href="./main.css">internal link</a></p>
-      <p><a target="_blank" href="https://wiki.xxiivv.com/site/permacomputing">external link</a></p>
-      <p id="1">note<sup><a href="#n1">1</a></sup></p>
 
-  <p>This is a paragraph, with <b>bold</b>, <i>italic</i>, <code>code</code>, a <a>local link</a> and an <a target='_blank'>external link</a>. This is a <kbd>kbd</kbd> element.</p>
+      <pre>
+        pre
+        f ormatte d 
+            t e xt
+    </pre>
+
+  <p id="1">note<sup><a href="#n1">1</a></sup></p>
+
+  <p>This is a paragraph, with <b>bold</b>, <i>italic</i>, <code>code</code>, a <a>local link</a> and an <a target='_blank'>external link</a>.</p>
 
   <article>
     <p>This is a paragraph inside an article block, with <b>bold</b>, <i>italic</i>, <code>code</code>, a <a>local link</a> and an <a target='_blank'>external link</a>.</p>
@@ -89,6 +89,10 @@
     </ul>
   </ul>
 
+  <ul class="alt">sometimes I use a list just to highlight a cool link, kinda reminiscent of gemtext
+    <li><a target="_blank">an external link</a></li>
+  </ul>
+
   <table>
     <tr><th>This is a table header, with <b>bold</b>, <i>italic</i>, <code>code</code> and a <a>link</a>.</th></tr>
     <tr><td>This is a table row, with <b>bold</b>, <i>italic</i>, <code>code</code> and a <a>link</a>.</td></tr>
@@ -100,15 +104,22 @@
   <cite>Author, Source</cite>
 
   <figure aria-labelleddby="figcaption">
-    <img src="works/bugface.png" alt="a grayscale portrait of a person with two stick insects, one in the middle of their face and one on their shoulder.">
-  <figcaption><figcaption>This is an image in a figure block, this note is in a figcaption with <b>bold</b>, <i>italic</i>, <code>code</code> and a <a>link</a>.</figcaption></figure>
+    <img src="" alt="a missing image's alt text">
+  <figcaption>This is an image in a figure block, this note is in a figcaption with <b>bold</b>, <i>italic</i>, <code>code</code> and a <a>link</a>.</figcaption>
+</figure>
+
+  <figure>
+    <img src="" alt="alt text">
+  <figcaption aria-hidden="true"> alt text (copied into a hidden caption)</figcaption>
+</figure>
 
   </main>
-
   <footer>
-    <p id="n1"><a href="#1">footnote 1</a></p>
-      footer
+    <hr>
+    footer text
+    <p id="n1"><a href="#1">footnote 1 in a paragraph in the footer</a></p>
       <nav>nav in footer</nav>
+      <div class="date">date 2024-11-18</div>
   </footer>
 </body>
 </html>

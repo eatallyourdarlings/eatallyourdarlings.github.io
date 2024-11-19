@@ -1,0 +1,19 @@
+    <nav>
+        <ol>
+            <li><a href='#words'>writing</a></li> 
+            <li><a href="#games">games</a></li>
+            <li><a href="#audio">audio</a></li>
+            <li><a href="#visual">visual</a></li>
+        </ol>
+    </nav>
+
+profile picture description: tiny pixel art portrait of a plump blue jay in a woodblock palette.
+
+banner picture description: aerial photograph of bright dunes on the planet Mars, taken by the HiRise satellite. Dead water systems have left scars on the surface where beautiful streaks of blue, coppery and white minerals shine through.
+
+<audio src="audio/memos/2024-11-01-a_passing_thought.mp3" preload="metadata" controls=""><a href="audio/memos/2024-11-01-a_passing_thought.mp3">missing a friend to whom I'm only a passing thought</a></audio>
+
+hr.alt {text-decoration-style: dashed; border-style: dashed; border-color: #990000; height: 0; padding: 0; border: 1em;}
+hr.alt::after {content:none;}
+
+@<a href="https://www.instagram.com/eatallyourdarlings/" target="_blank">eatallyourdarlings on Instagram</a> if that's your preferred place on the web, but I check my DMs very occasionally. I deleted everything from there and won't be contributing any more to Meta's content silo.</p></li>
