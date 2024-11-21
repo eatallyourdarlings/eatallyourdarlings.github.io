@@ -57,9 +57,11 @@ blockquote:before {color:#999933; content:"> " / "";}
 cite {display:block; clear:both; margin-bottom:2em;}
 cite::before {content:"— ";}
 
-ul, ol {list-style-type:none;  padding-left: 0; margin-top:1.5em; margin-bottom:1.5em; line-height:1.25em;
+ul, ol {margin-top:1.5em; margin-bottom:1.5em; line-height:1.25em;
 /* list-style-position:outside;*/
 }
+li {margin-bottom: .5em;}
+ul {list-style-type:none; padding-left: 0;}
 ul li::before{font-family:Courier, monospace; color:#999933; content:"* " / "";}
 .alt li::before {color:#990000;}
 hr {border:none; overflow:visible; height:0.125em; padding-top:0.75em; padding-right: 0; padding-bottom: 0.75em; padding-left: 0; text-align:left; width:inherit; color:#990000;  font-size:1em;}
