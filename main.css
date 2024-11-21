@@ -60,7 +60,6 @@ cite::before {content:"— ";}
 ul, ol {margin-top:1.5em; margin-bottom:1.5em; line-height:2em;
 /* list-style-position:outside;*/
 }
-/* li {margin-bottom: .5em;} */
 ul {list-style-type:none; padding-left: 0;}
 ul li::before{font-family:Courier, monospace; color:#999933; content:"* " / "";}
 .alt li::before {color:#990000;}
