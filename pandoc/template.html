@@ -12,20 +12,20 @@ $endif$
   <title>$if(title)$$title$$else$$name$$endif$ ~ orf dot place</title>
 </head>
 <body>
-  <header><pre><a href="index.html"> orf dot place</a> $name$</pre></header>
-  <main>
-    $if(title)$<h1>$title$</h1>$endif$
-    $for(include-before)$$include-before$$endfor$
-    $if(toc)$<nav role="doc-toc">
-      $if(toc-title)$<h2>$toc-title$</h2>$endif$
-    $table-of-contents$
-    </nav>$endif$
-    $body$
-    $for(include-after)$$include-after$$endfor$
-  </main>
-  <footer>
-    <hr>
-    <div class="date">$if(date)$ created $date$,$endif$ $if(mdate)$shared <a href="log.html#$mdate$">$mdate$</a>$endif$.</div>
-  </footer>
+<header><pre><a href="index.html"> orf dot place</a> $name$</pre></header>
+<main>
+  $if(title)$<h1>$title$</h1>$endif$
+  $for(include-before)$$include-before$$endfor$
+  $if(toc)$<nav role="doc-toc">
+    $if(toc-title)$<h2>$toc-title$</h2>$endif$
+  $table-of-contents$
+  </nav>$endif$
+  $body$
+  $for(include-after)$$include-after$$endfor$
+</main>
+<footer>
+  <hr>
+  <div class="date">$if(date)$ created <a href="log.html#$date$">$date$</a>,$endif$ $if(mdate)$shared <a href="log.html#$mdate$">$mdate$</a>$endif$.</div>
+</footer>
 </body>
 </html>
