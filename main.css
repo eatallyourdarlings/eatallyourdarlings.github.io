@@ -1,5 +1,5 @@
 /* orf dot place slash main dot css */
-/* custom <style> at: index, log, now */
+/* custom <style> at: index, log, now, stinkbugs */
 /* should I use > for nesting? */
 /* .alt class - could be a wrapper for all alternate styles for things */
 html {font-size:100%; background-color:#FFF; color:#000;}
@@ -22,10 +22,10 @@ body {
     /* max-width:100%;*/
 }
 /* things I'm more likely to tweak > to the right */
-header pre {color:#990000;}
+/* header pre {color:#990000;} */
 pre {margin-top:1em; margin-bottom:1em;}
 pre, code {font-size:.9em; font-family:Courier, monospace !important; text-wrap:wrap;}
-footer {margin-top:1em; margin-bottom:2em; width:fit-content; font-family:Georgia, serif;}
+footer {margin-top:3em; margin-bottom:2em; width:fit-content; font-family:Georgia, serif;}
 footer img {margin-left:auto; margin-right:auto; display:block;}
 img {margin-top:0.75em; margin-bottom:0.75em;}
 /* img {image-rendering:pixelated; background-color:#FFFFFF;} */
