@@ -8,14 +8,10 @@ body {
     font-size:1.1em;/* this determines other relative measurements in em */
     line-height: 1.5em;
     display:block;
-    padding:1em;
-    padding-left:1em;
-    padding-right:1em;
-    padding-top:1em;
-    margin-top:0;
+    margin-top:1em;
     margin-right:auto;
     margin-bottom:auto;
-    margin-left:1.5em;
+    margin-left:2em;
     text-align:left;
     /* align-self:center; */
     width:calc(100% - 2em);
@@ -49,7 +45,8 @@ header a::before {font-style:normal; color:#999933; content:"𐂐";}
 main a:hover {color:#999933; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
 a[target="_blank"]{text-decoration-style:dotted; text-decoration-thickness:0.1em; text-decoration-color:#990000;}
 a[target="_blank"]:hover, header a:hover {color:#990000; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
-a[target="_blank"]::after, header a::after, h1.alt::after {text-decoration-line:none; color:#990000; content:" ~" / "";}
+/* a[target="_blank"]::after,  */
+header a::after, h1.alt::after {text-decoration-line:none; color:#990000; content:" ~" / "";}
 
 q {font-style:italic; display:inline;}
 blockquote {display:block; font-style:italic; max-width:32em; margin-left:0.5em;}

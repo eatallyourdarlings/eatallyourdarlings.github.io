@@ -1,392 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="../favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>get things done! ~ orf.place</title>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="../favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>get things done! ~ orf.place</title>
 </head>
 <body>
-    <header><pre><a href="http://orf.place">orf dot place</a> slash <a href="index.html">tools</a></pre></header>
-    <main>
-        <h1 id="title">pomo!</h1>
-    <article>
-        <div id="pomodoro">
-          <div id="timer">
-            <span id="timer-background">&nbsp;</span>
-            <span id="timer-progress">&nbsp;</span>
-            <span id="timer-remaining" class="full">00:00:00</span>
-          </div>
-          <div id="options">
-            <input type="text" id="task" name="task" placeholder="current task" onchange="handleTask(this.value)">
-          </div>
-          <div id="today">
-            <span id="total" class="full">Session Statistics</span>
-          </div>
-          <div id="cycle">
-            <span id="cycles-remaining" class="full">Cycle Progress</span>
-          </div>
-          <br/><br/>
-          <div id="control">
-            <button onclick="handleStartStop()" id="start-stop">Start</button>
-          </div>
+<header><pre><a href="http://orf.place">orf dot place</a> slash <a href="index.html">tools</a></pre></header>
+<main>
+    <h1 id="title">pomo!</h1>
+<article>
+    <div id="pomodoro">
+        <div id="timer">
+        <span id="timer-background">&nbsp;</span>
+        <span id="timer-progress">&nbsp;</span>
+        <span id="timer-remaining" class="full">00:00:00</span>
         </div>
-      </article>
-    </main>
+        <div id="options">
+        <input type="text" id="task" name="task" placeholder="current task" onchange="handleTask(this.value)">
+        </div>
+        <div id="today">
+        <span id="total" class="full">Session Statistics</span>
+        </div>
+        <div id="cycle">
+        <span id="cycles-remaining" class="full">Cycle Progress</span>
+        </div>
+        <br/><br/>
+        <div id="control">
+        <button onclick="handleStartStop()" id="start-stop">Start</button>
+        </div>
+    </div>
+    </article>
+</main>
 
-    <style>
-        *{font-family:'Courier New', Courier, monospace; font-size: large;}
-        a{color:black}
-        div {
-            padding: 0.1em 0.1em;
-        }
-        body {
-            font-family: Courier, monospace;
-            padding: 0 0.5em 0 1em;
-            background-color: var(--colour1);
-            color: var(--colour0);
-            line-height: 1.2em;
-            font-size: large;
-        }
+<style>
+    *{font-family:'Courier New', Courier, monospace; font-size: large;}
+    a{color:black}
+    div {
+        padding: 0.1em 0.1em;
+    }
+    body {
+        font-family: Courier, monospace;
+        padding: 0 0.5em 0 1em;
+        background-color: var(--colour1);
+        color: var(--colour0);
+        line-height: 1.2em;
+        font-size: large;
+    }
 
-        h1, h2{
-            padding: 1em 0 1em 0;
-        }
-        #pomodoro * {
-        margin-top: 2px;
-        margin-bottom: 0px;
-        }
+    h1, h2{
+        padding: 1em 0 1em 0;
+    }
+    #pomodoro * {
+    margin-top: 2px;
+    margin-bottom: 0px;
+    }
 
-        #pomodoro {
-        width: 100%;
-        }
+    #pomodoro {
+    width: 100%;
+    }
 
-        #timer {
-        color: var(--f_high);
-        width: 100%;
-        padding-bottom: 1.31em;
-        }
+    #timer {
+    color: var(--f_high);
+    width: 100%;
+    padding-bottom: 1.31em;
+    }
 
-        .pomodoro-active #timer-remaining, .pomodoro-active #timer-background, .pomodoro-active #timer-progress {
-        transition: width 100ms, font-size 1s, height 1s;
-        font-size: 2em;
-        height: 3.5em;
-        position: relative;
-        margin-top: -3.5em;
-        }
+    .pomodoro-active #timer-remaining, .pomodoro-active #timer-background, .pomodoro-active #timer-progress {
+    transition: width 100ms, font-size 1s, height 1s;
+    font-size: 2em;
+    height: 3.5em;
+    position: relative;
+    margin-top: -3.5em;
+    }
 
-        .pomodoro-active #timer {
-        margin-top: 3.5em;
-        height: 3.5em;
-        margin-bottom: -3.5em
-        }
+    .pomodoro-active #timer {
+    margin-top: 3.5em;
+    height: 3.5em;
+    margin-bottom: -3.5em
+    }
 
-        .pomodoro-inactive #timer-remaining, .pomodoro-inactive #timer-background, .pomodoro-inactive #timer-progress {
-        transition: width 100ms, font-size 1s, height 1s;
-        height: 18px;
-        position: relative;
-        margin-top: -18px;
-        }
+    .pomodoro-inactive #timer-remaining, .pomodoro-inactive #timer-background, .pomodoro-inactive #timer-progress {
+    transition: width 100ms, font-size 1s, height 1s;
+    height: 18px;
+    position: relative;
+    margin-top: -18px;
+    }
 
-        .pomodoro-inactive #timer {
-        margin-top: 18px;
-        height: 18px;
-        margin-bottom: -18px
-        }
+    .pomodoro-inactive #timer {
+    margin-top: 18px;
+    height: 18px;
+    margin-bottom: -18px
+    }
 
-        #timer-remaining {
-        width: 100%;
-        display: block;
-        z-index: 3;
-        background-color: transparent;
-        transition: width 100ms, font-size 1s, height 1s;
-        margin-left: 1em;
-        }
+    #timer-remaining {
+    width: 100%;
+    display: block;
+    z-index: 3;
+    background-color: transparent;
+    transition: width 100ms, font-size 1s, height 1s;
+    margin-left: 1em;
+    }
 
-        #timer-background {
-        width: 100%;
-        display: block;
-        z-index: 1;
-        background-color: var(--b_high);
-        transition: width 100ms, font-size 1s, height 1s;
-        }
+    #timer-background {
+    width: 100%;
+    display: block;
+    z-index: 1;
+    background-color: var(--b_high);
+    transition: width 100ms, font-size 1s, height 1s;
+    }
 
-        #timer-progress {
-        width: 100%;
-        display: block;
-        z-index: 2;
-        transition: width 100ms, font-size 1s, height 1s;
-        background-color: var(--b_med);
-        }
+    #timer-progress {
+    width: 100%;
+    display: block;
+    z-index: 2;
+    transition: width 100ms, font-size 1s, height 1s;
+    background-color: var(--b_med);
+    }
 
-        #pomodoro #cycle {
-        margin-top: 0.1em;
-        color: var(--f_inv);
-        background-color: var(--b_high);
-        }
+    #pomodoro #cycle {
+    margin-top: 0.1em;
+    color: var(--f_inv);
+    background-color: var(--b_high);
+    }
 
-        #pomodoro #today {
-        color: var(--f_inv);
-        background-color: var(--b_high);
-        }
+    #pomodoro #today {
+    color: var(--f_inv);
+    background-color: var(--b_high);
+    }
 
-        .left {
-        display: block;
-        float: left;
-        width: calc(80% - 0.5em);
-        padding-left: 0.5em;
-        }
+    .left {
+    display: block;
+    float: left;
+    width: calc(80% - 0.5em);
+    padding-left: 0.5em;
+    }
 
-        .full {
-        display: block;
-        float: right;
-        width: calc(100% - 0.5em);
-        padding-left: 0.5em;
-        }
+    .full {
+    display: block;
+    float: right;
+    width: calc(100% - 0.5em);
+    padding-left: 0.5em;
+    }
 
-        #control {
-        margin-top: 0.5px;
-        }
+    #control {
+    margin-top: 0.5px;
+    }
 
-        #control button {
-        width: calc(50%);
-        background-color: var(--b_high);
-        color: var(--f_inv);
-        margin-right: -7.5px;
-        margin-top: 0;
-        }
+    #control button {
+    width: calc(50%);
+    background-color: var(--b_high);
+    color: var(--f_inv);
+    margin-right: -7.5px;
+    margin-top: 0;
+    }
 
-        #control button:hover {
-        color: var(--f_inv);
-        background-color: var(--b_inv);
-        }
+    #control button:hover {
+    color: var(--f_inv);
+    background-color: var(--b_inv);
+    }
 
-        .pomodoro-active nav, .pomodoro-active footer, .pomodoro-active p, .pomodoro-active h2, .pomodoro-active #options * {
-        opacity: 0;
-        transition: all 1s;
-        }
+    .pomodoro-active nav, .pomodoro-active footer, .pomodoro-active p, .pomodoro-active h2, .pomodoro-active #options * {
+    opacity: 0;
+    transition: all 1s;
+    }
 
-        .pomodoro-active article {
-        border-bottom: 1px dotted var(--background);
-        transition: all 1s;
-        }
+    .pomodoro-active article {
+    border-bottom: 1px dotted var(--background);
+    transition: all 1s;
+    }
 
-        .pomodoro-inactive nav, .pomodoro-inactive footer, .pomodoro-inactive p, .pomodoro-inactive h2, .pomodoro-inactive #options * {
-        opacity: 100;
-        transition: all 1s;
-        }
+    .pomodoro-inactive nav, .pomodoro-inactive footer, .pomodoro-inactive p, .pomodoro-inactive h2, .pomodoro-inactive #options * {
+    opacity: 100;
+    transition: all 1s;
+    }
 
-        .pomodoro-inactive article {
-        border-bottom: 1px dotted var(--f_high);
-        transition: all 1s;
-        }
+    .pomodoro-inactive article {
+    border-bottom: 1px dotted var(--f_high);
+    transition: all 1s;
+    }
 
-        #options {
-        display: flex;
-        color: var(--f_inv);
-        height: auto;
-        background-color: var(--b_high);
-        padding-left: 0.5em;
-        }
+    #options {
+    display: flex;
+    color: var(--f_inv);
+    height: auto;
+    background-color: var(--b_high);
+    padding-left: 0.5em;
+    }
 
-        #options input, #options span {
-        /* width: 12.5vw; */
-        width: 25vw;
-        }
+    #options input, #options span {
+    /* width: 12.5vw; */
+    width: 25vw;
+    }
 
-    </style>
-    <script>
-        let tick
+</style>
+<script>
+    let tick
 
-        let pomoDuration = 25
-        let shortBreakDuration = 5
-        let longBreakDuration = 25
-        let pomosBetweenLongBreaks = 4
+    let pomoDuration = 25
+    let shortBreakDuration = 5
+    let longBreakDuration = 25
+    let pomosBetweenLongBreaks = 4
 
-        let pomosCompleted = 0
-        let shortBreaksCompleted = 0
-        let longBreaksCompleted = 0
-        let cyclesLeft = 4
+    let pomosCompleted = 0
+    let shortBreaksCompleted = 0
+    let longBreaksCompleted = 0
+    let cyclesLeft = 4
 
-        let currentPhase = "pomo"
-        let currentTask = undefined
-        let isRunning = false
+    let currentPhase = "pomo"
+    let currentTask = undefined
+    let isRunning = false
 
-        let body = document.getElementsByTagName("body")
+    let body = document.getElementsByTagName("body")
 
-        let title = document.getElementById("title")
-        let title_text = title.innerHTML
+    let title = document.getElementById("title")
+    let title_text = title.innerHTML
 
-        const getDuration = () => {
-            switch (currentPhase){
-                case "pomo":
-                return pomoDuration
-                case "shortBreak":
-                return shortBreakDuration
-                case "longBreak":
-                return longBreakDuration
-                default: 
-                return 0
-            }
-        }
-
-        const getLabel = () => {
+    const getDuration = () => {
         switch (currentPhase){
             case "pomo":
-            return "Pomodoro"
+            return pomoDuration
             case "shortBreak":
-            return "Short Break"
+            return shortBreakDuration
             case "longBreak":
-            return "Long Break"
+            return longBreakDuration
             default: 
-            return "You've Broken It"
+            return 0
         }
+    }
+
+    const getLabel = () => {
+    switch (currentPhase){
+        case "pomo":
+        return "Pomodoro"
+        case "shortBreak":
+        return "Short Break"
+        case "longBreak":
+        return "Long Break"
+        default: 
+        return "You've Broken It"
+    }
+    }
+
+    function toHoursAndMinutes(totalMinutes) {
+    const minutes = totalMinutes % 60;
+    const hours = Math.floor(totalMinutes / 60);
+
+    return `${padTo2Digits(hours)}:${padTo2Digits(minutes)}`;
+    }
+
+    function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+    }
+
+    const handleTask = (task) => {
+    currentTask = task
+    render()
+    }
+
+    const render = () => {
+    if (currentPhase == "longBreak") {
+        if (isRunning) {
+        document.getElementById("cycles-remaining").innerHTML = "You are in a Long Break"
+        } else {
+        document.getElementById("cycles-remaining").innerHTML = "Next is a Long Break"
         }
-
-        function toHoursAndMinutes(totalMinutes) {
-        const minutes = totalMinutes % 60;
-        const hours = Math.floor(totalMinutes / 60);
-
-        return `${padTo2Digits(hours)}:${padTo2Digits(minutes)}`;
+    } else if (cyclesLeft != 1) {
+        if (isRunning) {
+        document.getElementById("cycles-remaining").innerHTML = `You are in a ${getLabel()}`
+        } else {
+        document.getElementById("cycles-remaining").innerHTML = `Next is a ${getLabel()}, there are ${cyclesLeft} cycles until a Long Break`
         }
-
-        function padTo2Digits(num) {
-        return num.toString().padStart(2, '0');
+    } else {
+        if (isRunning) {
+        document.getElementById("cycles-remaining").innerHTML = "You are in a Pomodoro"
+        } else {
+        document.getElementById("cycles-remaining").innerHTML = "Next is a Pomodoro, followed by a Long Break"
         }
+    }
 
-        const handleTask = (task) => {
-        currentTask = task
-        render()
+    if (isRunning) {
+        document.getElementById("start-stop").innerHTML = "Stop"
+        document.body.classList.add("pomodoro-active");
+        document.body.classList.remove("pomodoro-inactive");
+        title.innerHTML = currentTask ?? title_text
+    } else {
+        document.getElementById("start-stop").innerHTML = "Start"
+        document.getElementById("timer-remaining").innerHTML = `00:${padTo2Digits(getDuration())}:00`
+        document.body.classList.add("pomodoro-inactive");
+        document.body.classList.remove("pomodoro-active");
+        title.innerHTML = title_text
+    }
+
+    let totalMinutesCompleted = (pomosCompleted * pomoDuration) + (shortBreaksCompleted * shortBreakDuration)
+    document.getElementById("total").innerHTML = `You have worked for ${toHoursAndMinutes(totalMinutesCompleted)}:00 (${pomosCompleted} Pomodoros) in this session`
+    }
+
+    const handleProgress = () => {
+    if (currentPhase == "longBreak" || currentPhase == "shortBreak") {
+        if (currentPhase == "shortBreak") {
+        shortBreaksCompleted++
         }
-
-        const render = () => {
         if (currentPhase == "longBreak") {
-            if (isRunning) {
-            document.getElementById("cycles-remaining").innerHTML = "You are in a Long Break"
-            } else {
-            document.getElementById("cycles-remaining").innerHTML = "Next is a Long Break"
-            }
-        } else if (cyclesLeft != 1) {
-            if (isRunning) {
-            document.getElementById("cycles-remaining").innerHTML = `You are in a ${getLabel()}`
-            } else {
-            document.getElementById("cycles-remaining").innerHTML = `Next is a ${getLabel()}, there are ${cyclesLeft} cycles until a Long Break`
-            }
-        } else {
-            if (isRunning) {
-            document.getElementById("cycles-remaining").innerHTML = "You are in a Pomodoro"
-            } else {
-            document.getElementById("cycles-remaining").innerHTML = "Next is a Pomodoro, followed by a Long Break"
-            }
+        longBreaksCompleted++
+        cyclesLeft = 4
         }
 
-        if (isRunning) {
-            document.getElementById("start-stop").innerHTML = "Stop"
-            document.body.classList.add("pomodoro-active");
-            document.body.classList.remove("pomodoro-inactive");
-            title.innerHTML = currentTask ?? title_text
-        } else {
-            document.getElementById("start-stop").innerHTML = "Start"
-            document.getElementById("timer-remaining").innerHTML = `00:${padTo2Digits(getDuration())}:00`
-            document.body.classList.add("pomodoro-inactive");
-            document.body.classList.remove("pomodoro-active");
-            title.innerHTML = title_text
-        }
+        currentPhase = "pomo" 
+    } else if (currentPhase == "pomo" && cyclesLeft == 1) {
+        pomosCompleted++
+        cyclesLeft--
+        currentPhase = "longBreak"
+    } else {
+        pomosCompleted++
+        cyclesLeft--
+        currentPhase = "shortBreak"
+    }
 
-        let totalMinutesCompleted = (pomosCompleted * pomoDuration) + (shortBreaksCompleted * shortBreakDuration)
-        document.getElementById("total").innerHTML = `You have worked for ${toHoursAndMinutes(totalMinutesCompleted)}:00 (${pomosCompleted} Pomodoros) in this session`
-        }
+    isRunning = false
 
-        const handleProgress = () => {
-        if (currentPhase == "longBreak" || currentPhase == "shortBreak") {
-            if (currentPhase == "shortBreak") {
-            shortBreaksCompleted++
-            }
-            if (currentPhase == "longBreak") {
-            longBreaksCompleted++
-            cyclesLeft = 4
-            }
+    render()
+    }
 
-            currentPhase = "pomo" 
-        } else if (currentPhase == "pomo" && cyclesLeft == 1) {
-            pomosCompleted++
-            cyclesLeft--
-            currentPhase = "longBreak"
-        } else {
-            pomosCompleted++
-            cyclesLeft--
-            currentPhase = "shortBreak"
-        }
+    const handleStartStop = () => {
+    if (isRunning) {
+        handleStop()
+    } else {
+        handleStart()
+    }
 
-        isRunning = false
+    render()
+    }
 
+    const handleStart = () => {
+        console.log(currentPhase)
+
+        window.onbeforeunload = function() {
+            return true;
+        };
+
+        Notification.requestPermission();
+        
+        isRunning = true
+        
         render()
-        }
+        
+        var start = new Date()
+        let end = start.setMinutes(start.getMinutes() + getDuration());
+        start = new Date().getTime()
+        tick = setInterval(() => {  
+            var now = new Date().getTime();
+            var distance = end - now;
 
-        const handleStartStop = () => {
-        if (isRunning) {
-            handleStop()
-        } else {
-            handleStart()
-        }
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        render()
-        }
-
-        const handleStart = () => {
-            console.log(currentPhase)
-
-            window.onbeforeunload = function() {
-                return true;
-            };
-
-            Notification.requestPermission();
+            let percentage = (((now - start) / (end - start)) * 100).toFixed(0)
             
-            isRunning = true
-            
-            render()
-            
-            var start = new Date()
-            let end = start.setMinutes(start.getMinutes() + getDuration());
-            start = new Date().getTime()
-            tick = setInterval(() => {  
-                var now = new Date().getTime();
-                var distance = end - now;
+            document.getElementById("timer-remaining").innerHTML = `${padTo2Digits(hours)}:${padTo2Digits(minutes)}:${padTo2Digits(seconds)}`
+            document.getElementById('timer-progress').style.width = `${(100 - percentage)}%`;
 
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            if (distance < 0) {
+            clearInterval(tick);
+            document.getElementById('timer-progress').style.width = `50vw`;
 
-                let percentage = (((now - start) / (end - start)) * 100).toFixed(0)
-                
-                document.getElementById("timer-remaining").innerHTML = `${padTo2Digits(hours)}:${padTo2Digits(minutes)}:${padTo2Digits(seconds)}`
-                document.getElementById('timer-progress').style.width = `${(100 - percentage)}%`;
+            if (Notification.permission !== "granted")
+                Notification.requestPermission();
+            else {
+                var notification = new Notification('Pomodoro', {
+                body: `Your ${getLabel()} is finished`,
+                });
+                notification.onclick = function () {
+                window.focus();      
+                };
+            }
+            handleProgress()
+            }
+        }, 1000);
+    }
 
-                if (distance < 0) {
-                clearInterval(tick);
-                document.getElementById('timer-progress').style.width = `50vw`;
+    const handleStop = () => {
+    isRunning = false
 
-                if (Notification.permission !== "granted")
-                    Notification.requestPermission();
-                else {
-                    var notification = new Notification('Pomodoro', {
-                    body: `Your ${getLabel()} is finished`,
-                    });
-                    notification.onclick = function () {
-                    window.focus();      
-                    };
-                }
-                handleProgress()
-                }
-            }, 1000);
-        }
+    clearInterval(tick)
+    }
 
-        const handleStop = () => {
-        isRunning = false
-
-        clearInterval(tick)
-        }
-
-        render()
-    </script>
+    render()
+</script>
 </body>
