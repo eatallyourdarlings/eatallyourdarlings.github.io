@@ -1,12 +1,10 @@
 /* orf dot place slash main dot css */
-/* custom <style> at: index, log, now, stinkbugs */
-/* should I use > for nesting? */
-/* .alt class - could be a wrapper for all alternate styles for things */
+/* custom <style> at: index, log, now, stinkbugs, tools/ */
+/* .alt class could be a wrapper for all alternate styles for things */
 html {font-size:100%; background-color:#FFF; color:#000;}
 body {
     font-family:Georgia, serif;
     font-size:1.1em;/* this determines other relative measurements in em */
-    line-height: 1.5em;
     display:block;
     margin-top:1em;
     margin-right:auto;
@@ -18,43 +16,41 @@ body {
     max-width:48em;
     /* max-width:100%;*/
 }
+main {line-height: 1.5em; }
 /* things I'm more likely to tweak > to the right */
 /* header pre {color:#990000;} */
-pre {margin-top:1em; margin-bottom:1em;}
-pre, code {font-size:.9em; font-family:Courier, monospace !important; text-wrap:wrap;}
 footer {margin-top:3em; margin-bottom:2em; width:fit-content; font-family:Georgia, serif;}
 footer img {margin-left:auto; margin-right:auto; display:block;}
-img {margin-top:0.75em; margin-bottom:0.75em;}
-/* img {image-rendering:pixelated; background-color:#FFFFFF;} */
 
-figure {margin-top:1em; margin-bottom:1em; margin:0;}
-figcaption {max-width:24em; font-style:italic; width:inherit;}
-figcaption::before {content:"+ " / ""; color:#999933;}
-audio {width:24em; margin:1em;}
+a, a:visited {color:#000000; text-decoration-color:#999933; text-decoration-line:underline; text-decoration-style:solid; text-decoration-thickness:0.11em; text-underline-offset: .2em;}
+header a {text-decoration:none;}
+header a::before {font-style:normal; color:#999933; content:"𐂐";}
+/* a[target="_blank"]::after,  */
+header a::after, h1.alt::after {text-decoration-line:none; color:#990000; content:" ~" / "";}
+main a:hover {color:#999933; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
+a[target="_blank"]{text-decoration-style:dotted; text-decoration-thickness:0.1em; text-decoration-color:#990000;}
+a[target="_blank"]:hover, header a:hover {color:#990000; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
 
 h1 {font-size:2em;}
 h2, h3 {margin-top:2em;}
 h2.alt {text-decoration-line: underline; text-decoration-style: dashed; text-decoration-color: #990000;}
 /* em {font-weight:normal;} */
 b {color:#990000}
-
+pre {margin-top:1em; margin-bottom:1em;}
+pre, code {font-size:.9em; font-family:Courier, monospace !important; text-wrap:wrap;}
+img {margin-top:0.75em; margin-bottom:0.75em;}
+/* img {image-rendering:pixelated; background-color:#FFFFFF;} */
+figure {margin-top:1em; margin-bottom:1em; margin:0;}
+figcaption {max-width:24em; font-style:italic; width:inherit;}
+figcaption::before {content:"+ " / ""; color:#999933;}
+audio {width:24em; margin:1em;}
 details summary {text-decoration-line:underline; text-decoration-color:#999933; text-decoration-style:dotted; cursor:grab;}
-a, a:visited {color:#000000; text-decoration-color:#999933; text-decoration-line:underline; text-decoration-style:solid; text-decoration-thickness:0.11em; text-underline-offset: .2em;}
-header a {text-decoration:none;}
-header a::before {font-style:normal; color:#999933; content:"𐂐";}
-main a:hover {color:#999933; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
-a[target="_blank"]{text-decoration-style:dotted; text-decoration-thickness:0.1em; text-decoration-color:#990000;}
-a[target="_blank"]:hover, header a:hover {color:#990000; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
-/* a[target="_blank"]::after,  */
-header a::after, h1.alt::after {text-decoration-line:none; color:#990000; content:" ~" / "";}
-
 q {font-style:italic; display:inline;}
 blockquote {display:block; font-style:italic; max-width:32em; margin-left:0.5em;}
 blockquote::after {content:none;}
 blockquote:before {color:#999933; content:"> " / "";}
 cite {display:block; clear:both; margin-bottom:2em;}
 cite::before {content:"— ";}
-
 ul, ol {margin-top:1.5em; margin-bottom:1.5em; line-height:2em;
 /* list-style-position:outside;*/
 }
