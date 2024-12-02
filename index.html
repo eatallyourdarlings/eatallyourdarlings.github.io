@@ -62,8 +62,18 @@
 </main>
 
 <footer>
-<hr>
-<a href="badges.html" title="badge collection"><img class="pixel" alt="" src="88x31.gif" loading="lazy" width="88" height="31"></a>
+<hr/>
+<a class="pixel" href="badges.html" title="badge collection">
+<img class="dodark" style="display:none" alt="" src="img/88x31/orfdotplace-address-dark.gif" loading="lazy" width="88" height="31">
+<img class="nodark" alt="" src="img/88x31/orfdotplace-address-light.gif" loading="lazy" width="88" height="31">
+</a>
+<style>
+  /* stolen from https://wiki.xxiivv.com/site/home.html <3 */
+  @media (prefers-color-scheme:dark) {
+    .dodark { display:block !important }
+    .nodark { display:none !important }
+  }
+  </style>
 <div>Olive R.F. 2024 <span class="antipode">&copy;</span> <a href="license.html"> all rites reversed.</a></div>
 </footer>
 </body>
