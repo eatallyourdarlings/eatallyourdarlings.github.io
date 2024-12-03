@@ -8,25 +8,8 @@
 <link rel="icon" type="image/x-icon" href="favicon.png">
 <title>log ~ orf dot place</title>
 </head>
-
 <body>
 <header id="head"><pre><a href="index.html"> orf dot place</a> </pre></header>
-<style>
-  h2::before{content:"# ";}
-  /* h2:empty[id]::after{content:' 'attr(id)'';} */
-  h2::before, h2::after{ color: #990000;}
-  /* audio {display:none;} */
-  
-  /* (p)articles
-  p
-  img
-  audio, pre
-  ul, li
-  a (not in a p)
-  h2
-  */
-</style>
-
 <main>
 <!-- 
 what do I want to 'archive' about a day? 
@@ -44,9 +27,10 @@ sometimes I change my mind.
 <h1>log</h1>
 <p>all the things, in reverse chronological order.</p>
 <!-- <p>sharing scrappy fiddles is hard.</p> -->
-<p><br><a href="#foot">jump to the bottom ?</a></p>
+<button id="less">less.</button>
+<br><a href="#foot">to the bottom ?</a>
 
-<h2 id="2024-12-02"></h2>
+<h2>summer</h2>
 <p>toyed with my <a href="sites.html#buttons">collection of 88x31s</a>. made the one on the home page change with light/dark mode ☾</p>
 
 <h2 id="2024-11-30"></h2>
@@ -81,7 +65,7 @@ sometimes I change my mind.
 <h2 id="2024-11-19"></h2>
 <img alt="" src="img/2024-11-19-alice.svg" loading="lazy" width="105" height="105">
 <p>a little graff glyph from a cool Seeker I know.</p>
-<a href="about.html#ethics">added a brief note on ethics.</a>
+<a href="about.html#ethics">a brief note on ethics.</a>
 <!-- Fen sent me a scrappy fiddle :D -->
 <br>
 
@@ -150,7 +134,7 @@ d |
 <p>Words bounced around my head all day. I thought about putting them down here, but gave them a little time instead. Before bed I picked up my guitar and played some old chords and the words came out as a song;</p> <a href="softening.html">a softening.</a>
 
 <h2 id="2024-11-02"></h2>
-<pre>
+<!-- <pre>
 You look seventeen, he said,
 in my almost-too-small dungarees,
 that I had not worn in that long.
@@ -158,7 +142,7 @@ I hope not, I thought.
 I was a very sad seventeen year old.
 I hope I'm more child now
 than I was then.
-</pre>
+</pre> -->
 <img alt="a smelly cat takes a whiff of approval of a notebook page. on it is a set-list for a gig with a sketchy graph of the energy levels of each song, scientifically calculated" src="img/bits/2024-11-02-setlist.png" loading="lazy" width="256" height="256">
 <a href="https://merveilles.town/@helveticablanc/112673131616576872" target="_blank">if you want to make something big, first make something small and something small and something small.</a>
 
@@ -225,7 +209,6 @@ d#| 0   3   2   0   0   0
 </ul>
 <h2>autumn</h2>
 <p>started this site.</p>
-
 </main>
 
 <footer id="foot"><!--a cephalopod-->
@@ -234,4 +217,38 @@ d#| 0   3   2   0   0   0
 <div>Olive R.F. 2024 <span class="antipode">&copy;</span> <a href="license.html"> all rites reversed.</a></div>
 </footer>
 </body>
+
+<style>
+  h2::before{content:"# ";}
+  h2::before, h2::after{color:#990000;}
+  button {display: block; margin: 0;  border-radius: 0; font-size: 1em; max-width: 20em; font-family: 'Courier New', Courier, monospace; color: #000000; background-color: #ffffff; border-color: #000000; cursor: help;}
+  .a p, .a ul, .a li {display:none;}
+  .b img:not([src^="img/bits/"]):not([src*="svg"]) {display:none;}
+  .c img {display:none;}
+  .d a, .d br, .d details, .d h2[id] {display:none;}
+  .e h2::before, h2::after{color:#000000;}
+  .e audio {display:none;} 
+  .f h2:empty {display:block;}
+  .f button, .f h2:not(:empty), .f pre, .f footer, .f h1 {display: none;}
+  .f h2:empty[id]::after{content:' 'attr(id)'';}
+</style>
+
+<!-- maybe could block loading of img/audio so its just alt text? -->
+
+<script>
+  const less = document.getElementById('less');
+  let loss = 9;
+  less.addEventListener('click' , function() {
+    loss++;
+    document.body.classList.add(loss.toString(16));
+
+    if (loss == 13){
+      let h2 = document.querySelectorAll('h2:not(:empty)[id]');
+      for (const h of h2){
+        h.innerHTML = "";
+      }
+    }
+  }
+  );
+</script>
 </html>

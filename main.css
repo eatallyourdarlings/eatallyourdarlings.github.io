@@ -1,6 +1,5 @@
 /* orf dot place slash main dot css */
-/* custom <style> at: index, log, now, stinkbugs, tools/ */
-/* .alt class could be a wrapper for all alternate styles for things */
+/* custom <style> at: index, log, now, stinkbugs, sites, tools/ */
 html {font-size:100%; background-color:#FFF; color:#000;}
 body {
     font-family:Georgia, serif;
@@ -46,6 +45,7 @@ figcaption {max-width:24em; font-style:italic; width:inherit;}
 figcaption::before {content:"+ " / ""; color:#999933;}
 audio {width:24em; margin:1em;}
 details summary {text-decoration-line:underline; text-decoration-color:#999933; text-decoration-style:dotted; cursor:grab;}
+abbr {text-decoration: none;}
 q {font-style:italic; display:inline;}
 blockquote {display:block; font-style:italic; max-width:32em; margin-left:0.5em;}
 blockquote::after {content:none;}
