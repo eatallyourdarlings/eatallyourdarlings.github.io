@@ -17,7 +17,6 @@ body {
 }
 main {line-height: 1.5em; }
 /* things I'm more likely to tweak > to the right */
-/* header pre {color:#990000;} */
 footer {margin-top:3em; margin-bottom:2em; width:fit-content; font-family:Georgia, serif;}
 footer img {margin-left:auto; margin-right:auto; display:block;}
 
@@ -26,8 +25,8 @@ header a {text-decoration:none;}
 header a::before {font-style:normal; color:#999933; content:"𐂐";}
 /* a[target="_blank"]::after,  */
 header a::after, h1.alt::after {text-decoration-line:none; color:#990000; content:" ~" / "";}
-main a:hover {color:#999933; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
-a[target="_blank"]{text-decoration-style:dotted; text-decoration-thickness:0.1em; text-decoration-color:#990000;}
+a:hover {color:#999933; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
+a[target="_blank"] {text-decoration-style:dotted; text-decoration-thickness:0.1em; text-decoration-color:#990000;}
 a[target="_blank"]:hover, header a:hover {color:#990000; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
 
 h1 {font-size:2em;}

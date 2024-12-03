@@ -27,11 +27,46 @@ sometimes I change my mind.
 <h1>log</h1>
 <p>all the things, in reverse chronological order.</p>
 <!-- <p>sharing scrappy fiddles is hard.</p> -->
-<button id="less">less.</button>
 <br><a href="#foot">to the bottom ?</a>
 
+<h2 id="2024-12-03"></h2>
+<button id="less">less.</button>
+<style>
+  h2::before{content:"# ";}
+  h2::before, h2::after{color:#990000;}
+  button {display: block; margin: 0;  border-radius: 0; font-size: 1em; max-width: 20em; font-family: 'Courier New', Courier, monospace; color: #000000; background-color: #ffffff; border-color: #000000; cursor: help;}
+  .a p, .a ul, .a li {display:none;}
+  .b img:not([src^="img/bits/"]):not([src*="svg"]) {display:none;}
+  .c img {display:none;}
+  .d a, .d br, .d details, .d h2[id] {display:none;}
+  .e h2::before, h2::after{color:#000000;}
+  .e audio {display:none;} 
+  .f h2:empty {display:block;}
+  .f button, .f h2:not(:empty), .f pre, .f footer, .f h1 {display: none;}
+  .f h2:empty[id]::after{content:' 'attr(id)'';}
+</style>
+<!-- block loading of img/audio so its just alt text? 
+    make seasons h2 and everything else h3? -->
+<script>
+  const less = document.getElementById('less');
+  let loss = 9;
+  less.addEventListener('click' , function(){
+    loss++;
+    document.body.classList.add(loss.toString(16));
+    if (loss == 13){
+      let h2 = document.querySelectorAll('h2:not(:empty)[id]');
+      for (const h of h2){
+        h.innerHTML = "";
+    }}});
+</script>
+
+<h2 id="2024-12-02"></h2>
+<p>toyed with my <a href="sites.html#buttons">collection of 88x31s</a> + now the button on the home page changes with light/dark mode ☾</p>
+
+<h2 id="2024-12-01"></h2>
+<audio src="audio/memos/2024-12-01-ham-jam.mp3" preload="metadata" controls=""><a href="2024-12-01-ham-jam.mp3">Jam with Ham (mp3)</a></audio>
+
 <h2>summer</h2>
-<p>toyed with my <a href="sites.html#buttons">collection of 88x31s</a>. made the one on the home page change with light/dark mode ☾</p>
 
 <h2 id="2024-11-30"></h2>
 <img class="pixel" alt="an isometric pixel art scene in hazy floral colours. a green willow tree shades a snail seller with a pretty fresh feather hat and four people crouched around them snacking on oc luoc. their rendezvous is ringed in scaramantiche flower arrangements. a person stands just outside the magic circle as a cat describes the scene to them in haiku: green willow / in a field of dong quai / the snail seller." src="img/2024-11-30-haiku-garden.png" loading="lazy" width="256" height="256">
@@ -65,9 +100,8 @@ sometimes I change my mind.
 <h2 id="2024-11-19"></h2>
 <img alt="" src="img/2024-11-19-alice.svg" loading="lazy" width="105" height="105">
 <p>a little graff glyph from a cool Seeker I know.</p>
-<a href="about.html#ethics">a brief note on ethics.</a>
+<br><a href="about.html#ethics">a brief note on ethics.</a>
 <!-- Fen sent me a scrappy fiddle :D -->
-<br>
 
 <h2 id="2024-11-18"></h2>
 <p>I showed up at my friends' woodwork studio to see if I could lend a hand, and spent a lot of time taking photos of the various curios and textures around the place. I think I kinda loaded them with the expectation that I'd collage them into something Really Cool, and I don't love the result. Maybe the process I went through was just not very inspiring&mdash;lots of automation with command-line software&mdash;or it didn't leave enough room for intention. Felt like I was just pushing pixels around for 45 mins until I was sick of it. Here it is, anyway, in the interest of sharing scrappy fiddles or something. I can always come back to it, of course.</p>
@@ -168,8 +202,8 @@ than I was then.
 <a href="badges.html">started a badge collection.</a>
 
 <h2 id="2024-10-28"></h2>
-<p>shared <a href="homestead.html">homestead</a>, a poem I'm a little bit proud of.<br></p>
-<blockquote>So much past inside my present.</blockquote>
+<p>shared <a href="homestead.html">homestead</a>, a poem I'm a little bit proud of.</p>
+<blockquote>so much past inside my present.</blockquote>
 <img alt="inside CD cover of hole and corner by Bela, picked up on the side of the road." src="img/bits/2024-10-28-bela.png" loading="lazy" height="128" width="128">
 <a href="lab/bigrock.html">stole a big rock.</a>
 
@@ -217,38 +251,4 @@ d#| 0   3   2   0   0   0
 <div>Olive R.F. 2024 <span class="antipode">&copy;</span> <a href="license.html"> all rites reversed.</a></div>
 </footer>
 </body>
-
-<style>
-  h2::before{content:"# ";}
-  h2::before, h2::after{color:#990000;}
-  button {display: block; margin: 0;  border-radius: 0; font-size: 1em; max-width: 20em; font-family: 'Courier New', Courier, monospace; color: #000000; background-color: #ffffff; border-color: #000000; cursor: help;}
-  .a p, .a ul, .a li {display:none;}
-  .b img:not([src^="img/bits/"]):not([src*="svg"]) {display:none;}
-  .c img {display:none;}
-  .d a, .d br, .d details, .d h2[id] {display:none;}
-  .e h2::before, h2::after{color:#000000;}
-  .e audio {display:none;} 
-  .f h2:empty {display:block;}
-  .f button, .f h2:not(:empty), .f pre, .f footer, .f h1 {display: none;}
-  .f h2:empty[id]::after{content:' 'attr(id)'';}
-</style>
-
-<!-- maybe could block loading of img/audio so its just alt text? -->
-
-<script>
-  const less = document.getElementById('less');
-  let loss = 9;
-  less.addEventListener('click' , function() {
-    loss++;
-    document.body.classList.add(loss.toString(16));
-
-    if (loss == 13){
-      let h2 = document.querySelectorAll('h2:not(:empty)[id]');
-      for (const h of h2){
-        h.innerHTML = "";
-      }
-    }
-  }
-  );
-</script>
 </html>
