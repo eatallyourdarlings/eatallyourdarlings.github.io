@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="author" content="Olive R.F."/>
+<title>primes ~ orf dot place</title>
+</head>
+<body>
+<main>
+  <h1>playing with prime factors</h1>
+  <p>slipping into the <a target="_blank" href="https://wiki.xxiivv.com/site/rewriting.html">rewriting</a> rabbit hole.</p>
+  <h2>Sieve of Eratosthenes</h2>
+  <p>print all prime numbers up to <strong id="N">F35</strong>, and all its prime factors.</p>
+  <output id="output"></output>
+</main>
+<script>
+
+//const N = 3893; //the number to find prime factors of
+const N = parseInt(document.getElementById("N").innerHTML, 16);
+const output = document.getElementById("output");
+// N Must be less than MAXN, used for precomputation
+const MAXN = N + 1; //idk
+// const MAXN = 1000001; //upper limit
+
+// SPF[] stores smallest prime factor of numbers
+var SPF = Array.from({ length: MAXN });
+// e.g. smallest prime factor of '8' and '16' is '2' so we put SPF[8] = 2 , SPF[16] = 2
+
+// prime[] stores all prime numbers less than N
+let prime = [];
+
+var isPrime = Array.from({ length: MAXN}, (_, i) => true);
+
+
+// START JUNK ////////////
+
+// worse versions of sieve
+
+// returns all prime numbers less than n
+// O(nloglogn)
+function sieve1(n){
+    // Create a boolean array prime[0..n] and initialize all entries as true. 
+
+    for (p = 2; p * p <= n; p++) 
+    {
+        // If prime[p] is not changed, then it is a prime
+        if (prime[p] == true) 
+        {
+            // Update all multiples of p
+            for (i = p * p; i <= n; i += p)
+                prime[i] = false;
+        }
+    }
+}
+// https://www.geeksforgeeks.org/prime-factorization-using-sieve-olog-n-multiple-queries/
+// stores smallest prime factor for every number up to n
+// O(nloglogn)
+function sieve2(n) {
+    SPF[0] = 0;
+    for (let i = 2; i <= n; i++) {
+      // if the number is prime ,mark all its multiples who havent gotten their SPF yet
+      if (SPF[i] === 1) {
+        for (let j = i; j <= MAXN; j += i) {
+          // if its smallest prime factor is 1 means its SPF hasnt been found yet so change it to i
+          if (SPF[j] === 1) { 
+            SPF[j] = i;
+          }
+        }
+      }
+    }
+  }
+
+// END JUNK /////////////
+
+// https://www.geeksforgeeks.org/sieve-eratosthenes-0n-time-complexity/
+// returns  all prime number less than n and stores their smallest prime factors
+// O(N)
+function sieve(n) {
+  // 0 and 1 are not prime
+  isPrime[0] = isPrime[1] = true;
+
+   for (let i = 2; i < n; i++){
+     if (isPrime[i]){
+       prime.push(i);
+       // A prime number is its own smallest prime factor
+       SPF[i] = i;
+     }
+
+     // Remove all multiples of i*prime[j] which are not prime by making isPrime[i*prime[j]] = false
+     // and put smallest prime factor of i*prime[j] as prime[j]
+     // e.g. let  i = 5 , j = 0 , prime[j] = 2, i*prime[j] = 10 
+     // so smallest prime factor of '10' is '2' that is prime[j] 
+     // this loop run only one time for number which are not prime
+     for (let j = 0; j < prime.length && i * prime[j] < n && prime[j] <= SPF[i]; j++){
+       isPrime[i * prime[j]] = false;
+       // put smallest prime factor of i*prime[j]
+       SPF[i * prime[j]] = prime[j];
+     }
+   }
+ }
+// return prime factors by dividing by smallest prime factor at every step
+//  O(log n)
+function getFactorisation(x){
+  let factors =[];
+  let i = 0;
+  while (x != 1)
+  {
+      factors[i] = SPF[x];
+      i++;
+      x = Math.floor(x / SPF[x]);
+  }
+  return factors;
+}
+
+// sieve2(N);
+// sieve1(N);
+sieve(MAXN); //should be fastest ?
+
+//print smallest prime factors of N
+// console.log(SPF[N]);
+// for (let i = 0; i < SPF.length && SPF[i] <= N; i++) {
+  //   output.innerHTML += SPF[i] + ", ";
+  // }
+
+// prime factors of N
+output.innerHTML += "factors of " + N + ": " + getFactorisation(N) + "<hr>";
+
+// all prime numbers less than N
+output.innerHTML += "all primes up to " + N + ": <br>"
+for (let i = 0; i < prime.length && prime[i] <= N; i++) {
+  output.innerHTML += prime[i] + " ";
+}
+
+</script>
+<style>* {line-height: 2em;} a:visited{color: black}</style>
+<footer>
+  <hr>
+  <div class="date">2024-12-10</div>
+</footer>
+</body>
+</html>
