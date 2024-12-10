@@ -5,6 +5,64 @@
 <link rel="icon" type="image/x-icon" href="../favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>do a dither! ~ orf.place</title>
+</head>
+<body>
+<header><pre><a href="http://orf.place">orf dot place</a> slash <a href="index.html">tools</a></pre></header>
+<main>
+<h1>do a dither!</h1>
+<p>one-bit dither completely in your browser!</p>
+<details>
+    <summary>click here for more info and options</summary>
+    <ul>
+        <li>
+            <label for="pagestyle" value="true">the style of the page changes with the colours:</label>
+            <input id="pagestyle" type="checkbox" checked> (on by default)
+        </li>
+        <li>'completely in your browser' means that image files are processed entirely on your device and no data is sent over the internet.</li>
+        <li><b>colour 0 is shadows</b> and <b>colour 1 is highlights</b>, therefore if <b>0</b> is lighter than <b>1</b> the image will appear inverted.</li>
+        <li>images are reduced to two colours using the <a href="https://en.wikipedia.org/wiki/Floyd–Steinberg_dithering" target="_blank">Floyd-Steinberg algorithm</a>.</li>
+        <li>images are not resized, but large files may look odd in the browser because the size that they're displayed is restricted.</li>
+        <li>when downloading a file, '-dithered' is added to its original filename</li>
+        <li>the copy button at the bottom puts the image as a string of letters (a base64-encoded .png) in your clipboard, handy for embedding small images in a webpage (see: <a href="https://css-tricks.com/data-uris/" target="_blank">Data URIs &#x7C; CSS Tricks</a>).</li>
+    </ul>
+</details>
+<br>
+<h2>step 1. pick a pic</h2>
+<label for="upload">upload an image:</label><br>
+<input type="file" id="upload" accept="image/*">
+<br>
+<div id="canvas_container" style="width:512px; height:512px;">
+<canvas id="canvas" width="512" height="512">Your browser not support the HTML5 canvas.</canvas>
+</div>
+
+<h2>step 2. resize (optional)</h2>
+<!-- need to style these inputs -->
+<p>there's a maximum width of 512 because that's a cute number, but you can change the max with inspect element :]</p>
+<label for="resize">resize the image?</label>
+<input id="resize" type="checkbox" checked/>
+<br><br>
+<!-- you can change the max here with inspect element, might display a bit buggy though. -->
+<label for="width_input">set width: <output id="width_output"></output></label>
+<!-- <br> -->
+<input id="width_input" type="number" min="1" max="512" step="1" value="512"/>
+
+<h2>step 3. recolour (optional)</h2>
+<p>change the colours (click on the coloured buttons below):</p>
+<label for="colour0">colour 0:</label>
+<input type="color" id="colour0" value="#000000">
+<br>
+<label for="colour1">colour 1:</label>
+<input type="color" id="colour1" value="#ffffff">
+<br><br>
+<button id="invert">invert colours</button>
+
+<h2>step 4. download</h2>
+<label for="download">download the image:</label>
+<button id="download">download</button>
+<br>
+<label for="copy">or copy the image data:</label>
+<button id="copy">copy</button>
+</main>
 <style>
     :root {
         --colour0: black; /* text and borders */
@@ -57,65 +115,6 @@
     output {width: 4em;}
     /* img, canvas {image-rendering: pixelated;} */
 </style>
-</head>
-<body>
-<header><pre><a href="http://orf.place">orf dot place</a> slash <a href="index.html">tools</a></pre></header>
-<main>
-<h1>do a dither!</h1>
-<p>one-bit dither completely in your browser!</p>
-<details>
-    <summary>click here for more info and options</summary>
-    <ul>
-        <li>
-            <label for="pagestyle" value="true">the style of the page changes with the colours:</label>
-            <input id="pagestyle" type="checkbox" checked> (on by default)
-        </li>
-        <li>'completely in your browser' means that image files are processed entirely on your device and no data is sent over the internet.</li>
-        <li><b>colour 0 is shadows</b> and <b>colour 1 is highlights</b>, therefore if <b>0</b> is lighter than <b>1</b> the image will appear inverted.</li>
-        <li>images are reduced to two colours using the <a href="https://en.wikipedia.org/wiki/Floyd–Steinberg_dithering" target="_blank">Floyd-Steinberg algorithm</a>.</li>
-        <li>images are not resized, but large files may look odd in the browser because the size that they're displayed is restricted.</li>
-        <!-- <li>when downloading a file, '-dithered' is added to its original filename</li> -->
-        <li>the copy button at the bottom puts the image as a string of letters (a base64-encoded .png) in your clipboard, handy for embedding small images in a webpage (see: <a href="https://css-tricks.com/data-uris/" target="_blank">Data URIs &#x7C; CSS Tricks</a>).</li>
-    </ul>
-</details>
-<br>
-<h2>step 1. pick a pic</h2>
-<label for="upload">upload an image:</label><br>
-<input type="file" id="upload" accept="image/*">
-<br>
-<div id="canvas_container" style="width:512px; height:512px;">
-<canvas id="canvas" width="512" height="512">Your browser not support the HTML5 canvas.</canvas>
-</div>
-
-<h2>step 2. resize (optional)</h2>
-<!-- need to style these inputs -->
-<p>there's a maximum width of 512 because that's a cute number, but you can change the max with inspect element :]</p>
-<label for="resize">resize the image?</label>
-<input id="resize" type="checkbox" checked/>
-<br><br>
-<!-- you can change the max here with inspect element, might display a bit buggy though. -->
-<label for="width_input">set width: <output id="width_output"></output></label>
-<!-- <br> -->
-<input id="width_input" type="number" min="1" max="512" step="1" value="512"/>
-
-<h2>step 3. recolour (optional)</h2>
-<p>change the colours (click on the coloured buttons below):</p>
-<label for="colour0">colour 0:</label>
-<input type="color" id="colour0" value="#000000">
-<br>
-<label for="colour1">colour 1:</label>
-<input type="color" id="colour1" value="#ffffff">
-<br><br>
-<button id="invert">invert colours</button>
-
-<h2>step 4. download</h2>
-<label for="download">download the image:</label>
-<button id="download">download</button>
-<br>
-<label for="copy">or copy the image data:</label>
-<button id="copy">copy</button>
-</main>
-
 <script>
 // forked from https://eli.li/_assets/bin/dither/dither.js
 
