@@ -65,5 +65,5 @@ hr::after {position:relative; top:-0.75em; width:inherit; font-weight:bold; cont
 @media (prefers-color-scheme:dark) {
     /* :not[.invert] */
     html, a, a:visited {background-color:#000000 !important;color:#FFFFFF !important;}
-    /* img[src^="img/bits/"], img[src*="svg"] {filter:invert();} */
+    img[src^="img/bits/"], img[src*="svg"] {filter:invert();}
 }
