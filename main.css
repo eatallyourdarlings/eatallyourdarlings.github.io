@@ -16,6 +16,7 @@ body {
     /* max-width:100%;*/
 }
 main {line-height: 1.5em; }
+
 /* things I'm more likely to tweak > to the right */
 footer {margin-top:3em; margin-bottom:2em; width:fit-content; font-family:Georgia, serif;}
 footer img {margin-left:auto; margin-right:auto; display:block;}
@@ -24,7 +25,7 @@ a, a:visited {color:#000000; text-decoration-color:#999933; text-decoration-line
 header a {text-decoration:none;}
 header a::before {font-style:normal; color:#999933; content:"𐂐";}
 /* a[target="_blank"]::after,  */
-header a::after, h1.alt::after {text-decoration-line:none; color:#990000; content:" ~" / "";}
+header a::after, h1.alt::after, .alt li::before {text-decoration-line:none; color:#990000; content:" ~ " / "";}
 a:hover {color:#999933; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
 a[target="_blank"] {text-decoration-style:dotted; text-decoration-thickness:0.1em; text-decoration-color:#990000;}
 a[target="_blank"]:hover, header a:hover {color:#990000; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
@@ -56,7 +57,7 @@ ul, ol {margin-top:1.5em; margin-bottom:1.5em; line-height:2em;
 }
 ul {list-style-type:none; padding-left: 0;}
 ul li::before{font-family:Courier, monospace; color:#999933; content:"* " / "";}
-.alt li::before {color:#990000;}
+/* .alt li::before {color:#990000;} */
 hr {border:none; overflow:visible; height:0.125em; padding-top:1.5em; padding-right: 0; padding-bottom: 1.5em; padding-left: 0; text-align:left; width:inherit; color:#990000;  font-size:1em;}
 hr::after {position:relative; top:-0.75em; width:inherit; font-weight:bold; content:'⁂';}
 
