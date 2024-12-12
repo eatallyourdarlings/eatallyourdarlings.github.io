@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="author" content="Olive R.F."/>
+<title>bookmarklets</title>
+</head>
+<body>
+<main>
+<h1>bookmarklets</h1>
+<p>haven't got this one working yet</p>
+<a href="bookmarklets.js">bookmarklets.js</a>
+<br><br>
+<canvas width="100" height="100" style="width: 100; height: 100; display: block; background: radial-gradient(rgb(254,214,112) 2%,rgb(202,132,198) 50%,rgb(136,178,255) 100%);">
+    <!-- <img src="xatu.png"> -->
+</canvas>
+<script>
+function screenshotCanvas() {
+var canvas = document.querySelector('canvas'); 
+// var dataURL = canvas.toDataURL('image/png'); 
+var url;
+canvas.toBlob((blob) => { 
+    console.log(blob); 
+    url = URL.createObjectURL()
+});
+console.log(blob);
+var a = document.createElement('a'); 
+a.href = url;
+// a.href = dataURL; 
+var date = new Date(); 
+var datetime = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds();
+a.download = document.title+datetime+".png"; 
+a.setAttribute('rel', 'noopener noreferrer');
+a.setAttribute('target', '_blank');
+a.innerHTML = "download";
+document.body.appendChild(a); 
+a.click(); 
+console.log(a);
+}
+</script>
+<button onclick="screenshotCanvas()">screenshot canvas</button>
+<!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAZKADAAQAAAABAAAAZAAAAAAvu95BAAAAxklEQVR4Ae3QMQEAAADCoPVPbQsviEBhwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwMBzYJykAAFo4MKpAAAAAElFTkSuQmCC" style="border: black;"> -->
+<style>script, a {display: block;} </style>
+</main>
+</body>
+</html>
