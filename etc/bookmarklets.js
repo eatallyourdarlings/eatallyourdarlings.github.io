@@ -45,7 +45,7 @@ javascript: (() => {
     document.body.appendChild(img);
 })();
 
-function screenshot_canvas {
+function screenshot_canvas (){
 var canvas = document.querySelector('canvas'); 
 var dataURL = canvas.toDataURL('image/png'); 
 var a = document.createElement('a'); 
