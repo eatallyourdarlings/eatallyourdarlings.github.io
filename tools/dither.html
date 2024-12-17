@@ -36,14 +36,13 @@
 </div>
 
 <h2>step 2. resize (optional)</h2>
-<!-- need to style these inputs -->
 <p>there's a maximum width of 512 because that's a cute number, but you can change the max with inspect element :]</p>
 <label for="resize">resize the image?</label>
 <input id="resize" type="checkbox" checked/>
 <br><br>
-<!-- you can change the max here with inspect element, might display a bit buggy though. -->
-<label for="width_input">set width: <output id="width_output"></output></label>
+<label for="width_input">set width: </label>
 <!-- <br> -->
+<!-- you can change the max width here with inspect element, might display a bit buggy though. -->
 <input id="width_input" type="number" min="1" max="512" step="1" value="512"/>
 
 <h2>step 3. recolour (optional)</h2>
@@ -90,9 +89,7 @@
         box-sizing: border-box;
     }
     button, input[type="file"], input[type="number"] {
-        /* font-family: Courier, monospace; */
         border-radius: .5em;
-        /* border: 1em var(--colour0); */
         cursor: pointer;
         padding: 1em 1em 1em 1em;
         font-size: 1.25em;
@@ -103,7 +100,6 @@
         max-width: 20em;
     }
     label { 
-        /* border: .1em dotted var(--colour0); */
         background-color: var(--colour0);
         color: var(--colour1);
         padding: .1em;
@@ -112,8 +108,6 @@
     button #invert {float: right;}
     h1, h2{padding: 1em 0 0 0;}
     summary {text-decoration: underline;}
-    output {width: 4em;}
-    /* img, canvas {image-rendering: pixelated;} */
 </style>
 <script>
 // forked from https://eli.li/_assets/bin/dither/dither.js
@@ -124,27 +118,21 @@ let dataURL = "beep boop that didn't work";
 let coloursRGB = [[0,0,0], [255,255,255]];
 
 const resize = document.getElementById('resize');
-const width_output = document.getElementById('width_output');
 const width_input = document.getElementById('width_input');
 let width = canvas.width;
 let height = canvas.height;
 
 console.log("canvas initial: " + width, height);
 
-// width_output.textContent = width_input.value;
-// width_input.addEventListener('input', function(){
-//     width_output.textContent = event.target.value;
-// });
-
 let canvas_container = document.getElementById('canvas_container');
-console.log(canvas_container);
+// console.log(canvas_container);
 width_input.addEventListener('change', function(){
     if(resize.checked){
         console.log('width changed: ' + event.target.value)
         // updateDimensions();
         DITHER();
         clearCache();
-        // for those messing around with inspect element to increase the max allowed width
+        // for anyone messing around with inspect element to increase the max  width
         canvas_container.style.width = width_input.max;
         // DEBUG
         // canvasContext.strokeStyle = "red";
@@ -294,6 +282,7 @@ document.getElementById('invert').addEventListener('click', function() {
     // console.log(cacheData);
 });
 
+let filePath;
 document.getElementById('upload').addEventListener('change', function () {
     clearCache();
     const file = event.target.files[0];
@@ -314,7 +303,6 @@ document.getElementById('upload').addEventListener('change', function () {
 });
 
 // TIL how to do this!
-let filePath;
 document.getElementById('download').addEventListener('click', function() {
     let fileName;
     if (filePath) {
@@ -335,8 +323,8 @@ document.getElementById('download').addEventListener('click', function() {
     a.setAttribute('target', '_blank');
     document.body.appendChild(a); // Append the anchor to the body
     a.click(); // Trigger a click on the anchor to start the download
-    // document.body.removeChild(a); // Remove the anchor from the body
     a.innerHTML = "download";
+    // document.body.removeChild(a);
 });
 
 //first javascript I've worked on in a year :D -Olive

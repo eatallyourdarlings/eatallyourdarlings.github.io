@@ -8,40 +8,65 @@
 </head>
 <body>
 <main>
+<style>* {font-family: monospace;} a, a:visited {color:black;}</style>
 <h1>bookmarklets</h1>
-<p>haven't got this one working yet</p>
-<a href="bookmarklets.js">bookmarklets.js</a>
-<br><br>
-<canvas width="100" height="100" style="width: 100; height: 100; display: block; background: radial-gradient(rgb(254,214,112) 2%,rgb(202,132,198) 50%,rgb(136,178,255) 100%);">
-    <!-- <img src="xatu.png"> -->
-</canvas>
-<script>
-function screenshotCanvas() {
-var canvas = document.querySelector('canvas'); 
-// var dataURL = canvas.toDataURL('image/png'); 
-var url;
-canvas.toBlob((blob) => { 
-    console.log(blob); 
-    url = URL.createObjectURL()
-});
-console.log(blob);
-var a = document.createElement('a'); 
-a.href = url;
-// a.href = dataURL; 
-var date = new Date(); 
-var datetime = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds();
-a.download = document.title+datetime+".png"; 
-a.setAttribute('rel', 'noopener noreferrer');
-a.setAttribute('target', '_blank');
-a.innerHTML = "download";
-document.body.appendChild(a); 
-a.click(); 
-console.log(a);
+<p>wrap a script in this magic:</p>
+    <pre>
+    <code>
+        javascript: (() => { 
+        //code goes here 
+        })();</code>
+    </pre>
+<p>then put that in the URL field of a bookmark in your browser. click the bookmark to run the script. voila! </p>
+
+<h2>screenshot a canvas</h2>
+<p>I wrote this to take screenshots of web games on itch.io. It won't work on games that are embedded in an iframe, so instead of hitting the play button you can use inspect element to find the URL of the game in the iframe - it should start with <code>https://html-classic.itch.zone/</code>. a nice side-effect is that this is a distraction-free way to play games that don't have fullscreen :]</p>
+<h3>here's a li'l test canvas for u to doodle on:</h3>
+<canvas width="128" height="128" style="width: 128; height: 128; display: block; background: #fff; border: 1px dashed;">a blank canvas for drawing</canvas>
+<button onclick="screenshot_canvas()">download the canvas as an image</button>
+<h3>here's the code</h3>
+<pre><code>
+<script style="display: block; text-wrap: wrap;">
+// copy this function into the magic bookmarklet sandwich
+function screenshot_canvas(){
+    console.log('screenshot canvas');
+    let a = document.createElement('a'); 
+    a.href = document.querySelector('canvas').toDataURL('image/png');
+    let date = new Date(); 
+    let datetime = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds();
+    a.download = document.title+"-"+datetime+".png"; 
+    a.setAttribute('rel', 'noopener noreferrer');
+    // a.setAttribute('target', '_blank');
+    document.body.appendChild(a);
+    a.innerHTML = "download";
+    a.click();
+    document.body.removeChild(a);
 }
+
+// drawing function just for fun, copied from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#using_the_download_attribute_to_save_a_canvas_as_a_png
+const canvas = document.querySelector("canvas");
+const c = canvas.getContext("2d", {alpha:false});
+c.fillStyle = "#fff";
+c.fillRect(0, 0, 128, 128);
+c.fillStyle = "#000";
+let isDrawing;
+
+function draw(x, y) {
+  if (isDrawing) {
+    c.beginPath();
+    c.arc(x, y, 1, 0, Math.PI * 2);
+    c.closePath();
+    c.fill();
+  }
+}
+canvas.addEventListener("mousemove", (event) =>
+  draw(event.offsetX, event.offsetY),
+);
+canvas.addEventListener("mousedown", () => (isDrawing = true));
+canvas.addEventListener("mouseup", () => (isDrawing = false));
 </script>
-<button onclick="screenshotCanvas()">screenshot canvas</button>
-<!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAZKADAAQAAAABAAAAZAAAAAAvu95BAAAAxklEQVR4Ae3QMQEAAADCoPVPbQsviEBhwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwMBzYJykAAFo4MKpAAAAAElFTkSuQmCC" style="border: black;"> -->
-<style>script, a {display: block;} </style>
+</code></pre>
+<p> scraps at <a href="bookmarklets.js">bookmarklets.js</a></p>
 </main>
 </body>
 </html>

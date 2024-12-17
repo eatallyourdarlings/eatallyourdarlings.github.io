@@ -61,7 +61,7 @@ ul li::before{font-family:Courier, monospace; color:#999933; content:"* " / "";}
 hr {border:none; overflow:visible; height:0.125em; padding-top:1.5em; padding-right: 0; padding-bottom: 1.5em; padding-left: 0; text-align:left; width:inherit; color:#990000;  font-size:1em;}
 hr::after {position:relative; top:-0.75em; width:inherit; font-weight:bold; content:'⁂';}
 
-.antipode {transform:rotate(180deg);display:inline-block;}
+.antipode {transform:rotate(180deg); display:inline-block;}
 
 @media (prefers-color-scheme:dark) {
     /* :not[.invert] */
