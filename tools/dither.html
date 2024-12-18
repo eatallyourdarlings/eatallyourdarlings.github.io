@@ -323,8 +323,8 @@ document.getElementById('download').addEventListener('click', function() {
     a.setAttribute('target', '_blank');
     document.body.appendChild(a); // Append the anchor to the body
     a.click(); // Trigger a click on the anchor to start the download
-    a.innerHTML = "download";
-    // document.body.removeChild(a);
+    // a.innerHTML = "download";
+    document.body.removeChild(a);
 });
 
 //first javascript I've worked on in a year :D -Olive
