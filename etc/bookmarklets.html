@@ -34,7 +34,7 @@ function screenshot_canvas(){
     a.href = document.querySelector('canvas').toDataURL('image/png');
     let date = new Date(); 
     let datetime = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds();
-    a.download = document.title+"-"+datetime+".png"; 
+    a.download = datetime+"-"+document.title+".png"; 
     a.setAttribute('rel', 'noopener noreferrer');
     // a.setAttribute('target', '_blank');
     document.body.appendChild(a);
