@@ -11,13 +11,8 @@
 <body>
 <header id="head"><pre><a href="index.html"> orf dot place</a> </pre></header>
 <main>
-  <style>
-    h2:not(:first-of-type) {margin-top: 9em;}
-    h2::before{content:"# ";}
-    h2::before, h2::after{color:#990000;}
-    button {display: block; margin: 0;  border-radius: 0; font-size: 1em; max-width: 20em; font-family: Courier, monospace; color: #000000; background-color: #ffffff; border-color: #000000; cursor: help;}
-  </style>
-<!-- 
+
+  <!-- 
 what do I want to 'archive' about a day? 
 whimsy. honesty. synchronicity. honesty.
 new/old feelings, new/old words. 
@@ -34,9 +29,48 @@ sometimes I change my mind.
 <p>bits, links, <a href="nssf.html">scrappy fiddles</a>, all the things, in reverse chronological order. updated daily sometimes.</p>
 <br><a href="#foot">jump to the bottom ?</a>
 
+<style>
+  h2:not(:first-of-type) {margin-top: 9em;}
+  h2::before{content:"# ";}
+  h2::before, h2::after{color:#990000;}
+  button {display: block; margin: 0;  border-radius: 0; font-size: 1em; max-width: 20em; font-family: Courier, monospace; color: #000000; background-color: #ffffff; border-color: #000000; cursor: help;}
+</style>
+
+<br><br>
+<button id="less">less.</button>
+<style>
+  .a p, .a ul, .a li {display:none;}
+  .b img:not([src^="img/bits/"]):not([src*="svg"]) {display:none;}
+  .c img {display:none;}
+  .d a, .d br {display:none;}
+  /* .e h2::before, h2::after{color:#000000;} */
+  .e audio {display:none;} 
+  .f h2:empty {display:block;}
+  .f h1, .f h2:not(:empty), .f pre, .f footer, .f details, .f button{display: none;}
+  .f h2:empty[id]::after{content:' 'attr(id)'';}
+  .f h2 {margin-top: 1em !important;}
+</style>
+<!-- block loading of img/audio so its just alt text? 
+    make seasons h2 and everything else h3? -->
+<script>
+  const less = document.getElementById('less');
+  let loss = 9;
+  less.addEventListener('click' , function(){
+    loss++;
+    document.body.classList.add(loss.toString(16));
+    if (loss == 13){
+      let h2 = document.querySelectorAll('h2:not(:empty)[id]');
+      for (const h of h2){
+        h.innerHTML = "";
+    }}});
+</script>
+
+<h2 id="2024-12-27"></h2>
+<img alt="a rusty sign saying STOP, nearly lost in the bush, built in 1977 by a coal-train-track which is now a people-track" src="img/bits/2024-12-28-stopped.png" loading="lazy" width="256" height="256">
+
 <h2 id="2024-12-26"></h2>
 <img class="pixel" alt="a sepia cuttlefish laid flat with cursive letters labelling its bits, rendered with hundreds of dots in sepia shades of brown." src="img/2024-12-25-sepia.png" loading="lazy" height="512" width="512">
-<a target="_blank" href="https://editor.p5js.org/orf/sketches/WFWlNV6UZ">p5 pointilism.</a>
+<a target="_blank" href="https://editor.p5js.org/orf/sketches/WFWlNV6UZ">p5 pointilism :3</a>
 
 <h2 id="2024-12-18"></h2>
 <img alt="fancy boots standing at a silly 90 degrees on a sidewalk. drawn in the cement are a carer, a love heart and three downward arrows." src="img/bits/2024-12-18-care.png" loading="lazy" width="324" height="324">
@@ -84,33 +118,7 @@ Carried by evening down to the cove." src="img/bits/2024-12-07-addenda.png" load
 <img alt="a sign at a picket line against a weapons parts manufacturer, reading NO MORE METAL FOR WAR." src="img/bits/2024-12-04-picket.png" loading="lazy" width="333" height="229">
 
 <h2 id="2024-12-03"></h2>
-<button id="less">less.</button>
-<style>
-  .a p, .a ul, .a li {display:none;}
-  .b img:not([src^="img/bits/"]):not([src*="svg"]) {display:none;}
-  .c img {display:none;}
-  .d a, .d br, .d details, .d h2[id] {display:none;}
-  /* .e h2::before, h2::after{color:#000000;} */
-  .e audio {display:none;} 
-  .f h2:empty {display:block;}
-  .f button, .f h2:not(:empty), .f pre, .f footer, .f h1 {display: none;}
-  .f h2:empty[id]::after{content:' 'attr(id)'';}
-  .f h2 {margin-top: 1em !important;}
-</style>
-<!-- block loading of img/audio so its just alt text? 
-    make seasons h2 and everything else h3? -->
-<script>
-  const less = document.getElementById('less');
-  let loss = 9;
-  less.addEventListener('click' , function(){
-    loss++;
-    document.body.classList.add(loss.toString(16));
-    if (loss == 13){
-      let h2 = document.querySelectorAll('h2:not(:empty)[id]');
-      for (const h of h2){
-        h.innerHTML = "";
-    }}});
-</script>
+<p>coded a sad little <a href="#head">information-loss-button</a>.</p>
 
 <h2 id="2024-12-02"></h2>
 <p>toyed with my <a href="sites.html#buttons">collection of 88x31s</a> + now the button on the home page changes with light/dark mode ☾</p>
