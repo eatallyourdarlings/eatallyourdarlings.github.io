@@ -59,6 +59,7 @@ sometimes I change my mind.
   less.addEventListener('click' , function(){
     loss++;
     document.body.classList.add(loss.toString(16));
+    
     if (loss == 13){
       let h2 = document.querySelectorAll('h2:not(:empty)[id]');
       for (const h of h2){
