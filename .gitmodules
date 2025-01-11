@@ -1,0 +1,6 @@
+[submodule "etc/tip"]
+	path = etc/tip
+	url = https://git.sr.ht/~rabbits/tip
+[submodule "etc/eldsay"]
+	path = etc/eldsay
+	url = https://git.sr.ht/~rabbits/tip
