@@ -9,40 +9,52 @@
   <title>wyrd mars ~ orf dot place</title>
 </head>
 <body>
-  <style>
-  @media (prefers-color-scheme:dark) {
-    /* html, a, a:visited {background-color:#639f98 !important;color:#FFFFFF !important;} */
-}
-  </style>
-  <header><pre><a href="index.html"> orf dot place</a> </pre></header>
-  <main>
-    <h1>wyrd mars</h1>
-    <figure>
-    <img src="img/2024-08-26-wyrd-mars.gif" loading="lazy" width="512" height="512" alt="A looping animation of the planet Mars in the far future, viewed from outer orbit, rendered in a limited, desaturated palette. Spots of greenery and water systems can be seen in the planet’s crevices, and faint red stars flicker in the space around it. In the centre of frame the small, lonely moon, Phobos, spins in the opposite direction." />
-    <figcaption aria-hidden="true">A looping animation of the planet Mars in the far future, viewed from outer orbit, rendered in a limited, desaturated palette. Spots of greenery and water systems can be seen in the planet’s crevices, and faint red stars flicker in the space around it. In the centre of frame the small, lonely moon, Phobos, spins in the opposite direction.</figcaption>
-    </figure>
-    <h2>recalling a dream of Phobos falling</h2>
-    <ul class="alt">
-    <li>Around the time I had this dream I was listening to <a href="https://emilyharpist.bandcamp.com/track/pitch-pedal-harp" target="_blank">Blue Pitch by Emily Hopkins</a> a lot.</li>
-    </ul>
-    <p><em>I once had a dream that I was standing on Mars, looking up into the sky as one of its moons, Phobos, fell closer and closer towards me with every orbit. That dream-memory has always stuck with because of the raw and complex mix of emotions I felt looking up at the falling moon; dread, wonder, nostalgia and grief…</em></p>
-    <p><em>Phobos crosses Mars’ sky twice and gets closer by a few centimetres every day. In 10 million years, when Phobos gets close enough to appear as big as Earth’s moon is in our sky today, it will start to gradually be broken apart by Mars’ gravity and turn into a ring. At (roughly) the same time the other moon, Deimos will have almost escaped Mars’ orbit and will hardly be discernible from the other stars in the sky.</em> </p>
-    <p><em>Before Phobos dies and Deimos leaves, if there are people on Mars at that time do you think they’ll look up at those big sad rocks and be reminded of home? And how will they feel later, when the night sky is just dust and stars?</em></p>
-    <h2>process</h2>
-    <p>In Autumn 2023 I dove into Blender to explore this image I had in my head, of a green Mars and a lonely moon. It was one of the first Blender projects that wasn’t just following a tutorial, and I learnt a lot through trial and error. I found a height-map of Mars and learnt how to re-colour the texture using Shader Nodes. I also found a 3D model of Phobos, and projected onto it a photograph from <a href="https://beautifulmars.tumblr.com" target="_blank">BEAUTIFUL MARS</a> (this blog is a bottomless well of inspiration for me). I remember spending an unnecessary amount of time figuring out at which point in the far future Phobos’ orbit would have decayed that much, and whether Deimos would still be visible, and making the orbits of the objects accurate to that.</p>
-    <p>I didn’t realise when I was starting out with Blender that the tutorials I was being fed by the YouTube algorithm were of a very skewed perspective: that 3D art is something that’s done with complex shaders and 16K textures (I wish I was joking) that take even the fanciest graphics card hours to render. When I had to leave this rendering overnight I didn’t feel great about it. The original version of this was a 120MB super-HD video loop rendered directly into Instagram reel’s aspect ratio—a bit of a sad indicator of my attitude towards my art at the time.</p>
-    <p>In Autumn 2024 I sat down in a cafe for 45 minutes to re-love this work and shrink it down to fit my present values (on computer-art being nice when it’s small and therefore uses less energy). I opened the video file in Blender’s video editor and in the render settings I changed the frame rate from 30 to 1, which meant that only 25 frames of the original 750 would be rendered. In the output settings I set the path to <code>~/Desktop/cauldron/#</code> so that each file would be named its frame number.</p>
-    <p>Using <a href="https://github.com/makew0rld/didder" target="_blank">didder</a> on the command line, I tested individual frames with some different palettes and saturation settings. I’ve been using command line libraries for image stuff for a while but I’d been procrastinating learning how to write little scripts to run commands on a bunch of images in a directory, so I looked it up and learnt how to do that in like ten minutes. I cast the following spell:</p>
-    <pre><code>
+
+<style>
+  html, a, a:visited {background-color:#E5D5B3;color:#211E18;}
+  @media (prefers-color-scheme:dark) {html, a, a:visited {background-color:#211E18 !important;color:#E5D5B3 !important;}}
+</style>
+
+<header><pre><a href="index.html"> orf dot place</a> </pre></header>
+<main>
+<h1>wyrd mars</h1>
+<figure>
+<img src="img/2024-08-26-wyrd-mars.gif" loading="lazy" width="512" height="512" alt="A looping animation of the planet Mars in the far future, viewed from outer orbit, rendered in a limited, desaturated palette. Spots of greenery and water systems can be seen in the planet’s crevices, and faint red stars flicker in the space around it. In the centre of frame the small, lonely moon, Phobos, spins in the opposite direction." />
+<figcaption aria-hidden="true">A looping animation of the planet Mars in the far future, viewed from outer orbit, rendered in a limited, desaturated palette. Spots of greenery and water systems can be seen in the planet’s crevices, and faint red stars flicker in the space around it. In the centre of frame the small, lonely moon, Phobos, spins in the opposite direction.</figcaption>
+</figure>
+
+<h2>recalling a dream of Phobos falling</h2>
+<ul class="alt">
+<li>Around the time I had this dream I was listening to <a href="https://emilyharpist.bandcamp.com/track/pitch-pedal-harp" target="_blank">Blue Pitch by Emily Hopkins</a> a lot.</li>
+</ul>
+<p><em>I once had a dream that I was standing on Mars, looking up into the sky as one of its moons, Phobos, fell closer and closer towards me with every orbit. That dream-memory has always stuck with because of the raw and complex mix of emotions I felt looking up at the falling moon; dread, wonder, nostalgia and grief…</em></p>
+<p><em>Phobos crosses Mars’ sky twice and gets closer by a few centimetres every day. In 10 million years, when Phobos gets close enough to appear as big as Earth’s moon is in our sky today, it will start to gradually be broken apart by Mars’ gravity and turn into a ring. At (roughly) the same time the other moon, Deimos will have almost escaped Mars’ orbit and will hardly be discernible from the other stars in the sky.</em> </p>
+<p><em>Before Phobos dies and Deimos leaves, if there are people on Mars at that time do you think they’ll look up at those big sad rocks and be reminded of home? And how will they feel later, when the night sky is just dust and stars?</em></p>
+
+<h2>process</h2>
+<p>In Autumn 2023 I dove into Blender to explore this image I had in my head, of a green Mars and a lonely moon. It was one of my first Blender projects that wasn’t just following a tutorial, and I learnt a lot through trial and error. I found a height-map of Mars and learnt how to re-colour the texture using Shader Nodes. I also found a 3D models of Phobos and Deimos, and projected onto them photographs from <a href="https://beautifulmars.tumblr.com" target="_blank">BEAUTIFUL MARS</a> (this blog is a bottomless well of inspiration for me). I remember spending an unnecessary amount of time figuring out at which point in the far future Phobos’ orbit would have decayed that much, and whether Deimos would still be visible, and making the orbits of the objects accurate to that. The project was an orrery in that sense, and Deimos was so far out that in the final render that it just looked like another glinting star.</p>
+<p>I didn’t realise when I was starting out with Blender that the tutorials I was being fed by the YouTube algorithm were of a very skewed perspective: that 3D art is something that’s done with complex shaders and 16K textures (I wish I was joking) that take even the fanciest graphics card hours to render. When I had to leave this rendering overnight I didn’t feel great about it. The original version of this was a super-HD video loop rendered directly into Instagram reel’s aspect ratio—a bit of a sad indicator of my attitude towards my art at the time.</p>
+<p>In Autumn 2024 I sat down in a cafe for 45 minutes to re-love this work and shrink it down to fit my present values (on computer-art being nice when it’s small and therefore uses less energy). I opened the video file in Blender’s video editor and in the render settings I changed the frame rate from 30 to 1, which meant that only 25 frames of the original 750 would be rendered. In the output settings I set the path to <code>~/Desktop/cauldron/#</code> so that each file would be named its frame number.</p>
+<p>Using <a href="https://github.com/makew0rld/didder" target="_blank">didder</a> in the terminal, I tested individual frames with some different palettes and saturation settings. I’ve been using command line libraries for image stuff for a while but I’d been procrastinating learning how to write little scripts to run commands on a bunch of images in a directory, so I looked it up and learnt how to do that in like ten minutes. I cast the following spell:</p>
+<pre><code>
 for i in *.png; do didder --input $i --output ./did/$i --palette &#39;#2c323a #734545 #51906c #639f98 #99ad62 #cfbd98 #c07b49 #ad5640&#39; --saturation 2 edm FloydSteinberg; done</code></pre>
-    <p>… where <code>i</code> contains the name of each file in the cauldron ending in png, so using <code>./did/$i</code> as the output filename makes each of the diddered images go into the folder <code>did</code> with same name as the original. I used <a href="https://lospec.com/palette-list/dusty-rainbow-9" target="_blank">Dusty Rainbow 9 Palette by Chase Stemel on LOSPEC</a> as a starting point for the colour palette. I opened all the frames with Aseprite to tweak the colours and render them into a gif.</p>
-    <p>I choose a slow refresh rate for my gif art because I like to imagine them being displayed on low-power fantasy thingamabobs, like a chlorphyll-based e-ink colour screen.</p>
-    <p>Thank you for reading this far! I hope you learnt something new or were inspired to go make your weird dreams into art :]</p>
-  </main>
-  <footer>
-    <hr>
-    <div class="date">re-loved 2024-08-26, shared 2024-10-27?</div>
-  </footer>
+<p>… where <code>i</code> contains the name of each file in the cauldron ending in <code>.png</code>, so using <code>./did/$i</code> as the output filename makes each of the diddered images go into the folder <code>did</code> with same name as the original. I used <a href="https://lospec.com/palette-list/dusty-rainbow-9" target="_blank">Dusty Rainbow 9 Palette by Chase Stemel on LOSPEC</a> as a starting point for the colour palette. I opened all the frames with Aseprite to tweak the colours and render them into a gif. 
+</p>the colour palette I ended up with for future reference:</p>
+<pre><code>
+#211E18
+#734545
+#747851
+#818234
+#89A890
+#AD5640
+#BD744C
+#E5D5B3</code></pre>
+<p>I choose a slow refresh rate for my gif art because I like to imagine them being displayed on low-power fantasy thingamabobs, like a chlorphyll-based e-ink colour screen.</p>
+<p>Thank you for reading this far! I hope you learnt something new or were inspired to go make your weird dreams into art :]</p>
+</main>
+<footer>
+  <hr>
+  <div class="date">re-loved 2024-08-26, shared <a href="log.html#2025-01-17">2025-01-17</a></div>
+</footer>
 </body>
-</html>
 </html>
