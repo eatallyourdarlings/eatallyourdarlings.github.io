@@ -2,8 +2,8 @@
 /* additional <style> at: index, log, now, stinkbugs, wyrd-mars, sites, tools/ */
 html {font-size:100%; background-color:#FFF; color:#000;}
 body {
-    font-family:Georgia, serif;
-    font-size:1.1em;/* this determines other relative measurements in em */
+    font-family:Georgia,serif;
+    font-size:1.1em; /* this determines other relative measurements in em */
     display:block;
     margin-top:1em;
     margin-right:auto;
@@ -18,14 +18,14 @@ body {
 main {line-height: 1.5em; }
 
 /* things I'm more likely to tweak > to the right */
-footer {margin-top:3em; margin-bottom:2em; width:fit-content; font-family:Georgia, serif;}
+footer {margin-top:3em; margin-bottom:2em; width:fit-content; font-family:Georgia,serif;}
 footer img {margin-left:auto; margin-right:auto; display:block;}
 
 a, a:visited {color:#000000; text-decoration-color:#999933; text-decoration-line:underline; text-decoration-style:solid; text-decoration-thickness:0.11em; text-underline-offset: .2em;}
 header a {text-decoration:none;}
-header a::before {font-style:normal; color:#999933; content:"𐂐";}
+header a::before {color:#999933; content:"⧜";}
 /* a[target="_blank"]::after,  */
-header a::after, h1.alt::after, .alt li::before {text-decoration-line:none; color:#990000; content:" ~ " / "";}
+header a::after {color:#999933; content:" /";}
 a:hover {color:#999933; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
 a[target="_blank"] {text-decoration-style:dotted; text-decoration-thickness:0.1em; text-decoration-color:#990000;}
 a[target="_blank"]:hover, header a:hover {color:#990000; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
@@ -36,13 +36,13 @@ h2.alt {text-decoration-line: underline; text-decoration-style: dashed; text-dec
 /* em {font-weight:normal;} */
 b {color:#990000}
 pre {margin-top:1em; margin-bottom:1em;}
-pre, code {font-size:.9em; font-family:Courier, monospace !important; text-wrap:wrap;}
+pre, code {font-size:.9em; font-family:Courier,monospace !important; text-wrap:nowrap;}
 img {margin-top:1em; margin-bottom:1em; display: block; color:#000}
 img [src^="img/88x31/"], .pixel {image-rendering: pixelated;}
 /* img {image-rendering:pixelated; background-color:#FFFFFF;} */
 figure {margin-top:1em; margin-bottom:1em; margin:0;}
 figcaption {max-width:24em; font-style:italic; width:inherit;}
-figcaption::before {content:"+ " / ""; color:#999933;}
+figcaption::before {color:#999933; content:"+ " / "";}
 audio {width:24em; margin:1em;}
 details summary {text-decoration-line:underline; text-decoration-color:#999933; text-decoration-style:dotted; cursor:grab;}
 abbr {text-decoration: none;}
@@ -56,12 +56,14 @@ ul, ol {margin-top:1.5em; margin-bottom:1.5em; line-height:2em;
 /* list-style-position:outside;*/
 }
 ul {list-style-type:none; padding-left: 0;}
-ul li::before{font-family:Courier, monospace; color:#999933; content:"* " / "";}
-/* .alt li::before {color:#990000;} */
+ul li::before{color:#999933; content:"* " / "";}
+.alt li::before {text-decoration-line:none; color:#990000; content:" ~ " / "";}
 hr {border:none; overflow:visible; height:0.125em; padding-top:1.5em; padding-right: 0; padding-bottom: 1.5em; padding-left: 0; text-align:left; width:inherit; color:#990000;  font-size:1em;}
 hr::after {position:relative; top:-0.75em; width:inherit; font-weight:bold; content:'⁂';}
 
-.antipode {transform:rotate(180deg); display:inline-block;}
+::before,::after{font-family:Courier,monospace}
+
+.antipode {display:inline-block; transform:rotate(180deg);}
 
 .invert {filter:invert();}
 
