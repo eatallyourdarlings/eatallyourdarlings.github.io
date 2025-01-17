@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,inital-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>breathe</title>
-<!-- stolen from deianara.co <3 -->
+<!-- stolen, with love, from deianara.co <3 -->
 <style>
 @keyframes breathe {
 0%,100%{width:200px;height:200px;}
@@ -17,6 +17,9 @@ main{height:100%;background-color:white;color:black;transition:color 5s,backgrou
 #sun:checked+main{background-color:black;color:white;}
 label[for="sun"]{color:inherit;user-select:none;cursor:pointer;font-size:25px;position:absolute;bottom:20px;right:20px;line-height:0.6;}
 #circle{height:100px;width:100px;transform:translate(-50%,-50%);position:absolute;top:50%;left:50%;border-radius:100%;border:1px solid;border-color:inherit;animation-name:breathe;animation-duration:11s;animation-iteration-count:infinite;}
+@media (prefers-color-scheme:dark) {
+    main {background-color:#000000 !important;color:#FFFFFF !important;}
+}
 </style>
 </head>
 <body>
