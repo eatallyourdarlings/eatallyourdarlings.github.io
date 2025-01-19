@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type='text/javascript' src='dict.js'></script>
+    <script type='text/javascript' src='eldsay.js'></script>
+		<!-- <link rel="icon" type="image/x-icon" href="../../favicon.png"> -->
+		<link rel="icon" type="image/x-icon" href="thorn.svg">
+    <title>Eldsay</title>
+</head>
+
+<body>
+	<textarea id="input" cols="50" rows="10" placeholder="..." autofocus></textarea>
+	<pre id="output"></pre>
+</body>
+<style>
+	body { padding:0px;margin:0;overflow-y:hidden }
+	textarea { width: calc(50% - 60px);border: 0;background: #fff;padding: 15px;height: calc(100vh - 30px); }
+	pre { position: absolute;left: calc(50% - 30px);top: 0px;background: #eee;padding: 15px;width: 50%;height: calc(100vh - 30px);overflow-y: scroll;margin: 0;}
+	textarea:focus, input:focus { outline: none;}
+</style>
+<script type="text/javascript">
+
+const input_el = document.getElementById("input")
+const output_el = document.getElementById("output")
+
+function print(el,w) {
+	if(w) {
+		if(dict[w]) output_el.innerHTML += `- <b>${w}</b>: ${dict[w]}<br />`
+		if(eldsay[w]) output_el.innerHTML += `- <i>${w}</i>: ${eldsay[w]}<br />`
+	}
+}
+
+function parse(event){
+	let origin = input_el.selectionStart
+	while(input_el.value.indexOf("th") >= 0)
+		input_el.value = input_el.value.replace("th","þ"), input.setSelectionRange(origin-1, origin-1)
+	while(input_el.value.indexOf("Th") >= 0)
+		input_el.value = input_el.value.replace("Th","Þ"), input.setSelectionRange(origin-1, origin-1)
+	output_el.innerHTML = ""
+	const words = input_el.value.toLowerCase().replace(/[\W_]+/g," ").split(' ')
+	words.forEach((w) => {
+		print(output_el,w)
+		if(w.substr(-2) == 'ed') print(output_el, w.substr(0, w.length - 1))
+		if(w.substr(-1) == 's') print(output_el, w.substr(0, w.length - 1))	
+	})
+}
+
+input_el.addEventListener('input', parse)
+</script>
+</html>
