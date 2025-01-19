@@ -3,17 +3,15 @@
 html {font-size:100%; background-color:#FFF; color:#000;}
 body {
     font-family:Georgia,serif;
-    font-size:1.1em; /* this determines other relative measurements in em */
+    font-size:1.1em;
     display:block;
     margin-top:1em;
     margin-right:auto;
     margin-bottom:auto;
     margin-left:2em;
     text-align:left;
-    /* align-self:center; */
     width:calc(100% - 2em);
     max-width:48em;
-    /* max-width:100%;*/
 }
 main {line-height: 1.5em; }
 
@@ -26,20 +24,18 @@ header a {text-decoration:none;}
 header a::before {color:#999933; content:"⧜";}
 /* a[target="_blank"]::after,  */
 header a::after {color:#999933; content:" /";}
-a:hover {color:#999933; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
+a:hover {text-decoration-style:wavy; text-decoration-thickness:0.05em;}
 a[target="_blank"] {text-decoration-style:dotted; text-decoration-thickness:0.1em; text-decoration-color:#990000;}
-a[target="_blank"]:hover, header a:hover {color:#990000; text-decoration-style:wavy; text-decoration-thickness:0.05em;}
+a[target="_blank"]:hover, header a:hover {text-decoration-style:wavy; text-decoration-thickness:0.05em;}
 
 h1 {font-size:2em;}
 h2, h3 {margin-top:2em;}
 h2.alt {text-decoration-line: underline; text-decoration-style: dashed; text-decoration-color: #990000;}
-/* em {font-weight:normal;} */
 b {color:#990000}
 pre {margin-top:1em; margin-bottom:1em;}
 pre, code {font-size:.9em; font-family:Courier,monospace !important; text-wrap:nowrap;}
 img {margin-top:1em; margin-bottom:1em; display: block; color:#000}
 img [src^="img/88x31/"], .pixel {image-rendering: pixelated;}
-/* img {image-rendering:pixelated; background-color:#FFFFFF;} */
 figure {margin-top:1em; margin-bottom:1em; margin:0;}
 figcaption {max-width:24em; font-style:italic; width:inherit;}
 figcaption::before {color:#999933; content:"+ " / "";}
