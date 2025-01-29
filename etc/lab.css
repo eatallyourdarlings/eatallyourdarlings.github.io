@@ -60,3 +60,6 @@ nav ol{
 
 /* for when I get cooler things to put in the footer */
 footer svg { stroke: #999933; height: 2em; }
+
+hr.alt {text-decoration-style: dashed; border-style: dashed; border-color: #990000; height: 0; padding: 0; border: 1em;}
+hr.alt::after {content:none;}

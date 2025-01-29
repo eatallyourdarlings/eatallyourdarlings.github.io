@@ -2,6 +2,7 @@
 /* additional <style> at: index, log, now, stinkbugs, wyrd-mars, sites, tools/ */
 html {font-size:100%; background-color:#FFF; color:#000;}
 body {
+    color: #000;
     font-family:Georgia,serif;
     font-size:1.1em;
     display:block;
@@ -13,13 +14,13 @@ body {
     width:calc(100% - 2em);
     max-width:48em;
 }
-main {line-height: 1.5em; }
+main {line-height: 1.5em;}
 
 /* things I'm more likely to tweak > to the right */
 footer {margin-top:3em; margin-bottom:2em; width:fit-content; font-family:Georgia,serif;}
 footer img {margin-left:auto; margin-right:auto; display:block;}
 
-a, a:visited {color:#000000; text-decoration-color:#999933; text-decoration-line:underline; text-decoration-style:solid; text-decoration-thickness:0.11em; text-underline-offset: .2em;}
+a, a:visited {color:#000; text-decoration-color:#999933; text-decoration-line:underline; text-decoration-style:solid; text-decoration-thickness:0.11em; text-underline-offset: .2em;}
 header a {text-decoration:none;}
 header a::before {color:#999933; content:"⧜";}
 /* a[target="_blank"]::after,  */
@@ -65,6 +66,6 @@ hr::after {position:relative; top:-0.75em; width:inherit; font-weight:bold; cont
 
 @media (prefers-color-scheme:dark) {
     /* :not[.invert] */
-    html, a, a:visited {background-color:#000000 !important;color:#FFFFFF !important;}
+    html, a, a:visited {background-color:#000 !important;color:#fff !important;}
     img[src^="img/bits/"], img[src*="svg"] {filter:invert();}
 }
