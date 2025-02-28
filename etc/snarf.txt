@@ -11,6 +11,19 @@
 /about
 <!-- <p>I am for meeting these assaults on the biosphere with joyous, grieving, enraged action. Our era demands preposterous thinking, bold experimentation, leaps and loops and flights of faith. I am for <a href="https://www.creationtheproject.com/about" target="_blank">CREATION</a>, a queer-insurrectionary-science-fiction-religion-as-art.</p> -->
 
+<figure>
+<img src="img/puter.png" alt="a kitten on a laptop with the caption: I remain ambivalent about my puter. it contains multitudes. friends. enemies. love. hate. to reduce it to one or the other is an exercise in foolishness." loading="lazy" width="375" height="250">
+<figcaption aria-hidden="true">a kitten on a laptop with the caption: I remain ambivalent about my puter. it contains multitudes. friends. enemies. love. hate. to reduce it to one or the other is an exercise in foolishness.</figcaption>
+</figure>
+
+/zines
+<ol>
+  <li>fold in half along the long edge, then unfold.</li>
+  <li>fold in half along the short edge, then unfold.</li>
+  <li>fold the short edges into the centre.</li>
+  <li>fold the short edges into the centre.</li>
+</ol>
+
 /badges
 <!-- <p>for now the rest of the collection is hidden in HTML comments because I'm yet to reach out reach out to all these cool folk and ask if they'd like our sites to hold hands. And also maybe to avoid loading tons of images from other servers. idk if loady lazing helps with that. it'd be nice to not hotlink these maybe? or if I loaded them from other servers it could be like a nice status page, checking in on these cool websites and seeing if they're still all good. maybe they might even change the badge at the given URL, that'd be a nice surprise. </p>
 <p> -->
