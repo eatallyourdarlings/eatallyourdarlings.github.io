@@ -34,7 +34,7 @@ h2, h3 {margin-top:2em;}
 h2.alt {text-decoration-line: underline; text-decoration-style: dashed; text-decoration-color: #990000;}
 b {color:#990000}
 pre {margin-top:1em; margin-bottom:1em;}
-pre, code, header {font-size:.9em; font-family:Courier,monospace !important; text-wrap:nowrap;}
+pre, code, header {font-family:Courier,monospace !important; text-wrap:nowrap;}
 img {margin-top:1em; margin-bottom:1em; display: block;}
 img [src^="img/88x31/"], .pixel {image-rendering: pixelated;}
 figure {margin-top:1em; margin-bottom:1em; margin:0;}
