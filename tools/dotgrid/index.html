@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- <link rel="icon" type="image/x-icon" href="../favicon.png"> -->
+<title>dotgrid by hundred rabbits</title>
+</head>
+<body>
+<header><a href="../index.html">orf dot place</a> </header>
+<main>
+<style>
+* {font-family: monospace;} 
+a, a:visited {color:black;}
+@media (prefers-color-scheme:dark) {
+    html, a, a:visited {background-color:#000000 !important;color:#FFFFFF !important;}
+}
+</style>
+<h1>dotgrid by hundred rabbits</h1>
+<p>I'm keeping a copy of this beautiful little open-source (RMIT licensed) tool on this site for easy access because I use it a lot, and because I intend to study its code and fork it to add some fancy stuff one day.</li>
+<ul>
+  <li><a target="_blank" href="https://hundredrabbits.itch.io/dotgrid">support dotgrid on itch.</a></li>
+  <li><a href="dotgrid.html">play with dotgrid.</a></li>
+</ul>
+
+<h2>notes</h2>
+<ul>
+  <li>one dot in the grid is 15px in CSS.</li>
+  <li>when exporting a vector, it's the size of the canvas that determines the SVG width/height.
+  this means that if you zoom in, it'll export just the zoomed part of the vector.</li>
+  <li>if you start drawing from the the top left, you can resize as you go without much issue.</li>
+  <li>using the arrow keys to move around and keyboard shortcuts below is generally a nice quick way to make a glyph, but I don't know if you can move points without using a mouse to click-drag.</li>
+</ul>
+
+<h2>README</h2>
+<p>
+  Dotgrid is a grid-based vector drawing software designed to create logos, icons and type. 
+  It supports layers, the full SVG specs and additional effects such as mirroring and radial drawing. 
+  Dotgrid exports to both PNG and SVG files.The application was initially created for internal use, 
+  and later made available as a free and open source software.
+</p>
+
+<ul>
+<li><a href="https://100r.co/site/dotgrid.html">Guide</a></li>
+<li><a href="https://www.youtube.com/watch?v=Xt1zYHhpypk">Video Tutorial</a></li>
+<li><a href="https://hundredrabbits.itch.io/dotgrid/community">Community</a></li>
+<li><a href="https://github.com/hundredrabbits/Themes">Themes</a></li>
+<li><a href="https://liatreon.com/100">Support</a></li>
+<li><a href="https://github.com/hundredrabbits/Dotgrid">Pull Requests are welcome!</a></li>
+</ul>
+
+<h3>mouse click-drag</h3>
+
+<ul>
+  <li>Hold Shift to drag a segment.</li>
+  <li>Hold Alt to drag all segments.</li>
+  <li>Right-click to delete a vertex.</li>
+</ul>
+
+<h3>keyboard</h3>
+<pre>
+∷        Toggle Menubar   Tab
+∷        Open Theme       ^Shift+O
+∷        Reset Theme      ^Backspace
+File     New              ^N
+File     Open             ^O
+File     Save             ^S
+File     Export Vector    ^E
+File     Export Image     ^Shift+E
+Edit     Undo             ^Z
+Edit     Redo             ^Shift+Z
+View     Color Picker     G
+View     Toggle Grid      H
+View     Toggle Tools     ^H
+Layers   Foreground       ^1
+Layers   Middleground     ^2
+Layers   Background       ^3
+Layers   Merge Layers     ^M
+Stroke   Line             A
+Stroke   Arc              S
+Stroke   Arc Rev          D
+Stroke   Bezier           F
+Stroke   Close            Z
+Stroke   Arc(full)        T
+Stroke   Arc Rev(full)    Y
+Stroke   Clear Selection  Escape
+Stroke   Erase Segment    Backspace
+Control  Add Point        Enter
+Control  Move Up          Up
+Control  Move Right       Right
+Control  Move Down        Down
+Control  Move Left        Left
+Control  Remove Point     X
+Style    Linecap          Q
+Style    Linejoin         W
+Style    Mirror           E
+Style    Fill             R
+Style    Thicker          }
+Style    Thinner          {
+Style    Thicker +5       ]
+Style    Thinner -5       [
+</pre>
+</main>
+</body>
+</html>
