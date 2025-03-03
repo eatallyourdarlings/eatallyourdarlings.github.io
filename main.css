@@ -1,9 +1,8 @@
 /* orf dot place slash main dot css */
-/* additional <style> at: index, log, now, stinkbugs, wyrd-mars, sites, tools/ */
-html {font-size:100%; background-color:#FFF; color:#000;}
+/* additional <style> at:index,log,now,stinkbugs,wyrd-mars,sites,tools/ */
+html {font-size:16px;font-family:Georgia,serif;background-color:#fff;color:#000;}
+
 body {
-    font-family:Georgia,serif;
-    font-size:16px;
     display:block;
     margin-top:2em;
     margin-right:2em;
@@ -12,59 +11,55 @@ body {
     text-align:left;
     width:calc(100% - 2em);
     max-width:32em;
+    text-underline-offset:.2em;
+    /* 576px width total */
 }
-/* total 576 width */
-main {line-height: 1.5em;}
+main {line-height:1.5em;}
+
+::before,::after{font-family:monospace;text-decoration:none;font-style:normal;color:#993;}
 
 /* things I'm more likely to tweak > to the right */
-footer {margin-top:3em; margin-bottom:2em; width:fit-content; font-family:Georgia,serif;}
-footer img {margin-left:auto; margin-right:auto; display:block;}
+footer {margin-top:3em;margin-bottom:2em;width:fit-content;}
+footer img {margin-left:auto;margin-right:auto;display:block;}
 
-a, a:visited {color:#000; text-decoration-color:#999933; text-decoration-line:underline; text-decoration-style:solid; text-decoration-thickness:0.11em; text-underline-offset: .2em;}
+a,a:visited {color:#000;text-decoration-thickness:0.1em;}
+a[target="_blank"] {text-decoration-style:dotted;}
+a:hover,a[target="_blank"]:hover {text-decoration-style:wavy;text-decoration-thickness:0.1em;}
+a:hover{text-decoration-color:#993;}
+a[target="_blank"]:hover{text-decoration-color:#900;}
 header a {text-decoration:none;}
-header a::before {color:#999933; content:"⧜";}
-/* a[target="_blank"]::after,  */
-header a::after {color:#999933; content:" /";}
-a:hover {text-decoration-style:wavy; text-decoration-thickness:0.05em;}
-a[target="_blank"] {text-decoration-style:dotted; text-decoration-thickness:0.1em; text-decoration-color:#990000;}
-a[target="_blank"]:hover {text-decoration-style:wavy; text-decoration-thickness:0.05em;}
+header a::before {content:" /";}
+header::before {content:"⧜";}
+header a::after {content:" /";}
+h2,h3 {margin-top:2em;}
+pre {margin-top:1em;margin-bottom:1em;}
+pre,code,header {font-family:Courier,monospace !important;text-wrap:nowrap;}
+img {margin-top:1em;margin-bottom:1em;display:block;}
+img [src^="img/88x31/"],.pixel {image-rendering:pixelated;}
+figure {margin:0;}
+figcaption {font-style:italic;width:inherit;}
+figcaption::before {content:"+ " / "";}
+audio {width:24em;margin:1em;}
+details summary {text-decoration-line:underline;text-decoration-thickness:0.1em;}
+abbr {text-decoration:none;}
+q {font-style:italic;display:inline-block;}
+blockquote,cite {margin-left:1em;text-indent:-1.2em;font-style:normal;}
+blockquote::after {content:none;}
+blockquote:before {content:"> " / "";}
+cite::before {content:"- " / "";}
 
-h1 {font-size:2em;}
-h2, h3 {margin-top:2em;}
-h2.alt {text-decoration-line: underline; text-decoration-style: dashed; text-decoration-color: #990000;}
-b {color:#990000}
-pre {margin-top:1em; margin-bottom:1em;}
-pre, code, header {font-family:Courier,monospace !important; text-wrap:nowrap;}
-img {margin-top:1em; margin-bottom:1em; display: block;}
-img [src^="img/88x31/"], .pixel {image-rendering: pixelated;}
-figure {margin-top:1em; margin-bottom:1em; margin:0;}
-figcaption {font-style:italic; width:inherit;}
-figcaption::before {color:#999933; content:"+ " / "";}
-audio {width:24em; margin:1em;}
-details summary {text-decoration-line:underline; text-decoration-color:#999933; text-decoration-style:dotted; cursor:grab;}
-abbr {text-decoration: none;}
-q {font-style:italic; display:inline;}
-blockquote, cite {margin-left: 1em; text-indent: -1.2em; font-style: normal;}
-blockquote::after {content:none; margin:none;}
-blockquote:before {color:#999933; content:"> " / "";}
-cite::before {color:#999933; content:"- ";}
-ul, ol {margin-top:1.5em; margin-bottom:1.5em; line-height:2em;
-/* list-style-position:outside;*/
-}
-ul {list-style-type:none; padding-left: 0;}
-ul li::before{color:#999933; content:"* " / "";}
-.alt li::before {text-decoration-line:none; color:#990000; content:" ~ " / "";}
-hr {border:none; overflow:visible; height:0.125em; padding-top:1.5em; padding-right: 0; padding-bottom: 1.5em; padding-left: 0; text-align:left; width:inherit; color:#990000;  font-size:1em;}
-hr::after {position:relative; top:-0.75em; width:inherit; font-weight:bold; content:'⁂';}
+ul,ol {margin-top:1.5em;margin-bottom:1.5em;line-height:2em;}
+ul {list-style-type:none;padding-left:0;}
+ul li::before{content:"* " / "";}
+.alt li::before {content:" ~ " / "";color:#900;}
 
-::before,::after{font-family:Courier,monospace}
+hr {border:none;overflow:visible;height:0.125em;padding-top:1.5em;padding-right:0;padding-bottom:1.5em;padding-left:0;text-align:left;width:inherit;color:#900; font-size:1em;}
+hr::after {position:relative;top:-0.75em;width:inherit;font-size:2em;content:'⁂';color:#900}
 
-.antipode {display:inline-block; transform:rotate(180deg);}
-
-.invert {filter:invert();}
+.antipode {display:inline-block;transform:rotate(180deg);}
 
 @media (prefers-color-scheme:dark) {
     /* :not[.invert] */
-    html, a, a:visited {background-color:#000 !important;color:#fff !important;}
-    img[src^="img/bits/"], img[src*="svg"] {filter:invert();}
+    html,a,a:visited {background-color:#000 !important;color:#fff !important;}
+    img[src^="img/bits/"],img[src*="svg"] {filter:invert();}
 }
