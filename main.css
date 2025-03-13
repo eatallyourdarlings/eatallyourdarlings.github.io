@@ -1,7 +1,9 @@
 /* orf dot place slash main dot css */
 /* additional <style> at:index,log,now,stinkbugs,wyrd-mars,sites,tools/ */
+/* things I'm more likely to tweak > to the right */
 html {font-size:16px;font-family:Georgia,serif;}
 
+/* 576px width total */
 body {
     display:block;
     margin-top:2em;
@@ -12,13 +14,10 @@ body {
     width:calc(100% - 2em);
     max-width:32em;
     text-underline-offset:.25em;
-    /* 576px width total */
 }
 main {line-height:1.5em;}
 
 ::before,::after{font-family:monospace;text-decoration:none;font-style:normal;color:#993;}
-
-/* things I'm more likely to tweak > to the right */
 footer {margin-top:3em;margin-bottom:2em;width:fit-content;}
 footer img {margin-left:auto;margin-right:auto;display:block;}
 
@@ -61,8 +60,7 @@ button {display: block; margin: 0;  border-radius: 0; font-size: 1em; max-width:
 .antipode {display:inline-block;transform:rotate(180deg);}
 
 @media (prefers-color-scheme:dark) {
-    /* :not[.invert] */
-    html,a,a:visited {background-color:#000 !important;color:#fff !important;}
+    html,body,a,a:visited {background-color:#000 !important;color:#fff !important;}
     img[src^="img/bits/"],img[src*="svg"] {filter:invert();}
     button {color: #fff;background-color:#000;border-color:#fff;}
 }
