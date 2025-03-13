@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="author" content="Olive R.F."/>
+<link href="style.css" rel="stylesheet" type="text/css" media="all">
+<title>pandoc ~ orf dot place</title>
+</head>
+<style>
+* {font-family:monospace;}
+a, a:visited {color:black;}
+@media (prefers-color-scheme:dark) {
+    html, a, a:visited {background-color:#000000 !important;color:#FFFFFF !important;}
+}
+</style>
+<body>
+<main>
+<h1>index of /pandoc/</h1>
+<ul>
+    <li><a href="template.html">template</a></li>
+    <li><a href="test.html">test</a> / <a href="test.md">source</a></li>
+    <li><a href="filter.lua">lua filters</a></li>
+</ul>
+<p>pandoc wiki spell on 'nix, where www is a symlink from notes to the folder for a website:</p>
+<pre><code>
+for f in *.md; do 
+d=$(date -r $f '+%Y-%m-%d'); 
+pandoc -f markdown-auto_identifiers -t html --wrap=none --lua-filter=www/pandoc/filter.lua --template=www/pandoc/template.html -o www/"${f%.*}".html -M name="${f%.*}" -M mdate=$d $f; done
+</code></pre>
+</main>
+</body>
+</html>
