@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="author" content="Olive R.F."/>
+<link href="main.css" rel="stylesheet" type="text/css" media="all">
+<link rel="icon" type="image/x-icon" href="favicon.png">
+<title>grimoire ~ orf dot place</title>
+</head>
+<body>
+<header><a href="index.html">orf dot place</a> grimoire</header>
+<main>
+<h1 id="grimoire">grimoire</h1>
+<p>where it says <code>input</code> or <code>output</code> in the following spells, replace with names for your input and output files. Sometimes the words folder/directory used interchangeably.</p>
+<h2 id="favs">favs</h2>
+<ul>
+<li><a href="#markdown-wiki-to-website">markdown wiki to website</a></li>
+<li><a href="#sketchbook-page">sketchbook page</a></li>
+<li><a href="#put-it-all-together-to-make-a-nice-lil-bitmap">bitmap</a></li>
+<li><a href="#memos-to-mp3">memos to mp3</a></li>
+</ul>
+<h2 id="index">index</h2>
+<ul>
+<li><a href="#ars_uniks">unix</a> ?</li>
+<li><a href="#ars_gitia">git</a></li>
+<li><a href="#ars_pythonidaea">python</a></li>
+<li><a href="#ars_pandoctica">pandoc</a></li>
+<li><a href="#ars_diddererer">didder</a></li>
+<li><a href="#ars_imagicka">imagemagick</a></li>
+<li><a href="#ars_yootoodooloop">yt-dlp</a></li>
+<li><a href="#ars_effempegon">ffmpeg</a></li>
+<li><a href="#elseware">elseware</a></li>
+</ul>
+<h2 id="ars_uniks">ars_uniks</h2>
+<p><code>zsh</code> on an accursed Macbook. every time I want to install a new command-line software I pretty much go into a haze on the internet and forget how I did it. this puter is a mess.</p>
+<p><strong>if you’re overwhelmed by all the text in the terminal, type <code>clear</code></strong></p>
+<h3 id="doing-file-things">doing file things</h3>
+<p><code>&gt;</code> replaces contents of file <code>&gt;&gt;</code> appends to a file from a new line</p>
+<pre><code>
+touch filename</code></pre>
+<p>first line</p>
+<pre><code>
+head -n 1 filename</code></pre>
+<p>last line</p>
+<pre><code>
+tail -n 1 filename</code></pre>
+<h3 id="strings">strings</h3>
+<p><code>*</code> represents <em>anything</em>, so <code>*.png</code> matches everything filename ending with <code>.png</code>, <code>a*.png</code> matches every <code>.png</code> starting with <code>a</code>.</p>
+<pre><code>
+Trim the shortest match from the end 
+${variable%pattern} 
+
+Trim the longest match from the end 
+${variable%%pattern} 
+
+Trim the shortest match from the beginning
+${variable#pattern} 
+
+Trim the longest match from the beginning 
+${variable##pattern} </code></pre>
+<ul>
+<li><a href="https://tldp.org/LDP/LG/issue18/bash.html" target="_blank">bash string manipulation</a></li>
+</ul>
+<h3 id="get-filenames-names-without-extensions">get filenames names without extensions</h3>
+<pre><code>
+${f%.*}</code></pre>
+<pre><code>
+for name in *.txt; do name=&quot;${name%.*}&quot;; echo $name; done</code></pre>
+<p>doesn’t work if a filename contains dots.</p>
+<h3 id="create-a-symlink-in-current-directory">create a symlink in current directory</h3>
+<pre><code>
+ln -s path/to/file optionalname</code></pre>
+<h3 id="output-to-clipboard">output to clipboard</h3>
+<pre><code>
+| pbcopy</code></pre>
+<h3 id="edit-a-config-file">edit a config file</h3>
+<pre><code>
+sudo vi</code></pre>
+<p><code>o</code>/<code>shift+o</code> to insert a new line below/above current <code>shift+g[+number]</code> to go to top of file/a line number <code>:wq</code> to quit and save</p>
+<h3 id="download-a-thing-from-a-web-address">download a thing from a web address</h3>
+<pre><code>
+curl [URL] --output [filename]</code></pre>
+<h3 id="further-studies">further studies</h3>
+<ul>
+<li><code>stat</code> seems bloody useful</li>
+<li>differ between piping data with <code>&gt;</code> vs <code>|</code>?</li>
+<li>writing docs for projects with hardlinks and symlinks</li>
+</ul>
+<h2 id="ars_pythonidaea">ars_pythonidaea</h2>
+<p>a jungle of dependencies</p>
+<h3 id="start-local-server">start local server</h3>
+<pre><code>
+python3 -m http.server</code></pre>
+<h3 id="for-when-i-forget-the-address-of-the-local-server">for when I forget the address of the local server</h3>
+<pre><code>
+touch server
+echo &#39;http://127.0.0.1:8000/&#39; &gt; server
+open $(cat server)</code></pre>
+<h2 id="ars_gitia">ars_gitia</h2>
+<ul>
+<li><a href="https://ohshitgit.com" target="_blank">oh shit, git!?</a></li>
+</ul>
+<h3 id="view-current-changes">view current changes</h3>
+<pre><code>
+git status</code></pre>
+<h3 id="add-all-changes-to-the-stage">add all changes to the stage</h3>
+<pre><code>
+git add -u *</code></pre>
+<h3 id="commit-all-staged-changes-with-a-message">commit all staged changes with a message</h3>
+<pre><code>
+git commit -a -m &quot;message&quot;</code></pre>
+<h3 id="remove-all-unstaged-changes">remove all unstaged changes</h3>
+<pre><code>
+git clean -f</code></pre>
+<h3 id="push-to-remote">push to remote</h3>
+<pre><code>
+git push origin main</code></pre>
+<h3 id="see-everything-youve-done">see everything you’ve done</h3>
+<pre><code>
+git log --name-status</code></pre>
+<pre><code>
+git reflog</code></pre>
+<h3 id="add-one-more-little-change-to-the-previous-commit">add one more little change to the previous commit</h3>
+<pre><code>
+git commit --amend --no-edit</code></pre>
+<p><strong>don’t do this to a commit you’ve already pushed to remote</strong></p>
+<h3 id="how-did-i-get-here">how did I get here</h3>
+<pre><code>
+git cherry-pick HEAD@&#39; {2 hours ago}&#39;</code></pre>
+<h3 id="regex">regex</h3>
+<p>searches for commits that contain certain <a href="regular_expressions.html">Regular Expressions</a> in their diff:</p>
+<pre><code>
+git log -G &lt;regex&gt;</code></pre>
+<h3 id="i-dont-understand-submodules-yet-heres-how-to-fuck-them-off">i don’t understand submodules yet, here’s how to fuck them off</h3>
+<p>A submodule cloned using git 1.7.8 or newer will leave at most four traces of itself in your local repo. The process for removing those four traces is given by the three commands below:</p>
+<pre><code>
+# Remove the submodule entry from .git/config
+git submodule deinit -f path/to/submodule
+
+# Remove the submodule directory from the superproject&#39;s .git/modules directory
+rm -rf .git/modules/path/to/submodule
+
+# Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
+git rm -f path/to/submodule</code></pre>
+<ul>
+<li><a href="https://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule" target="_blank">git - How do I remove a submodule? - Stack Overflow</a></li>
+</ul>
+<h3 id="further-studies-1">further studies</h3>
+<ul>
+<li>how to revert the changes made to a single file since last commit?</li>
+<li>how to move changes to another branch?</li>
+</ul>
+<h2 id="ars_pandoctica">ars_pandoctica</h2>
+<p>I use <a href="pandoc.html">pandoc</a> sometimes for creating HTML pages from notes written in Markdown, a simpler markup.</p>
+<h3 id="do-a-quick-html-conversion-output-to-the-clipboard">do a quick HTML conversion, output to the clipboard</h3>
+<pre><code>
+pandoc -f markdown -t html input  | pbcopy</code></pre>
+<pre><code>
+pandoc -f markdown-auto_identifiers -t html --wrap=none --lua-filter=orf.place/pandoc/filter.lua input | pbcopy</code></pre>
+<p>…where <code>orf.place</code> is a symlink in a notes directory to a website directory.</p>
+<h3 id="markdown-wiki-to-website">markdown wiki to website</h3>
+<pre><code>
+for f in *.md; do d=$(date -r $f &#39;+%Y-%m-%d&#39;); pandoc -f markdown-auto_identifiers -t html --wrap=none --lua-filter=orf.place/pandoc/filter.lua --template=orf.place/pandoc/template.html -o orf.place/&quot;${f%.*}&quot;.html -M name=&quot;${f%.*}&quot; -M mdate=$d $f; done</code></pre>
+<h2 id="ars_diddererer">ars_diddererer</h2>
+<pre><code>
+didder -i input -o output -p &#39;colour colour&#39; ditheralgorithm</code></pre>
+<p><a href="https://github.com/makew0rld/didder" target="_blank">didder by makew0rld</a> is a nice little dither tool with some other common image editing options like brightness, saturation, resizing. <a href="https://makew0rld.itch.io/dithertime" target="_blank">Dithertime</a> is a graphical version, nice for fast iteration.</p>
+<h3 id="bit-with-a-little-bit-of-dithering">1-bit with a little bit of dithering</h3>
+<p><code>-s</code> is for strength, from 0 to 1</p>
+<pre><code>
+-p &#39;white black&#39; -s .1 edm atkinson</code></pre>
+<h3 id="lots-of-cute-patterns-to-use-bayer-4-is-a-favourite">lots of cute patterns to use, bayer 4 is a favourite</h3>
+<pre><code>
+-s .2 bayer 4x4</code></pre>
+<h3 id="inverse-with-low-contrast">inverse with low contrast</h3>
+<p><code>-p</code> to set original palette and then <code>-r</code> to recolour.</p>
+<pre><code>
+-p &#39;darkgrey black&#39; -r &#39;black white&#39; -s .8 edm atkinson</code></pre>
+<h3 id="resize">resize</h3>
+<pre><code>
+-x 1072 -y 1448 </code></pre>
+<h3 id="nice-palettes">nice palettes</h3>
+<pre><code>
+wyrd mars
+-p &#39;
+#211E18
+#734545
+#747851
+#818234
+#89A890
+#AD5640
+#BD744C
+#E5D5B3
+&#39;
+
+You can use CSS colour names!
+aged agitprop
+-p &#39;wheat dimgrey darkslategrey crimson&#39; </code></pre>
+<h3 id="sketchbook-page">sketchbook page</h3>
+<pre><code>
+for f in *.jpg; do didder -i $f -o ${f%.*}.png -x 512 -y 512 -p &#39;black white&#39; --contrast .6 -s .2 edm atkinson; done</code></pre>
+<h2 id="ars_imagicka">ars_imagicka</h2>
+<pre><code>
+magick input</code></pre>
+<p>The <code>magick</code> command is apparently ‘deprecated’? which makes me enjoy using it even more because it feels forbidden and dangerous. Use <code>mogrify</code> to overwrite the input file.</p>
+<p>pretty much always add <code>-strip</code> in every spell because it removes a bunch of useless metadata, reducing file size.</p>
+<h3 id="replace-transparent-pixels-with-white">replace transparent pixels with white</h3>
+<pre><code>
+-background white -alpha remove -alpha off</code></pre>
+<h3 id="replace-white-pixels-with-transparent">replace white pixels with transparent</h3>
+<pre><code>
+-transparent white</code></pre>
+<h3 id="indexed-colour-png">indexed colour PNG</h3>
+<pre><code>
+-colors 4 PNG8:output.png</code></pre>
+<h3 id="dither-with-averaged-lo-fi-colours">dither with averaged lo-fi colours</h3>
+<pre><code>
+-dither FloydSteinberg -colors 4 -depth 2 PNG8:output.png</code></pre>
+<p>playing with the value in <code>-depth 2</code> produces interesting results. I’ve seen some people add <code>-type palette</code> after <code>-depth</code> don’t really understand does. - <a href="https://legacy.imagemagick.org/Usage/quantize/#ordered-dither" target="_blank">Dithering - ImageMagick Legacy Documentation</a></p>
+<p>with some magic numbers</p>
+<pre><code>
+-strip -brightness-contrast 27 -geometry 333x -dither FloydSteinberg -colors 9 -depth 3 PNG8:output.png</code></pre>
+<h3 id="resize-1">resize</h3>
+<pre><code>
+-geometry widthxheight</code></pre>
+<p>you can omit height and it’ll preserve aspect ratio</p>
+<p>to ignore aspect ratio use:</p>
+<pre><code>
+-resize widthxheight\!</code></pre>
+<h3 id="put-it-all-together-to-make-a-nice-lil-bitmap">put it all together to make a nice lil bitmap</h3>
+<p>do it with a dither:</p>
+<pre><code>
+-strip -geometry 256x -dither FloydSteinberg -colors 2 -depth 1 -transparent white -background white -alpha remove -alpha off PNG8:output.png</code></pre>
+<p>or use some manner of <a href="#ars_diddererer">didderer</a> to begin with, then:</p>
+<pre><code>
+-strip -colors 2 -depth 1 -background white -alpha remove -alpha off PNG8:output.png</code></pre>
+<pre><code>
+-strip -transparent white -background white -alpha remove -alpha off -colors 2 -depth 1 PNG8:$f</code></pre>
+<pre><code>
+for f in *.png; do magick $f -strip -alpha remove -alpha off -colors 2 -depth 1 -transparent white -background white PNG8:$f; done</code></pre>
+<h3 id="colours-out-of-space">colours out of space</h3>
+<p>as I understand, indexed and grayscale are the smallest <a href="colourspace.html">colourspaces</a></p>
+<pre><code>
+-colorspace gray</code></pre>
+<h3 id="compress-and-reduce-the-size-of-jpeg">compress and reduce the size of JPEG</h3>
+<pre><code>
+-strip -interlace Plane -quality 50% -scale 50% output.jpg</code></pre>
+<pre><code>
+-strip -geometry 400 -strip -interlace plane</code></pre>
+<h3 id="crop-to-centre-xy-are-offset-from-top-left">crop to centre, +x+y are offset from top left</h3>
+<pre><code>
+-gravity Center -crop widthxheight+x+y +repage output</code></pre>
+<p>A rule of thumb: <em>Always use “<a href="https://imagemagick.org/script/command-line-options.php?#repage" target="_blank">+repage</a>” after any ‘crop’ like operation, unless you actually need to preserve the virtual canvas info.</em></p>
+<h3 id="layer-images-on-top-of-each-other">layer images on top of each other</h3>
+<pre><code>
+magick composite -gravity center 0.png 1.png alakazam.png</code></pre>
+<h3 id="extract-a-frame-of-a-gif">extract a frame of a gif</h3>
+<pre><code>
+magick &#39;images.gif[0]&#39; image.png</code></pre>
+<p>could this be used for frames plural?</p>
+<h3 id="get-the-colours-of-an-image">get the colours of an image</h3>
+<pre><code>
+-format %c  -depth 8  histogram:info:-</code></pre>
+<ul>
+<li>https://usage.imagemagick.org/quantize/#extract</li>
+</ul>
+<h3 id="make-a-bunch-of-88x31-buttons">make a bunch of 88x31 buttons</h3>
+<pre><code>
+cd folderfullofpngs
+mkdir crop
+for i in *.png; do 
+name=crop/${i%.*};
+magick $i -gravity North -crop 88x31 +repage &quot;crop/$i&quot;;
+mv $name-0.png $name.png;
+magick $name.png -strip -alpha remove -alpha off &quot;$name.gif&quot;; 
+rm crop/*.png; done</code></pre>
+<p>optional <code>-colors 4</code> or whatever</p>
+<h3 id="image-composite-process">image composite process</h3>
+<ul>
+<li>crop base image to square of desired area</li>
+<li>make images desired pixel width, diddering in the process (doing the dithering and resizing at the same time can produce some lovely artefacts)</li>
+<li>use grayscale <code>--palette</code> to determine contrast and <code>--recolour</code>, e.g. <code>black, grey</code> for highest contrast, then recolour to e.g. <code>white, orange</code></li>
+<li>remove white background (<code>magick -transparent white</code>)</li>
+<li>composite them</li>
+</ul>
+<h3 id="further-studies-2">further studies</h3>
+<p>lots of options to utilise with <code>identify</code> which I haven’t really explored! I just use it mostly to tell an image’s colourspace.</p>
+<ul>
+<li><a href="https://usage.imagemagick.org/quantize/" target="_blank">Quantization – ImageMagick Examples</a></li>
+<li><a href="https://usage.imagemagick.org/video/" target="_blank">Video Handling – ImageMagick Examples</a></li>
+<li><a href="https://imagemagick.org/script/command-line-options.php" target="_blank">ImageMagick – Command-line Options</a></li>
+<li><a href="https://nchrs.xyz/imagemagick.html" target="_blank">nchrs: imagemagick</a></li>
+<li><a href="https://detritus.zone/notes/imagemagick#h:dither" target="_blank">ImageMagick | Detritus Notes</a></li>
+<li><a href="https://kokorobot.ca/site/spellbook.html#spritegif" target="_blank">Spritesheet to gif: Rek’s spellbook</a>
+<ul>
+<li>cropping a png and outputting to gif automagically puts all the resulting frames together!</li>
+</ul></li>
+<li><a href="https://git.sr.ht/~travisshears/folder-pics" target="_blank">folder-pics by travisshears</a> - utility to resize images automatically based on watched directories. <a href="https://travisshears.com/blog/why_small_images_plus_folderpics_demo/" target="_blank">folderpics demo</a></li>
+<li><a href="https://usage.imagemagick.org/video/" target="_blank">Video Handling – ImageMagick Examples</a></li>
+</ul>
+<h4 id="tiny-planet-from-panorama">tiny planet from panorama ?</h4>
+<pre><code>
+magick convert pano.jpg -virtual-pixel mirror -background black -roll +50%+0% +repage -rotate 180 +repage +distort polar 0 +repage tiny-planet.jpg</code></pre>
+<h2 id="ars_yootoodooloop">ars_yootoodooloop</h2>
+<ul>
+<li><a href="https://github.com/yt-dlp/yt-dlp" target="_blank">yt-dlp on github</a></li>
+</ul>
+<p>supports downloading from links from all the silos like Youtube, Soundcloud, Vimeo, Spotify, etc. music wants to be free!</p>
+<p>by default, yt-dlp downloads the best format that contains video, and if it doesn’t already have an audio stream, merges it with best audio-only format.</p>
+<p>play my downloaded music with cmus and VLC and Foobar9000.</p>
+<h3 id="basic-usage">basic usage</h3>
+<pre><code>
+yt-dlp &quot;youtube.com/watch?=xxx&quot;</code></pre>
+<h3 id="high-quality-mp3">high quality mp3</h3>
+<pre><code>
+-x -f &quot;bestaudio&quot; --audio-format mp3</code></pre>
+<p><code>-f</code> specifies format <code>-x</code> removes video</p>
+<h3 id="dont-accidentally-download-a-huge-playlist">don’t accidentally download a huge playlist</h3>
+<p>if you’re just trying to download one video from a playlist, make sure to add:</p>
+<pre><code>
+--no-playlist</code></pre>
+<h3 id="download-no-greater-than-720p">download no greater than 720p</h3>
+<pre><code>
+-f &#39;bv*[height&lt;=720]+ba/b[height&lt;=720]&#39;</code></pre>
+<h3 id="download-best-mp4">download best mp4</h3>
+<pre><code>
+-f &#39;bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4&#39;</code></pre>
+<h3 id="download-720p-mp4-with-best-audio">download 720p mp4 with best audio</h3>
+<pre><code>
+-f &#39;bestvideo[ext=mp4][height&lt;=720]+bestaudio[ext=m4a]/mp4&#39;</code></pre>
+<h3 id="download-the-best-mp4-video-available-or-the-best-video-if-no-mp4-available">download the best mp4 video available, or the best video if no mp4 available</h3>
+<pre><code>
+-f &#39;bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b&#39;</code></pre>
+<h3 id="download-a-particular-part">download a particular part</h3>
+<p>from timestamps:</p>
+<pre><code>
+--download-sections &quot;*00:32:00-00:33:00&quot;</code></pre>
+<p>from seconds:</p>
+<pre><code>
+--download-sections &quot;*1920-1980&quot;</code></pre>
+<p>also I think adding this flag is important:</p>
+<pre><code>
+--force-keyframes-at-cuts</code></pre>
+<h3 id="batch-downloading-links">batch downloading links</h3>
+<pre><code>
+-a FILE.txt</code></pre>
+<p>where FILE contains URLs to download, one URL per line. Lines starting with “#”, “;” or “]” are considered as comments and ignored. “-” instead of file for stdin.</p>
+<h3 id="further-studies-3">further studies</h3>
+<ul>
+<li>get the correct metadata (Artist, Year, Album)</li>
+<li>fix weird file names</li>
+<li><a href="https://write.corbpie.com/downloading-a-youtube-channel-with-yt-dlp/" target="_blank">Downloading a YouTube channel with yt-dlp</a></li>
+</ul>
+<h2 id="ars_effempegon">ars_effempegon</h2>
+<ul>
+<li><a href="https://ffmpeg.org/" target="_blank">FFmpeg</a></li>
+</ul>
+<p>should probably look into another software like exiftool to manage metadata without copying files the way I have been.</p>
+<pre><code>
+ffmpeg -i input [flags] output</code></pre>
+<h3 id="turn-a-folder-of-videos-compatible-compressed-format">turn a folder of videos compatible, compressed format</h3>
+<pre><code>
+for f in *.mov;
+do ffmpeg -i $f -vcodec libx264 -crf 30 ${f%.*}.mp4;
+done;</code></pre>
+<p>can remove the file extension like <code>for f in *;</code> to just convert everything in a folder.</p>
+<p>sometimes I’ve used <code>${f%.*}-x264.mp4</code> at the end to specify what the converted files are.</p>
+<p><code>-crf</code> is Constant Rate Factor, which controls bitrate of video codecs. With x264 and x265, you can set the values between 0 and 51, where lower values would result in better quality, at the expense of higher file sizes. The default is 23 in ffmpeg. A change of ±6 should result in about half/double the file size.</p>
+<ul>
+<li><a href="https://slhck.info/video/2017/02/24/crf-guide.html" target="_blank">CRF Guide (Constant Rate Factor in x264, x265 and libvpx)</a></li>
+</ul>
+<h3 id="turn-any-video-or-audio-file-to-a-nice-small-mono-mp3">turn any video or audio file to a nice small mono mp3</h3>
+<pre><code>
+-vn -ac 1 -ar 44100 -b:a 64k -f mp3 output.mp3</code></pre>
+<p>for voice memos I often use 64k bitrate, but 128k or even 256k might have a noticeable difference, it depends on the bitrate of the source file. <code>ac -1</code> means one audio channel. <code>vn</code> removes any video, including album cover image. <code>-q:a 2</code> instead of <code>-b</code> allows for variable encoding between 170 to 210 KB/s quality-range (average 192 KB/s) which is pretty standard nowadays.</p>
+<h3 id="remove-all-metadata">remove all metadata ?</h3>
+<pre><code>
+-map_metadata -1 -c:v copy -c:a copy</code></pre>
+<p>i don’t rly understand why <code>-c</code> is necessary.</p>
+<p>this is meant to do all that plus remove the encoder metadata as well (idk why you would do that):</p>
+<pre><code>
+-c copy -fflags +bitexact -flags:v +bitexact -flags:a +bitexact</code></pre>
+<h3 id="put-some-data-back">put some data back</h3>
+<pre><code>
+-metadata title=&quot;&quot; -metadata artist=&quot;&quot; -metadata year=&quot;&quot; -c copy</code></pre>
+<p>idk whether to use date or year, artist or composer, if it even really matters.</p>
+<ul>
+<li><a href="https://write.corbpie.com/adding-metadata-to-a-video-or-audio-file-with-ffmpeg/" target="_blank">Adding metadata to a video or audio file with FFmpeg</a></li>
+</ul>
+<h3 id="memos-to-mp3">memos to mp3</h3>
+<pre><code>
+-map_metadata -1 -vn -ac 1 -ar 44100 -b:a 64k -f mp3 </code></pre>
+<pre><code>
+for f in *.m4a; do
+ffmpeg -i $f -map_metadata -1 -vn -ac 1 -ar 44100 -b:a 64k -f mp3 ${f%.*}.mp3;
+done</code></pre>
+<p>(.m4a is format of my iPhone’s voice recordings, you can swap that out for anything, e.g. .mp4 for video).</p>
+<p>assuming each memo starts with <code>YYYY-MM-DD</code>, this will set that date in the audio file’s metadata, as well as artist name. it’s a pretty clumsy spell because of how it makes a few copies of a file (but it cleans them up at the end).</p>
+<pre><code>
+for input in *.mp3; do 
+date=$(echo $input | cut -c1-10);
+name=&quot;$date.mp3&quot;;
+year=$(echo $input | cut -c1-4);
+ffmpeg -i $input -vn -ac 1 -ar 44100 -b:a 64k -f mp3 out.mp3; 
+ffmpeg -i out.mp3 -map_metadata -1 -c:a copy -c:v copy out2.mp3; 
+ffmpeg -i out2.mp3 -c copy -metadata date=&quot;$date&quot; -metadata year=&quot;$year&quot; -metadata artist=&quot;Olive R.F.&quot; $name; 
+rm out.mp3; 
+rm out2.mp3; done</code></pre>
+<h3 id="further-studies-4">further studies</h3>
+<ul>
+<li>how to add metadata to a file without copying it?</li>
+<li><a href="https://en.wikipedia.org/wiki/ID3" target="_blank">ID3</a> the de facto standard for mp3 metadata</li>
+</ul>
+<h2 id="elseware">elseware</h2>
+<h3 id="cant-see-the-moon-tonight">can’t see the moon tonight?</h3>
+<pre><code>
+pyphoon -s south -x</code></pre>
+<ul>
+<li><a href="https://github.com/chubin/pyphoon" target="_blank">chubin/pyphoon</a></li>
+</ul>
+<h3 id="spells-to-steal">spells to steal</h3>
+<ul>
+<li><a href="https://kokorobot.ca/site/spellbook.html#spritegif" target="_blank">Rek’s spellbook</a></li>
+</ul>
+
+</main>
+<footer>
+<hr>
+<p class="date"> <a href="log.html#2025-03-25">2025-03-25</a></p>
+</footer>
+</body>
+</html>
