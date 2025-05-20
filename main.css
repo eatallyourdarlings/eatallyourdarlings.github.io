@@ -35,6 +35,7 @@ pre {margin-top:1em;margin-bottom:1em;}
 pre,code,header {font-family:Courier,monospace !important;text-wrap:nowrap;}
 img {margin-top:1em;margin-bottom:1em;display:block;}
 img [src^="img/88x31/"],.pixel {image-rendering:pixelated;}
+/* img:not([src^="img/bits/"]) {border:#000 dotted 1px;} */
 figure {margin:0;}
 figcaption {font-style:italic;width:inherit;}
 figcaption::before {content:"+ " / "";}
@@ -46,7 +47,6 @@ blockquote,cite {margin-left:1em;text-indent:-1.2em;font-style:normal;}
 blockquote::after {content:none;}
 blockquote:before {content:"> " / "";}
 cite::before {content:"- " / "";}
-
 ul,ol {margin-top:1.5em;margin-bottom:1.5em;line-height:2em;}
 ul {list-style-type:none;padding-left:0;}
 ul li::before{content:"* " / "";}
