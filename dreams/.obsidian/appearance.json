@@ -1,0 +1,16 @@
+{
+  "accentColor": "#e28822",
+  "cssTheme": "Minimal",
+  "baseFontSize": 17,
+  "enabledCssSnippets": [
+    "snippet"
+  ],
+  "theme": "system",
+  "nativeMenus": true,
+  "translucency": true,
+  "showViewHeader": false,
+  "textFontFamily": "Atkinson Hyperlegible",
+  "monospaceFontFamily": "Monaco,Andale Mono",
+  "interfaceFontFamily": "",
+  "baseFontSizeAction": true
+}

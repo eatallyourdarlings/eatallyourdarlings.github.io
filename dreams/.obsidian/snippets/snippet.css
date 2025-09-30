@@ -1,0 +1,26 @@
+/* Center tables on the page */
+.markdown-preview-view table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* hide properties in reading view */
+body {
+--metadata-display-reading: none;
+}
+
+/* define custom callouts */
+.callout[data-callout="sprout"] {
+    --callout-color: 56, 242, 130;
+   --callout-icon: lucide-sprout;
+}
+
+.callout[data-callout="biohazard"] {
+    --callout-color: 251,251,76;
+   --callout-icon: '';e
+}
+
+/* change colour of weekends in Calendar plugin */
+
+var(--color-background-weekend) = cyan;
+

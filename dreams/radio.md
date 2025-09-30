@@ -1,0 +1,97 @@
+---
+aliases:
+  - what's on the radio?
+  - signals
+  - radioscape
+  - radio
+---
+# what's that frequency?
+> it's the frequency [they](eidolon.md) dream at, and it's never the same twice.
+
+[Rain](Rain.md) wanders and picks up [oneiric](dream.md) radio frequencies on [the thingamabob](thingamabob.md). Through triangulation they piece together halves/fractions/fractals of strange signals. They start off just listening to [Loqui](Loqui.md)'s favourite tunes but follow music to meet [other folk](cast.md). Everyone's got a pirate radio station, how else are you meant to listen to music?
+
+- [transjovian-transmissions](transjovian-transmissions.md)
+- [Eris && Enyo](Eris-Enyo.md#yearning%20in%20mono) have a toxic shared playlist, of course.
+
+## yea I heard this one on the thingamabob
+- Lifafa - Jaago
+- cutspace - where Do I go if I Denied the sky?
+- Mk.gee, Vegyn - >;0
+- Ana Frango Elétrico - Saudade
+- tehn - vitaminfactory
+- The Flaming Lips - Approaching Pavonis Mons By Balloon (Utopia Planitia)
+- Athletic Progression - Jupiter
+- Emily Hopkins - CyberHarp
+- TTNG - In the Branches of Yggdrasil
+- Justin Hurwitz - Practicing
+- Flying Lotus - Melt!
+- Disasterpeace - The Hermit
+- joji - unsaved info
+- Elephant Gym - 鏡子
+- Melaina Kol - Sckrpnch
+- Little Dragon - The Last
+- Silver Jews - The Right to Remain Sileny
+- Jerkcurb - Morpheus' Arms
+- Micah Preite - Cheer to Fear
+- Big Thief - Blurred View
+- Jay Som - Anak Ko
+- Summer 2000 - Two Hundred 70
+- Delta Sleep - Ghost
+- Japanese Breakfast - Soft Sounds from Another Planet
+- Sudan Archives - Stuck
+- Holiday Basement - Long Islands
+- Tony Allen - Politely (A Tribute To Art Blakey and The Jazz Messengers)
+- Wang Wen - Lost in Train Station
+- Valium Aggelein - The Clouds Will Drop Ladders
+- Jonah Yano - So Sweet
+- Amato Sacchi - The Simple Arc That Wins Customers
+- Harry Klein - Bygone
+- Resavoir - Plantasy
+- Four Tet - Watersynth
+- Loukeman - Walking u Home
+- James Witte-Cook - day by day
+- Aldous Harding - Pilot
+- Eivind Aarset, Jan Bang, Hilde Norbakken - Before the Wedding
+- Gia Margaret - lake
+- Really From - Apartment Song
+- Approaching Pavonis Mons by Balloon (Utopia Planitia) by The Flaming Lips
+- Anthony Garcia - A Long March (Until Time Collapses)
+- Yirinda - Ba Gi Lam (Fighting)
+- Gorillaz - Starshine
+- Covet - Sea Dragon
+- Aphex Twin - Vordhosbn
+- Draconid - hold
+- Nation of Language - Friend Machine
+- Angel Apricot - olimar
+- The Tiny - Close Enough
+- The Magic Lantern - Holding Hands
+- Duster - Irato
+- Samuel Adams - Surface Down
+- Parquet Courts - Already Dead
+- Ethel Cain - Ptolemaea/August Underground
+- This Will Destroy You - A Three-Legged Workhorse
+- The Evaptoria Report - Voskhod Project
+- Daughters - Satan In the Wait
+- Jocelyn Pook - Flood
+- Daughter - Swim Back
+- Thanya Iyer - Low Tides
+- PA Child Care - I Bought a Bench Seat Pickup to Get Closer to You
+- Gojira - Unicorn
+- SASAMI - Pacify My Heart
+- Uncaught (In Promise) - Waiting for Nothing 
+- Micah Preiete - Everything Humming
+- Doris - bookshop
+- Siouxsie and The Banshees - The Sweetest Chill (Chris Kimsey Version)
+- Chairlift - Ceiling Wax
+- Feist - Lonely Lonely
+- caroline - Engine (eavesdropping)
+- Little Dragon - Fortune
+- Charlie Havenick - Sprinkler Song
+- Japanese Breakfast - Picture Window
+- deathcrash - Sundown
+- Micah Preite - The Signals Licking Me
+- CEP - You Are Here
+- Cate Lebon - Heaven Is No Feeling
+- Two Door Cinema Club - Lavender
+- Failure - Blank
+- TTNG - Consoling Ghosts

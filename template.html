@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="author" content="Olive R.F."/>
+<link href="doadp.css" rel="stylesheet" type="text/css" media="all">
+<link rel="icon" type="image/x-icon" href="favicon.png">
+$if(description-meta)$
+<meta name="description" content="$description-meta$" />
+$endif$
+<title>$if(title)$$title$$else$$name$$endif$</title>
+</head>
+<body>
+<header>$name$</header>
+<main>
+<hr>
+$if(title)$<h1>$title$</h1>$endif$
+$body$
+$for(include-after)$$include-after$$endfor$
+</main>
+<footer>
+<hr>
+</footer>
+</body>
+</html>
