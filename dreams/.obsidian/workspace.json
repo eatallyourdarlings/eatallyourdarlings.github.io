@@ -103,13 +103,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "grimoire.md",
-                "mode": "preview",
+                "file": "hermit.md",
+                "mode": "source",
                 "backlinks": false,
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "grimoire"
+              "title": "hermit"
             }
           },
           {
@@ -246,10 +246,10 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "grimoire.md"
+                "file": "hermit.md"
               },
               "icon": "lucide-info",
-              "title": "File properties for grimoire"
+              "title": "File properties for hermit"
             }
           },
           {
@@ -334,7 +334,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "grimoire.md",
+                "file": "hermit.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -344,7 +344,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for grimoire"
+              "title": "Backlinks for hermit"
             }
           },
           {
@@ -353,12 +353,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "grimoire.md",
+                "file": "hermit.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from grimoire"
+              "title": "Outgoing links from hermit"
             }
           }
         ],
@@ -398,11 +398,11 @@
     "simplifier.html",
     "sensitisation.html",
     "saturnalia.html",
+    "grimoire.md",
     "Hope-Eaters.md",
     "Eris.md",
     "map.md",
     "glimpses.md",
-    "grimoire.md",
     "language.md",
     "post-anthropocentric.md",
     "solastalgia.md",

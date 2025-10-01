@@ -14,7 +14,6 @@ most hermits run on [solar power](post-solarpunk.md), so efficient that they can
 
 stacks on stacks on stacks
 ```
-
 >($&$)<
 
 ::{}::
@@ -61,13 +60,9 @@ $--"_"--$
 
 []>\\+=+\\<[]
 
-...()}<<>>{()...
-
 !$)()($!
 
 **o+{}+o**
-
-}o*o{
 
 <:o~
 ```
