@@ -50,8 +50,6 @@ stacks on stacks on stacks
 
 <~~|\/|~~>
 
-#{}}{{}#
-
 =~¥~=
 
 $--"_"--$
