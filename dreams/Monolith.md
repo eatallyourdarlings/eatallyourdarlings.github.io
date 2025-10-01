@@ -3,15 +3,13 @@ aliases:
   - wishcycle
 ---
 # Monolith
-Monolith is a colonial not-organism that has been on [Mars](Mars.md) for a while. Monolith is not a living thing, but an incredibly *sensitive* thing - not inherently sinister, but uncanny, **other**. 
+Monolith is a colonial not-organism that has been on [Mars](Mars.md) for a while. Monolith is not a living thing, but an incredibly *sensitive* thing - not inherently sinister, but uncanny, **other**.
 
-Monolith inhabits *unreal* media (feelings, intentions, wishes, memories, [dreams](dream.md), desires, traumas, stories, cultures, *imprints*) and manifests what it understands through **mimesis+symbiosis** into *real* media (biological, geological, ecological, [electromagnetic](radio.md), gravitational).
+Monolith inhabits *unreal* media (feelings, intentions, wishes, memories, [dreams](dream.md), desires, traumas, stories, cultures, *imprints*) and manifests **mimesis+symbiosis** through *real* media (biological, geological, ecological, [electromagnetic](radio.md), gravitational).
 
-This has the most immediate affect in breaking down the difference between psychogeography/geography (areography?). Monolith animates the quietly violent imprints on the landscape - e.g. of surveillance, alienation, kettling, or reshapes it to make sense of the strongest memories, desires.
+This has the most immediate affect in breaking down the difference between psychogeography/geography (areography?). Monolith animates the quietly violent imprints on the landscape - e.g. of surveillance, alienation, kettling - or reshapes it to make sense of the strongest memories, desires.
 
 Maybe Monolith is responsible for filling up the [oncewaves](oncewaves.md) with dreams, or maybe dreams are inherently [electromagnetic](radio.md), and [IT](CARRION.md) yearns to become the sole medium for all dreaming
-
-!
 
 ## wishcycle
 
@@ -23,8 +21,7 @@ v inspired by cognitohazards:
 > Yes, we are here. We are not the photons on your screen, or the voice in your head, or the words you read. Shut your eyes—tightly—and you may see us. At least a part of us. Make us real, and in turn we shall reify your thoughts, your dreams.
 > - [Claws of Ahamkara](https://www.ishtar-collective.net/entries/claws-of-ahamkara#ahamkara)
 
-Destiny's Ahamkara appear as they are imagined to have appeared, loaded with cultural expectations of what a dragon should be. Monolith's networks branches adapt to what they're expected to be? Baobabs, mangroves, paperbarks, eucalypt, radio antennae.
-
+Destiny's Ahamkara appear as they are imagined to have appeared, loaded with cultural expectations of what a dragon should be. Monolith's networks branches adapt to what they *expect* an invasive network should look like? Changes appearance to fit different  [imitation ecosystems](echosystems.md) Baobabs, mangroves + paperbarks, eucalypt, radio antennae.
 
 ## origin ?
 

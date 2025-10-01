@@ -10,6 +10,7 @@ some of the old echoes of [radio](radio.md) have redshifted to visible, but to s
 
 ![](img/networkers.png)
 ![](img/pseudoscaphirhynchus_kaufmanni.png)
+![](img/fibreopticfriday.png)
 
 television for the fish in flooded suburbia
 
@@ -32,5 +33,7 @@ pesky surveillance stingrays
 
           ~^
 ```
+
+## 
 
 songbirds spent all that time sitting on antennae, learning how to sing lost digital protocols. I saved a PNG to a bird. starlings have organs to sing in FM/AM, if [radio](radio.md) is ever totally compromised by a flood of [dreams](dream.md).

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="author" content="Olive R.F."/>
+<link href="doadp.css" rel="stylesheet" type="text/css" media="all">
+<link rel="icon" type="image/x-icon" href="favicon.png">
+<title>grimoire</title>
+</head>
+<body>
+<header>grimoire</header>
+<main>
+<hr>
+
+<h1 id="spells-for-a-shell">spells for a shell</h1>
+<pre><code>
+rm *.html
+for f in *.md; do pandoc -f markdown -t html --wrap=none --lua-filter=filter.lua --template=../template.html -o ${f%.*}.html -M name=&quot;${f%.*}&quot; $f; done</code></pre>
+<pre><code>
+cd img/src
+for i in *.png; do didder -i $i -o ../$i --palette &#39;#211E18 #734545 #747851 #818234 #89A890 #AD5640 #BD744C #E5D5B3&#39; --saturation 2 -x 384 edm FloydSteinberg; done</code></pre>
+
+</main>
+<footer>
+<hr>
+<center>
+<a href="index.html">[[ ⁂ ]]</a>
+</center>
+</footer>
+</body>
+</html>

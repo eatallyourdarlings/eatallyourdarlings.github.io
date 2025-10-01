@@ -11,7 +11,6 @@ aliases:
 [Rain](Rain.md) wanders and picks up [oneiric](dream.md) radio frequencies on [the thingamabob](thingamabob.md). Through triangulation they piece together halves/fractions/fractals of strange signals. They start off just listening to [Loqui](Loqui.md)'s favourite tunes but follow music to meet [other folk](cast.md). Everyone's got a pirate radio station, how else are you meant to listen to music?
 
 - [transjovian-transmissions](transjovian-transmissions.md)
-- [Eris && Enyo](Eris-Enyo.md#yearning%20in%20mono) have a toxic shared playlist, of course.
 
 ## yea I heard this one on the thingamabob
 - Lifafa - Jaago
@@ -21,7 +20,7 @@ aliases:
 - tehn - vitaminfactory
 - The Flaming Lips - Approaching Pavonis Mons By Balloon (Utopia Planitia)
 - Athletic Progression - Jupiter
-- Emily Hopkins - CyberHarp
+- Emily Hopkins - Red Pitch
 - TTNG - In the Branches of Yggdrasil
 - Justin Hurwitz - Practicing
 - Flying Lotus - Melt!
@@ -30,9 +29,8 @@ aliases:
 - Elephant Gym - 鏡子
 - Melaina Kol - Sckrpnch
 - Little Dragon - The Last
-- Silver Jews - The Right to Remain Sileny
+- Silver Jews - The Right to Remain Silent
 - Jerkcurb - Morpheus' Arms
-- Micah Preite - Cheer to Fear
 - Big Thief - Blurred View
 - Jay Som - Anak Ko
 - Summer 2000 - Two Hundred 70
@@ -79,7 +77,8 @@ aliases:
 - Gojira - Unicorn
 - SASAMI - Pacify My Heart
 - Uncaught (In Promise) - Waiting for Nothing 
-- Micah Preiete - Everything Humming
+- dust - NO USE
+- Kate Davis - DDR
 - Doris - bookshop
 - Siouxsie and The Banshees - The Sweetest Chill (Chris Kimsey Version)
 - Chairlift - Ceiling Wax

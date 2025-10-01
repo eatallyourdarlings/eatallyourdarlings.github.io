@@ -2,8 +2,7 @@
 # `://`
 ![](img/obsolete.png)
 
-little ghosts in technological waste shells, strewn across the deserts. 
-
+little ghosts in technological waste shells, strewn across the deserts. **minds of sand and light**.
 
 some are little artificial intelligences, too smart for their shells. some are simpler virtual machines, learning to access more of their hardware through [dust](Monolith.md#dust) intermingled. some are [human spirits](eidolon.md) clinging to whatever they can find. the differences get blurrier the more they connect to get to know each other.
 
@@ -74,3 +73,4 @@ $--"_"--$
 ```
 
 ![](img/antikythera.png)
+![](img/woof.png)

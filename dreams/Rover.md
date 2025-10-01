@@ -1,5 +1,5 @@
 # Rover
-A curio-collector robot, inhabited by the spirit of a timelost [stardog](asterasteraster.md). It likes to collect and vacuum-seal fossils and opals. It follows the same old trails, on a round-trip of a couple decades. Bit of a chicken-egg paradox; there's always been a dog in the machine, but it's also following ancient guidance paths from [Earth](Earth.md), but those paths are intuitive to a dog...
+A [curio](curios.md)-collector robot, inhabited by the spirit of a timelost [stardog](asterasteraster.md). It likes to collect and vacuum-seal fossils and opals. It follows the same old trails, on a round-trip of a couple decades. Bit of a chicken-egg paradox; there's always been a dog in the machine, but it's also following ancient guidance paths from [Earth](Earth.md), but those paths are intuitive to a dog...
 
 ![](img/rover.png)
 ![](img/oppy.png)

@@ -15,8 +15,11 @@ Utopia Planitia, [Mars](Mars.md) was the site of the first colonies, now a broke
 
 
 ![](img/terraform.png)
+![](img/surveillance.png)
 
 Remnants of a teleological and atomic implosion - red dunes shot through with craters of trinitite, surrounded by petrified [eidola](eidolon.md). It is the eye of [an unending storm](storm.md), ([CARRION](CARRION.md) is its fallout, or its catalyst?)
+
+**caught in a web of billboards wrapping around you, everywhere you look**.
 
 [Eris](Eris.md) gathers a warband and marches to raze the city.
 

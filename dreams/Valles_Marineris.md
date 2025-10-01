@@ -5,10 +5,12 @@ aliases:
   - Cyclopticon
   - ghost gaol
 ---
-# Valles Marineris
-Biggest canyon in the solar system, covering about one third of [Mars](Mars.md)! 
+# Valley of the Mariner
+Biggest network of canyons in the solar system, covering about one third of [Mars](Mars.md)! 
 
-It has a giant gaol patrolling it (Cyclopticon ?) piloted by an electromagnetic ghost-goblin army collective. A mobile lighthouse that's forgotten its purpose. Seeking a purgatory path to wander for ever, the giant makes the valley psychogeographically loop back on itself. The prisoners don't realise that they're all collectively piloting it, and have developed a prisoner complex keeping each other mutually trapped in misery. They're making the most of it, though, getting to know each other through prison theatre puppet shows.
+![](img/Jackson_Voorby-Cyclopticon.png)
+
+There is a giant gaol patrolling the valley, piloted by an electromagnetic ghost-goblin army collective. A Cyclopticon - a  mobile lighthouse that's forgotten its purpose. Subconsciously desiring a purgatory path to wander for ever, the giant makes the valley psychogeographically loop back on itself. The prisoners don't realise that they're all collectively piloting it, and have developed a complex keeping each other mutually trapped. They're making the most of it, though, getting to know each other through prison theatre puppet shows.
 
 ![](img/flatface.png)
 ![](img/masochist.png)

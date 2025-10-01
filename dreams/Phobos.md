@@ -8,11 +8,11 @@ aliases:
 
 # first wish/altered orbit
 
-among the first nuggets of ideas for dreams_of_a_dead_planet was exploring the pseudoscientific conspiracy theories around the suspiciously uniform monolith on Phobos.
+among the first nuggets of ideas for dreams_of_a_dead_planet was exploring the pseudoscientific conspiracy theories around the suspiciously uniform monolith on Phobos. here's some ancient kinda cringe ideas....
 
 ![](img/crooked.png)
 
-[Val](Val.md)'s first manned expedition to Phobos: A [Monolith](Monolith.md) wakes when he touches it, and his body dies instantly. The branches of it erupt with seeds in an iridescent fireworks display. Phobos' momentum is increased drastically, an unexpected *allegro* in its gravity-song, bringing its death years earlier. His wish for a [utopia](Utopia-Planitia.md) travels as a seed to the surface of Mars (is this also his consciousness simplified into this terrible-purpose-form?). This is seen from the perspective of [Rover](Rover.md).
+[Val](Val.md) was the first manned expedition to Phobos. [Monolith](Monolith.md) wakes when he touches it, and his body dies instantly. The branches of it erupt with seeds in an iridescent fireworks display. Phobos' momentum is increased drastically, an unexpected *allegro* in its gravity-song, bringing its death years earlier. His wish for a [utopia](Utopia-Planitia.md) travels as a seed to the surface of Mars (is this also his consciousness simplified into this terrible-purpose-form?). This is seen from the perspective of [Rover](Rover.md).
 
 The dream could be mashed up with some of [Rain](Rain.md)'s earliest memories. Maybe this is a recursion of *The_Shogun_of_Tharsis_Basin*, the moment their parents were executed and they were inducted into the [Hope-Eaters](Hope-Eaters.md). The imagery of the seeds bursting from Phobos triggers a memory their parent's execution. [Eris](Eris.md) strapped all the elders to a shuttle and set it off to explode in low orbit, and they only saw it for a moment before she kicked them in the face.
 

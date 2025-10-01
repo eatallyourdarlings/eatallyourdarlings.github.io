@@ -8,7 +8,7 @@ html, a, a:visited, hr {color:#E5D5B3  !important;  background-color:#211E18!imp
 
 ![asterasteraster](asterasteraster.gif)
 
-I dream of red dogstars dancing, most often in harmonious threes, but sometimes there's only two of them, despairing at the loss of their third, and sometimes there's [just one](Sol.md), crying at the loss of its twin.
+I dream of red dogstars dancing, most often in harmonious threes, but sometimes there's only two of them, despairing at the loss of their third, and sometimes there's [just one](Sol.md), crying at the loss of its [twin](twins.md).
 
 I dreamt of a darkened trinary system choked in brambles. Three starving, dwarfed stars, each ringed in thorns, redshifting into oblivion. [Monolith](Monolith.md) has turned this fetid system to a seed farm, introducing dissonance into its gravity-songs, causing planets to crush each other and send asteroid-carriers to germinate other systems.
 

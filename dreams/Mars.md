@@ -12,7 +12,9 @@ Mars is fucked up bruh! In humanity's colonial machinations to create a [second 
 
 I read there's two predominant theories for how Mars' moons formed - that they were asteroids from the Jupiter-Mars gravity well, or that Mars has a ring cycle similar to Saturn where small satellites break up and reform. I think it'd be pretty beautiful if both were true in a symmetrical way - [Phobos](Phobos.md) began as a lost spud and ends up as a broken ring, while [Deimos](Deimos.md) formed from a ring and escapes its gravity.
 
-ethics of terraforming, animism, gaiaforms (aeroform?), aerocentrism. climate change reframed by ['naires](forgotten-god-kings.md) as necessary to human progress. 
+> The planet is shaped by the sheer amazing force of human want, which has changed everything, the forests, the poles, the reser-voirs, the glaciers, the rivers, the seas, the mountains, the coastlines, the skies, a planet contoured and landscaped by want.
+
+ethics of terraforming, animism, gaiaforms (aeroform?), aerocentrism. climate change reframed by ['naires](forgotten-god-kings.md) as necessary to human progress. I think Mars desires to stay dead?
 
 Mars was almost [eaten by Saturn and Jupiter](saturnalia.md) in the early formation of the system, and they're coming back round for a second course.
 
@@ -24,14 +26,15 @@ Mars was almost [eaten by Saturn and Jupiter](saturnalia.md) in the early format
 - magical properties; binding, burning
 - without it blood is just a medium
 
-## climate
+## inverted climate disasters.
 
 wherever there's a phenomenon of extreme hot weather (which is what you'd expect a desert to be like), like mirages and [calenture](Argyle.md#calenture), what's the inverse of that effect?
 
+> these hills shouldn't remind me of Spain.
+
 global bushfires from the exploitation of eucalypt. oil-spill whirlpools setting the oceans on fire. 
 
-
-map...
+## map
 - [telling time on Mars](time.md)
 - [Menagerie](Menagerie.md)
 - [Labyrinth](Labyrinth.md)

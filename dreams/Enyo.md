@@ -7,6 +7,14 @@ Enyo is a dreadful puppeteer and dancer, raised as an actress, she doesn't know 
 
 She's an anxious archivist, having spent years isolating herself in her wreck, feeling paralysed by having access to worlds of knowledge, obsessively fossicking the [oncewaves](oncewaves.md). She [dreams](dream.md) of old lost songs that she might find. She has a time tracking system she ignores, that makes her feel great shame, doubting that she is capable of anything she dreams of - of acting for herself. Occasionally, she gets visits from sand sailors who have their own archives full of hopeful futures to offer her, but she feels such great envy at them that she won't accept any of their help. She's trying to make sense of the world through lossy archival rabbit holes, but none of it makes sense on her own.
 
+> Grant me one last wish?
+> 
+> Life should mean a lot less than this.
+> 
+> Grant me one last wish?
+> 
+> Life should mean a lot less than this.
+
 a pet project of Enyo's is to try and catch [transjovian-transmissions](transjovian-transmissions.md), but she'd probably need [all the planet's remaining power](Pazuzu.md) to decrypt a single song. She's pretty sure it's all AI generated garbage anyway, but she’s morbidly curious.
 
 Enyo looks like a doll (geisha/barbie reference), with genetically engineered features, uncanny symmetrical freckles that resemble makeup. Often dressed in only sheer dancing silks, burn scars just visible everywhere but her face, arms and feet. Her shark smile shows dreadful sharp teeth, barbed spikes from a nuclear waste landscape.

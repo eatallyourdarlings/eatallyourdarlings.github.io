@@ -4,9 +4,9 @@ CARRION is an egregore of all of the subconsciousnesses of [Mars](Mars.md), livi
 
 > YOU WILL DREAM OF TEETH AND NOTHING ELSE.
 
-gnashing jaws on an [oscilloscope](thingamabob.md). [frequencies](radio.md) flooded with whispers.
+[frequencies](radio.md) flooded with whispering nightmares that are gnashing jaws on an [oscilloscope](thingamabob.md). carrion [feeders](dogs.md) grapple to the top of the teleological food chain.
 
-Although [Eris](Eris.md) is gonna keep on marching until she finds it, there's no central heart to CARRION since [Monolith](Monolith.md) is a network, but there are increasingly more [eidola](eidolon.md) as you get closer to [the storm](Utopia-Planitia.md), and [dreams](dream.md) get more confused and restless in its proximity.
+There's no central heart to CARRION since [Monolith](Monolith.md) is a network, but there are increasingly more [eidola](eidolon.md) as you get closer to [the storm](Utopia-Planitia.md), and [dreams](dream.md) get more confused and restless in its proximity.
 
 
 ![](img/helping_hands.png)

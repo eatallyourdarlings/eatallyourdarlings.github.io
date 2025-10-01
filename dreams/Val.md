@@ -1,29 +1,27 @@
-# Val
+# radiobirdman
 
-Val is [Rain](Rain.md)'s mentor figure, he grooms them into a martyr figure if they follow the *hero's journey* he has set out for them.
+With centuries of extended life, he's become a lossy amalgamation of a lot of the worst archists of history. He remains as the last prince of dynasties of exploitation. The maladaptive [simplifier](simplifier.md), the soothsayer, the desensitiser. He’s lived hundreds of lives as a wandering spirit, inhabiting many bodies, mostly machines that are incompatible with housing a human soul in the long-term. In each life he’s left behind memories; he’s forgotten his motivations, his mistakes and his cruelest past decisions, being whittled down to just a drive to *last*.
 
-With centuries of extended life, he's become a lossy amalgamation of a lot of the worst [archists](forgotten-god-kings.md) of history. He remains as the last prince of dynasties of exploitation. The maladaptive [simplifier](simplifier.md), the soothsayer, the desensitiser. He’s lived hundreds of lives as a wandering spirit, inhabiting many bodies, mostly machines that are incompatible with housing a human soul in the long-term. In each life he’s left behind memories; he’s forgotten his motivations, his mistakes and his cruelest past decisions.
+maybe he just wants to be the witness to [ends of worlds](storm.md). does he want to be LUCA to [post-humanity](eidolon.md)?
 
-Val throws his bodies off cliffs to feel real. There's this moment of [timelost bliss](darklight.md) at that point of undeath he's forever chasing- when he loses the memories imprinted in the previous body.  He's been an [eidolon](eidolon.md) for centuries before anyone else, totally alone and desensitised.
+> Val to the [forgotten-god-kings](forgotten-god-kings.md): you are working on becoming uncrustable, i am working on becoming the crustiest, we are not the same.
+
+Val's been an [eidolon](eidolon.md) for centuries before anyone else, alone and desensitised. He throws his bodies off of cliffs to feel real. There's this moment of [timelost bliss](darklight.mp3) at that point of undeath he's forever chasing- when he loses the memories imprinted in the previous body.
 
 **Cult Of The Cold Sun** Val's interpretation of the [red star dream](asterasteraster.md) is that it's [Sol](Sol.md) as a red giant - so he wants to live to witness what [Monolith](Monolith.md) will become when their star goes cold.
 
-To be the architect of [Utopaea](Utopia-Planitia.md), he will do whatever it takes to reform the planet in the image of Earth, but over generations the blue planet has fallen into myth. He needs a naive, hopeful child to play the hero, die and become an [eidolon](eidolon.md). The eidolon will carry the seed of [Monolith](Monolith.md), untarnished by [CARRION](CARRION.md), and their sacrifice will give the network new life. [Rain](Rain.md) is not the first lost child that he has ‘mentored’ (manipulated) into a being a hero and trying to reform Mars - he’s made so many sacrifices that he’s willingly forgotten. At present, he is left with only the knowledge of how to piece together a body for Rain to inhabit - where they can find key locations of [eidolon](eidolon.md) research. He raised [Eris](Eris.md) and [Enyo](Enyo.md) (and maybe others?) as his own children, telling them stories of [Earth](Earth.md) from a young age in the hope that their dreams would help reshape [Mars](Mars.md). 
+To be the architect of [Utopaea](Utopia-Planitia.md), he will do whatever it takes to reform the planet in the image of Earth, but over generations the blue planet has fallen into myth. He needs a naive, hopeful child to play the [hero](heroes.md). [Rain](Rain.md) is not the first lost child that he has ‘mentored’ (manipulated) into hoping for a reformed Mars - he’s made so many sacrifices that he’s willingly forgotten. At present, he's left himself with only the memories of how to piece together a body from key locations of pre-collapse [eidolon](eidolon.md) research - for Rain to inhabit when they're inevitably martyred. He raised [Eris](Eris.md) and [Enyo](Enyo.md) (and maybe others?) as his own children, telling them stories of [Earth](Earth.md) from a young age in the hope that their dreams would help reshape [Mars](Mars.md). 
 
 > "There’s a tombstone where your headboard used to be.” They tell him every night before sleep, every night before he dreams big and becomes complete. Then he sees himself floating high above the certainty of his feet, meets some gutless worm, seeking a free ride inside the stomach of a whale. He can live without air for several days, he says. He says, he knows things, this man, he says. He says he wouldn’t wait for the light or the dark to fade, he says he would mouth on the mouths of the damned elites.
 
 ## prince
 ![](img/baobabs.png)
-
-## radiobirdman
 ![](img/raptors.png)
 
 ## lighthouse keeper 
 An auspex? bird watcher/diviner. 
 
 its [petrifying light](hardening.md) is pointed at [Brigantine](Brigantine.md), keeping it stuck
-
-maybe he just wants to be the witness to [ends of worlds](storm.md). does he want to be LUCA to [post-humanity](eidolon.md)?
 
 ## Eidolons by Walt Whitman
 

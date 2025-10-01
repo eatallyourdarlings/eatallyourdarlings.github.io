@@ -54,4 +54,10 @@ Eris is digging herself out of a pile of dusty corpses, then watching Deimos' de
 
 the peoples each got fixated on their own guiding lights in the sky, and they each wished them brighter, but through their tele-mono-peri-scopes they didn't noticed the other stars shifting luminance, too. [Sadar-Deneb](Sadar-Deneb.md) is going supernova, [Phobos](Phobos.md) is blinding, [Deimos](Deimos.md) is dimming, and Saturn and Jupiter have been [dancing closer together](saturnalia.md) for generations.
 
-they don't know what to do with the intricate technological instincts left over in their hands. 
+tunnels inside a damn. cave divers amongst concretions/vertebrae/roots.
+
+
+A little terminal thingamabob where each character is just an xyz location and train of thought; an intent; a dream; a feeling. three numbers and a string:
+> another planet I try to map it
+> no user interface
+> it won't escape me again

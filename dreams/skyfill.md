@@ -20,5 +20,3 @@ I'm a Pilot
 
 
 - [reports from unknown places about indescribable events](https://www.ninnsalaun.com/all-the-reports)
-
-[life's a beach and that no longer is an expression.](o--1.md)

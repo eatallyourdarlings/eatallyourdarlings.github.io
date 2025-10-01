@@ -32,5 +32,7 @@ As the [Hope-Eaters](Hope-Eaters.md) march on, they collect more lost souls. The
 
 In Eris' long march she's been laying barbed wire fences everywhere, dividing up the land without a plan. She wants to be the mediator for all networked communication, hence why she's silencing [radio](radio.md) and clogging up people's dreams. When everyone's enclosed in her fences they can be used as telephone networks and everyone can be tuned in to her bossiness all the time! That'll fix this fucked up situation they're in, for sure :]
 
+Eris' pack all wear barbed wire bracelets around their wrists. Her willpower over them is so strong that it doesn't need to be directly wired up to telephony.
+
 > They said, "We make friends just to have more projects"   
 > We make friends just to turn them into enemies
