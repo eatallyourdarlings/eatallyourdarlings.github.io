@@ -6,6 +6,8 @@ CARRION is an egregore of all of the subconsciousnesses of [Mars](Mars.md), livi
 
 [frequencies](radio.md) flooded with whispering nightmares that are gnashing jaws on an [oscilloscope](thingamabob.md). carrion [feeders](dogs.md) grapple to the top of the teleological food chain.
 
+> the more we are we the more of us can be ours
+
 There's no central heart to CARRION since [Monolith](Monolith.md) is a network, but there are increasingly more [eidola](eidolon.md) as you get closer to [the storm](Utopia-Planitia.md), and [dreams](dream.md) get more confused and restless in its proximity.
 
 

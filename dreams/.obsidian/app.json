@@ -36,7 +36,7 @@
     "margin": "0",
     "downscalePercent": 100
   },
-  "showLineNumber": false,
+  "showLineNumber": true,
   "propertiesInDocument": "visible",
   "newFileLocation": "folder",
   "newFileFolderPath": "/",

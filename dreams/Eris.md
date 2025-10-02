@@ -1,6 +1,6 @@
 # HARUSPEX OF ROTTING PETABITS
 
-Eris yearns to collect spite, project terror and sow chaos, so much that it reflects back on to her and reinforces her ideal world. she's the dreadful semaphore all the worst shit. King of all those people having the worst/best time at the ends of worlds. maybe following Rain's scent they're led to the Menagerie to collect megafauna, moreterrible teeth and terrible claws for the [warband](#warband).
+Eris yearns to collect spite, project terror and sow chaos, so much that it reflects back on to her and reinforces her ideal world. She's the dreadful semaphore all the rage and spite in the noosphere - yearning to be King over all those having the worst/best time at the ends of worlds.
 
 An iron-daddy hermaphrodyke - Eris is 7 feet tall on a bad day. She has vitiligo, and so the changing of her appearance in [dreams](dream.md) grounds (or confuses) them in the timeline. Her hair, shoulders, lips, are all fried from radiation and other traumas, cracked and grey like dried earth, numbing her to pain and cold. When she does wear covering clothes it's for vestigial cultural reasons - ceremonial post-military regalia.
 
@@ -20,19 +20,21 @@ Her ways are sinister and not often physically violent. She prefers to have othe
 
 ## HAIL HAIL HAIL HAIL HAIL ERIS ERIS ERIS ERIS ERIS 
 
-She's named for The Goddess but really more in the fashion of *Principia Discordia* - no one really takes her that seriously.
+She's named for The Goddess but really more in the fashion of *Principia Discordia* - no one not in her *warband* really takes her that seriously, just tuning her bossiness out.
 
-## warband
 >  A Long March (Until Time Collapses)
 
-As the [Hope-Eaters](Hope-Eaters.md) march on, they collect more lost souls. They bear signal jammers, anti-sirens and other interferometers, so for anyone tuned into the [radio](radio.md), they are heralded by dreadful silences. The pack grows rapidly and chaotically, from confused mammals keeping each other warm with their spite, to a great machine animated by terrible purposes. They march to raze [Utopaea](Utopia-Planitia.md), but might lose themselves in the shadows of the colossi they've recollected. [CARRION](CARRION.md) festers in their wake.
+As the [Hope-Eaters](Hope-Eaters.md) march on, they collect more lost souls. They bear signal jammers, anti-sirens and other interferometers, so for anyone tuned into the [radio](radio.md), they are heralded by dreadful silences. The pack grows rapidly and chaotically from confused mammals keeping each other warm with their spite to a great machine animated by terrible purposes. They march to raze [Utopaea](Utopia-Planitia.md), but might lose themselves in the shadows of the colossi they've recollected.
 
-- through [Valles_Marineris](Valles_Marineris.md) and the underground cities to uncover terrible weaponry (microplastic carrion flies?), and legions of seeking hands.
-- the pack grows hugely if Eris is led to [Menagerie](Menagerie.md) - to collect more carrion eaters and megafauna-warcraft-carriers. A great red Megatherium takes up their banner, a slow pace-maker.
+[CARRION](CARRION.md) festers in their wake.
 
-In Eris' long march she's been laying barbed wire fences everywhere, dividing up the land without a plan. She wants to be the mediator for all networked communication, hence why she's silencing [radio](radio.md) and clogging up people's dreams. When everyone's enclosed in her fences they can be used as telephone networks and everyone can be tuned in to her bossiness all the time! That'll fix this fucked up situation they're in, for sure :]
+through [Valles_Marineris](Valles_Marineris.md) and the underground cities to uncover terrible gravitational weaponry, microplastic carrion flies, legions of seeking hands.
 
-Eris' pack all wear barbed wire bracelets around their wrists. Her willpower over them is so strong that it doesn't need to be directly wired up to telephony.
+following [Rain](Rain.md)'s scent they're led to the [Menagerie](Menagerie.md) to collect more carrion eaters and megafauna-warcraft-carriers - terrible teeth and terrible claws for the warband. A great red Megatherium takes up their banner, a slow pace-maker.
+
+In Eris' long march she's been laying barbed wire fences haphazardly, dividing up the land without a plan. She wants to be the mediator for all networked communication, hence why she's silencing [radio](radio.md) and clogging up people's [dreams](dream.md) with her desires. When everyone's enclosed in her fences they can be used as telephone networks and everyone can be tuned in to her bossiness all the time! That'll fix this fucked up situation they're in, for sure :]
+
+Eris' pack all wear barbed wire bracelets around their wrists. Her willpower over them is so strong that it doesn't need to be directly wired up to telephony for them to receive her orders.
 
 > They said, "We make friends just to have more projects"   
 > We make friends just to turn them into enemies

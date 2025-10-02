@@ -1,3 +1,5 @@
 .DS_Store
-./dreams/img/src
-./dreams/.obsidian/
+dreams/img/src
+dreams/.obsidian
+dreams/.obsidian/workspace.json
+film/*

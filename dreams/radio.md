@@ -47,6 +47,12 @@ aliases:
 - Resavoir - Plantasy
 - Four Tet - Watersynth
 - Loukeman - Walking u Home
+- Earth Treader Fen - Skeela
+- Gia Margaret - Lesson
+- Japanese Breakfast - Diving Woman
+- caroline ft. Caroline Polachek - Tell Me I Never Knew That
+- Noby Noby Acoustic Guitar
+- Japanese Breakfast - Better The Mask
 - James Witte-Cook - day by day
 - Aldous Harding - Pilot
 - Eivind Aarset, Jan Bang, Hilde Norbakken - Before the Wedding
@@ -81,6 +87,11 @@ aliases:
 - Kate Davis - DDR
 - Doris - bookshop
 - Siouxsie and The Banshees - The Sweetest Chill (Chris Kimsey Version)
+- Caroline Polachek - On The Beach
+- Aldous Harding - The Barrel
+- Gia Margaret - Groceries
+- The Breathing Effect - Ipod Dealer
+- The Temper Trap - Sweet Disposition
 - Chairlift - Ceiling Wax
 - Feist - Lonely Lonely
 - caroline - Engine (eavesdropping)

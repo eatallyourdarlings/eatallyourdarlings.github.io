@@ -12,7 +12,7 @@ I'm imagining languages that have evolved or been reinvented nearly from scratch
 
 but it's not all perfect - in *Chants of Sennaar* it was really interesting to get peeks into the evolution of these languages and the feedback loop of cultures and languages diverging and alienating.
 
-The battle language that [Eris](Eris.md) designed for her [dogpack](Hope-Eaters.md)doesn't have any room for nuance to talk about their feelings - it's all orders. It has two tenses: speaking as a master or as a dog.
+The battle language that [Eris](Eris.md) designed for her [pack](Hope-Eaters.md) doesn't have any room for nuance to talk about their feelings - it's all orders. It has two tenses: speaking as a master or as a dog.
 
 [ferrodoxical](ferrodoxy.md) ferroglyphs 
 
@@ -28,6 +28,8 @@ it's really taboo (and nearly impossible?) to use any **othering** language. thi
 
 people generally don't know each others' names (if they even really have names, outside of the ones used in these notes??), they know each other by a unique mix of new nouns, sometimes including the place-names of their community. they're typically nouns that are like verb-er or noun-er, e.g. wanderer, boarder. some believe **a name [tames](Hope-Eaters.md) you.**
 
+someone could name themself whenever they wanted, using a combination of sounds or gestures that excites them
+
 I wonder if this is a bare-minimum sentence form for everyday telephonic coordination, or if there could be more room for nuance:
 > computer+dancer+Argyle visit us fix weathervane
 
@@ -41,6 +43,6 @@ One alien word is [dreamt to them](asterasteraster.md) that encompasses gravity 
 
 exploring all the ways the 'voiceless' truly have voices of their own
 
-> if I were a better writer there'd be no words at all.
+if I were a better writer there'd be no words at all.
 
 - [who's in my story?](http://orf.place/fossicker.html)

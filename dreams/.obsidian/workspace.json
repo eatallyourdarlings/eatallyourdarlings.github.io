@@ -103,13 +103,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "hermit.md",
-                "mode": "source",
+                "file": "CARRION.md",
+                "mode": "preview",
                 "backlinks": false,
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "hermit"
+              "title": "CARRION"
             }
           },
           {
@@ -118,32 +118,17 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Hope-Eaters.md",
-                "mode": "preview",
-                "backlinks": false,
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Hope-Eaters"
-            }
-          },
-          {
-            "id": "af34f22a72e94662",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Eris.md",
+                "file": "radio.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Eris"
+              "title": "radio"
             }
           }
         ],
-        "currentTab": 6,
+        "currentTab": 7,
         "stacked": true
       }
     ],
@@ -246,10 +231,10 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "hermit.md"
+                "file": "radio.md"
               },
               "icon": "lucide-info",
-              "title": "File properties for hermit"
+              "title": "File properties for radio"
             }
           },
           {
@@ -334,7 +319,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "hermit.md",
+                "file": "radio.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -344,7 +329,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for hermit"
+              "title": "Backlinks for radio"
             }
           },
           {
@@ -353,12 +338,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "hermit.md",
+                "file": "radio.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from hermit"
+              "title": "Outgoing links from radio"
             }
           }
         ],
@@ -385,8 +370,17 @@
       "footlinks:Footlinks": false
     }
   },
-  "active": "4ccd8ddda0c2e6f5",
+  "active": "7e9341158bcadb2e",
   "lastOpenFiles": [
+    "hermit.md",
+    "Hope-Eaters.md",
+    "Eris.md",
+    "glimpses.md",
+    "Phobos.md",
+    "biodiesel-bikies.md",
+    "Valles_Marineris.md",
+    "CARRION.md",
+    "language.md",
     "wordless.html",
     "twins.html",
     "transjovian-transmissions.html",
@@ -397,13 +391,8 @@
     "sisters.html",
     "simplifier.html",
     "sensitisation.html",
-    "saturnalia.html",
     "grimoire.md",
-    "Hope-Eaters.md",
-    "Eris.md",
     "map.md",
-    "glimpses.md",
-    "language.md",
     "post-anthropocentric.md",
     "solastalgia.md",
     "index.md",
@@ -418,11 +407,7 @@
     "oncewaves.md",
     "Val.md",
     "asterasteraster.md",
-    "hermit.md",
     "thingamabob.md",
-    "otherverses.md",
-    "Cephi.md",
-    "Concrete_Forest.md",
     "img/src/pashabulka.png",
     "img/src/IMG_4663.PNG",
     "img/pseudoscaphirhynchus_kaufmanni.png",
